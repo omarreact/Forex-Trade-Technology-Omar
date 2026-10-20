@@ -38,6 +38,7 @@ export const pexels = {
   phoneMarket: p(6802042, 'photo-of-person-holding-smartphone', 'Mobile device and computer displaying market data', 'Hanna Pad'),
   banking: p(6802048, 'marketing-businessman-person-hands', 'Person viewing a finance chart on laptop and phone', 'Hanna Pad'),
   financialDesk: p(6801649, 'marketing-person-laptop-technology', 'Laptop and financial documents laid out on a desk', 'Hanna Pad'),
+  modernServers: p(37730212, 'data-center-server-racks-with-active-equipment', 'Modern server racks powering digital infrastructure', 'panumas nikhomkhai'),
   dataCenter: p(4508751, 'server-racks-on-data-center', 'Long aisle of racks in a professional data center', 'Brett Sayles'),
   serverCables: p(5480781, 'server-racks-on-data-center', 'Server rack cabinets with organized networking cables', 'Brett Sayles'),
   serverRows: p(5408005, 'server-racks-on-data-center', 'Network racks in a working data center', 'Brett Sayles'),
@@ -105,7 +106,7 @@ export function getPagePhotos(slug: string): EditorialPhoto[] {
  * become a varied editorial gallery. Attribution records remain in code.
  */
 const extraPhotoKeys: Record<string, readonly [PhotoKey, PhotoKey]> = {
-  'forex-broker-hosting': ['serverRows','dataCenter'],
+  'forex-broker-hosting': ['serverRows','modernServers'],
   'forex-liquidity-connectivity': ['tradingOffice','markets'],
   'forex-turnkey-solution': ['codeLaptop','tradeTeam'],
   'forex-white-label': ['phoneCharts','strategy'],
@@ -117,8 +118,8 @@ const extraPhotoKeys: Record<string, readonly [PhotoKey, PhotoKey]> = {
   'forex-broker-website': ['codeMonitor','meeting'],
   'forex-crm': ['supportTeam','businessMeeting'],
   'forex-manager-api': ['codeLaptop','devTeam'],
-  'mobile-trading-app': ['phoneMarket','phonePayment'],
-  'pamm-mam': ['analyst','pointing'],
+  'mobile-trading-app': ['banking','phonePayment'],
+  'pamm-mam': ['screens','pointing'],
   'payment-gateway-integration': ['banking','phoneCharts'],
   'prop-firm-crm-api': ['screens','strategy'],
   'web-trading-platform': ['mt5','analyst'],
