@@ -7,7 +7,7 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { curateInteriorMedia } from '@/lib/theme-media';
 import { getExpandedPagePhotos } from '@/lib/pexels-photos';
-import { EditorialPhotoBand } from './EditorialPhotoBand';
+import { InteriorEditorialFlow } from './InteriorEditorialFlow';
 
 type InteriorPageShellProps = {
   meta: ThemePageMeta;
@@ -26,7 +26,7 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
   const body = endOfIntro < 0 ? curatedHtml : curatedHtml.slice(endOfIntro + '</section>'.length);
   const photos = getExpandedPagePhotos(meta.slug);
   const heroPhoto = photos[0];
-  const galleryPhotos = photos.slice(1);
+  const flowPhotos = photos.slice(1);
   const category = meta.category;
   const isContact = meta.slug === 'contact';
   const categoryName =
@@ -82,8 +82,7 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
             <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: intro }} />
           </div>
         )}
-        <EditorialPhotoBand photos={galleryPhotos} heading="Inside the technology" />
-        {body && <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: body }} />}
+        {body && <InteriorEditorialFlow html={body} photos={flowPhotos} />}
         {!isContact && related.length > 0 && (
           <aside className="ftt-interior-more" aria-labelledby="ftt-interior-more-heading">
             <div className="ftt-interior-shell">
