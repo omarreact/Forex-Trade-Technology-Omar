@@ -138,3 +138,22 @@
 @media (prefers-reduced-motion: reduce) {
  .ftt-editorial-photo img { transition: none !important; transform: none !important; }
 }
+
+/* Footer layout is owned by our component, never by inherited Gutenberg grids. */
+.ftt-site-footer .ftt-footer-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, .82fr) !important;
+  column-gap: clamp(26px, 4vw, 60px);
+  row-gap: 22px;
+  align-items: start;
+}
+.ftt-site-footer .ftt-footer-columns > * { min-width: 0; grid-column: auto !important; }
+@media (max-width: 900px) {
+  .ftt-site-footer .ftt-footer-columns { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .ftt-site-footer .ftt-footer-contact { grid-column: 1 / -1 !important; }
+}
+@media (max-width: 580px) {
+  .ftt-site-footer .ftt-footer-columns { grid-template-columns: 1fr !important; row-gap: 21px; }
+  .ftt-site-footer .ftt-footer-contact { grid-column: auto !important; }
+  .ftt-site-footer .bs-footer-nav { max-width: 390px; }
+}

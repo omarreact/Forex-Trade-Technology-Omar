@@ -6,8 +6,8 @@ export function SiteFooter() {
   return (
     <footer className="bs-site-footer ftt-site-footer text-[#f4f6ef]">
       <div className="bs-footer-inner max-w-[1210px] mx-auto px-4 sm:px-6">
-        <div className="bs-footer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+        <div className="bs-footer-grid ftt-footer-columns">
+          <div className="ftt-footer-brand">
             <Link href="/" className="bs-footer-logo inline-block font-extrabold tracking-tighter text-white">
               Forex Trade Technology<span className="text-[#d9f17a]">.</span>
             </Link>
@@ -15,7 +15,7 @@ export function SiteFooter() {
               Brokerage technology, infrastructure and integration — built to work together.
             </p>
           </div>
-          <nav className="lg:col-span-4" aria-label="Footer navigation">
+          <nav className="ftt-footer-links" aria-label="Footer navigation">
             <h2 className="bs-footer-heading text-[11px] font-extrabold uppercase tracking-widest text-[#bcc5b6]">Explore</h2>
             <div className="bs-footer-nav grid grid-cols-2 gap-x-4 text-[13px] text-[#d6ddd2]">
               <Link href="/#solutions" className="hover:text-[#d9f17a]">Solutions</Link>
@@ -28,7 +28,7 @@ export function SiteFooter() {
               <Link href="/contact" className="hover:text-[#d9f17a]">Contact</Link>
             </div>
           </nav>
-          <div className="lg:col-span-3">
+          <div className="ftt-footer-contact">
             <h2 className="bs-footer-heading text-[11px] font-extrabold uppercase tracking-widest text-[#bcc5b6]">Start a conversation</h2>
             <Link href="/contact" className="inline-flex items-center gap-2 text-[#d9f17a] text-[14px] font-bold hover:underline">
               Request a Consultation <ArrowUpRight size={17} aria-hidden="true" />
