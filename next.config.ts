@@ -1,6 +1,15 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // The editor-backed page HTML is read from disk by server components.
+  // Vercel otherwise may omit these public files from ISR/function traces.
+  outputFileTracingIncludes: {
+    '/*': [
+      './public/theme-assets/content/page-manifest.json',
+      './public/theme-assets/content/pages/**/*.html',
+      './public/theme-assets/html/contact-form.html',
+    ],
+  },
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
