@@ -235,3 +235,162 @@ body .ftt-home .bs-contact-form{gap:26px;padding:42px}
 @media(max-width:1000px){.ftt-content-section .ftt-content-grid,.ftt-content-section .ftt-grid-four{grid-template-columns:repeat(2,minmax(0,1fr))}.ftt-content-section .ftt-content-split{gap:28px}}
 @media(max-width:800px){.ftt-content-section .ftt-content-split{grid-template-columns:1fr}.ftt-content-section .ftt-content-split .ftt-photo{grid-column:1!important;grid-row:auto!important}.ftt-content-section .ftt-content-split .ftt-editorial-copy{grid-column:1!important;grid-row:auto!important}.ftt-content-hero{min-height:0}.ftt-content-hero .bs-hero-wrap{padding:75px 0}}
 @media(max-width:600px){.ftt-content-section{padding:58px 0}.ftt-content-section .ftt-content-grid,.ftt-content-section .ftt-grid-four{grid-template-columns:1fr}.ftt-content-section .ftt-content-card{min-height:0}.ftt-content-hero .bs-hero-title{font-size:clamp(42px,11vw,56px)}.ftt-content-section .bs-section-title{font-size:clamp(32px,8vw,44px)}.ftt-content-section .bs-copy{font-size:16px}.ftt-content-section .ftt-faq-accordion summary{font-size:17px}}
+/* v3.4 — Full-bleed homepage carousel.
+   No block or page copy changes: styles apply to existing imported front pages too.
+   On small screens the editable hero copy is above the slide-specific captions. */
+.ftt-front-hero.ftt-content-hero {
+  padding: 0;
+  min-height: 0;
+  width: 100%;
+  max-width: none;
+  overflow: clip;
+}
+.ftt-front-hero .ftt-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(clamp(740px, 90svh, 950px), auto);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 !important;
+  gap: 0;
+  min-height: clamp(740px, 90svh, 950px);
+  isolation: isolate;
+}
+.ftt-front-hero .ftt-hero-layout > .ftt-slider {
+  grid-area: 1 / 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #152019;
+  align-self: stretch;
+}
+.ftt-front-hero .ftt-slider::before { display: none; }
+.ftt-front-hero .ftt-slider .ftt-slide-image::after {
+  content: '';
+  background:
+    linear-gradient(90deg, rgba(5, 12, 9, .94) 0%, rgba(7, 14, 10, .86) 26%, rgba(9, 17, 12, .52) 53%, rgba(8, 16, 11, .17) 100%),
+    linear-gradient(0deg, rgba(4, 10, 7, .76), transparent 48%);
+}
+.ftt-front-hero .ftt-hero-layout > .ftt-hero-copy {
+  grid-area: 1 / 1;
+  z-index: 5;
+  justify-self: center;
+  align-self: center;
+  width: var(--bs-shell);
+  max-width: 1210px;
+  padding: clamp(72px, 7vw, 115px) 0 clamp(170px, 15vh, 220px);
+  margin: 0 auto;
+  pointer-events: none;
+  min-width: 0;
+}
+.ftt-front-hero .ftt-hero-copy > * { max-width: min(690px, 60%); pointer-events: auto; }
+.ftt-front-hero .ftt-hero-copy .wp-block-buttons,
+.ftt-front-hero .ftt-hero-copy .wp-block-button,
+.ftt-front-hero .ftt-hero-copy a {pointer-events: auto;}
+.ftt-front-hero .ftt-hero-copy .bs-hero-title {
+  max-width: 740px;
+  font-size: clamp(49px, 4.9vw, 75px) !important;
+  text-wrap: balance;
+}
+.ftt-front-hero .ftt-hero-copy .bs-hero-subtitle {max-width: 670px;}
+.ftt-front-hero .ftt-hero-copy .ftt-hero-description {max-width: 625px;}
+.ftt-front-hero .ftt-slider .ftt-slide-caption {
+  position: absolute;
+  z-index: 3;
+  bottom: 104px;
+  right: max(44px, calc((100vw - 1210px)/2));
+  left: auto;
+  width: min(340px, 27vw);
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+.ftt-front-hero .ftt-slider .ftt-slide-title {font-size: clamp(28px, 2.6vw, 40px);}
+.ftt-front-hero .ftt-slider .ftt-slide-summary {max-width: 100%;}
+.ftt-front-hero .ftt-slider-controls {
+  left: max(24px, calc((100vw - 1210px)/2));
+  right: max(24px, calc((100vw - 1210px)/2));
+  bottom: 32px;
+}
+@media (max-width: 1100px) {
+  .ftt-front-hero .ftt-hero-copy > * {max-width: 64%;}
+  .ftt-front-hero .ftt-slider .ftt-slide-caption {right: 28px; width: 30%;}
+}
+@media (max-width: 900px) {
+  .ftt-front-hero .ftt-hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(870px, auto);
+    min-height: 870px;
+    padding: 0 !important;
+    gap: 0;
+  }
+  .ftt-front-hero .ftt-hero-layout > .ftt-hero-copy {
+    align-self: start;
+    padding: 72px 0 310px;
+  }
+  .ftt-front-hero .ftt-hero-copy > * {max-width: min(670px, 88%);}
+  .ftt-front-hero .ftt-slider .ftt-slide-image::after {
+    background: linear-gradient(180deg, rgba(5, 12, 9, .95) 0%, rgba(5, 12, 9, .78) 41%, rgba(5, 12, 9, .30) 71%, rgba(5, 12, 9, .91) 100%);
+  }
+  .ftt-front-hero .ftt-slider .ftt-slide-caption {
+    text-align: left;
+    left: max(28px, calc((100vw - 700px)/2));
+    right: auto;
+    bottom: 105px;
+    width: min(610px, calc(100% - 56px));
+  }
+}
+@media (max-width: 600px) {
+  .ftt-front-hero .ftt-hero-layout {
+    grid-template-rows: minmax(1000px, auto);
+    min-height: 1000px;
+    padding: 0 !important;
+  }
+  .ftt-front-hero .ftt-hero-layout > .ftt-hero-copy {
+    width: calc(100% - 40px);
+    padding: 58px 0 315px;
+  }
+  .ftt-front-hero .ftt-hero-copy > * {max-width: 100%;}
+  .ftt-front-hero .ftt-hero-copy .bs-hero-title {
+    font-size: clamp(38px, 10vw, 51px) !important;
+    line-height: 1.08;
+  }
+  .ftt-front-hero .ftt-hero-copy .bs-hero-subtitle {font-size: 16px; line-height: 1.55; margin-top: 18px;}
+  .ftt-front-hero .ftt-hero-copy .ftt-hero-description {font-size: 15px; line-height: 1.65; margin-top: 14px;}
+  .ftt-front-hero .ftt-hero-copy .wp-block-buttons {margin-top: 20px;gap:10px;}
+  .ftt-front-hero .ftt-hero-copy .wp-block-button__link {min-height: 46px;padding: 12px 16px;font-size:13px;}
+  .ftt-front-hero .ftt-slider .ftt-slide-caption {
+    left: 20px;
+    bottom: 104px;
+    width: calc(100% - 40px);
+  }
+  .ftt-front-hero .ftt-slider .ftt-slide-title {font-size: 28px;}
+  .ftt-front-hero .ftt-slider .ftt-slide-summary {font-size: 14px;line-height:1.5;}
+  .ftt-front-hero .ftt-slider-controls {left:20px;right:20px;bottom:27px;}
+}
+/* Gutenberg keeps all three slides visible and editable as individual groups. */
+.editor-styles-wrapper .ftt-front-hero .ftt-hero-layout,
+.editor-styles-wrapper .ftt-front-hero .ftt-hero-layout > .ftt-slider,
+.editor-styles-wrapper .ftt-front-hero .ftt-hero-layout > .ftt-hero-copy {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  height: auto;
+  padding: 0 !important;
+  margin: 0;
+  pointer-events: auto;
+}
+.editor-styles-wrapper .ftt-front-hero .ftt-hero-layout > .ftt-hero-copy {padding: 34px !important;}
+.editor-styles-wrapper .ftt-front-hero .ftt-hero-copy > * {max-width: none;}
+.editor-styles-wrapper .ftt-front-hero .ftt-slider .ftt-slide-caption {position:relative;right:auto;left:auto;bottom:auto;margin:100px 28px 30px;width:auto;text-align:left;}
+.editor-styles-wrapper .ftt-front-hero .ftt-slider::before {display:none;}
+@media (prefers-reduced-motion: reduce) {
+  .ftt-front-hero .ftt-slider .ftt-slide {transition:none !important; transform:none !important;}
+}

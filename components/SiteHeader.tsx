@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown, Menu, X, ArrowUpRight } from 'lucide-react';
+import { WordPressAdminModal } from './WordPressAdminModal';
 
 export function SiteHeader() {
   const [solutionsOpen, setSolutionsOpen] = useState(false);
@@ -128,8 +129,9 @@ export function SiteHeader() {
           </Link>
         </nav>
 
-        {/* Right CTA */}
+        {/* Right CTA & WP Admin Portal */}
         <div className="hidden sm:flex items-center gap-3">
+          <WordPressAdminModal />
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 bg-[#171915] hover:bg-[#424638] text-white px-5 py-2.5 rounded-full text-[13px] font-bold tracking-tight shadow-md hover:-translate-y-0.5 transition-all"
@@ -236,7 +238,10 @@ export function SiteHeader() {
             </Link>
           </div>
 
-          <div className="pt-4">
+          <div className="pt-4 flex flex-col gap-2">
+            <div className="flex justify-center">
+              <WordPressAdminModal />
+            </div>
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
