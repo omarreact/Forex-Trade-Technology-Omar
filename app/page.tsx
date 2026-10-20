@@ -9,11 +9,10 @@ import { SiteFooter } from '@/components/SiteFooter';
 import { HomeHero } from '@/components/home/HomeHero';
 import { getHomeHeroData } from '@/lib/home-hero';
 import { HomeCapabilityStrip } from '@/components/home/HomeCapabilityStrip';
-import { HomeVisuals } from '@/components/home/HomeVisuals';
 import { withRealHomePhotos } from '@/lib/home-media';
 import './home-polish.css';
 import './home-fullwidth.css';
-import './home-visuals.css';
+import './home-editorial-media.css';
 
 export const revalidate = 3600;
 
@@ -72,7 +71,6 @@ export default function HomePage() {
       <main id="main-content" className="ftt-home-main flex-1">
         <HomeHero intro={intro} slides={slides} />
         {rest && <HomeCapabilityStrip />}
-        {rest && <HomeVisuals />}
         {rest && (
           <div
             className="ftt-home-editorial ftt-page-frame"

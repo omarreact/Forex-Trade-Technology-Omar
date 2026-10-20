@@ -1,0 +1,63 @@
+/* Home editorial photos interspersed with the original Gutenberg sections */
+.ftt-home-photo-wash {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.ftt-home-photo-wash::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -30px;
+  background-image: var(--ftt-home-backdrop);
+  background-size: cover;
+  background-position: center;
+  filter: blur(23px) saturate(.7);
+  opacity: .12;
+  pointer-events: none;
+}
+.ftt-home-photo-wash > .bs-container { position: relative; z-index: 1; }
+.ftt-home .ftt-home-inline-media {
+  float: right;
+  width: min(43%, 440px);
+  border-radius: 17px;
+  overflow: hidden;
+  margin: 0 0 14px 28px;
+  background: #e4ebdf;
+  box-shadow: 0 16px 38px rgba(23, 51, 27, .11);
+}
+.ftt-home .ftt-home-inline-media img,
+.ftt-home .ftt-home-center-photo img {
+  display: block;
+  max-width: none;
+  width: 100% !important;
+  height: clamp(195px, 23vw, 315px) !important;
+  object-fit: cover !important;
+  object-position: center;
+  filter: saturate(.86);
+}
+.ftt-home .ftt-home-inline-media figcaption,
+.ftt-home .ftt-home-center-photo figcaption {
+  background: #f8faf6;
+  color: #4d6b42;
+  padding: 12px 17px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.ftt-home .ftt-home-center-photo {
+  width: min(1050px, calc(100% - 72px));
+  margin: 0 auto 37px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 47px rgba(24, 49, 31, .085);
+  background: #e6eede;
+}
+.ftt-home .ftt-home-center-photo img { height: clamp(240px, 33vw, 420px) !important; }
+.ftt-home .ftt-home-parallax { min-height: clamp(220px, 29vw, 330px); }
+.ftt-home #the-product-ecosystem .bs-container::after { content: ''; display: block; clear: both; }
+@media (max-width: 700px) {
+  .ftt-home .ftt-home-inline-media { float: none; width: 100%; margin: 19px 0; }
+  .ftt-home .ftt-home-inline-media img { height: 240px !important; }
+  .ftt-home .ftt-home-center-photo { width: calc(100% - 36px); margin-bottom: 23px; }
+  .ftt-home .ftt-home-center-photo img { height: 215px !important; }
+}
