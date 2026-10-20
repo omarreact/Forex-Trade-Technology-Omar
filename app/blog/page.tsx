@@ -38,7 +38,7 @@ export default async function BlogIndexPage() {
   const { posts } = await getAllPosts({ isDraft });
 
   return (
-    <div className="min-h-screen bg-[#fafbf8] text-[#192219] flex flex-col font-sans">
+    <div className="ftt-blog-page min-h-screen bg-[#fafbf8] text-[#192219] flex flex-col font-sans">
       {/* Draft banner only visible when Draft Mode is explicitly enabled */}
       {isDraft && <DraftModeBanner currentPath="/blog" />}
 
@@ -58,14 +58,14 @@ export default async function BlogIndexPage() {
         {/* Section Header */}
         <div className="mb-12 border-b border-[#dfe4d9] pb-8">
           <p className="text-[12px] font-extrabold uppercase tracking-widest text-[#71823c] mb-2">
-            RESEARCH &amp; SIGNALS
+            BROKERAGE KNOWLEDGE &amp; INSIGHTS
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#192219] tracking-tight">
-            Institutional FX Research &amp; Analysis
+            Forex Brokerage Insights &amp; Technology
           </h1>
           <p className="text-base sm:text-lg text-[#5c675c] mt-3 max-w-3xl leading-relaxed">
-            Algorithmic currency setups, order flow imbalances, and macro monetary policy analysis queried
-            via WPGraphQL with typed ACF data hydration.
+            Explore forex brokerage technology, trading platforms, liquidity infrastructure and practical
+            business insights from our team.
           </p>
         </div>
 
@@ -89,12 +89,13 @@ export default async function BlogIndexPage() {
                       alt={post.featuredImage.node.altText || post.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      unoptimized
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       referrerPolicy="no-referrer"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-slate-400 font-mono text-xs">
-                      No Media Attached
+                    <div className="ftt-blog-empty-image absolute inset-0 flex flex-col justify-end p-6">
+                      <span className="ftt-blog-image-fallback"><span>FOREX TRADE TECHNOLOGY</span><strong>Brokerage technology insights</strong></span>
                     </div>
                   )}
 
@@ -112,8 +113,8 @@ export default async function BlogIndexPage() {
                         isBullish
                           ? 'bg-[#d9f17a] text-[#192219]'
                           : isBearish
-                          ? 'bg-rose-600 text-white'
-                          : 'bg-amber-400 text-slate-950'
+                          ? 'bg-[#253b2b] text-[#f4f8f0]'
+                          : 'bg-[#e7edda] text-[#2b3e2c]'
                       }`}
                     >
                       {isBullish && <TrendingUp className="w-3 h-3" />}
@@ -176,7 +177,7 @@ export default async function BlogIndexPage() {
                   {/* Read More Link */}
                   <div className="mt-6 pt-4 border-t border-[#edf0e7] flex items-center justify-between text-xs font-semibold">
                     <span className="text-[#7a865a] font-mono">
-                      {acf?.timeframe ? `Timeframe: ${acf.timeframe}` : 'Analysis'}
+                      {acf?.timeframe ? `Timeframe: ${acf.timeframe}` : 'Insights'}
                     </span>
                     <Link
                       href={`/blog/${post.slug}`}

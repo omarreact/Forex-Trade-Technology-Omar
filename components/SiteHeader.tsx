@@ -44,7 +44,7 @@ export function SiteHeader() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6 text-[14px] font-semibold text-[#141613]">
+        <nav className="hidden xl:flex items-center gap-5 text-[14px] font-semibold text-[#141613]">
           <Link href="/" className="hover:text-[#798b32] transition-colors py-2">
             Home
           </Link>
@@ -140,7 +140,7 @@ export function SiteHeader() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center">
+        <div className="xl:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-xl text-[#141613] hover:bg-[#f4f5f0] focus:outline-none"
@@ -153,7 +153,7 @@ export function SiteHeader() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#e5e5e0] bg-white px-4 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
+        <div className="xl:hidden border-t border-[#e5e5e0] bg-white px-4 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}

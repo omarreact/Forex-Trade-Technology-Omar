@@ -4,6 +4,7 @@ import { getAllThemePages } from '@/lib/theme-pages';
 import type { ThemePageMeta } from '@/lib/theme-pages';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
+import { curateInteriorMedia } from '@/lib/theme-media';
 
 type InteriorPageShellProps = {
   meta: ThemePageMeta;
@@ -16,6 +17,7 @@ type InteriorPageShellProps = {
  * only provides navigation and a cohesive presentation system.
  */
 export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
+  const curatedHtml = curateInteriorMedia(html, meta.slug);
   const category = meta.category;
   const isContact = meta.slug === 'contact';
   const categoryName =
@@ -50,7 +52,7 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
     <div className="ftt-interior-layout min-h-screen bg-white text-[#192219] flex flex-col font-sans">
       <a href="#interior-main" className="ftt-interior-skip">Skip to main content</a>
       <SiteHeader />
-      <main id="interior-main" className={`ftt-page-frame ftt-interior ftt-interior--${category} flex-1 w-full`}>
+      <main id="interior-main" className={`ftt-page-frame ftt-interior ftt-interior--${category} ftt-interior--${meta.slug} flex-1 w-full`}>
         <nav className="ftt-interior-breadcrumb" aria-label="Breadcrumb">
           <div className="ftt-interior-shell">
             <Link href="/" aria-label="Forex Trade Technology homepage">
@@ -63,7 +65,7 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
             <span className="ftt-interior-current" aria-current="page">{meta.title}</span>
           </div>
         </nav>
-        <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: curatedHtml }} />
         {!isContact && related.length > 0 && (
           <aside className="ftt-interior-more" aria-labelledby="ftt-interior-more-heading">
             <div className="ftt-interior-shell">

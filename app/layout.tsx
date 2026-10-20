@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import './theme.css';
 import './interior-polish.css';
+import './brand-consistency.css';
 
 export const metadata: Metadata = {
   title: 'Forex Trade Technology | Brokerage Technology & FinTech Infrastructure',

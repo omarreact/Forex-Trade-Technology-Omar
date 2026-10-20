@@ -105,7 +105,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafbf8] text-[#192219] flex flex-col font-sans">
+    <div className="ftt-blog-article min-h-screen bg-[#fafbf8] text-[#192219] flex flex-col font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -160,6 +160,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   alt={post.author.node.name}
                   fill
                   className="object-cover"
+                  unoptimized
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -170,7 +171,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             )}
             <div>
               <span className="font-bold text-[#192219] block text-sm">
-                {post.author?.node?.name || 'Quantitative Analyst'}
+                {post.author?.node?.name || 'Forex Trade Technology Research Team'}
               </span>
               <span className="text-[11px] text-[#7a865a]">Forex Trade Technology Specialist</span>
             </div>
@@ -187,7 +188,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-[#8c9655]" />
-              5 min read
+              Article
             </span>
           </div>
         </div>
@@ -201,6 +202,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               fill
               priority
               className="object-cover"
+              unoptimized
               sizes="(max-width: 1024px) 100vw, 896px"
               referrerPolicy="no-referrer"
             />
@@ -212,10 +214,10 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="mb-10">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-mono uppercase tracking-wider text-[#7a865a] font-bold">
-                WPGraphQL ACF Field Integration
+                BROKERAGE MARKET DATA
               </span>
               <span className="text-[10px] font-mono text-[#315c28] bg-[#d9f17a]/30 px-2 py-0.5 rounded border border-[#b3d25a]">
-                Type-Safe Schema
+                Research snapshot
               </span>
             </div>
             <ForexMetaCard acf={post.acfForex} />
