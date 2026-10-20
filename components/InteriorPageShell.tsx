@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import type { CSSProperties } from 'react';
 import { ArrowUpRight, ChevronRight, Home } from 'lucide-react';
 import { getAllThemePages } from '@/lib/theme-pages';
 import type { ThemePageMeta } from '@/lib/theme-pages';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { curateInteriorMedia } from '@/lib/theme-media';
-import { getPagePhotos } from '@/lib/pexels-photos';
+import { getExpandedPagePhotos } from '@/lib/pexels-photos';
 import { EditorialPhotoBand } from './EditorialPhotoBand';
 
 type InteriorPageShellProps = {
@@ -23,7 +24,9 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
   const endOfIntro = curatedHtml.indexOf('</section>');
   const intro = endOfIntro < 0 ? '' : curatedHtml.slice(0, endOfIntro + '</section>'.length);
   const body = endOfIntro < 0 ? curatedHtml : curatedHtml.slice(endOfIntro + '</section>'.length);
-  const photos = getPagePhotos(meta.slug);
+  const photos = getExpandedPagePhotos(meta.slug);
+  const heroPhoto = photos[0];
+  const galleryPhotos = photos.slice(1);
   const category = meta.category;
   const isContact = meta.slug === 'contact';
   const categoryName =
@@ -71,8 +74,15 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
             <span className="ftt-interior-current" aria-current="page">{meta.title}</span>
           </div>
         </nav>
-        {intro && <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: intro }} />}
-        <EditorialPhotoBand photos={photos} heading="Technology behind the service" />
+        {intro && (
+          <div
+            className="ftt-interior-intro-wrap"
+            style={{ '--ftt-intro-photo': `url("${heroPhoto.src}")` } as CSSProperties}
+          >
+            <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: intro }} />
+          </div>
+        )}
+        <EditorialPhotoBand photos={galleryPhotos} heading="Inside the technology" />
         {body && <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: body }} />}
         {!isContact && related.length > 0 && (
           <aside className="ftt-interior-more" aria-labelledby="ftt-interior-more-heading">

@@ -144,7 +144,7 @@ export function HomeHero({ intro, slides }: Props) {
         </div>
       </div>
       <a className="ftt-wide-scroll-hint" href="#solutions" aria-label="Scroll to solutions"><ChevronDown size={19} aria-hidden="true" /></a>
-      <span className="ftt-wide-source">Editorial imagery: <a href="https://www.pexels.com/" target="_blank" rel="noreferrer noopener">Pexels</a></span>
+
     </section>
   );
 }
