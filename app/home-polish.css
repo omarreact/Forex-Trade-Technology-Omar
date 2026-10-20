@@ -449,3 +449,178 @@
   .ftt-home .ftt-slider .ftt-slide { transition: none !important; transform: none !important; }
   .ftt-home * { scroll-behavior: auto !important; }
 }
+
+
+/* Hero slider stabilization: this override is intentionally scoped to Next.js. */
+.ftt-home .ftt-front-hero .ftt-slider {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  touch-action: pan-y;
+}
+.ftt-home .ftt-front-hero .ftt-slider .ftt-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: none;
+  transition: opacity .65s ease, visibility .65s ease;
+  pointer-events: none;
+}
+.ftt-home .ftt-front-hero .ftt-slider .ftt-slide:first-child,
+.ftt-home .ftt-front-hero .ftt-slider .ftt-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.ftt-home .ftt-front-hero .ftt-slider.ftt-slider-ready .ftt-slide:first-child:not(.is-active) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.ftt-home .ftt-front-hero .ftt-slider .ftt-slide-image,
+.ftt-home .ftt-front-hero .ftt-slider .ftt-slide-image img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+}
+.ftt-home .ftt-front-hero .ftt-slider .ftt-slide-caption {
+  pointer-events: none;
+}
+.ftt-home .ftt-front-hero .ftt-slider .ftt-slider-controls {
+  position: absolute;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+}
+.ftt-home .ftt-front-hero .ftt-slider-controls button {
+  position: relative;
+  z-index: 20;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.ftt-home .ftt-front-hero .ftt-slider-controls button:focus-visible {
+  outline: 3px solid #d9f17a;
+  outline-offset: 4px;
+}
+.ftt-home .ftt-front-hero .ftt-slider-controls button[aria-current="true"] {
+  width: 32px;
+  background: #d9f17a;
+}
+
+/* Let the hero text and carousel have their own space on tablets/phones.
+   Avoid the former 870–1000px fixed grid that could clip a caption. */
+@media (max-width: 900px) {
+  .ftt-home .ftt-front-hero .ftt-hero-layout {
+    display: flex;
+    flex-direction: column;
+    grid-template: none;
+    min-height: 0;
+    gap: 0;
+    padding: 0 0 26px !important;
+  }
+  .ftt-home .ftt-front-hero .ftt-hero-layout > .ftt-hero-copy {
+    order: 0;
+    display: block;
+    position: relative;
+    width: min(700px, calc(100% - 52px));
+    max-width: none;
+    align-self: center;
+    margin: 0 auto;
+    padding: 70px 0 44px !important;
+    pointer-events: auto;
+  }
+  .ftt-home .ftt-front-hero .ftt-hero-copy > * {
+    max-width: 100%;
+  }
+  .ftt-home .ftt-front-hero .ftt-hero-layout > .ftt-slider {
+    order: 1;
+    display: block;
+    position: relative;
+    align-self: center;
+    width: min(700px, calc(100% - 52px));
+    max-width: none;
+    min-height: 0;
+    height: clamp(360px, 57vw, 440px);
+    margin: 0 auto;
+    border-radius: 24px;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, .22);
+  }
+  .ftt-home .ftt-front-hero .ftt-slider .ftt-slide-image::after {
+    background: linear-gradient(0deg, rgba(7,15,10,.95), rgba(9,20,12,.48) 45%, rgba(9,20,12,.08) 100%);
+  }
+  .ftt-home .ftt-front-hero .ftt-slider .ftt-slide-caption {
+    position: absolute;
+    top: auto;
+    left: 27px;
+    right: 27px;
+    bottom: 93px;
+    width: auto;
+    max-width: 90%;
+    padding: 0 0 0 17px;
+    text-align: left;
+  }
+  .ftt-home .ftt-front-hero .ftt-slider-controls {
+    left: 27px;
+    right: 27px;
+    bottom: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .ftt-home .ftt-front-hero .ftt-hero-layout {
+    min-height: 0;
+    padding-bottom: 18px !important;
+  }
+  .ftt-home .ftt-front-hero .ftt-hero-layout > .ftt-hero-copy {
+    width: calc(100% - 36px);
+    padding: 43px 0 34px !important;
+  }
+  .ftt-home .ftt-front-hero .ftt-hero-layout > .ftt-slider {
+    width: calc(100% - 28px);
+    height: clamp(315px, 100vw, 410px);
+    border-radius: 18px;
+  }
+  .ftt-home .ftt-front-hero .ftt-slider .ftt-slide-caption {
+    left: 17px;
+    right: 17px;
+    bottom: 83px;
+    width: auto;
+    max-width: none;
+    padding-left: 13px;
+  }
+  .ftt-home .ftt-front-hero .ftt-slider .ftt-slide-title {
+    font-size: clamp(21px, 6vw, 27px);
+    line-height: 1.2;
+    margin-bottom: 7px;
+  }
+  .ftt-home .ftt-front-hero .ftt-slider .ftt-slide-summary {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .ftt-home .ftt-front-hero .ftt-slider .ftt-slide-count { margin-bottom: 8px; }
+  .ftt-home .ftt-front-hero .ftt-slider-controls {
+    left: 17px;
+    right: 17px;
+    bottom: 18px;
+  }
+  .ftt-home .ftt-front-hero .ftt-slider-arrows button {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ftt-home .ftt-front-hero .ftt-slider .ftt-slide {
+    transition: none !important;
+    animation: none !important;
+  }
+}
