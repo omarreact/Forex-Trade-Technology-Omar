@@ -16,6 +16,8 @@ import { ForexMetaCard } from '@/components/ForexMetaCard';
 import { DraftModeBanner } from '@/components/DraftModeBanner';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
+import { EditorialPhotoBand } from '@/components/EditorialPhotoBand';
+import { getPagePhotos } from '@/lib/pexels-photos';
 import {
   Clock,
   User,
@@ -270,6 +272,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         )}
       </main>
 
+      <EditorialPhotoBand photos={getPagePhotos('forex-crm')} heading="Brokerage technology in practice" compact />
       <SiteFooter />
     </div>
   );

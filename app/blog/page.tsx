@@ -13,6 +13,8 @@ import { getAllPosts } from '@/lib/wordpress';
 import { DraftModeBanner } from '@/components/DraftModeBanner';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
+import { EditorialPhotoBand } from '@/components/EditorialPhotoBand';
+import { getPagePhotos } from '@/lib/pexels-photos';
 import {
   TrendingUp,
   TrendingDown,
@@ -68,6 +70,8 @@ export default async function BlogIndexPage() {
             business insights from our team.
           </p>
         </div>
+
+        <EditorialPhotoBand photos={getPagePhotos('technology')} heading="Markets, infrastructure and technology" compact />
 
         {/* Article Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

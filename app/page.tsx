@@ -9,6 +9,7 @@ import { SiteFooter } from '@/components/SiteFooter';
 import { HomeHero } from '@/components/home/HomeHero';
 import { getHomeHeroData } from '@/lib/home-hero';
 import { HomeCapabilityStrip } from '@/components/home/HomeCapabilityStrip';
+import { withRealHomePhotos } from '@/lib/home-media';
 import './home-polish.css';
 import './home-hero.css';
 import './home-fullwidth.css';
@@ -60,6 +61,7 @@ function partitionHomeMarkup(html: string): { hero: string; rest: string } {
 export default function HomePage() {
   const { html } = getThemePageBySlug('home');
   const { hero, rest } = partitionHomeMarkup(html);
+  const realEditorial = withRealHomePhotos(rest);
   const { intro, slides } = getHomeHeroData(hero);
 
   return (
@@ -72,7 +74,7 @@ export default function HomePage() {
         {rest && (
           <div
             className="ftt-home-editorial ftt-page-frame"
-            dangerouslySetInnerHTML={{ __html: rest }}
+            dangerouslySetInnerHTML={{ __html: realEditorial }}
           />
         )}
       </main>

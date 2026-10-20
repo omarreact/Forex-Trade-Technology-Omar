@@ -5,6 +5,8 @@ import type { ThemePageMeta } from '@/lib/theme-pages';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { curateInteriorMedia } from '@/lib/theme-media';
+import { getPagePhotos } from '@/lib/pexels-photos';
+import { EditorialPhotoBand } from './EditorialPhotoBand';
 
 type InteriorPageShellProps = {
   meta: ThemePageMeta;
@@ -18,6 +20,10 @@ type InteriorPageShellProps = {
  */
 export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
   const curatedHtml = curateInteriorMedia(html, meta.slug);
+  const endOfIntro = curatedHtml.indexOf('</section>');
+  const intro = endOfIntro < 0 ? '' : curatedHtml.slice(0, endOfIntro + '</section>'.length);
+  const body = endOfIntro < 0 ? curatedHtml : curatedHtml.slice(endOfIntro + '</section>'.length);
+  const photos = getPagePhotos(meta.slug);
   const category = meta.category;
   const isContact = meta.slug === 'contact';
   const categoryName =
@@ -65,7 +71,9 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
             <span className="ftt-interior-current" aria-current="page">{meta.title}</span>
           </div>
         </nav>
-        <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: curatedHtml }} />
+        {intro && <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: intro }} />}
+        <EditorialPhotoBand photos={photos} heading="Technology behind the service" />
+        {body && <div className="ftt-interior-content" dangerouslySetInnerHTML={{ __html: body }} />}
         {!isContact && related.length > 0 && (
           <aside className="ftt-interior-more" aria-labelledby="ftt-interior-more-heading">
             <div className="ftt-interior-shell">
