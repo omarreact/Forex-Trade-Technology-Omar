@@ -289,3 +289,33 @@
 @media (prefers-reduced-motion: reduce) {
   .ftt-home .ftt-fresh-carousel *, .ftt-home .ftt-fresh-actions a { transition: none !important; animation: none !important; }
 }
+
+
+/* Image-box alignment: all slider photography fills its defined frame.
+   Approved hero photographs are 3:2; the stage keeps that same ratio. */
+.ftt-home .ftt-fresh-carousel .ftt-fresh-image-wrap {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  overflow: hidden;
+  background: #1c2d20;
+}
+.ftt-home .ftt-fresh-carousel .ftt-fresh-image-slide {
+  overflow: hidden;
+  inset: 0;
+}
+.ftt-home .ftt-fresh-carousel .ftt-fresh-image-slide img {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+@media (max-width: 900px) {
+  .ftt-home .ftt-fresh-carousel .ftt-fresh-image-wrap { aspect-ratio: 3 / 2; }
+}
+@media (max-width: 570px) {
+  .ftt-home .ftt-fresh-carousel .ftt-fresh-image-wrap { aspect-ratio: 3 / 2; }
+}

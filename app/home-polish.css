@@ -624,3 +624,31 @@
     animation: none !important;
   }
 }
+
+
+/* Every editorial photo fills its frame on desktop and mobile.
+   Match container and image radii; avoid whitespace around landscape photos. */
+.ftt-home .ftt-home-editorial figure.ftt-photo {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  border-radius: 22px;
+  background: #dce6d3;
+  margin: 0;
+}
+.ftt-home .ftt-home-editorial figure.ftt-photo > img,
+.ftt-home .ftt-home-editorial figure.ftt-photo > a > img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 0;
+}
+@media (max-width: 650px) {
+  .ftt-home .ftt-home-editorial figure.ftt-photo { aspect-ratio: 4 / 3; }
+}

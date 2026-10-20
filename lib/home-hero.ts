@@ -1,3 +1,6 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
 /**
  * Read the marketing hero and featured service slides from the verified
  * Gutenberg export. This keeps the Next.js experience in sync with the
@@ -20,6 +23,20 @@ export interface HomeHeroSlide {
   image: string;
   alt: string;
   href: string;
+}
+
+// Generate artwork is selected only when the approved local files are present.
+// Without the files we preserve the existing live photo to avoid broken images.
+const approvedSlideArtwork = [
+  '/theme-assets/images/home-mt5-platform.avif',
+  '/theme-assets/images/home-forex-crm.avif',
+  '/theme-assets/images/home-broker-hosting.avif',
+] as const;
+function preferredSlideImage(index: number, fallback: string): string {
+  const selected = approvedSlideArtwork[index];
+  if (!selected) return fallback;
+  const fullPath = path.join(process.cwd(), 'public', selected.replace(/^\//, ''));
+  return fs.existsSync(fullPath) ? selected : fallback;
 }
 
 const serviceLinks = [
@@ -76,7 +93,7 @@ export function getHomeHeroData(heroHtml: string): {
     return {
       title: contentForClass(part, 'h3', 'ftt-slide-title'),
       summary: contentForClass(part, 'p', 'ftt-slide-summary'),
-      image: src.startsWith('/theme-assets/images/') ? src : '/theme-assets/images/workstation-1200.webp',
+      image: preferredSlideImage(i, src.startsWith('/theme-assets/images/') ? src : '/theme-assets/images/workstation-1200.webp'),
       alt: decodeHtmlText(alt),
       href: serviceLinks[i] || '/solutions/',
     };
@@ -86,21 +103,21 @@ export function getHomeHeroData(heroHtml: string): {
     {
       title: 'MT5 White Label',
       summary: 'Branded MT5 technology for a professional brokerage launch, with more control over your trading environment.',
-      image: '/theme-assets/images/workstation-1200.webp',
+      image: preferredSlideImage(0, '/theme-assets/images/workstation-1200.webp'),
       alt: 'Technology workstation',
       href: serviceLinks[0],
     },
     {
       title: 'Forex CRM',
       summary: 'Clients, KYC, deposits, withdrawals, IBs and day-to-day operations managed from one system.',
-      image: '/theme-assets/images/analytics-1200.webp',
+      image: preferredSlideImage(1, '/theme-assets/images/analytics-1200.webp'),
       alt: 'Analytics workstation',
       href: serviceLinks[1],
     },
     {
       title: 'Forex Broker Hosting',
       summary: 'MT4 and MT5 server infrastructure with monitoring, backups and technical support.',
-      image: '/theme-assets/images/datacenter-1200.webp',
+      image: preferredSlideImage(2, '/theme-assets/images/datacenter-1200.webp'),
       alt: 'Data center equipment',
       href: serviceLinks[2],
     },
