@@ -6,9 +6,11 @@ import type { Metadata } from 'next';
 import { getThemePageBySlug } from '@/lib/theme-pages';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
-import { HomeClientEffects } from '@/components/HomeClientEffects';
+import { HomeHero } from '@/components/home/HomeHero';
+import { getHomeHeroData } from '@/lib/home-hero';
 import { HomeCapabilityStrip } from '@/components/home/HomeCapabilityStrip';
 import './home-polish.css';
+import './home-hero.css';
 
 export const revalidate = 3600;
 
@@ -57,13 +59,14 @@ function partitionHomeMarkup(html: string): { hero: string; rest: string } {
 export default function HomePage() {
   const { html } = getThemePageBySlug('home');
   const { hero, rest } = partitionHomeMarkup(html);
+  const { intro, slides } = getHomeHeroData(hero);
 
   return (
     <div className="ftt-home min-h-screen flex flex-col">
       <a className="ftt-home-skip" href="#main-content">Skip to content</a>
       <SiteHeader />
       <main id="main-content" className="ftt-home-main flex-1">
-        <div className="ftt-home-hero" dangerouslySetInnerHTML={{ __html: hero }} />
+        <HomeHero intro={intro} slides={slides} />
         {rest && <HomeCapabilityStrip />}
         {rest && (
           <div
@@ -72,7 +75,6 @@ export default function HomePage() {
           />
         )}
       </main>
-      <HomeClientEffects />
       <SiteFooter />
     </div>
   );
