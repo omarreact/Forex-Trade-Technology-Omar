@@ -1,21 +1,22 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './theme.css';
 
 export const metadata: Metadata = {
-  title: 'Forex Trade Tech - Headless WordPress & Next.js',
+  title: 'Forex Trade Technology | Brokerage Technology & FinTech Infrastructure',
   description:
-    'Production Headless WordPress architecture powered by Next.js App Router, WPGraphQL, ACF, ISR on-demand revalidation, and Vercel Draft Mode.',
+    'Launch and scale your forex brokerage with MT5 and MT4 white label solutions, CRM, liquidity, hosting, APIs and complete brokerage technology.',
   openGraph: {
-    title: 'Forex Trade Tech - Headless WordPress & Next.js',
+    title: 'Forex Trade Technology | Brokerage Solutions',
     description:
-      'Production Headless WordPress architecture powered by Next.js App Router, WPGraphQL, ACF, ISR on-demand revalidation, and Vercel Draft Mode.',
+      'Launch and scale your forex brokerage with MT5 and MT4 white label solutions, CRM, liquidity, hosting, APIs and complete brokerage technology.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Forex Trade Tech - Headless WordPress & Next.js',
+    title: 'Forex Trade Technology | Brokerage Solutions',
     description:
-      'Production Headless WordPress architecture powered by Next.js App Router, WPGraphQL, ACF, ISR on-demand revalidation, and Vercel Draft Mode.',
+      'Launch and scale your forex brokerage with MT5 and MT4 white label solutions, CRM, liquidity, hosting, APIs and complete brokerage technology.',
   },
 };
 
@@ -25,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500/30 selection:text-emerald-200" suppressHydrationWarning>
+    <html lang="en">
+      <body className="min-h-screen antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>

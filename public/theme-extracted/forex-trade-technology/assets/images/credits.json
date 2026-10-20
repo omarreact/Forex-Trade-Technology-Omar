@@ -1,0 +1,23 @@
+[
+  {
+    "file": "analytics",
+    "photographer": "Carlos Muza",
+    "source": "https://unsplash.com/photos/hpjSkU2UYSU",
+    "license": "https://unsplash.com/license",
+    "use": "Illustrative stock photography; no client or team endorsement implied."
+  },
+  {
+    "file": "workstation",
+    "photographer": "Stephen Dawson",
+    "source": "https://unsplash.com/photos/qwtCeJ5cLYs",
+    "license": "https://unsplash.com/license",
+    "use": "Illustrative stock photography; no client or team endorsement implied."
+  },
+  {
+    "file": "datacenter",
+    "photographer": "Taylor Vick",
+    "source": "https://unsplash.com/photos/M5tzZtFCOfs",
+    "license": "https://unsplash.com/license",
+    "use": "Illustrative stock photography; no client or team endorsement implied."
+  }
+]

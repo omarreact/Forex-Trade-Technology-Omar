@@ -1,0 +1,715 @@
+<?php
+/**
+ * Title: MT4 Grey Label Solution
+ * Slug: forex-trade-technology/content-solutions--mt4-grey-label
+ * Categories: pages, featured
+ * Description: Fully editable page layout based on the supplied Google Doc.
+ */
+?>
+<!-- wp:group {"className":"ftt-redesign ftt-rd-intro ftt-rd-intro--editorial bs-section","tagName":"section","anchor":"top"} -->
+<section id="top" class="wp-block-group ftt-redesign ftt-rd-intro ftt-rd-intro--editorial bs-section">
+<!-- wp:group {"className":"ftt-rd-lead-grid"} -->
+<div class="wp-block-group ftt-rd-lead-grid">
+<!-- wp:group {"className":"ftt-rd-lead-col"} -->
+<div class="wp-block-group ftt-rd-lead-col">
+<!-- wp:paragraph {"className":"ftt-rd-eyebrow"} -->
+<p class="ftt-rd-eyebrow">SOLUTIONS</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"className":"ftt-rd-title"} -->
+<h1 class="wp-block-heading ftt-rd-title">MT4 Grey Label Solution</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"ftt-rd-deck"} -->
+<p class="ftt-rd-deck">If your future clients trade on MetaTrader 4 and you want to launch without a heavy upfront investment, an MT4 grey label is worth serious consideration. It gives you a branded MT4 brokerage running inside an existing provider&#039;s environment, so you can focus on clients rather than servers.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"ftt-rd-lead"} -->
+<p class="ftt-rd-lead">We help structure the arrangement, configure your setup, connect your CRM and support you after launch. And we&#039;ll be straight with you about whether MT4 grey label is genuinely the right fit.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"bs-btn-dark"} -->
+<div class="wp-block-button bs-btn-dark"><a class="wp-block-button__link wp-element-button" href="/contact/#contact-form">Request a Consultation</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-lead-toc"} -->
+<div class="wp-block-group ftt-rd-lead-toc">
+<!-- wp:paragraph {"className":"ftt-rd-side-label"} -->
+<p class="ftt-rd-side-label">IN THIS ARTICLE</p>
+<!-- /wp:paragraph -->
+<!-- wp:list {"className":"ftt-rd-chapter-links"} -->
+<ul class="wp-block-list ftt-rd-chapter-links"><!-- wp:list-item -->
+<li><a href="#what-is-an-mt4-grey-label">What Is an MT4 Grey Label?</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="#why-mt4-grey-label-still-has-a-place">Why MT4 Grey Label Still Has a Place</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="#how-it-works">How It Works</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="#key-features">Key Features</a></li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li><a href="#setup-process">Setup Process</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--feature","tagName":"section","anchor":"what-is-an-mt4-grey-label"} -->
+<section id="what-is-an-mt4-grey-label" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--feature">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">01 / SOLUTION</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-layout"} -->
+<div class="wp-block-group ftt-rd-feature-layout">
+<!-- wp:group {"className":"ftt-rd-feature-copy"} -->
+<div class="wp-block-group ftt-rd-feature-copy">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">What Is an MT4 Grey Label?</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">An MT4 grey label lets you run your own branded brokerage within another provider&#039;s MetaTrader 4 infrastructure and under that provider&#039;s licensing arrangement. You have your own section of the platform with your branding, account types and trading conditions. The host manages the underlying server environment.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">It sits between two other models. Compared with an introducing broker, you get your own brand and your own clients rather than referring traders elsewhere. Compared with an MT4 white label, you get lower costs and less to manage, but also less control.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">For brokers serving MT4-loyal traders on a limited budget, that balance often makes sense.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-illustration"} -->
+<div class="wp-block-group ftt-rd-feature-illustration">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/solutions--mt4-grey-label.svg" alt="MT4 Grey Label Solution technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--feature ftt-rd-section--tinted","tagName":"section","anchor":"why-mt4-grey-label-still-has-a-place"} -->
+<section id="why-mt4-grey-label-still-has-a-place" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--feature ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">02 / SOLUTION</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-layout"} -->
+<div class="wp-block-group ftt-rd-feature-layout">
+<!-- wp:group {"className":"ftt-rd-feature-illustration"} -->
+<div class="wp-block-group ftt-rd-feature-illustration">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/solutions--mt4-grey-label.svg" alt="MT4 Grey Label Solution technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-copy"} -->
+<div class="wp-block-group ftt-rd-feature-copy">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Why MT4 Grey Label Still Has a Place</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">MT4 remains the platform of choice for a large group of forex traders. Many rely on Expert Advisors and indicators written in MQL4 and don&#039;t want to rebuild them for MT5. In some regions, MT4 is still what traders expect a broker to offer.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">At the same time, MetaQuotes now focuses on MT5, and new MT4 setups are more limited than they once were. A grey label can be a practical way to offer MT4 under your own brand, because you&#039;re working inside an environment that already exists. Availability still depends on the provider arrangement, and we&#039;ll confirm what&#039;s realistic before you commit to anything.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"how-it-works"} -->
+<section id="how-it-works" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">03 / SOLUTION</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">How It Works</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your brokerage is allocated its own space within the host MT4 environment. Inside it, we set up your branding, trading groups, account types and conditions within the limits of the host arrangement.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A forex CRM connects to your section of the platform, so your team can manage registrations, verification, trading accounts, deposits, withdrawals and IBs. Payment providers and KYC tools link into the CRM, and your website and client portal sit in front, bringing clients in and giving them access to MT4 under your name.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The host takes care of the core server infrastructure. You take care of the business.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted","tagName":"section","anchor":"key-features"} -->
+<section id="key-features" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">04 / SOLUTION</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Key Features</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Branding</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your brokerage identity across the client-facing experience.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Ready-Made MT4 Environment</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">No need to source, host or maintain your own MT4 servers.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Account Types</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Several account types for different client segments, configured within the host arrangement.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Spreads and Markups</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Pricing configured to match your revenue model, within the limits the host allows.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Client Management</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Tools to manage client accounts, balances and trading activity.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">06</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">CRM Integration</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A forex CRM connected to your grey label for onboarding, payments, accounts, IBs and reporting.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">07</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">EA-Friendly Trading</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Clients can use their existing MQL4 Expert Advisors and indicators.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--timeline","tagName":"section","anchor":"setup-process"} -->
+<section id="setup-process" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--timeline">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">05 / SOLUTION</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Setup Process</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Fit Check</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We confirm whether MT4 grey label suits your clients and budget, and what&#039;s currently available.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Provider Arrangement</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We help structure the grey label within a suitable host environment and confirm exactly what you can configure.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Configuration</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Branding, groups, account types and spreads are set up.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">CRM and Integrations</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your CRM, payment providers and KYC tools are connected.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Testing</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Client journeys are tested from registration to withdrawal.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">06</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Launch and Support</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">You go live, with ongoing technical support from our team.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted","tagName":"section","anchor":"benefits"} -->
+<section id="benefits" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">06 / SOLUTION</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Benefits</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Lower Cost to Start</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">You avoid the bigger investment of a full MT4 white label environment.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Faster to Market</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Less infrastructure to set up means a quicker launch.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Minimal Technical Overhead</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Server management stays with the host.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Reach MT4-Loyal Traders</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Serve clients who won&#039;t move to MT5.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Your Own Brand and Clients</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Unlike an IB model, the brokerage is yours.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"mt4-grey-label-vs-white-label"} -->
+<section id="mt4-grey-label-vs-white-label" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">07 / SOLUTION</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">MT4 Grey Label vs White Label</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A white label generally gives you greater control over the platform and its configuration, with higher costs and more responsibility. A grey label operates under another provider&#039;s infrastructure and licensing arrangement, with lower entry costs, less control and more reliance on the host.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">If you expect strong volumes or need deeper customisation, our MT4 white label solution may suit you better. If you want a lean start, grey label is often the sensible first step.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"mt4-or-mt5-grey-label"} -->
+<section id="mt4-or-mt5-grey-label" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">08 / SOLUTION</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">MT4 or MT5 Grey Label?</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">If your clients are committed MT4 traders, an MT4 grey label makes sense. If you&#039;re targeting a broader audience or want room for multi-asset trading, an MT5 grey label is usually the better long-term choice. Some brokers start with one and add the other later.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--cards","tagName":"section","anchor":"is-it-right-for-your-business"} -->
+<section id="is-it-right-for-your-business" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--cards">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">09 / SOLUTION</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Is It Right for Your Business?</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">A Good Fit If You:</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Are targeting experienced forex traders or EA users, want to keep upfront costs low, are an IB moving into your own brokerage, or want to test a market before investing further.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Probably Not the Right Fit If You:</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Need deep platform customisation, expect high volumes quickly, or plan a wide multi-asset offering.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">A Note on Licensing</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Be wary of claims that a grey label means you never need a company or licence. Requirements depend on your jurisdiction, business model and the provider arrangement. Get proper legal advice.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"choosing-an-mt4-grey-label-provider"} -->
+<section id="choosing-an-mt4-grey-label-provider" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">10 / SOLUTION</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Choosing an MT4 Grey Label Provider</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A trustworthy MT4 grey label provider should confirm availability honestly, explain exactly what you can configure, show how the CRM will integrate and outline your options for moving to MT5 or a white label later.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--faq","tagName":"section","anchor":"frequently-asked-questions"} -->
+<section id="frequently-asked-questions" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--faq">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">11 / SOLUTION</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Frequently Asked Questions</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"bs-faq-accordion ftt-rd-accordion"} -->
+<div class="wp-block-group bs-faq-accordion ftt-rd-accordion">
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What is an MT4 grey label?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A way to run a branded MT4 brokerage within another provider&#039;s infrastructure and licensing arrangement.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Is MT4 grey label still available?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">It depends on the provider arrangement, since MetaQuotes now focuses on MT5. We&#039;ll confirm what&#039;s possible for you.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Do I need a licence?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">It depends on your jurisdiction, business model and provider arrangement. Get legal advice for your situation.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can my clients use Expert Advisors?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. MT4 supports MQL4 Expert Advisors and indicators.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can I set my own spreads?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Within the limits of the host arrangement. We&#039;ll explain what&#039;s adjustable before setup.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can I move to MT5 or a white label later?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. We can plan the move when your business is ready.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--cta ftt-rd-section--tinted","tagName":"section","anchor":"launch-your-mt4-brokerage-without-the-heavy-lift"} -->
+<section id="launch-your-mt4-brokerage-without-the-heavy-lift" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--cta ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">12 / SOLUTION</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Launch Your MT4 Brokerage Without the Heavy Lift</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Tell us about your clients and plans, and we&#039;ll give you an honest view of whether an MT4 grey label is the right starting point.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"bs-btn-dark"} -->
+<div class="wp-block-button bs-btn-dark"><a class="wp-block-button__link wp-element-button" href="/contact/#contact-form">Request a Consultation</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->

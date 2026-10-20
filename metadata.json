@@ -1,6 +1,6 @@
 {
-  "name": "Forex Trade Tech - Headless WordPress & Next.js",
-  "description": "Production Headless WordPress architecture powered by Next.js App Router, WPGraphQL, ACF, ISR on-demand revalidation, and Vercel Draft Mode.",
+  "name": "Forex Trade Technology",
+  "description": "Launch and scale your forex brokerage with MT5 and MT4 white label solutions, CRM, liquidity, hosting, APIs and complete brokerage technology.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

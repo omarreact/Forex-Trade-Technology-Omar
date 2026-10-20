@@ -1,0 +1,689 @@
+<?php
+/**
+ * Title: Web Trading Platform for Forex Brokers
+ * Slug: forex-trade-technology/content-products--web-trading-platform
+ * Categories: pages, featured
+ * Description: Fully editable page layout based on the supplied Google Doc.
+ */
+?>
+<!-- wp:group {"className":"ftt-redesign ftt-rd-intro ftt-rd-intro--product-device bs-section","tagName":"section","anchor":"top"} -->
+<section id="top" class="wp-block-group ftt-redesign ftt-rd-intro ftt-rd-intro--product-device bs-section">
+<!-- wp:group {"className":"ftt-rd-lead-grid"} -->
+<div class="wp-block-group ftt-rd-lead-grid">
+<!-- wp:group {"className":"ftt-rd-lead-col"} -->
+<div class="wp-block-group ftt-rd-lead-col">
+<!-- wp:paragraph {"className":"ftt-rd-eyebrow"} -->
+<p class="ftt-rd-eyebrow">PRODUCTS</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"className":"ftt-rd-title"} -->
+<h1 class="wp-block-heading ftt-rd-title">Web Trading Platform for Forex Brokers</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"ftt-rd-deck"} -->
+<p class="ftt-rd-deck">Not every trader wants to download software. Some are on a work computer where they can&#039;t install anything. Some switch between devices all day. Some are brand new to your brokerage and just want to see how things work before committing to a full desktop setup.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"ftt-rd-lead"} -->
+<p class="ftt-rd-lead">A web trading platform lets all of them trade straight from a browser. No installation, no downloads, no compatibility headaches. They open a link, log in and they&#039;re in the market, under your brokerage&#039;s brand.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"bs-btn-dark"} -->
+<div class="wp-block-button bs-btn-dark"><a class="wp-block-button__link wp-element-button" href="/contact/#contact-form">Discuss Web Trading</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-side-visual"} -->
+<div class="wp-block-group ftt-rd-side-visual">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/products--web-trading-platform.svg" alt="Web Trading Platform for Forex Brokers technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"what-is-a-web-trading-platform"} -->
+<section id="what-is-a-web-trading-platform" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">01 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">What Is a Web Trading Platform?</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A web trading platform, often called a web trader or WebTrader, is a version of a trading terminal that runs entirely inside a web browser. Clients can view quotes, analyse charts, place orders and manage positions without installing a desktop application or mobile app.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">For brokers running MetaTrader, MT5 web trading is the most common route. MetaTrader 5 includes a browser-based terminal that connects to your trading server, so clients see the same accounts, positions and prices they&#039;d see on desktop or mobile. MetaTrader is developed by MetaQuotes, and we provide the brokerage technology and integration work around it.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Some brokers also want a more customised web trading experience that sits within their own branded client area. We can talk through what&#039;s realistic for your platform and budget.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted","tagName":"section","anchor":"why-brokers-offer-web-trading"} -->
+<section id="why-brokers-offer-web-trading" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">02 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Why Brokers Offer Web Trading</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Lower Barrier for New Clients</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Asking a new trader to download and install software adds friction at exactly the wrong moment. A browser-based platform lets them start straight after registration, which helps more sign-ups turn into active traders.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Access From Anywhere</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Clients can log in from any computer with a modern browser, whether at home, at work, or on a borrowed laptop while travelling.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Works Across Operating Systems</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Windows, macOS, Linux or a Chromebook, it doesn&#039;t matter. If the browser works, the platform works.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">A Natural Fit With Your Website and Portal</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Web trading can be linked directly from your website and client portal, so moving from account management to trading takes one click instead of opening a separate application.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">No Installation Support Needed</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Fewer support tickets about downloads, installation errors and outdated versions. Clients always use the current version because it loads fresh in the browser.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--cards","tagName":"section","anchor":"key-features"} -->
+<section id="key-features" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--cards">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">03 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Key Features</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Real-Time Quotes</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Live prices for the instruments available on your trading server, updated as the market moves.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Charting and Analysis</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Interactive charts with multiple timeframes, chart types and commonly used technical indicators and drawing tools, so traders can analyse markets without leaving the browser.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Order Placement</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Market and pending orders with stop loss and take profit, plus the ability to modify or close positions quickly.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Position and Account Monitoring</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Open positions, pending orders, trade history, balance, equity, margin and free margin, all visible in one view.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Multiple Account Access</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Clients with more than one trading account can sign in to each without needing separate tools.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">06</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Branded Access</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Web trading is presented under your brokerage&#039;s identity and linked from your website and client portal, so it feels like part of your service rather than a third-party tool.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">07</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Consistent Experience Across Devices</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Because the web platform connects to the same trading server, positions and orders placed in the browser appear on desktop and mobile, and the other way round.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"how-it-fits-into-your-technology-stack"} -->
+<section id="how-it-fits-into-your-technology-stack" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">04 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">How It Fits Into Your Technology Stack</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Web trading doesn&#039;t work in isolation. It&#039;s one access point to a larger system.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your trading server holds client accounts, positions and orders. The web platform connects to that server, just as the desktop and mobile terminals do. Your liquidity bridge provides the prices and routes orders, regardless of which terminal they come from. Your CRM manages the client, their verification status and their funding, and your client portal handles deposits, withdrawals and documents.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A typical client journey might look like this. A trader registers on your website, gets verified through the portal, makes a deposit and clicks &quot;Trade Now,&quot; which opens the web platform with their account ready. No download, no setup, no searching for a server name.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--cards","tagName":"section","anchor":"web-desktop-and-mobile-together"} -->
+<section id="web-desktop-and-mobile-together" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--cards">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">05 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Web, Desktop and Mobile Together</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Most brokers offer all three, and they serve different needs.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Desktop Terminals</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Preferred by active and experienced traders who use advanced tools, automated strategies and multiple monitors.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Mobile Apps</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Used for checking positions, reacting to alerts and trading on the move.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Web Trading</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Ideal for quick access, new clients, traders who can&#039;t install software and anyone switching between computers.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Offering all three gives clients the choice to trade however suits them in the moment, and all of it connects back to the same accounts on your server.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--feature ftt-rd-section--tinted","tagName":"section","anchor":"security"} -->
+<section id="security" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--feature ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">06 / PRODUCT</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-layout"} -->
+<div class="wp-block-group ftt-rd-feature-layout">
+<!-- wp:group {"className":"ftt-rd-feature-illustration"} -->
+<div class="wp-block-group ftt-rd-feature-illustration">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/products--web-trading-platform.svg" alt="Web Trading Platform for Forex Brokers technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-copy"} -->
+<div class="wp-block-group ftt-rd-feature-copy">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Security</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Browser-based trading needs to be secure without becoming awkward to use. Connections between the browser and your trading infrastructure are encrypted, login is protected, and sessions are handled sensibly so inactive sessions don&#039;t stay open forever.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We also recommend clients are reminded of basic precautions, such as logging out on shared computers. Security is a shared responsibility, and clear guidance on your website helps.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--timeline","tagName":"section","anchor":"setup-process"} -->
+<section id="setup-process" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--timeline">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">07 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Setup Process</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Requirements Review</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We look at your trading platform, server setup, target clients and how you want web trading presented on your website and portal.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Configuration</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The web trading access is configured to connect to your trading server, with your branding and account settings applied.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Website and Portal Integration</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Links and entry points are added to your website and client portal so clients can move straight from account management to trading.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Testing</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We test login, quotes, charting, order placement, position management and account switching across major browsers and screen sizes.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Launch and Support</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Web trading goes live for your clients, and we provide ongoing technical support as part of your setup.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted","tagName":"section","anchor":"who-is-it-for"} -->
+<section id="who-is-it-for" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">08 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Who Is It For?</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Brokers Focused on Conversion</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Removing the download step helps more new registrations start trading.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Brokers With Corporate or Professional Clients</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Traders working from office machines often can&#039;t install software, so browser access is essential.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Brokers Serving Mixed-Device Audiences</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Clients using different operating systems and devices get one consistent way in.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Brokers Building a Complete Client Experience</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Web trading completes the picture alongside desktop terminals, a mobile app and a client portal.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--faq","tagName":"section","anchor":"frequently-asked-questions"} -->
+<section id="frequently-asked-questions" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--faq">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">09 / PRODUCT</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Frequently Asked Questions</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"bs-faq-accordion ftt-rd-accordion"} -->
+<div class="wp-block-group bs-faq-accordion ftt-rd-accordion">
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Do clients need to install anything?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">No. The web trading platform runs in a modern web browser.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Is MT5 web trading the same as the desktop terminal?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">It connects to the same trading server and accounts, but it&#039;s a lighter version. Most everyday trading tasks are covered, while advanced features like automated Expert Advisors are generally used on the desktop terminal.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Which browsers are supported?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Modern versions of the major browsers are supported. We test across them during setup.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Will trades placed on the web show up on mobile and desktop?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. All terminals connect to the same trading server, so positions and orders appear everywhere.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can the web platform carry my brokerage&#039;s branding?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. Web trading is presented under your brand and linked from your website and client portal.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can I offer web trading with MT4?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">MT4 also has web trading options. We&#039;ll confirm what suits your setup during the review.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Is this endorsed by MetaQuotes?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">MetaTrader is developed by MetaQuotes. We provide brokerage technology and integration services around it and don&#039;t claim any endorsement.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can web trading be part of a wider setup?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. It can be added to an existing brokerage or included in a white label, grey label or turnkey setup.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--cta ftt-rd-section--tinted","tagName":"section","anchor":"let-clients-trade-the-moment-they-re-ready"} -->
+<section id="let-clients-trade-the-moment-they-re-ready" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--cta ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">10 / PRODUCT</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Let Clients Trade the Moment They&#039;re Ready</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The fewer steps between registration and a first trade, the better. Tell us about your platform and clients, and we&#039;ll show you how web trading would fit into your brokerage.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"bs-btn-dark"} -->
+<div class="wp-block-button bs-btn-dark"><a class="wp-block-button__link wp-element-button" href="/contact/#contact-form">Request a Consultation</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->

@@ -1,0 +1,616 @@
+<?php
+/**
+ * Title: PAMM & MAM Solutions for Forex Brokers
+ * Slug: forex-trade-technology/content-products--pamm-mam
+ * Categories: pages, featured
+ * Description: Fully editable page layout based on the supplied Google Doc.
+ */
+?>
+<!-- wp:group {"className":"ftt-redesign ftt-rd-intro ftt-rd-intro--technical bs-section","tagName":"section","anchor":"top"} -->
+<section id="top" class="wp-block-group ftt-redesign ftt-rd-intro ftt-rd-intro--technical bs-section">
+<!-- wp:group {"className":"ftt-rd-lead-grid"} -->
+<div class="wp-block-group ftt-rd-lead-grid">
+<!-- wp:group {"className":"ftt-rd-lead-col"} -->
+<div class="wp-block-group ftt-rd-lead-col">
+<!-- wp:paragraph {"className":"ftt-rd-eyebrow"} -->
+<p class="ftt-rd-eyebrow">PRODUCTS</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"className":"ftt-rd-title"} -->
+<h1 class="wp-block-heading ftt-rd-title">PAMM &amp; MAM Solutions for Forex Brokers</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"ftt-rd-deck"} -->
+<p class="ftt-rd-deck">Not every client wants to trade for themselves. Some would rather put their capital behind a trader with a track record. And some skilled traders would rather manage capital for others than trade only their own account. A brokerage that connects those two groups opens up a new source of clients, volume and loyalty.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"ftt-rd-lead"} -->
+<p class="ftt-rd-lead">A PAMM MAM solution gives you the technology to do it properly: managers trade, investors allocate, results are distributed accurately and fees are calculated automatically, all running on your MT4 or MT5 environment.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"bs-btn-dark"} -->
+<div class="wp-block-button bs-btn-dark"><a class="wp-block-button__link wp-element-button" href="/contact/#contact-form">Discuss PAMM &amp; MAM</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-side-visual"} -->
+<div class="wp-block-group ftt-rd-side-visual">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/products--pamm-mam.svg" alt="PAMM &amp; MAM Solutions for Forex Brokers technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"what-is-pamm"} -->
+<section id="what-is-pamm" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">01 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">What Is PAMM?</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">PAMM stands for Percentage Allocation Management Module. It&#039;s a way of pooling investor funds under a single money manager.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Investors allocate capital to a manager&#039;s PAMM account. The manager trades that combined pool as one account. When trades close, profits and losses are shared out among investors in proportion to their share of the pool. If an investor contributed 10% of the total capital, they receive 10% of the result. The manager typically earns a performance fee based on profits, and sometimes a management fee as well.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">For investors, PAMM forex is simple. They choose a manager, allocate funds and follow results. They don&#039;t need to understand position sizing or trade execution. For managers, it means trading one account instead of many.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"what-is-mam"} -->
+<section id="what-is-mam" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">02 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">What Is MAM?</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">MAM stands for Multi-Account Manager. It also lets one manager trade on behalf of several investors, but the structure is different.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">With MAM, each investor keeps their own separate trading account. The manager places trades from a master account, and those trades are allocated across linked investor accounts according to an allocation method. That might be based on each account&#039;s equity, a fixed lot size, a percentage or another rule.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Because each investor has their own account, MAM software allows more flexibility. Different investors can have different allocation settings, risk levels or fee arrangements, and positions appear directly in their own accounts.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--compare","tagName":"section","anchor":"pamm-vs-mam"} -->
+<section id="pamm-vs-mam" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--compare">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">03 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">PAMM vs MAM</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--compare"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--compare">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Account Structure</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">PAMM pools investor funds into one managed account. MAM keeps each investor in their own account, linked to a master.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--compare"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--compare">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Allocation</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">PAMM distributes results proportionally based on each investor&#039;s share of the pool. MAM allocates individual trades to each account according to a chosen method.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--compare"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--compare">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Flexibility</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">PAMM is simpler and more uniform. MAM allows more customisation per investor, such as different allocation sizes or risk settings.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--compare"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--compare">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Visibility</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">In PAMM, investors see their share of results. In MAM, investors see actual positions in their own accounts.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--compare"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--compare">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Best Suited To</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">PAMM often suits managers serving a larger number of investors with similar expectations. MAM tends to suit managers serving fewer clients who want tailored settings or direct visibility of trades.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Many brokers offer both, so managers can choose the model that suits their clients.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"how-it-works"} -->
+<section id="how-it-works" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">04 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">How It Works</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The technology sits on top of your trading platform and connects to your CRM and client portal.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A trader applies to become a money manager. Once approved by your team, they set up their offer, including strategy description, fee structure, minimum investment and any conditions. Their offer appears in a manager listing or is shared through a direct link.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">An investor reviews the manager&#039;s performance, chooses to invest and allocates funds from their account. The system records the allocation and links the investor to the manager.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The manager trades. In PAMM, trades happen on the pooled account and results are distributed proportionally. In MAM, trades on the master account are copied to linked investor accounts according to the allocation method.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">At each settlement period, the system calculates results, deducts the agreed fees and updates investor balances. Investors can add funds, withdraw or stop following the manager, subject to the rules set for that offer.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Throughout, both sides can see their numbers in dashboards, and your team can monitor everything from the back office.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--cards","tagName":"section","anchor":"investor-and-manager-accounts"} -->
+<section id="investor-and-manager-accounts" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--cards">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">05 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Investor and Manager Accounts</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Manager Accounts</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Managers get tools to create and manage their offers, set performance and management fees, define minimum investments and trading periods, view their investors, track allocated capital and monitor earnings. They trade through the platform as normal, with the system handling distribution.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Investor Accounts</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Investors get a clear view of available managers, their performance history and fee terms. Once invested, they can see their allocation, current value, profit and loss, fees charged and transaction history. Deposits, withdrawals and changes to their investment run through the client portal.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Approval and Control</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your team decides who can become a manager, approves offers and can suspend or close managed accounts if needed. You stay in control of who operates on your platform.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--feature ftt-rd-section--tinted","tagName":"section","anchor":"performance-monitoring"} -->
+<section id="performance-monitoring" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--feature ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">06 / PRODUCT</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-layout"} -->
+<div class="wp-block-group ftt-rd-feature-layout">
+<!-- wp:group {"className":"ftt-rd-feature-illustration"} -->
+<div class="wp-block-group ftt-rd-feature-illustration">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/products--pamm-mam.svg" alt="PAMM &amp; MAM Solutions for Forex Brokers technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-copy"} -->
+<div class="wp-block-group ftt-rd-feature-copy">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Performance Monitoring</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Trust is everything in money management. Investors need to see accurate, honest performance before they commit and while they&#039;re invested.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The system tracks each manager&#039;s results over time, including returns, drawdowns, trading history, number of investors and capital under management. Performance is calculated from actual trading data rather than self-reported figures. Investors see their own results separately from the manager&#039;s overall performance, since timing of investment affects individual outcomes.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your team gets reporting across all managers and investors, including total allocated capital, fee income, trading volume and activity patterns.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--cards","tagName":"section","anchor":"risk-management"} -->
+<section id="risk-management" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--cards">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">07 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Risk Management</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Managed accounts carry risks for investors, managers and your brokerage, so controls matter.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Investor Protection Settings</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Investors can set limits, such as a stop-loss level on their investment, so their allocation is withdrawn automatically if losses reach a chosen point.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Manager Limits</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">You can set rules on leverage, maximum drawdown or allowed instruments for managed accounts.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Monitoring and Alerts</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your team can monitor managers whose trading behaviour changes sharply or whose drawdowns grow, and act before problems spread to many investors.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Clear Records</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Every allocation, trade distribution, fee and withdrawal is recorded, which helps with disputes and audits.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--cards"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--cards">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Regulatory Responsibility</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Offering managed accounts can carry specific regulatory requirements, and these vary by jurisdiction. Some regulators restrict or require authorisation for managing funds on behalf of others. The technology gives you control and transparency, but your brokerage remains responsible for making sure the offering is permitted where you operate. We&#039;d strongly recommend legal and compliance advice before launch.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"mt4-mt5-integration"} -->
+<section id="mt4-mt5-integration" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">08 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">MT4/MT5 Integration</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The PAMM and MAM module connects directly to your MetaTrader environment. On MT5 and MT4, the system reads trades from manager accounts, distributes or allocates them correctly, and updates investor accounts and balances.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">It also connects to your CRM and client portal, so manager applications, investor allocations, deposits, withdrawals and fees all flow through the same systems your team already uses. Investors and managers don&#039;t need separate logins or a separate platform.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"fee-calculation"} -->
+<section id="fee-calculation" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">09 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Fee Calculation</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Fees are one of the most sensitive parts of any money management offering. The system calculates performance fees, management fees and any other agreed charges automatically, at the settlement periods defined for each offer. High-water mark logic can be applied so managers only earn performance fees on new profits, not on recovering previous losses. Fee history is visible to both managers and investors, which keeps the arrangement transparent.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"implementation"} -->
+<section id="implementation" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">10 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Implementation</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We start by understanding which models you want to offer, how managers will be approved and what controls you need. The module is then configured, connected to your platform, CRM and portal, and tested across the full cycle: manager setup, investor allocation, trading, distribution, fees, withdrawals and edge cases like partial withdrawals or investors joining mid-period. After launch, we provide ongoing support.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--faq","tagName":"section","anchor":"frequently-asked-questions"} -->
+<section id="frequently-asked-questions" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--faq">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">11 / PRODUCT</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Frequently Asked Questions</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"bs-faq-accordion ftt-rd-accordion"} -->
+<div class="wp-block-group bs-faq-accordion ftt-rd-accordion">
+<!-- wp:details -->
+<details class="wp-block-details"><summary>What&#039;s the difference between PAMM and MAM?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">PAMM pools investor funds into one account and distributes results proportionally. MAM keeps investors in separate accounts and allocates trades from a master account using a chosen method.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can I offer both PAMM and MAM?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. Many brokers offer both so managers can choose the model that suits their investors.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Does it work with MT4 and MT5?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. The module integrates with both platforms.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>How are fees calculated?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Performance and management fees are calculated automatically at the end of each settlement period, based on the terms of each manager&#039;s offer. High-water mark logic can be applied.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can investors limit their losses?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. Investors can set protection levels so their investment is withdrawn automatically if losses reach a chosen point.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Who approves money managers?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your brokerage. You decide who can become a manager and can suspend accounts if needed.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Is offering PAMM or MAM regulated?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">It can be, depending on your jurisdiction. Requirements vary, so get legal and compliance advice before launching.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Does it connect to my CRM?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. Applications, allocations, transactions and fees flow through your CRM and client portal.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"grow-your-brokerage-through-money-management"} -->
+<section id="grow-your-brokerage-through-money-management" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">12 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Grow Your Brokerage Through Money Management</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">PAMM and MAM can bring in investors who would never trade on their own and give skilled traders a reason to build their business with you. Tell us how you&#039;d like to structure your offering, and we&#039;ll show you how the technology would work for your brokerage.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->

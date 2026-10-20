@@ -1,0 +1,9 @@
+.ftt-designer-panel{padding:20px;display:flex;flex-direction:column;gap:16px}
+.ftt-designer-panel>p{line-height:1.55;margin:0}
+.ftt-designer-panel h3{margin:6px 0 0}
+.ftt-designer-choice{display:flex;gap:12px;align-items:flex-start;padding:15px;border:1px solid #ccd3bf;border-radius:12px;cursor:pointer;background:#fff}
+.ftt-designer-choice.selected{border:2px solid #65892d;background:#f2f8e8}
+.ftt-designer-choice input{margin-top:3px}
+.ftt-designer-choice strong,.ftt-designer-choice small{display:block}
+.ftt-designer-choice small{margin-top:5px;line-height:1.5;color:#596251}
+.ftt-designer-help{font-size:12px;color:#515d4c}

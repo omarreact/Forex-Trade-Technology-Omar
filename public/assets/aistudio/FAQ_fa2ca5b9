@@ -1,0 +1,89 @@
+﻿FAQ
+URL: /faq/
+SEO Title: Forex Brokerage Technology FAQs | MT5, CRM, Liquidity & Hosting
+Meta Description: Answers to common questions about forex brokerage technology: MT5 white and grey label, CRM, liquidity bridges, hosting, APIs and support.
+Primary Keyword: forex brokerage technology FAQs
+H1: Forex Brokerage Technology FAQs
+Brokers ask us a lot of the same questions, especially early on, when the number of moving parts can feel overwhelming. We've collected the most common ones here and grouped them by topic. These forex brokerage technology FAQs are updated as new questions come in. If yours isn't answered, our team is happy to help directly.
+H2: General
+H3: What does a forex technology provider do?
+ A forex technology provider supplies and connects the systems a brokerage runs on. That includes trading platform setups, trading servers, liquidity connectivity, CRM, payment and KYC integrations, websites, apps and the infrastructure underneath. We're a technology company, not a broker. We don't offer trading services or investment advice, and we don't hold or manage client funds.
+H3: Do you work with new brokers or existing ones?
+ Both. New brokers usually need a complete setup planned and delivered in the right order. Existing brokers often come to us for a specific problem, such as a CRM that doesn't integrate properly, unstable hosting or the need for more liquidity providers.
+H3: Do I have to take your full technology stack?
+ No. You can take everything as a turnkey setup or just the parts you're missing. We regularly integrate with platforms, CRMs and providers that brokers already use.
+H3: Do you help with licensing or regulation?
+ No. We provide technology, not legal or regulatory services. Licensing requirements vary by jurisdiction, so we recommend working with qualified legal and compliance advisors. We're happy to coordinate with them on any technical requirements.
+H3: How much does brokerage technology cost?
+ It depends on your platform model, integrations, number of providers and the scope of your website and portal. We don't publish fixed prices because every setup is different. After a consultation, you'll get a clear breakdown of one-off and recurring costs.
+H3: How long does setup take?
+ It depends on scope and how quickly your liquidity and payment providers complete their onboarding, which can take longer than the technical work. We give you a realistic timeline after discovery rather than an optimistic estimate.
+H3: What support do you provide after launch?
+ Ongoing technical support from the team that built your setup, covering monitoring, configuration changes, troubleshooting, upgrades and help when you add new products, providers or markets.
+H2: White Label
+H3: What is MT5 white label?
+ An MT5 white label is a branded MetaTrader 5 environment set up for your brokerage. Clients trade on a platform carrying your name, and you generally have greater control over trading groups, account types, symbols and trading conditions than you would with a grey label.
+H3: What is a forex white label?
+ A forex white label is a complete brokerage technology foundation branded as your own. Alongside the trading platform, it typically includes a CRM, liquidity connectivity, hosting, a website, client portal, payments and KYC tools.
+H3: Who should choose a white label?
+ Brokers with clear growth plans who want control over their platform setup, expect meaningful trading volumes or plan to expand into new products and regions.
+H3: Does a white label include a broker licence?
+ No. A white label is a technology arrangement. Licensing and regulatory approval are separate and depend on your jurisdiction.
+H3: Should I choose MT5 or MT4?
+ Most new brokers choose MT5 for its multi-asset support and because it's the platform MetaQuotes actively develops. MT4 still makes sense if your target clients specifically rely on it, for example experienced forex traders using MQL4 Expert Advisors.
+H3: Can I move from MT4 to MT5 later?
+ Yes. We can plan a gradual or full migration, and many brokers run both platforms side by side during the transition.
+H2: Grey Label
+H3: What is the difference between white and grey label?
+ A white label generally gives you greater control over the platform and its configuration, with higher costs and more responsibility. A grey label operates under another provider's infrastructure and licensing arrangement, with lower entry costs, less control and more reliance on that provider.
+H3: What is an MT5 grey label?
+ It's a way to run your own branded brokerage within another provider's MT5 environment. You manage your clients and brand, while the host manages the core infrastructure.
+H3: Is a grey label a good way to start?
+ For many brokers, yes. It keeps upfront costs down and gets you to market sooner, which suits founders testing a market or working with a limited budget.
+H3: Does a grey label mean I don't need a company or licence?
+ No one can honestly promise that. What you need depends on your jurisdiction, business model and the provider arrangement. Get legal advice for your specific situation.
+H3: Can I set my own spreads on a grey label?
+ Usually within limits set by the host arrangement. We explain exactly what's adjustable before setup so there are no surprises.
+H3: Can I upgrade from grey label to white label later?
+ Yes. Many brokers do once volumes grow. Planning your CRM and integrations with that in mind makes the move much smoother.
+H2: CRM
+H3: Can CRM connect with MT5?
+ Yes. Our forex CRM has two-way MT5 integration, so accounts, groups, balances and trading data stay in sync. MT4 integration is also available.
+H3: What does a forex CRM do?
+ It manages the brokerage lifecycle: lead capture, client profiles, KYC, trading account creation, deposits, withdrawals, IB management, commissions, reporting and notifications.
+H3: Does the CRM include a client portal?
+ Yes. Clients can register, upload documents, open trading accounts, deposit, request withdrawals and view their history through a branded portal.
+H3: Does it handle IB commissions?
+ Yes, including multi-level IB structures. Commissions are calculated automatically from trading data.
+H3: Can I migrate from my current CRM?
+ In most cases, yes. We assess your existing data, migrate in phases and test before switching over.
+H3: Can different teams have different access?
+ Yes. Role-based permissions give sales, compliance, finance and support access to what they need, with a record of actions taken.
+H2: Liquidity
+H3: What is a liquidity bridge?
+ A liquidity bridge is software that connects your trading platform to liquidity providers. It brings prices into the platform, routes client orders according to your rules and processes execution reports.
+H3: Are you a liquidity provider?
+ No. We build and maintain the technology that connects your platform to the liquidity providers you choose.
+H3: What's the difference between a bridge and FIX API?
+ A bridge is software that manages connectivity and routing between your platform and providers. FIX API is a standard messaging protocol that can be used for direct connections. Many setups use both.
+H3: Can I connect more than one liquidity provider?
+ Yes. Multiple providers with aggregation or backup routing is a common setup, and it reduces dependence on any single provider.
+H3: Can you set up A-book, B-book or hybrid routing?
+ Yes. We configure routing to match your chosen execution model. The model and risk policy themselves are your decisions.
+H3: Do you guarantee spreads or execution?
+ No. Pricing and execution depend on your providers and market conditions. We make sure the technology connecting you to them is configured and maintained properly.
+H2: Technical
+H3: Do you provide MT4/MT5 hosting?
+ Yes. We host both platforms, with infrastructure planned around your liquidity providers and clients, plus monitoring, security, backups and disaster recovery planning.
+H3: Can you integrate APIs?
+ Yes. We work with the MT5 Manager API and other platform interfaces, payment provider APIs, KYC provider APIs and custom integrations with your own systems.
+H3: Do you guarantee uptime?
+ We don't promise fixed uptime figures, because nobody can control every factor involved. We build in monitoring, redundancy, tested backups and recovery planning to keep disruption to a minimum.
+H3: Can you migrate my existing setup?
+ Yes. Platforms, servers and CRMs can all be migrated. We plan in stages, test thoroughly and schedule switchovers outside busy trading periods.
+H3: How do you handle security?
+ Through restricted access, encrypted connections, secure configurations, regular updates and logging. Card details are handled on payment providers' secure pages rather than stored on your systems.
+H3: Is your technology endorsed by MetaQuotes?
+ MetaTrader is developed by MetaQuotes. We provide brokerage technology and services around it and don't claim any endorsement.
+H2: Still Have Questions?
+If your question isn't here, or you'd like to talk through your specific setup, our team is happy to help before you commit to anything.

@@ -1,8 +1,7 @@
 // app/blog/[slug]/page.tsx
 /**
  * Headless WordPress Single Article & Technical Setup Page
- * Static-First Incremental Static Regeneration (ISR)
- * Seamless Draft Mode Live Preview for WordPress Content Creators
+ * Seamlessly styled with the Forex Trade Technology theme
  */
 
 import React from 'react';
@@ -15,20 +14,18 @@ import { getAllPostSlugs, getPostBySlug } from '@/lib/wordpress';
 import { sanitizeWordPressHtml, stripHtml } from '@/lib/sanitize';
 import { ForexMetaCard } from '@/components/ForexMetaCard';
 import { DraftModeBanner } from '@/components/DraftModeBanner';
+import { SiteHeader } from '@/components/SiteHeader';
+import { SiteFooter } from '@/components/SiteFooter';
 import {
   Clock,
   User,
   ArrowLeft,
   Calendar,
-  Share2,
-  Bookmark,
   ChevronRight,
-  ShieldCheck,
   Tag,
-  CheckCircle2,
 } from 'lucide-react';
 
-export const revalidate = 3600; // 1-hour static cache, on-demand revalidation via /api/revalidate
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{
@@ -77,20 +74,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
 
-  // Next.js 15 App Router Draft Mode Detection
   const draft = await draftMode();
   const isDraft = draft.isEnabled;
 
-  const { post, isFallback } = await getPostBySlug(slug, { isDraft });
+  const { post } = await getPostBySlug(slug, { isDraft });
 
   if (!post) {
     notFound();
   }
 
-  // Securely sanitize WordPress HTML content to block XSS and malicious event handlers
   const sanitizedContent = sanitizeWordPressHtml(post.content);
 
-  // JSON-LD Structured Data for Google Rich Snippets
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
@@ -111,55 +105,30 @@ export default async function BlogPostPage({ params }: PageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
-      {/* Schema.org Structured Data */}
+    <div className="min-h-screen bg-[#fafbf8] text-[#192219] flex flex-col font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Top Banner when in Draft Mode */}
+      {/* Top Banner only shown when editor is in draft preview mode */}
       {isDraft && <DraftModeBanner currentPath={`/blog/${post.slug}`} postTitle={post.title} />}
 
-      {/* Navigation Header */}
-      <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-emerald-400 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Market Feed</span>
-          </Link>
+      <SiteHeader />
 
-          <div className="flex items-center gap-3">
-            <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>ISR Verified Cache</span>
-            </span>
-            <Link
-              href="/"
-              className="text-xs font-mono text-slate-300 hover:text-white px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800"
-            >
-              Architecture Center
-            </Link>
-          </div>
-        </div>
-      </header>
-
-      {/* Article Body Container */}
-      <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full">
-        {/* Breadcrumb Hierarchy */}
-        <nav className="flex items-center gap-1.5 text-xs font-mono text-slate-500 mb-6">
-          <Link href="/" className="hover:text-slate-300">
+      {/* Main Container */}
+      <main className="flex-1 max-w-[960px] mx-auto px-4 sm:px-6 py-10 w-full">
+        {/* Navigation Breadcrumb */}
+        <nav className="flex items-center gap-1.5 text-xs font-mono text-[#7a865a] mb-6">
+          <Link href="/" className="hover:text-[#192219]">
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <Link href="/blog" className="hover:text-slate-300">
+          <Link href="/blog" className="hover:text-[#192219]">
             Market Intelligence
           </Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-slate-300 truncate max-w-xs">{post.title}</span>
+          <span className="text-[#394439] truncate max-w-xs">{post.title}</span>
         </nav>
 
         {/* Categories */}
@@ -168,7 +137,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.categories.edges.map(({ node }) => (
               <span
                 key={node.id}
-                className="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold"
+                className="px-2.5 py-1 rounded-md bg-[#eef2e8] border border-[#dfe4d9] text-[#41532a] text-xs font-mono font-bold"
               >
                 {node.name}
               </span>
@@ -177,15 +146,15 @@ export default async function BlogPostPage({ params }: PageProps) {
         )}
 
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#192219] tracking-tight leading-tight mb-6">
           {post.title}
         </h1>
 
         {/* Author & Publication Metadata Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-slate-800/80 mb-8 text-xs font-mono text-slate-400">
+        <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-[#dfe4d9] mb-8 text-xs font-mono text-[#5c675c]">
           <div className="flex items-center gap-3">
             {post.author?.node?.avatar?.url ? (
-              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-700">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#dfe4d9]">
                 <Image
                   src={post.author.node.avatar.url}
                   alt={post.author.node.name}
@@ -195,22 +164,21 @@ export default async function BlogPostPage({ params }: PageProps) {
                 />
               </div>
             ) : (
-              <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">
+              <div className="w-10 h-10 rounded-full bg-[#eef2e8] flex items-center justify-center text-[#5c675c]">
                 <User className="w-5 h-5" />
               </div>
             )}
             <div>
-              <span className="font-bold text-slate-200 block text-sm">
+              <span className="font-bold text-[#192219] block text-sm">
                 {post.author?.node?.name || 'Quantitative Analyst'}
               </span>
-              <span className="text-[11px] text-slate-500">Forex Trade Technology Specialist</span>
+              <span className="text-[11px] text-[#7a865a]">Forex Trade Technology Specialist</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-400">
+          <div className="flex items-center gap-4 text-[#5c675c]">
             <span className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4 text-slate-500" />
-              Published:{' '}
+              <Calendar className="w-4 h-4 text-[#8c9655]" />
               {new Date(post.date).toLocaleDateString('en-US', {
                 month: 'short',
                 day: 'numeric',
@@ -218,7 +186,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               })}
             </span>
             <span className="hidden sm:flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-slate-500" />
+              <Clock className="w-4 h-4 text-[#8c9655]" />
               5 min read
             </span>
           </div>
@@ -226,7 +194,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Featured Image */}
         {post.featuredImage?.node?.sourceUrl && (
-          <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden border border-slate-800 shadow-2xl mb-8 bg-slate-900">
+          <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-[#dfe4d9] shadow-md mb-8 bg-[#f4f5f0]">
             <Image
               src={post.featuredImage.node.sourceUrl}
               alt={post.featuredImage.node.altText || post.title}
@@ -239,14 +207,14 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* ACF Forex Terminal Card (Custom Fields) */}
+        {/* ACF Forex Terminal Card */}
         {post.acfForex && (
           <div className="mb-10">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#7a865a] font-bold">
                 WPGraphQL ACF Field Integration
               </span>
-              <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+              <span className="text-[10px] font-mono text-[#315c28] bg-[#d9f17a]/30 px-2 py-0.5 rounded border border-[#b3d25a]">
                 Type-Safe Schema
               </span>
             </div>
@@ -254,19 +222,19 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Sanitized HTML Body from WordPress */}
-        <div className="prose prose-invert max-w-none prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-slate-300 prose-p:leading-relaxed prose-p:mb-5 prose-a:text-emerald-400 hover:prose-a:text-emerald-300 prose-blockquote:border-l-emerald-500 prose-blockquote:bg-slate-900/60 prose-blockquote:p-4 prose-blockquote:rounded-r-xl prose-blockquote:text-slate-300 prose-code:text-emerald-300 prose-code:font-mono prose-pre:bg-slate-950 prose-pre:border prose-pre:border-slate-800">
+        {/* Sanitized HTML Body */}
+        <div className="prose max-w-none text-[#394439] prose-headings:text-[#192219] prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-relaxed prose-p:mb-5 prose-a:text-[#315c28] hover:prose-a:underline prose-blockquote:border-l-[#d9f17a] prose-blockquote:bg-[#f7f8f2] prose-blockquote:p-4 prose-blockquote:rounded-r-xl prose-blockquote:text-[#5c675c] prose-code:text-[#315c28] prose-code:font-mono prose-pre:bg-[#192219] prose-pre:text-white">
           <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
         </div>
 
         {/* Tags */}
         {post.tags?.edges && post.tags.edges.length > 0 && (
-          <div className="mt-12 pt-6 border-t border-slate-800 flex flex-wrap items-center gap-2">
-            <Tag className="w-4 h-4 text-slate-500 mr-1" />
+          <div className="mt-12 pt-6 border-t border-[#dfe4d9] flex flex-wrap items-center gap-2">
+            <Tag className="w-4 h-4 text-[#7a865a] mr-1" />
             {post.tags.edges.map(({ node }) => (
               <span
                 key={node.id}
-                className="px-2.5 py-1 rounded-lg bg-slate-900 text-slate-300 border border-slate-800 text-xs font-mono"
+                className="px-2.5 py-1 rounded-lg bg-[#eef2e8] text-[#41532a] border border-[#dfe4d9] text-xs font-mono"
               >
                 #{node.name}
               </span>
@@ -276,9 +244,9 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Author Bio Card */}
         {post.author?.node?.description && (
-          <div className="mt-12 p-6 rounded-3xl bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div className="mt-12 p-6 rounded-2xl bg-[#f7f8f2] border border-[#dfe4d9] flex flex-col sm:flex-row items-start sm:items-center gap-5">
             {post.author.node.avatar?.url && (
-              <div className="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 border border-slate-700">
+              <div className="relative w-14 h-14 rounded-2xl overflow-hidden shrink-0 border border-[#dfe4d9]">
                 <Image
                   src={post.author.node.avatar.url}
                   alt={post.author.node.name}
@@ -289,10 +257,10 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             )}
             <div>
-              <h4 className="text-base font-bold text-white mb-1">
+              <h4 className="text-base font-bold text-[#192219] mb-1">
                 Written by {post.author.node.name}
               </h4>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-xs text-[#5c675c] leading-relaxed">
                 {post.author.node.description}
               </p>
             </div>
@@ -300,20 +268,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-slate-950 py-8 mt-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
-          <p>© 2026 Forex Trade Technology. High-Performance Headless WordPress Architecture.</p>
-          <div className="flex items-center gap-4">
-            <Link href="/" className="hover:text-slate-300">
-              Command Center
-            </Link>
-            <Link href="/blog" className="text-emerald-400 hover:text-emerald-300">
-              Market Feed
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

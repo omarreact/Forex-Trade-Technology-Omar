@@ -1,0 +1,642 @@
+<?php
+/**
+ * Title: Branded Mobile Trading App for Forex Brokers
+ * Slug: forex-trade-technology/content-products--mobile-trading-app
+ * Categories: pages, featured
+ * Description: Fully editable page layout based on the supplied Google Doc.
+ */
+?>
+<!-- wp:group {"className":"ftt-redesign ftt-rd-intro ftt-rd-intro--product-device bs-section","tagName":"section","anchor":"top"} -->
+<section id="top" class="wp-block-group ftt-redesign ftt-rd-intro ftt-rd-intro--product-device bs-section">
+<!-- wp:group {"className":"ftt-rd-lead-grid"} -->
+<div class="wp-block-group ftt-rd-lead-grid">
+<!-- wp:group {"className":"ftt-rd-lead-col"} -->
+<div class="wp-block-group ftt-rd-lead-col">
+<!-- wp:paragraph {"className":"ftt-rd-eyebrow"} -->
+<p class="ftt-rd-eyebrow">PRODUCTS</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"className":"ftt-rd-title"} -->
+<h1 class="wp-block-heading ftt-rd-title">Branded Mobile Trading App for Forex Brokers</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"ftt-rd-deck"} -->
+<p class="ftt-rd-deck">Watch how traders actually use their accounts and you&#039;ll see it quickly. They check positions on the train, react to a price alert over lunch, top up their margin from the sofa at night. For a lot of your clients, the phone isn&#039;t a backup device. It&#039;s the main one.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"ftt-rd-lead"} -->
+<p class="ftt-rd-lead">A branded forex trading app puts your brokerage on that screen. Your name, your colours, your account tools and a direct connection to your trading platform and CRM, all in an app clients download from the App Store or Google Play and open every day.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons -->
+<div class="wp-block-buttons">
+<!-- wp:button {"className":"bs-btn-dark"} -->
+<div class="wp-block-button bs-btn-dark"><a class="wp-block-button__link wp-element-button" href="/contact/#contact-form">Discuss Your Mobile App</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-side-visual"} -->
+<div class="wp-block-group ftt-rd-side-visual">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/products--mobile-trading-app.svg" alt="Branded Mobile Trading App for Forex Brokers technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"why-a-branded-app-makes-a-difference"} -->
+<section id="why-a-branded-app-makes-a-difference" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">01 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Why a Branded App Makes a Difference</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Many brokers rely entirely on the standard MetaTrader mobile apps. They work, and clients know them. But they&#039;re generic. Your brokerage becomes one server name in a list, and everything outside trading, such as deposits, withdrawals, documents and account details, happens somewhere else.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A forex broker mobile app built for your business changes that. Clients open your app, not a third-party one. They can manage their whole relationship with you in one place, from verification to funding to trading. Your brand stays in front of them every time they check a position, and you have a direct channel for notifications and updates.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">That matters for retention. A client with your app on their home screen is far more likely to stay active than one who has to remember which portal to log into.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"ios-android"} -->
+<section id="ios-android" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">02 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">iOS &amp; Android</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your app is built for both iOS and Android, so every client can use it regardless of their device. Layouts are designed for different screen sizes, from smaller phones to larger models, and tested on real devices rather than just simulators.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We also prepare the app for submission to the App Store and Google Play. Financial and trading apps face stricter review than most, and store requirements can change. We handle the technical preparation and guide you through the submission process, but final approval sits with Apple and Google, and the developer accounts are held in your brokerage&#039;s name.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--feature","tagName":"section","anchor":"branded-interface"} -->
+<section id="branded-interface" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--feature">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">03 / PRODUCT</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-layout"} -->
+<div class="wp-block-group ftt-rd-feature-layout">
+<!-- wp:group {"className":"ftt-rd-feature-copy"} -->
+<div class="wp-block-group ftt-rd-feature-copy">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Branded Interface</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The app is designed around your brand identity: logo, colours, typography and tone. More importantly, it&#039;s designed around how traders actually use their phones. Short sessions, one-handed use, quick access to positions and balances, and nothing buried three menus deep.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We keep the interface clean. Traders need to see their numbers clearly and act quickly, especially when markets move. Decorative elements that slow them down get left out.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-illustration"} -->
+<div class="wp-block-group ftt-rd-feature-illustration">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/products--mobile-trading-app.svg" alt="Branded Mobile Trading App for Forex Brokers technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"trader-login"} -->
+<section id="trader-login" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">04 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Trader Login</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Clients sign in with their brokerage credentials. Biometric login using fingerprint or face recognition can be supported where the device allows it, which makes frequent logins faster without weakening security. Session handling is designed so clients aren&#039;t logged out constantly, but inactive sessions don&#039;t stay open indefinitely either.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Clients with more than one trading account can switch between them without signing out.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"account-management"} -->
+<section id="account-management" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">05 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Account Management</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Beyond trading, the app gives clients access to the account tasks they&#039;d otherwise do in the client portal.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">They can view balances, equity and margin across their accounts, open new trading accounts, check transaction history, start a deposit, request a withdrawal and update personal details. Each of these actions connects back to your CRM, so your team sees the same information the client does.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">For your support team, this means fewer messages asking &quot;where&#039;s my deposit?&quot; or &quot;how do I open another account?&quot; because clients can find the answer themselves.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--feature ftt-rd-section--tinted","tagName":"section","anchor":"trading-integration"} -->
+<section id="trading-integration" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--feature ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">06 / PRODUCT</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-layout"} -->
+<div class="wp-block-group ftt-rd-feature-layout">
+<!-- wp:group {"className":"ftt-rd-feature-illustration"} -->
+<div class="wp-block-group ftt-rd-feature-illustration">
+<!-- wp:image {"sizeSlug":"full","className":"ftt-rd-diagram"} -->
+<figure class="wp-block-image size-full ftt-rd-diagram"><img loading="lazy" decoding="async" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/illustrations/products--mobile-trading-app.svg" alt="Branded Mobile Trading App for Forex Brokers technology diagram" width="960" height="720"/></figure>
+<!-- /wp:image -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-feature-copy"} -->
+<div class="wp-block-group ftt-rd-feature-copy">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Trading Integration</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The app connects to your trading platform so clients can trade and monitor positions from their phone. Depending on your setup, that can include live quotes, charts, order placement, open positions, pending orders and trade history.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">How trading is integrated depends on your platform and the approach that suits your business. Some brokers want full trading inside their branded app. Others prefer the app to handle account management while linking to the MetaTrader mobile app for trading. We&#039;ll talk through the options and what each one involves during planning.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"notifications"} -->
+<section id="notifications" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">07 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Notifications</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Push notifications give you a direct line to active clients, used carefully. Clients can receive alerts for completed deposits, approved withdrawals, verification updates, margin levels and price movements they&#039;ve chosen to watch. Account-related messages can be triggered automatically from your CRM.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Notifications can also be used for announcements, such as changes to trading hours around holidays. We&#039;d always recommend restraint here. Clients who get too many messages tend to switch them off, and then the important ones don&#039;t reach them either.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"kyc"} -->
+<section id="kyc" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">08 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">KYC</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">New clients can complete onboarding inside the app. They register, then upload identity and address documents using their phone camera, which is often easier than scanning documents on a computer. Verification status is visible in the app, and clients are told clearly if anything else is needed.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Uploaded documents go straight into your CRM and any connected verification provider. Your compliance team reviews and approves as usual. The responsibility for compliance decisions stays with your business, but making the process simple on mobile means more clients actually finish it.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--article","tagName":"section","anchor":"crm-integration"} -->
+<section id="crm-integration" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--article">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">09 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">CRM Integration</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The app and CRM work as one system. Registrations from the app appear in the CRM with their source recorded. Documents, deposits, withdrawal requests and account changes flow straight through. Status updates made by your team in the CRM show up in the app.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">This means there&#039;s one version of every client record, whether they used the app, the website or the portal. Your team doesn&#039;t need separate processes for mobile clients.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"security"} -->
+<section id="security" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">10 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Security</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A trading app handles personal data, financial information and access to client funds, so security is built in from the beginning rather than added at the end.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">That includes encrypted data transmission, secure authentication, protected session management, safe handling of stored data on the device and secure communication with your backend systems. The app is tested for common vulnerabilities before release, and security updates continue after launch as operating systems and threats change.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--timeline","tagName":"section","anchor":"development-process"} -->
+<section id="development-process" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--timeline">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">11 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Development Process</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Discovery</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We start by understanding your clients, your platform, your existing systems and what you want the app to do. Is it mainly for account management, full trading or both? Which regions and languages? Which integrations?</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Feature Planning</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Together we agree the feature set for the first release and what could come later. Launching with a focused, well-built app is usually better than launching with everything at once.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Design</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Screens and user journeys are designed and reviewed with you, covering both iOS and Android conventions so the app feels natural on each.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">04</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Development</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">The app is built and connected to your trading platform, CRM, payment flows and verification tools.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">05</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Testing</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We test on a range of real devices and operating system versions, covering registration, login, verification, deposits, withdrawals, trading flows, notifications and security. We also test poor network conditions, because mobile users aren&#039;t always on fast Wi-Fi.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">06</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Store Submission</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">We prepare the builds, screenshots and technical details for submission and support you through the review process with Apple and Google.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--timeline"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--timeline">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">07</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Launch and Updates</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">After launch, we monitor for issues, fix bugs and release updates as needed. Operating systems change every year, so ongoing maintenance keeps the app working properly on new devices and versions.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted","tagName":"section","anchor":"who-is-it-for"} -->
+<section id="who-is-it-for" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--matrix ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">12 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Who Is It For?</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-items"} -->
+<div class="wp-block-group ftt-rd-items">
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">01</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Brokers With Mobile-Heavy Audiences</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">If most of your clients come from regions where phones are the main way people access the internet, a branded app is close to essential.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">02</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Brokers Focused on Retention</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">A branded app keeps your brokerage visible and makes account management easier, which helps keep clients active.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-item ftt-rd-item--matrix"} -->
+<div class="wp-block-group ftt-rd-item ftt-rd-item--matrix">
+<!-- wp:paragraph {"className":"ftt-rd-card-index"} -->
+<p class="ftt-rd-card-index">03</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":3,"className":"ftt-rd-card-title"} -->
+<h3 class="wp-block-heading ftt-rd-card-title">Brokers Building a Stronger Brand</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Moving beyond generic third-party apps gives your brokerage a more distinct, professional identity.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--faq","tagName":"section","anchor":"frequently-asked-questions"} -->
+<section id="frequently-asked-questions" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--faq">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-side"} -->
+<div class="wp-block-group ftt-rd-side">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">13 / PRODUCT</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Frequently Asked Questions</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"className":"bs-faq-accordion ftt-rd-accordion"} -->
+<div class="wp-block-group bs-faq-accordion ftt-rd-accordion">
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Will the app work on both iPhone and Android?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. We build for both iOS and Android.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can clients trade directly in the app?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Depending on your platform and setup, yes. Some brokers prefer the app to focus on account management and link to the MetaTrader mobile app for trading. We&#039;ll explain the options during planning.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can you guarantee App Store and Google Play approval?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">No one can guarantee approval, because the decision belongs to Apple and Google. We prepare the app to meet their technical requirements and support you through the review.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Does the app connect to my CRM?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. Registrations, documents, transactions and account changes sync with your CRM.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can clients verify their identity in the app?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. Clients can upload documents using their phone camera, and verification status is shown in the app.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can the app support multiple languages?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. Multilingual support can be built in for brokers serving several regions.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Who owns the app store listings?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your brokerage. The developer accounts and listings should be in your company&#039;s name.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Do you provide updates after launch?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. We provide maintenance, bug fixes, compatibility updates and new features as your needs change.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can the app be part of a wider setup?</summary>
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Yes. It can be delivered on its own or as part of a white label, grey label or turnkey brokerage setup.</p>
+<!-- /wp:paragraph -->
+</details>
+<!-- /wp:details -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
+<!-- wp:group {"className":"alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted","tagName":"section","anchor":"put-your-brokerage-in-your-clients-pockets"} -->
+<section id="put-your-brokerage-in-your-clients-pockets" class="wp-block-group alignfull bs-section ftt-rd-section ftt-rd-section--rail ftt-rd-section--tinted">
+<!-- wp:group {"className":"bs-container ftt-rd-section-wrap"} -->
+<div class="wp-block-group bs-container ftt-rd-section-wrap">
+<!-- wp:group {"className":"ftt-rd-section-head"} -->
+<div class="wp-block-group ftt-rd-section-head">
+<!-- wp:paragraph {"className":"ftt-rd-section-index"} -->
+<p class="ftt-rd-section-index">14 / PRODUCT</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2,"className":"ftt-rd-section-title"} -->
+<h2 class="wp-block-heading ftt-rd-section-title">Put Your Brokerage in Your Clients&#039; Pockets</h2>
+<!-- /wp:heading -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"ftt-rd-section-body"} -->
+<div class="wp-block-group ftt-rd-section-body">
+<!-- wp:paragraph {"className":"bs-copy"} -->
+<p class="bs-copy">Your clients already live on their phones. A branded trading app makes sure your brokerage is one of the first things they open. Tell us about your clients, your platform and what you want the app to do, and we&#039;ll show you how we&#039;d build it.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+</section>
+<!-- /wp:group -->
