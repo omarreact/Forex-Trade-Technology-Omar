@@ -7,8 +7,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getThemePageBySlug } from '@/lib/theme-pages';
-import { SiteHeader } from '@/components/SiteHeader';
-import { SiteFooter } from '@/components/SiteFooter';
+import { InteriorPageShell } from '@/components/InteriorPageShell';
 
 export const revalidate = 86400;
 
@@ -35,14 +34,4 @@ export default function ContactPage() {
     notFound();
   }
 
-  return (
-    <div className="min-h-screen bg-white text-[#192219] flex flex-col font-sans">
-      <SiteHeader />
-      <main
-        className="flex-1 w-full ftt-page-frame"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-      <SiteFooter />
-    </div>
-  );
-}
+  return <InteriorPageShell meta={meta} html={html} />;}
