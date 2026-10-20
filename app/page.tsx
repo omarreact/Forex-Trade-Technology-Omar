@@ -11,6 +11,7 @@ import { getHomeHeroData } from '@/lib/home-hero';
 import { HomeCapabilityStrip } from '@/components/home/HomeCapabilityStrip';
 import './home-polish.css';
 import './home-hero.css';
+import './home-fullwidth.css';
 
 export const revalidate = 3600;
 

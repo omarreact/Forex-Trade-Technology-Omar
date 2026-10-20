@@ -1,5 +1,4 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import { pexels } from './pexels-photos';
 
 /**
  * Read the marketing hero and featured service slides from the verified
@@ -23,20 +22,6 @@ export interface HomeHeroSlide {
   image: string;
   alt: string;
   href: string;
-}
-
-// Generate artwork is selected only when the approved local files are present.
-// Without the files we preserve the existing live photo to avoid broken images.
-const approvedSlideArtwork = [
-  '/theme-assets/images/home-mt5-platform.avif',
-  '/theme-assets/images/home-forex-crm.avif',
-  '/theme-assets/images/home-broker-hosting.avif',
-] as const;
-function preferredSlideImage(index: number, fallback: string): string {
-  const selected = approvedSlideArtwork[index];
-  if (!selected) return fallback;
-  const fullPath = path.join(process.cwd(), 'public', selected.replace(/^\//, ''));
-  return fs.existsSync(fullPath) ? selected : fallback;
 }
 
 const serviceLinks = [
@@ -93,8 +78,8 @@ export function getHomeHeroData(heroHtml: string): {
     return {
       title: contentForClass(part, 'h3', 'ftt-slide-title'),
       summary: contentForClass(part, 'p', 'ftt-slide-summary'),
-      image: preferredSlideImage(i, src.startsWith('/theme-assets/images/') ? src : '/theme-assets/images/workstation-1200.webp'),
-      alt: decodeHtmlText(alt),
+      image: [pexels.screens.src, pexels.tradingOffice.src, pexels.dataCenter.src][i] || pexels.screens.src,
+      alt: [pexels.screens.alt, pexels.tradingOffice.alt, pexels.dataCenter.alt][i] || decodeHtmlText(alt),
       href: serviceLinks[i] || '/solutions/',
     };
   }).filter((slide) => slide.title && slide.summary);
@@ -103,21 +88,21 @@ export function getHomeHeroData(heroHtml: string): {
     {
       title: 'MT5 White Label',
       summary: 'Branded MT5 technology for a professional brokerage launch, with more control over your trading environment.',
-      image: preferredSlideImage(0, '/theme-assets/images/workstation-1200.webp'),
+      image: pexels.screens.src,
       alt: 'Technology workstation',
       href: serviceLinks[0],
     },
     {
       title: 'Forex CRM',
       summary: 'Clients, KYC, deposits, withdrawals, IBs and day-to-day operations managed from one system.',
-      image: preferredSlideImage(1, '/theme-assets/images/analytics-1200.webp'),
+      image: pexels.tradingOffice.src,
       alt: 'Analytics workstation',
       href: serviceLinks[1],
     },
     {
       title: 'Forex Broker Hosting',
       summary: 'MT4 and MT5 server infrastructure with monitoring, backups and technical support.',
-      image: preferredSlideImage(2, '/theme-assets/images/datacenter-1200.webp'),
+      image: pexels.dataCenter.src,
       alt: 'Data center equipment',
       href: serviceLinks[2],
     },

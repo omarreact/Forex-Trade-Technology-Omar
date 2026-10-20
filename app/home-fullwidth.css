@@ -1,0 +1,181 @@
+/* Full-viewport, editorial photography: the copy sits on a solid dark gradient. */
+.ftt-home .ftt-wide-hero {
+  position: relative;
+  min-height: min(860px, 90svh);
+  min-height: clamp(680px, 86svh, 870px);
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background: #111f16;
+  color: #fff;
+}
+.ftt-home .ftt-wide-hero-photos,
+.ftt-home .ftt-wide-hero-wash,
+.ftt-home .ftt-wide-hero-photo,
+.ftt-home .ftt-wide-hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ftt-home .ftt-wide-hero-photos { z-index: -1; }
+.ftt-home .ftt-wide-hero-photo { opacity: 0; visibility: hidden; transition: opacity 900ms ease, visibility 900ms ease; }
+.ftt-home .ftt-wide-hero-photo.is-active { opacity: 1; visibility: visible; }
+.ftt-home .ftt-wide-hero-photo img {
+  object-fit: cover !important;
+  object-position: 60% center !important;
+  max-width: none;
+  display: block;
+  filter: saturate(.8) contrast(1.04);
+}
+.ftt-home .ftt-wide-hero-wash {
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(8,20,12,.98) 0%, rgba(8,20,12,.96) 23%, rgba(10,22,15,.81) 47%, rgba(11,21,14,.36) 76%, rgba(11,21,14,.35) 100%),
+  linear-gradient(0deg, rgba(8,19,11,.96) 0%, transparent 45%, rgba(8,19,11,.27) 100%);
+}
+.ftt-home .ftt-wide-hero-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: min(1210px, calc(100% - 72px));
+  margin: 0 auto;
+  padding: clamp(68px, 8vh, 105px) 0 58px;
+  min-width: 0;
+}
+.ftt-home .ftt-wide-hero-copy { max-width: 750px; position: relative; z-index: 2; }
+.ftt-home .ftt-wide-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #d9f17a;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .15em;
+  font-weight: 800;
+}
+.ftt-home .ftt-wide-eyebrow span { width: 24px; height: 2px; background: #d9f17a; flex: none; }
+.ftt-home .ftt-wide-hero-copy h1 {
+  font-size: clamp(44px, 5.8vw, 82px);
+  line-height: 1.045;
+  letter-spacing: -.066em;
+  font-weight: 800;
+  max-width: 820px;
+  color: #f7faf4;
+  margin: 24px 0 0;
+  text-wrap: balance;
+}
+.ftt-home .ftt-wide-lead {
+  margin: 24px 0 0;
+  max-width: 640px;
+  color: #eff5e9;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.56;
+  font-weight: 600;
+}
+.ftt-home .ftt-wide-description {
+  max-width: 645px;
+  margin-top: 16px;
+  color: #c2d0c0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.ftt-home .ftt-wide-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 27px; }
+.ftt-home .ftt-wide-actions a {
+  min-height: 51px;
+  padding: 13px 23px;
+  border-radius: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 13px;
+  font-weight: 800;
+  transition: transform .2s ease, background .2s ease;
+}
+.ftt-home .ftt-wide-actions a:hover { transform: translateY(-2px); }
+.ftt-home .ftt-wide-button-primary { color: #18311b; background: #d9f17a; }
+.ftt-home .ftt-wide-button-primary:hover { background: #f1ffc2; }
+.ftt-home .ftt-wide-button-secondary { color: #f6faf2; border: 1px solid rgba(237,245,228,.65); background: rgba(22,39,25,.42); }
+.ftt-home .ftt-wide-button-secondary:hover { background: rgba(232,246,200,.14); }
+.ftt-home .ftt-wide-proof { color: #b9cab5; display: flex; align-items: center; gap: 8px; font-size: 12px; margin-top: 17px; font-weight: 600; }
+.ftt-home .ftt-wide-proof svg { color: #d9f17a; flex: none; }
+.ftt-home .ftt-wide-hero-lower {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 26px;
+  margin-top: 45px;
+  border-top: 1px solid rgba(226,238,213,.26);
+  padding-top: 23px;
+}
+.ftt-home .ftt-wide-current-service { max-width: 630px; }
+.ftt-home .ftt-wide-index { color: #d9f17a; font-size: 10px; letter-spacing: .14em; font-weight: 800; }
+.ftt-home .ftt-wide-service-detail { animation: ftt-hero-fade .35s ease both; }
+.ftt-home .ftt-wide-service-detail h2 { color: #fff; margin: 7px 0 4px; font-size: clamp(23px, 2.5vw, 34px); line-height: 1.17; letter-spacing: -.035em; font-weight: 800; }
+.ftt-home .ftt-wide-service-detail p { color: #c9d8c3; line-height: 1.5; font-size: 13px; max-width: 540px; }
+.ftt-home .ftt-wide-service-detail a {
+  color: #d9f17a;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 11px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.ftt-home .ftt-wide-service-detail a:hover { text-decoration: underline; }
+.ftt-home .ftt-wide-hero-controls { display: flex; align-items: center; flex: none; gap: 25px; }
+.ftt-home .ftt-wide-dots, .ftt-home .ftt-wide-arrows { display: flex; align-items: center; gap: 10px; }
+.ftt-home .ftt-wide-dots button {
+  cursor: pointer; width: 9px; height: 9px; border-radius: 20px; background: #79887b; border: 0; padding: 0; transition: background .2s ease, width .2s ease;
+}
+.ftt-home .ftt-wide-dots button.is-active { width: 29px; background: #d9f17a; }
+.ftt-home .ftt-wide-arrows button {
+  display: grid; place-items: center; width: 43px; height: 43px;
+  border: 1px solid rgba(237,244,230,.47);
+  background: rgba(17,30,19,.35);
+  color: #fff; border-radius: 100px; cursor: pointer;
+}
+.ftt-home .ftt-wide-arrows button:hover { background: #d9f17a; color: #1b291b; border-color: #d9f17a; }
+.ftt-home .ftt-wide-hero a:focus-visible,
+.ftt-home .ftt-wide-hero button:focus-visible { outline: 3px solid #d9f17a; outline-offset: 4px; }
+.ftt-home .ftt-wide-scroll-hint { display: none; }
+.ftt-home .ftt-wide-source { position: absolute; right: 19px; bottom: 7px; font-size: 9px; color: rgba(247,251,239,.67); }
+.ftt-home .ftt-wide-source a { color: inherit; text-decoration: underline; }
+@keyframes ftt-hero-fade { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 900px) {
+ .ftt-home .ftt-wide-hero { min-height: 750px; }
+ .ftt-home .ftt-wide-hero-content { width: calc(100% - 48px); padding-top: 67px; padding-bottom: 47px; }
+ .ftt-home .ftt-wide-hero-wash { background: linear-gradient(90deg, rgba(9,22,12,.98), rgba(9,22,12,.87) 50%, rgba(9,22,12,.56)), linear-gradient(0deg, rgba(9,22,12,.98), transparent 40%); }
+ .ftt-home .ftt-wide-hero-copy { max-width: 700px; }
+ .ftt-home .ftt-wide-hero-copy h1 { font-size: clamp(44px, 7vw, 65px); }
+}
+@media (max-width: 600px) {
+ .ftt-home .ftt-wide-hero { min-height: 800px; }
+ .ftt-home .ftt-wide-hero-content { width: calc(100% - 36px); padding-top: 44px; padding-bottom: 45px; }
+ .ftt-home .ftt-wide-hero-wash { background: linear-gradient(180deg, rgba(8,21,12,.94), rgba(8,21,12,.8) 58%, rgba(8,21,12,.99)), linear-gradient(90deg, rgba(8,21,12,.82), transparent); }
+ .ftt-home .ftt-wide-hero-photo img { object-position: center !important; }
+ .ftt-home .ftt-wide-hero-copy h1 { font-size: clamp(34px, 9vw, 46px); margin-top: 18px; line-height: 1.1; }
+ .ftt-home .ftt-wide-eyebrow { font-size: 10px; letter-spacing: .105em; }
+ .ftt-home .ftt-wide-lead { margin-top: 15px; font-size: 15px; line-height: 1.52; }
+ .ftt-home .ftt-wide-description { font-size: 13px; margin-top: 13px; line-height: 1.58; }
+ .ftt-home .ftt-wide-actions { margin-top: 20px; gap: 9px; }
+ .ftt-home .ftt-wide-actions a { min-height: 44px; padding: 11px 15px; font-size: 11px; gap: 9px; }
+ .ftt-home .ftt-wide-proof { font-size: 10px; margin-top: 14px; }
+ .ftt-home .ftt-wide-hero-lower { align-items: flex-start; flex-direction: column; margin-top: 28px; padding-top: 17px; gap: 16px; }
+ .ftt-home .ftt-wide-service-detail h2 { font-size: 25px; }
+ .ftt-home .ftt-wide-service-detail p { font-size: 12px; }
+ .ftt-home .ftt-wide-hero-controls { width: 100%; justify-content: space-between; }
+ .ftt-home .ftt-wide-arrows button { width: 39px; height: 39px; }
+ .ftt-home .ftt-wide-source { right: 12px; font-size: 8px; }
+}
+@media (max-width: 380px) {
+ .ftt-home .ftt-wide-hero { min-height: 850px; }
+ .ftt-home .ftt-wide-hero-copy h1 { font-size: 33px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .ftt-home .ftt-wide-hero-photo,
+ .ftt-home .ftt-wide-service-detail,
+ .ftt-home .ftt-wide-hero button,
+ .ftt-home .ftt-wide-hero a { transition: none !important; animation: none !important; }
+}
