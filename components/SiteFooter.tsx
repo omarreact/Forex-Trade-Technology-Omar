@@ -44,9 +44,6 @@ export function SiteFooter() {
               <Link href="/blog" className="hover:text-[#d9f17a] transition-colors py-1 text-[#d9f17a]">
                 Market Feed
               </Link>
-              <Link href="/" className="hover:text-[#d9f17a] transition-colors py-1 text-slate-400">
-                Command Center
-              </Link>
             </div>
           </div>
 
