@@ -32,3 +32,14 @@ export function EndFooter({design,children}:{design:VariationId;children?:ReactN
 export function PageChapters({content}:{content:VariationContent}){
  return <nav aria-label="On this page" className="v-chapters">{content.sections.slice(0,9).map(s=><a key={s.id} href={'#'+s.id}>{s.heading}</a>)}</nav>;
 }
+
+export function IntroHighlights({content}:{content:VariationContent}){
+ if(!content.highlights.length)return null;
+ return <aside className="v-highlights" aria-label="Featured brokerage services">
+   {content.highlights.map((item,index)=><div key={item.title} className="v-highlight">
+     <span>{String(index+1).padStart(2,'0')} / 03</span>
+     <h2>{item.title}</h2>
+     <p>{item.description}</p>
+   </div>)}
+ </aside>;
+}
