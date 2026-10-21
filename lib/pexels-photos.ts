@@ -90,24 +90,20 @@ export function getPagePhotos(slug: string): EditorialPhoto[] {
 }
 
 
-/**
- * Two additional context-specific choices per page.
- * The first of the six photographs is used as hero imagery; the other five
- * become a varied editorial gallery. Attribution records remain in code.
- */
-const extraPhotoKeys: Record<string, readonly [PhotoKey, PhotoKey]> = {
-  'brokerage-setup': ['codeOffice','markets'],
-  'kyc-aml-integration': ['businessMeeting','metricsMeeting'],
-  'how-it-works': ['codeLaptop','team'],
-  'forex-broker-hosting': ['serverRows','modernServers'],
-  'forex-liquidity-connectivity': ['tradingOffice','markets'],
-  'mt5-white-label': ['trader','analyst'],
-  'forex-crm': ['supportTeam','businessMeeting'],
-  'payment-gateway-integration': ['banking','phoneCharts'],
-  'prop-firm-crm-api': ['screens','strategy'],
-  'about-us': ['supportDesk','codeOffice'],
-  'contact': ['businessMeeting','team'],
-  'faq': ['meetingBoard','supportTeam'],
+/** Seven body images plus one title image per page; all remain section-led. */
+const extraPhotoKeys: Record<string, readonly [PhotoKey, PhotoKey, PhotoKey, PhotoKey]> = {
+  'brokerage-setup': ['codeOffice','markets','businessMeeting','metricsMeeting'],
+  'kyc-aml-integration': ['businessMeeting','metricsMeeting','codeMonitor','network'],
+  'how-it-works': ['codeLaptop','team','codeMonitor','support'],
+  'forex-broker-hosting': ['serverRows','modernServers','codeMonitor','team'],
+  'forex-liquidity-connectivity': ['tradingOffice','markets','network','strategy'],
+  'mt5-white-label': ['trader','analyst','markets','pointing'],
+  'forex-crm': ['supportTeam','businessMeeting','phoneCharts','laptopMarket'],
+  'payment-gateway-integration': ['banking','phoneCharts','metricsMeeting','supportLead'],
+  'prop-firm-crm-api': ['screens','strategy','phoneMarket','serverRows'],
+  'about-us': ['supportDesk','codeOffice','strategy','developer'],
+  'contact': ['businessMeeting','team','developer','laptopMarket'],
+  'faq': ['meetingBoard','supportTeam','codeMonitor','supportLead'],
 };
 
 export function getExpandedPagePhotos(slug: string): EditorialPhoto[] {

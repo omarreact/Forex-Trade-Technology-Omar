@@ -10,18 +10,10 @@ const sectionImages: Record<string, HomePhoto> = {
   'brokerage-infrastructure-you-can-rely-on': pexels.dataCenter,
 };
 const backgrounds: Record<string, HomePhoto> = {
-  solutions: pexels.meeting,
+  'how-it-works': pexels.meeting,
+  'who-we-work-with': pexels.tradingOffice,
   'why-brokers-work-with-us': pexels.metricsMeeting,
 };
-const standalone = {
-  centered: pexels.codeLaptop,
-  parallax: pexels.serverRows,
-} as const;
-
-function figure(photo: HomePhoto, className: string, label: string): string {
-  return `<figure class="${className}"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="1100" height="700" /><figcaption>${label}</figcaption></figure>`;
-}
-
 /**
  * Render-only enhancements to the source-backed Gutenberg HTML. Never change
  * words, links or source page markup files; use photography only.
@@ -58,14 +50,8 @@ export function withRealHomePhotos(html: string): string {
       const closeAt = updated.lastIndexOf(endTag);
       if (closeAt >= 0) updated = updated.slice(0, closeAt) + workflow + updated.slice(closeAt);
     }
-    if (slug === 'how-it-works') {
-      updated += figure(standalone.centered, 'ftt-home-center-photo', 'Building the systems behind your brokerage');
-    }
-    if (slug === 'who-we-serve') {
-      updated += `<section class="ftt-flow-parallax ftt-home-parallax" aria-label="Trading infrastructure image" style="--ftt-parallax-photo:url('${standalone.parallax.src}')">
-        <div class="ftt-flow-parallax-scrim" aria-hidden="true"></div>
-        <div class="ftt-flow-parallax-inner"><span class="ftt-flow-parallax-line" aria-hidden="true"></span></div>
-      </section>`;
+    if (slug === 'solutions' || slug === 'frequently-asked-questions') {
+      updated = updated.replace(/<figure\b[^>]*class="[^"]*ftt-doc-home-photo[^"]*"[\s\S]*?<\/figure>/gi, '');
     }
     return updated;
   });

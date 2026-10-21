@@ -10,6 +10,7 @@ import {OriginalCTA} from '@/components/designs/design-1-original/CTA';
 import { HomeHero } from '@/components/home/HomeHero';
 import { getHomeHeroData } from '@/lib/home-hero';
 import { withRealHomePhotos } from '@/lib/home-media';
+import { OriginalHomeInteractions } from '@/components/home/OriginalHomeInteractions';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
@@ -64,6 +65,7 @@ export default function HomePage() {
     <div className="ftt-home min-h-screen flex flex-col">
       <a className="ftt-home-skip" href="#main-content">Skip to content</a>
       <SiteHeader />
+      <OriginalHomeInteractions />
       <main id="main-content" className="ftt-home-main flex-1">
         <HomeHero intro={intro} slides={slides} />
         {rest && (

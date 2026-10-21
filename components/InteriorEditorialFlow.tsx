@@ -12,20 +12,19 @@ function splitAtSections(html: string): FlowSection[] {
   }));
 }
 
-function contentFigure(photo: EditorialPhoto, kind: 'left' | 'right' | 'center'): string {
-  const caption = kind === 'center' ? 'Real-world brokerage technology' : 'Technology in focus';
-  return `<figure class="ftt-flow-inline ftt-flow-inline--${kind}">
+function contentFigure(photo: EditorialPhoto, layout: number): string {
+  return `<figure class="ftt-flow-inline ftt-flow-inline--layout-${layout}">
     <img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="920" height="610" />
-    <figcaption><span class="ftt-flow-inline-mark" aria-hidden="true"></span>${caption}</figcaption>
+    <figcaption><span class="ftt-flow-inline-mark" aria-hidden="true"></span>${photo.credit} / Pexels</figcaption>
   </figure>`;
 }
 
-function enrichArticle(markup: string, photo: EditorialPhoto, direction: 'left' | 'right'): string | null {
+function enrichArticle(markup: string, photo: EditorialPhoto, layout: number): string | null {
   // Body wrapping is inside source article/rail; no headings or paragraphs are altered.
   if (!/ftt-rd-section--article|ftt-rd-section--rail/.test(markup)) return null;
   const open = /(<div class="[^"]*\bftt-rd-section-body\b[^"]*">)/;
   if (!open.test(markup)) return null;
-  return markup.replace(open, '$1' + contentFigure(photo, direction));
+  return markup.replace(open, '$1' + contentFigure(photo, layout));
 }
 
 function backgroundSection(markup: string, photo: EditorialPhoto): string {
@@ -39,9 +38,8 @@ function backgroundSection(markup: string, photo: EditorialPhoto): string {
 }
 
 /**
- * Five contextual images follow the hero rather than forming one large gallery.
- * Desktop positions: text-left/right, centered editorial break, soft background,
- * and reduced-motion-safe parallax panel. Small screens always stack naturally.
+ * Seven contextual photos are interleaved with seven sections, each using a
+ * distinct editorial composition. Images never collect into a gallery.
  */
 export function InteriorEditorialFlow({ html, photos }: {
   html: string;
@@ -53,39 +51,20 @@ export function InteriorEditorialFlow({ html, photos }: {
   const eligible = sections.map((section, i) => ({section, i}))
     .filter(({section}) => /ftt-rd-section--article|ftt-rd-section--rail/.test(section.markup) && /ftt-rd-section-body/.test(section.markup))
     .map(({i}) => i);
-  const leftAt = eligible[0] ?? 0;
-  const rightAt = eligible[1] ?? Math.min(2, sections.length - 1);
-  const midAt = Math.min(sections.length - 1, Math.floor(sections.length * .37));
-  const backCandidates = sections.map((x, i) => ({i, isValid: !/ftt-rd-section--cta|ftt-rd-section--form/.test(x.markup)}))
-    .filter(x => x.isValid).map(x => x.i);
-  const bgAt = backCandidates[Math.min(backCandidates.length - 1, Math.floor(backCandidates.length * .66))] ?? 0;
-  const parallaxAt = Math.min(sections.length - 2, Math.floor(sections.length * .75));
-  const [left, right, middle, backdrop, parallax] = photos;
+  const photoBySection = new Map<number, { photo: EditorialPhoto; layout: number }>();
+  eligible.slice(0, photos.length).forEach((sectionIndex, imageIndex) => {
+    photoBySection.set(sectionIndex, { photo: photos[imageIndex], layout: imageIndex + 1 });
+  });
 
   return (
     <div className="ftt-interior-flow">
       {sections.map(({markup, id}, i) => {
         let rendered = markup;
-        let leftFallback = false;
-        let rightFallback = false;
-        if (i === leftAt && left) {
-          const found = enrichArticle(rendered, left, 'left');
-          if (found) rendered = found;
-          else leftFallback = true;
-        }
-        if (i === rightAt && right) {
-          const found = enrichArticle(rendered, right, 'right');
-          if (found) rendered = found;
-          else rightFallback = true;
-        }
-        if (i === bgAt && backdrop) rendered = backgroundSection(rendered, backdrop);
+        const media = photoBySection.get(i);
+        if (media) rendered = enrichArticle(rendered, media.photo, media.layout) || rendered;
         return (
           <div className="ftt-interior-flow-entry" key={id + '-' + i}>
             <div dangerouslySetInnerHTML={{ __html: rendered }} />
-            {leftFallback && <InlineBreak photo={left} align="left" />}
-            {rightFallback && <InlineBreak photo={right} align="right" />}
-            {i === midAt && middle && <InlineBreak photo={middle} align="center" />}
-            {i === parallaxAt && parallax && <ParallaxBreak photo={parallax} />}
           </div>
         );
       })}
