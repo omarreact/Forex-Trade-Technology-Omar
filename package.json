@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "eslint .",
     "clean": "next clean",
-    "prebuild": "npm run test:variants && npm run test:designs",
+    "prebuild": "npm run test:variants && npm run test:designs && npm run test:references",
     "test:variants": "node --test tests/variants.test.mjs",
-    "test:designs": "node --test tests/designs.test.mjs"
+    "test:designs": "node --test tests/designs.test.mjs",
+    "test:references": "node --test tests/reference-visual.test.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

@@ -4,14 +4,17 @@
   "audit_date": "2026-10-21",
   "reference_css_measured": false,
   "fonts": {
-    "stack": "Trebuchet MS, Arial, Helvetica, sans-serif (implemented; reference computed font not verified)"
+    "body": "Inter, Arial, Helvetica, sans-serif",
+    "headings": "Manrope, Inter, Arial, sans-serif",
+    "weights": "Inter 300-700; Manrope 400-700",
+    "loading": "Google Fonts v20 WOFF2, font-display:swap"
   },
   "colors": {
-    "primary": "#08AACF",
-    "secondary": "#B0E8E7",
-    "accent": "#1484A1",
-    "background": "#F7F7F3",
-    "text": "#202A30"
+    "primary": "#F8F9FC",
+    "secondary": "#EAF2FA",
+    "accent": "#00A7DC",
+    "background": "#FFFFFF",
+    "text": "#1C2938"
   },
   "components": {
     "header": "Short white header with narrow Products/Solutions dropdowns and quiet outline contact action",
@@ -24,5 +27,7 @@
   },
   "responsive": "Friendly bento keeps two mini tiles while content stories collapse to full width",
   "animation": "Simple hover actions and reduced-motion overrides",
-  "implementation": "app/design-6-uptrader.css"
+  "implementation": "components/designs/design-6-uptrader/HomeSpotlight.tsx + app/reference-6.css",
+  "reference_audit": "Supplied reference screenshot analyzed on 2026-10-22; color values are approximations, not computed original CSS",
+  "screenshot_correction": "Actual screenshot is light gray/white with blue accents, large dashboard screenshots and alternating CRM feature walkthrough. Replaced warm photographic bento with original CSS responsive CRM dashboards, product feature walkthrough, sequential setup links and compact system descriptions."
 }

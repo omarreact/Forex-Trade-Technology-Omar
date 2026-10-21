@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
+import HomeSpotlight from './HomeSpotlight';
 import {Action,ChapterHeading,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 
 const design='design-2' as const;
@@ -21,7 +22,6 @@ function Hero({content}:{content:VariationContent}){
 }
 function Story({content}:{content:VariationContent}){
  return <div id="c2-content" className="c2-content">
- {content.home&&<div className="c2-product-strip">{content.highlights.map((h,i)=><article key={i}><small>0{i+1}</small><h2>{h.title}</h2><p>{h.description}</p></article>)}</div>}
  <div className="c2-chapters">
  {content.sections.map((section,i)=><section className={'c2-chapter c2-chapter--'+i%3} key={section.id} id={section.id}>
   <div className="c2-chapter-title"><ChapterHeading section={section}/></div>
@@ -39,4 +39,4 @@ function Footer(){
  <div><h3>Products</h3><SectionsNav design={design} filter="products"/></div>
  <div><h3>Company</h3><SectionsNav design={design} filter="company"/></div></div><Legal design={design}/></footer>;
 }
-export default function MatchTradeProposal({content}:{content:VariationContent}){return <div className="concept c2"><Header/><main><Hero content={content}/><Story content={content}/></main><CTA content={content}/><Footer/></div>;}
+export default function MatchTradeProposal({content}:{content:VariationContent}){return <div className="concept c2"><Header/><main>{content.home?<HomeSpotlight content={content}/>:<Hero content={content}/>}<Story content={content}/></main><CTA content={content}/><Footer/></div>;}

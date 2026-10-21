@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
+import HomeSpotlight from './HomeSpotlight';
 import {Action,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 const design='design-4' as const;
 function Header(){return <><div className="c4-ribbon">FOREX TRADE TECHNOLOGY <span>TRADING SYSTEMS / INTEGRATIONS / HOSTING</span></div>
@@ -17,7 +18,6 @@ function Hero({content}:{content:VariationContent}){
 function Journey({content}:{content:VariationContent}){
  const sections=content.sections;
  return <div className="c4-content" id="c4-journey">
- {content.home&&<div className="c4-benefits"><h2>Solutions across the brokerage stack.</h2><div>{content.highlights.map((h,i)=><article key={i}><span>0{i+1} / DISCOVER</span><h3>{h.title}</h3><p>{h.description}</p></article>)}</div></div>}
  {sections.map((s,i)=><section id={s.id} className={'c4-feature c4-feature-'+i%4} key={s.id}>
   {i%2===0&&<div className="c4-side-media"><SegmentPhoto page={content} index={i+1} className="c4-photo"/><span className="c4-photo-tag">FOREX TRADE TECHNOLOGY / 0{i+1}</span></div>}
   <article className="c4-feature-copy"><span className="c4-number">0{i+1} / SOLUTIONS</span><h2>{s.heading}</h2><HtmlSection section={s}/></article>
@@ -30,4 +30,4 @@ function CTA({content}:{content:VariationContent}){
 function Footer(){
  return <footer className="c4-footer"><div className="c4-foot-first"><SiteMark design={design}/><strong>Forex technology with the systems behind it.</strong></div><div className="c4-foot-second"><div><h3>Solutions</h3><SectionsNav design={design} filter="solutions"/></div><div><h3>Products</h3><SectionsNav design={design} filter="products"/></div><div><h3>Explore</h3><SectionsNav design={design} filter="company"/></div></div><Legal design={design}/></footer>;
 }
-export default function LeverateProposal({content}:{content:VariationContent}){return <div className="concept c4"><Header/><main><Hero content={content}/><Journey content={content}/></main><CTA content={content}/><Footer/></div>;}
+export default function LeverateProposal({content}:{content:VariationContent}){return <div className="concept c4"><Header/><main>{content.home?<HomeSpotlight content={content}/>:<Hero content={content}/>}<Journey content={content}/></main><CTA content={content}/><Footer/></div>;}

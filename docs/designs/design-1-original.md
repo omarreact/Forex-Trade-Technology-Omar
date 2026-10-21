@@ -26,3 +26,13 @@ Existing deployed site and source Gutenberg HTML are the baseline; pixel preserv
 
 ## Verification limitations
 Reference screenshots and exact computed CSS/fonts were **not directly captured** in this session. Treat the reference similarities as verified at a *conceptual/content level*, not pixel-matched. The repo preview build/CI results and actual browser screenshots are required before production acceptance. Do not use copyrighted competitor brand/media/code.
+
+
+## 2026-10-22 screenshot-driven correction (supersedes earlier color/layout interpretation)
+
+Design 1 remains the source-Gutenberg editorial design with compact full-panel slider, full-width content sections, capped photography and image lightbox. The homepage and interiors now use Inter body and Manrope headings. No empty fixed article rails.
+
+- **Typography:** Inter (body and controls, 300–700), Manrope (headings, 400–700), using user-supplied Google Fonts v20 WOFF2 files with swap loading. Alternative fallbacks are system sans-serif.
+- **Evidence:** Full-page desktop screenshot supplied by the project owner. Colors are approximate sampled interpretations, not exact computed CSS. Direct reference CSS, screenshot filenames and assets were not downloaded to GitHub.
+- **Photography/UI licensing:** UI preview components are our own CSS/React illustrations; Pexels images remain in their original license-tracked source map and competitor screenshots are not reused in code.
+- **QA:** GitHub Actions runs structural regression tests, TypeScript, ESLint, Next.js build and 78 routes × six screen widths, plus full-page screenshots for six homepages and three matching interior pages. No claim about mobile fidelity to competitors whose screenshots were desktop-only.

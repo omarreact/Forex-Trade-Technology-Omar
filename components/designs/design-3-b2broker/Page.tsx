@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
+import HomeSpotlight from './HomeSpotlight';
 import {Action,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 const design='design-3' as const;
 function Header(){
@@ -19,7 +20,6 @@ function Hero({content}:{content:VariationContent}){
 }
 function Body({content}:{content:VariationContent}){
  return <div id="c3-sections" className="c3-content"><div className="c3-content-head"><small>CAPABILITIES / FOREX TRADE TECHNOLOGY</small><h2>Systems designed to work together.</h2></div>
- {content.home&&<div className="c3-tiles">{content.highlights.map((h,i)=><article key={i} className={'c3-tile c3-tile-'+i}><span>0{i+1}/ TECHNOLOGY</span><h3>{h.title}</h3><p>{h.description}</p></article>)}</div>}
  {content.sections.map((section,i)=><section id={section.id} className={'c3-section c3-section-'+i%3} key={section.id}>
  <div className="c3-left"><span>{String(i+1).padStart(2,'0')} / {String(content.sections.length).padStart(2,'0')}</span>{i%3===2&&<SegmentPhoto page={content} index={i+2} className="c3-inset-photo"/>}</div>
  <div className="c3-text"><h2>{section.heading}</h2><HtmlSection section={section}/></div>
@@ -34,4 +34,4 @@ function Footer(){
  <div className="c3-footer-cols"><div><h3>Solutions</h3><SectionsNav design={design} filter="solutions"/></div><div><h3>Products & Technology</h3><SectionsNav design={design} filter="products"/></div><div><h3>Company & Contact</h3><SectionsNav design={design} filter="company"/></div></div>
  <div className="c3-foot-meta"><Legal design={design}/></div></footer>;
 }
-export default function B2BrokerProposal({content}:{content:VariationContent}){return <div className="concept c3"><Header/><main><Hero content={content}/><Body content={content}/></main><CTA content={content}/><Footer/></div>;}
+export default function B2BrokerProposal({content}:{content:VariationContent}){return <div className="concept c3"><Header/><main>{content.home?<HomeSpotlight content={content}/>:<Hero content={content}/>}<Body content={content}/></main><CTA content={content}/><Footer/></div>;}

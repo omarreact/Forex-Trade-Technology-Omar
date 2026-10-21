@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
+import HomeSpotlight from './HomeSpotlight';
 import {Action,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 const design='design-5' as const;
 function Header(){
@@ -19,7 +20,6 @@ function Hero({content}:{content:VariationContent}){
 }
 function Infrastructure({content}:{content:VariationContent}){
  return <div className="c5-sections" id="c5-sections">
- {content.home&&<section className="c5-brief"><span>INTEGRATED SERVICES</span><div>{content.highlights.map((h,i)=><article key={i}><strong>0{i+1}</strong><h2>{h.title}</h2><p>{h.description}</p></article>)}</div></section>}
  {content.sections.map((s,i)=><section id={s.id} className={'c5-unit c5-unit-'+i%4} key={s.id}>
   <div className="c5-unit-head"><span>MODULE / {String(i+1).padStart(2,'0')}</span><h2>{s.heading}</h2></div>
   <div className="c5-unit-body"><HtmlSection section={s}/></div>
@@ -34,4 +34,4 @@ function Footer(){
  return <footer className="c5-footer"><div className="c5-footer-inner"><div className="c5-footer-lead"><SiteMark design={design}/><p>Software and infrastructure for modern broker operations.</p></div>
  <div className="c5-footer-directory"><section><h3>&#47;&#47; Solutions</h3><SectionsNav design={design} filter="solutions"/></section><section><h3>&#47;&#47; Products</h3><SectionsNav design={design} filter="products"/></section><section><h3>&#47;&#47; Information</h3><SectionsNav design={design} filter="company"/></section></div></div><Legal design={design}/></footer>;
 }
-export default function SoftFxProposal({content}:{content:VariationContent}){return <div className="concept c5"><Header/><main><Hero content={content}/><Infrastructure content={content}/></main><CTA content={content}/><Footer/></div>;}
+export default function SoftFxProposal({content}:{content:VariationContent}){return <div className="concept c5"><Header/><main>{content.home?<HomeSpotlight content={content}/>:<Hero content={content}/>}<Infrastructure content={content}/></main><CTA content={content}/><Footer/></div>;}
