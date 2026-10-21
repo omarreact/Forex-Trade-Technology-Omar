@@ -15,18 +15,18 @@ function paragraphTexts(html:string){return [...html.matchAll(/<p\b[^>]*>([\s\S]
 function cleanMarkup(html:string){
   // Strip legacy design classes and inline presentation so each React variation owns its design.
   // Keep semantic content, linked sources, alt text, lists, tables, forms and native FAQ details.
-  return html.replace(/<!--\\s*[\\s\\S]*?-->/g,'')
-    .replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi,'')
-    .replace(/\\sclass=(["'])(.*?)\\1/gi, (_match,_quote,classes:string)=>{
+  return html.replace(/<!--\s*[\s\S]*?-->/g,'')
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'')
+    .replace(/\sclass=(["'])(.*?)\1/gi, (_match,_quote,classes:string)=>{
       if(/bs-honeypot/.test(classes))return ' data-v-honeypot="yes"';
       if(/ftt-content-grid|bs-steps-grid|bs-adv-grid|ftt-doc-card-grid|bs-card-grid/.test(classes))return ' data-v-grid="yes"';
       if(/ftt-content-card|bs-card|ftt-doc-card|bs-step-card/.test(classes))return ' data-v-card="yes"';
       if(/bs-contact-form/.test(classes))return ' class="bs-contact-form"';
       return '';
     })
-    .replace(/\\s(?:style|on\\w+)=("[^"]*"|'[^']*')/gi,'')
-    .replace(/<img\\b/gi,'<img loading="lazy" decoding="async"')
-    .replace(/href=("|')\\/(?!\\/)/g,'href=$1/__VARIANT__/');
+    .replace(/\s(?:style|on\w+)=("[^"]*"|'[^']*')/gi,'')
+    .replace(/<img\b/gi,'<img loading="lazy" decoding="async"')
+    .replace(/href=("|')\/(?!\/)/g,'href=$1/__VARIANT__/');
 
 }
 function sectionsOf(html:string){
