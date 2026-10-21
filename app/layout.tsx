@@ -16,6 +16,13 @@ import './design-4-leverate.css';
 import './design-5-softfx.css';
 import './design-6-uptrader.css';
 import './design-1-original-cta.css';
+import './fonts-reference.css';
+import './design-1-compact.css';
+import './reference-2.css';
+import './reference-3.css';
+import './reference-4.css';
+import './reference-5.css';
+import './reference-6.css';
 import { DesignSwitcher } from '@/components/DesignSwitcher';
 import {ContactFormHandler} from '@/components/variants/ContactFormHandler';
 
