@@ -8,7 +8,7 @@ const widthList=[1440,1280,1024,768,390,360];
 const screenshots=path.resolve('artifacts/design-screenshots');
 fs.mkdirSync(screenshots,{recursive:true});
 const errors=[];
-const slugify=s=>s.replace(/^\\/|\\/$/g,'').replace(/\\//g,'-')||'home';
+const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
 (async()=>{
  const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
  try{
@@ -31,7 +31,7 @@ const slugify=s=>s.replace(/^\\/|\\/$/g,'').replace(/\\//g,'-')||'home';
        const b=document.body,doc=document.documentElement;
        const w=Math.max(b.scrollWidth,doc.scrollWidth);
        const footer=document.querySelector('footer');
-       const cta=[...document.querySelectorAll('section')].find(e=>e.classList.contains('ftt-original-cta')||/\\bc[2-6]-cta\\b/.test(e.className));
+       const cta=[...document.querySelectorAll('section')].find(e=>e.classList.contains('ftt-original-cta')||/\bc[2-6]-cta\b/.test(e.className));
        return {w,ctaBeforeFooter:!!cta&&!!footer&&!!(cta.compareDocumentPosition(footer)&Node.DOCUMENT_POSITION_FOLLOWING)};
       });
       if(result.w>width+2)throw Error('Horizontal overflow '+result.w+'>'+width);
