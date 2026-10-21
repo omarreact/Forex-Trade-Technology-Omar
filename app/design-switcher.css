@@ -1,0 +1,84 @@
+/* Minimal, always-visible design selector across the existing site and all 78 variants. */
+:root { --ftt-switcher-height: 49px; }
+.ftt-design-switcher {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  box-sizing: border-box;
+  display: flex;
+  min-height: var(--ftt-switcher-height);
+  width: 100%;
+  align-items: center;
+  gap: clamp(12px, 2.5vw, 36px);
+  padding: 5px clamp(14px, 3vw, 42px);
+  background: #102019;
+  border-bottom: 1px solid #344c36;
+  color: #f2f8f2;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0 3px 18px #0a1a1225;
+}
+.ftt-design-switcher__label {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+.ftt-design-switcher__dot { width: 7px; height: 7px; border-radius: 50%; background: #d9f17a; }
+.ftt-design-switcher__nav {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(4px, 1vw, 10px);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.ftt-design-switcher__link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px clamp(10px, 1.3vw, 19px);
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: #e5f0e6 !important;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none !important;
+  transition: background .15s ease;
+}
+.ftt-design-switcher__link:hover { background: #2b4435; }
+.ftt-design-switcher__link.is-active,
+.ftt-design-switcher__link[aria-current="page"] {
+  border-color: #bedb8b;
+  background: #e2f6b6;
+  color: #173422 !important;
+}
+.ftt-design-switcher :is(a):focus-visible {
+  outline: 3px solid #d9f17a;
+  outline-offset: 2px;
+}
+.ftt-site-header {
+  top: var(--ftt-switcher-height) !important;
+}
+@media(max-width: 760px) {
+  :root { --ftt-switcher-height: 44px; }
+  .ftt-design-switcher { gap: 10px; padding: 4px 10px; }
+  .ftt-design-switcher__label { font-size: 0; gap: 0; }
+  .ftt-design-switcher__dot { height: 9px; width: 9px; }
+  .ftt-design-switcher__nav { justify-content: flex-start; }
+  .ftt-design-switcher__link { min-height: 34px; padding: 7px 11px; font-size: 11px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .ftt-design-switcher__link { transition: none; }
+}
