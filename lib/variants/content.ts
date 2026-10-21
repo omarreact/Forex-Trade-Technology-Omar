@@ -29,9 +29,26 @@ function cleanMarkup(html:string){
     .replace(/href=("|')\/(?!\/)/g,'href=$1/__VARIANT__/');
 
 }
+/** Capture top-level source sections without losing text to nested sections. */
 function sectionsOf(html:string){
-  const sections=[...html.matchAll(/<section\b[^>]*>[\s\S]*?<\/section>/gi)].map(m=>m[0]);
-  return sections.length?sections:[html];
+  const result:string[]=[];
+  const tags=/<\\/?section\\b[^>]*>/gi;
+  let depth=0;
+  let sectionStart=-1;
+  let match:RegExpExecArray|null;
+  while((match=tags.exec(html))!==null){
+    if(/^<section\\b/i.test(match[0])){
+      if(depth===0)sectionStart=match.index;
+      depth++;
+    }else if(depth>0){
+      depth--;
+      if(depth===0&&sectionStart>=0){
+        result.push(html.slice(sectionStart,tags.lastIndex));
+        sectionStart=-1;
+      }
+    }
+  }
+  return result.length?result:[html];
 }
 export function resolveVariationPage(route:string,design:VariationId):VariationContent|null{
   const meta=getAllThemePages().find(p=>p.route.replace(/\/$/,'')===route.replace(/\/$/,''))||null;
