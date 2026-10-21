@@ -1,0 +1,63 @@
+/* Source-backed photographs with an always-present original software interface beneath.
+   A remote image failure cannot leave 30–50% of any chapter empty. */
+.concept figure.concept-visual-media{position:relative;isolation:isolate;display:block;overflow:hidden;background:#14283d!important;min-height:170px;max-height:255px;height:clamp(178px,18vw,245px)!important;box-shadow:none!important;border-radius:8px}
+.concept figure.concept-visual-media>img{position:absolute;inset:0;width:100%;height:100%!important;max-height:none!important;z-index:2;object-fit:cover;filter:saturate(.8) contrast(1.03)}
+.concept figure.concept-visual-media:after{content:'';z-index:3;position:absolute;inset:45% 0 0;background:linear-gradient(0deg,#07121bd9,transparent);pointer-events:none}
+.concept figure.concept-visual-media .concept-media-system{position:absolute;inset:0;z-index:1;color:#2bc6d2;display:flex;flex-direction:column;padding:16px 18px;justify-content:space-between;background:radial-gradient(circle at 75% 40%,#2bc6d21f,transparent 60%),linear-gradient(125deg,#112e43,#0b1726)}
+.concept figure.concept-visual-media .concept-media-system-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:9px;letter-spacing:.1em;color:#b6ebf0}
+.concept figure.concept-visual-media .concept-media-system svg{width:100%;height:56%;color:#2bc6d2}
+.concept figure.concept-visual-media .concept-media-system-bottom{display:flex;gap:15px;font-size:10px;font-weight:700;letter-spacing:.13em;color:#d4f7f3}
+.concept figure.concept-visual-media figcaption{position:absolute;z-index:4;bottom:13px;left:17px;right:15px;display:grid;gap:4px;color:white;font:500 12px "Inter",sans-serif}
+.concept figure.concept-visual-media figcaption strong{font:700 clamp(14px,1.3vw,18px) "Manrope",sans-serif;line-height:1.2}
+.concept figure.concept-visual-media figcaption span{font-size:10px;color:#d2e3e5}
+.c2 figure.concept-visual-media{border-radius:4px!important;background:#11253b!important}
+.c2 figure.concept-visual-media .concept-media-system{background:linear-gradient(120deg,#102334,#173f50)}
+.c2 figure.concept-visual-media .concept-media-system svg{color:#36cadc}
+.c3 figure.concept-visual-media{border-radius:2px!important;background:#f3f7f8!important}
+.c3 figure.concept-visual-media .concept-media-system{background:linear-gradient(140deg,#17617d,#022f49);color:#bbf5e1}
+.c3 figure.concept-visual-media .concept-media-system svg{color:#72d8ab}
+.c4 figure.concept-visual-media{border-radius:7px!important;background:#fcf2f0!important}
+.c4 figure.concept-visual-media .concept-media-system{background:linear-gradient(135deg,#43313b,#f1685680),#a44840}
+.c4 figure.concept-visual-media .concept-media-system svg{color:#ffd5ca}
+.c5 figure.concept-visual-media{border-radius:0!important;border:1px solid #385b3e!important;background:#101512!important}
+.c5 figure.concept-visual-media .concept-media-system{background:linear-gradient(135deg,#1b211d,#0c0f0c)}
+.c5 figure.concept-visual-media .concept-media-system svg{color:#89dd65}
+.c5 figure.concept-visual-media .concept-media-system-top{color:#a1c48b}
+.c6 figure.concept-visual-media{border-radius:8px!important;background:#e8f3f9!important}
+.c6 figure.concept-visual-media .concept-media-system{background:linear-gradient(125deg,#e1f5fc,#b2ddec)}
+.c6 figure.concept-visual-media .concept-media-system-top,.c6 figure.concept-visual-media .concept-media-system-bottom{color:#157996}
+.c6 figure.concept-visual-media .concept-media-system svg{color:#0aa1e2}
+.c6 figure.concept-visual-media figcaption{color:#fff}
+/* Give every chapter content a real reading width even if no media exists.
+   Designs retain their own borders/backgrounds/typography instead of sharing a layout. */
+.c2 .c2-chapter{grid-template-columns:minmax(0,1fr) minmax(230px,.62fr)!important;gap:17px 27px!important}
+.c2 .c2-chapter-title{grid-column:1/-1!important}
+.c2 .c2-chapter--2 .c2-chapter-body{grid-column:1/-1!important;column-count:1!important}
+.c2 .c2-chapter .c2-story-photo{height:210px!important}
+.c3 .c3-section{grid-template-columns:minmax(90px,.15fr) minmax(0,1fr)!important;gap:20px!important}
+.c3 .c3-section .c3-text{width:100%;max-width:1100px}
+.c3 .c3-section .c3-wide-photo{height:220px!important}
+.c4 .c4-feature{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:27px!important}
+.c4 .c4-feature .c4-side-media{height:220px!important}
+.c5 .c5-unit{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important;gap:26px!important}
+.c5 .c5-unit .c5-unit-photo{grid-column:1/-1!important;height:220px!important}
+.c6 .c6-story{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important;gap:20px!important}
+.c6 .c6-story>.c6-story-lead{grid-column:1/-1!important}
+.c6 .c6-story .c6-story-photo{height:210px!important}
+.c2 .c2-chapter,.c3 .c3-section,.c4 .c4-feature,.c5 .c5-unit,.c6 .c6-story{min-height:0!important;padding-block:clamp(25px,3vw,46px)!important}
+.concept .concept-copy [data-v-grid]{gap:10px!important}
+.concept .concept-copy [data-v-card]{min-height:0!important}
+.concept :is(.c2-chapter,.c3-section,.c4-feature,.c5-unit,.c6-story) :is(h2,h3){overflow-wrap:break-word}
+@media(max-width:800px){.c2 .c2-chapter,.c3 .c3-section,.c4 .c4-feature,.c5 .c5-unit,.c6 .c6-story{grid-template-columns:minmax(0,1fr)!important}
+.c2 .c2-chapter-title,.c3 .c3-section .c3-wide-photo,.c5 .c5-unit .c5-unit-photo,.c6 .c6-story>.c6-story-lead{grid-column:1!important}
+.c4 .c4-feature .c4-side-media{order:2}
+.c5 .c5-unit,.c6 .c6-story{display:flex!important;flex-direction:column}
+.c2 .c2-chapter .c2-story-photo,.c4 .c4-feature .c4-side-media,.c5 .c5-unit .c5-unit-photo,.c6 .c6-story .c6-story-photo{width:100%!important;height:180px!important}
+.concept figure.concept-visual-media{height:180px!important}
+}
+/* Original layout: photographic failures no longer show anonymous pale empty rectangles.
+   This intentionally styles only errored figures, leaving genuine photographs untouched. */
+.ftt-home .ftt-home-editorial figure.ftt-photo-missing,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing{position:relative;overflow:hidden;background:radial-gradient(circle at 70% 45%,#b5d7a568,#ecf2e7 75%)!important;min-height:140px;max-height:220px;border:1px solid #d4e5d3;border-radius:9px!important}
+.ftt-home .ftt-home-editorial figure.ftt-photo-missing:before,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing:before{content:'';display:block;position:absolute;inset:16px 16px 36px;opacity:.4;background:repeating-linear-gradient(90deg,transparent 0 38px,#2d72452f 39px 40px),repeating-linear-gradient(0deg,transparent 0 28px,#2d72452f 29px 30px);pointer-events:none}
+.ftt-home .ftt-home-editorial figure.ftt-photo-missing:after,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing:after{content:'FOREX TRADE TECHNOLOGY  /  BROKER INFRASTRUCTURE';display:block;position:absolute;bottom:14px;left:14px;right:14px;font:700 10px "Inter",sans-serif;letter-spacing:.11em;color:#376341}
+.ftt-home .ftt-home-editorial figure.ftt-photo-missing img,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing img{display:none!important}
