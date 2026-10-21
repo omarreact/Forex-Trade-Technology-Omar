@@ -18,11 +18,11 @@ function Hero({content}:{content:VariationContent}){
 }
 function Journey({content}:{content:VariationContent}){
  const sections=content.sections;
- return <div className="c4-content" id="c4-journey">
+ return <div className={'c4-content'+(content.home?' c4-content--home':'')} id="c4-journey">
  {sections.map((s,i)=><section id={s.id} className={'c4-feature c4-feature-'+i%4} key={s.id}>
-  {i%2===0&&<div className="c4-side-media"><SegmentPhoto page={content} index={i+1} className="c4-photo"/><span className="c4-photo-tag">FOREX TRADE TECHNOLOGY / 0{i+1}</span></div>}
-  <article className="c4-feature-copy"><span className="c4-number">0{i+1} / SOLUTIONS</span><h2>{s.heading}</h2><HtmlSection section={s}/></article>
-  {i%2!==0&&<div className="c4-side-media"><SegmentPhoto page={content} index={i+1} className="c4-photo"/><span className="c4-photo-tag">TECHNOLOGY / SERVICES</span></div>}
+  <div className="c4-feature-head"><span className="c4-number">0{i+1} / TECHNOLOGY</span><h2>{s.heading}</h2></div>
+  {i%3!==2&&<div className="c4-side-media"><SegmentPhoto page={content} index={i+1} className="c4-photo"/></div>}
+  <article className="c4-feature-copy"><HtmlSection section={s}/></article>
  </section>)}</div>;
 }
 function CTA({content}:{content:VariationContent}){
