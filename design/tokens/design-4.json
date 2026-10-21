@@ -1,0 +1,28 @@
+{
+  "design": "design-4",
+  "reference": "https://leverate.com/",
+  "audit_date": "2026-10-21",
+  "reference_css_measured": false,
+  "fonts": {
+    "stack": "Arial, Helvetica, sans-serif (implemented; reference computed font not verified)"
+  },
+  "colors": {
+    "primary": "#4825AC",
+    "secondary": "#E2CAFF",
+    "accent": "#EAFF82",
+    "background": "#F7F5FF",
+    "text": "#1D173B"
+  },
+  "components": {
+    "header": "Dark brand ribbon + floating white rounded header, contextual product dropdowns",
+    "hero": "Gradient light-lilac artboard with one huge rotated photo and a second offset photo, glass label",
+    "sections": "Alternating photo/word service stories; soft-lilac three-way service cards",
+    "photos": "Real Pexels photos presented as energetic asymmetric stacks and pill-shaped crops",
+    "buttons": "Neon lime/violet high-contrast round pills",
+    "cta": "Oversized violet curved gradient panel with blurred ornamental orb",
+    "footer": "Violet strong-heading + three-column nested links"
+  },
+  "responsive": "Hero stacks with compact visual collage; content photo/card stacks",
+  "animation": "Soft float transform and gentle link microinteraction, reduced-motion overrides",
+  "implementation": "app/design-4-leverate.css"
+}
