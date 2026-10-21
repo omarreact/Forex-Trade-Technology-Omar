@@ -61,3 +61,17 @@
 .ftt-home .ftt-home-editorial figure.ftt-photo-missing:before,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing:before{content:'';display:block;position:absolute;inset:16px 16px 36px;opacity:.4;background:repeating-linear-gradient(90deg,transparent 0 38px,#2d72452f 39px 40px),repeating-linear-gradient(0deg,transparent 0 28px,#2d72452f 29px 30px);pointer-events:none}
 .ftt-home .ftt-home-editorial figure.ftt-photo-missing:after,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing:after{content:'FOREX TRADE TECHNOLOGY  /  BROKER INFRASTRUCTURE';display:block;position:absolute;bottom:14px;left:14px;right:14px;font:700 10px "Inter",sans-serif;letter-spacing:.11em;color:#376341}
 .ftt-home .ftt-home-editorial figure.ftt-photo-missing img,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing img{display:none!important}
+
+/* Final screenshot review: three source decorative photo placeholders were still
+   reserving pale empty boxes next to otherwise complete editorial content.
+   Do not hide approved text, only these nonessential visual figures. */
+.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions)>.bs-container{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions)>.bs-container>figure.ftt-doc-home-photo,
+.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions)>.bs-container>.ftt-doc-home-photo{display:none!important}
+.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions)>.bs-container>:not(figure){grid-column:1/-1!important;grid-row:auto!important;min-width:0!important;max-width:none!important}
+.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions) .ftt-content-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;width:100%!important}
+.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions) .ftt-content-card{border:1px solid #e0e8da!important;transition:box-shadow .18s ease,transform .18s ease}
+.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions) .ftt-content-card:hover{transform:translateY(-2px);box-shadow:0 7px 20px #1b3c2212!important}
+@media(max-width:850px){.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions) .ftt-content-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions) .ftt-content-grid{grid-template-columns:minmax(0,1fr)!important}}
+@media(prefers-reduced-motion:reduce){.ftt-home .ftt-home-editorial .ftt-content-card{transition:none!important}}
