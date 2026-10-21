@@ -8,7 +8,6 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { HomeHero } from '@/components/home/HomeHero';
 import { getHomeHeroData } from '@/lib/home-hero';
-import { HomeCapabilityStrip } from '@/components/home/HomeCapabilityStrip';
 import { withRealHomePhotos } from '@/lib/home-media';
 import './home-polish.css';
 import './home-fullwidth.css';
@@ -70,7 +69,6 @@ export default function HomePage() {
       <SiteHeader />
       <main id="main-content" className="ftt-home-main flex-1">
         <HomeHero intro={intro} slides={slides} />
-        {rest && <HomeCapabilityStrip />}
         {rest && (
           <div
             className="ftt-home-editorial ftt-page-frame"
