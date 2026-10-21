@@ -107,6 +107,20 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
    await fallbackPage.goto(base+'/',{waitUntil:'domcontentloaded',timeout:35000});
    await fallbackPage.waitForFunction(()=>document.querySelector('.ftt-home-editorial figure img')?.closest('figure')?.className.includes('ftt-photo-fallback--'),{timeout:10000});
    const fallbackKinds=await fallbackPage.evaluate(()=>{
+    const home=document.querySelector('.ftt-home-editorial');
+    // The real homepage has fewer than four photos. Add disposable figures so
+    // this check exercises every supported fallback without changing page copy.
+    const fixture=document.createElement('div');
+    fixture.dataset.fallbackFixture='true';
+    fixture.style.cssText='position:absolute;left:-10000px;top:0;width:1px;height:1px;overflow:hidden';
+    for(let index=0;index<4;index++){
+     const figure=document.createElement('figure');
+     const image=document.createElement('img');
+     image.src='data:image/png;base64,not-an-image';
+     image.alt='fallback test fixture';
+     figure.append(image);fixture.append(figure);
+    }
+    home.append(fixture);
     const images=[...document.querySelectorAll('.ftt-home-editorial figure img')];
     images.forEach(img=>img.dispatchEvent(new Event('error',{bubbles:true})));
     const figures=[...document.querySelectorAll('figure.ftt-photo-missing')];
