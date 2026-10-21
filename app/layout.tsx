@@ -10,18 +10,18 @@ import './doc-refresh-2026.css';
 export const metadata: Metadata = {
   title: 'Forex Trade Technology | Brokerage Technology & FinTech Infrastructure',
   description:
-    'Launch and scale your forex brokerage with MT5 and MT4 white label solutions, CRM, liquidity, hosting, APIs and complete brokerage technology.',
+    'MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms. Plan your trading infrastructure with our team.',
   openGraph: {
     title: 'Forex Trade Technology | Brokerage Solutions',
     description:
-      'Launch and scale your forex brokerage with MT5 and MT4 white label solutions, CRM, liquidity, hosting, APIs and complete brokerage technology.',
+      'MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms. Plan your trading infrastructure with our team.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Forex Trade Technology | Brokerage Solutions',
     description:
-      'Launch and scale your forex brokerage with MT5 and MT4 white label solutions, CRM, liquidity, hosting, APIs and complete brokerage technology.',
+      'MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms. Plan your trading infrastructure with our team.',
   },
 };
 
