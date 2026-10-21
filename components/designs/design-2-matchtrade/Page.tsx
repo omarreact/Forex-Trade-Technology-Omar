@@ -20,13 +20,12 @@ function Hero({content}:{content:VariationContent}){
  </div><div className="c2-visual c2-visual--interactive"><TradingDesk/></div></section>;
 }
 function Story({content}:{content:VariationContent}){
- return <div id="c2-content" className="c2-content">
+ return <div id="c2-content" className={'c2-content'+(content.home?' c2-content--home':'')}>
  <div className="c2-chapters">
- {content.sections.map((section,i)=><section className={'c2-chapter c2-chapter--'+i%3} key={section.id} id={section.id}>
+ {content.sections.map((section,i)=>section.id==='trust'?<aside id={section.id} key={section.id} className="c2-tech-strip"><HtmlSection section={section}/></aside>:<section className={'c2-chapter c2-chapter--'+i%3} key={section.id} id={section.id}>
   <div className="c2-chapter-title"><ChapterHeading section={section}/></div>
-  {i%3===1&&<SegmentPhoto page={content} index={i+1} className="c2-story-photo"/>}
+  {i%3!==2&&<SegmentPhoto page={content} index={i+1} className="c2-story-photo"/>}
   <div className="c2-chapter-body"><HtmlSection section={section}/></div>
-  {i%3===0&&<SegmentPhoto page={content} index={i+1} className="c2-story-photo"/>}
  </section>)}</div></div>;
 }
 function CTA({content}:{content:VariationContent}){

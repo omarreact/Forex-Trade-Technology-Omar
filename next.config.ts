@@ -1,6 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // Keep traced output rooted at this app when a user-level package-lock.json
+  // exists above the checkout (for example in a desktop workspace).
+  outputFileTracingRoot: process.cwd(),
   // The editor-backed page HTML is read from disk by server components.
   // Vercel otherwise may omit these public files from ISR/function traces.
   outputFileTracingIncludes: {

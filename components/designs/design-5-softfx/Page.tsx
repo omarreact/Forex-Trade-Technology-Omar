@@ -19,12 +19,12 @@ function Hero({content}:{content:VariationContent}){
  <div className="c5-hero-system c5-hero-system--interactive"><InfrastructureTerminal/></div></section>;
 }
 function Infrastructure({content}:{content:VariationContent}){
- return <div className="c5-sections" id="c5-sections">
- {content.sections.map((s,i)=><section id={s.id} className={'c5-unit c5-unit-'+i%4} key={s.id}>
+ return <div className={'c5-sections'+(content.home?' c5-sections--home':'')} id="c5-sections">
+ {content.sections.map((s,i)=>s.id==='trust'?<aside id={s.id} key={s.id} className="c5-tech-strip"><HtmlSection section={s}/></aside>:<section id={s.id} className={'c5-unit c5-unit-'+i%4} key={s.id}>
   <div className="c5-unit-head"><span>MODULE / {String(i+1).padStart(2,'0')}</span><h2>{s.heading}</h2></div>
-  <div className="c5-unit-body"><HtmlSection section={s}/></div>
   {i%2===0&&<SegmentPhoto page={content} index={i+1} className="c5-unit-photo"/>}
-  {i%4===3&&<div className="c5-connection" aria-hidden="true"><span>FLEXIBLE CONFIGURATION</span><i/><span>SYSTEM INTEGRATION</span></div>}
+  <div className="c5-unit-body"><HtmlSection section={s}/></div>
+  {i%4===3&&<div className="c5-connection" aria-hidden="true"><span>PLATFORM TECHNOLOGY</span><i/><span>SYSTEM INTEGRATION</span></div>}
  </section>)}</div>;
 }
 function CTA({content}:{content:VariationContent}){

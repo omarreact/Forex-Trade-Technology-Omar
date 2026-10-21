@@ -2,13 +2,20 @@ import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import {Action,navSets,withDesign} from '../data';
 const d='design-2' as const;
-function TraderPhone({alt=false}:{alt?:boolean}){
- const prices=alt?['EUR/USD','GBP/USD','USD/JPY']:['XAU/USD','EUR/USD','GBP/USD'];
- return <div className={'r2-phone'+(alt?' r2-phone-alt':'')} aria-label="Illustrative mobile trading interface"><div className="r2-phone-top"><span>FOREX TRADE</span><span>•••</span></div><div className="r2-phone-balance"><small>PLATFORM PREVIEW</small><b>Market overview</b><span>Trading interface illustration</span></div><div className="r2-chart"><svg viewBox="0 0 220 100" aria-hidden="true"><path d="M0 78 L15 66 L34 75 L50 50 L70 55 L88 37 L107 48 L127 25 L145 40 L163 17 L183 27 L202 9 L220 16" fill="none" stroke={alt?'#34b8ca':'#21bd8f'} strokeWidth="3"/><path d="M0 100L0 78L15 66L34 75L50 50L70 55L88 37L107 48L127 25L145 40L163 17L183 27L202 9L220 16L220 100Z" fill={alt?'#30b6cd25':'#21bd8f25'}/></svg></div><div className="r2-rows">{prices.map((x,i)=><div key={x}><span>{x}</span><strong>{i===1?'Quotes':'Market'} ↗</strong></div>)}</div><div className="r2-phone-actions"><span>Market</span><span>Charts</span><span>Activity</span></div></div>
-}
+function TraderPhone({secondary=false}:{secondary?:boolean}){return <div className={'r2-phone'+(secondary?' r2-phone-alt':'')} aria-label="Illustrative mobile trading application">
+ <div className="r2-phone-top"><span>FOREX TRADE</span><span>•••</span></div>
+ <div className="r2-phone-balance"><small>TECHNOLOGY PREVIEW</small><b>{secondary?'Trading workspace':'Market overview'}</b><span>Illustrative app interface</span></div>
+ <div className="r2-chart"><svg viewBox="0 0 220 100" aria-hidden="true"><path d={secondary?'M0 82L21 61L45 69L60 43L80 57L111 35L131 41L155 24L186 33L220 10':'M0 78L15 66L34 75L50 50L70 55L88 37L107 48L127 25L145 40L163 17L183 27L202 9L220 16'} fill="none" stroke={secondary?'#2db6d1':'#21bd8f'} strokeWidth="3"/></svg></div>
+ <div className="r2-rows">{['EUR/USD','GBP/USD','XAU/USD'].map((item,i)=><div key={item}><span>{item}</span><strong>{i%2===0?'Charts':'Watchlist'} ↗</strong></div>)}</div>
+ <div className="r2-phone-actions"><span>Overview</span><span>Markets</span><span>Activity</span></div>
+ </div>;}
 export default function HomeSpotlight({content}:{content:VariationContent}){
- return <><section className="r2-home-hero"><div className="r2-hero-text"><small>PLATFORM & BROKERAGE TECHNOLOGY</small><h1>{content.title}</h1><p>{content.description}</p><div className="r2-hero-buttons"><Action design={d}/><Link href={withDesign(d,'/products/forex-crm/')}>Explore our products ↗</Link></div></div><div className="r2-devices"><div className="r2-device-circles" aria-hidden="true"/><TraderPhone/><TraderPhone alt/></div></section>
- <section className="r2-about"><div><small>OUR COMPANY</small><h2>Technology for connected broker operations.</h2><p>{content.lead||content.description}</p><Link href={withDesign(d,'/about-us/')}>About Forex Trade Technology ↗</Link></div><div className="r2-about-side"><span>TRADING PLATFORM</span><strong>MT5</strong><span>CRM</span><strong>API</strong><span>LIQUIDITY</span></div></section>
- <section className="r2-products"><div className="r2-section-heading"><small>PRODUCTS / INTEGRATIONS</small><h2>Explore the technology stack</h2><p>Brokerage technology services organized around your operational requirements.</p></div><div className="r2-product-track">{navSets.products.map((p,i)=><Link className="r2-product-card" key={p.slug} href={withDesign(d,p.route)}><span>0{i+1} / SOLUTION</span><div className={'r2-product-graphic r2-product-graphic-'+i%3}><div className="r2-graphic-toolbar">● ● ● <em>Platform interface illustration</em></div><div className="r2-graphic-plot"><i/><i/><i/><i/><i/><i/></div></div><strong>{p.title}</strong><span>Explore capability ↗</span></Link>)}</div></section>
- <section className="r2-offer"><div className="r2-section-heading"><small>WHAT WE OFFER</small><h2>A connected brokerage ecosystem</h2></div><div className="r2-offer-grid">{content.highlights.map((h,i)=><article key={i}><span>0{i+1}</span><h3>{h.title}</h3><p>{h.description}</p></article>)}</div></section></>;
+ return <>
+ <section className="r2-home-hero" aria-labelledby="r2-home-title">
+  <div className="r2-hero-text"><small>PLATFORM & BROKERAGE TECHNOLOGY</small><h1 id="r2-home-title">{content.title}</h1><p>{content.description}</p><div className="r2-hero-buttons"><Action design={d}/><Link href={withDesign(d,'/solutions/mt5-white-label/')}>Explore MT5 technology ↗</Link></div></div>
+  <div className="r2-devices"><div className="r2-device-circles" aria-hidden="true"/><TraderPhone/><TraderPhone secondary/></div>
+ </section>
+ <div className="r2-home-modules" aria-label="Technology overview">{content.highlights.map((h,i)=><article key={h.title}><span>0{i+1} / TECHNOLOGY</span><h2>{h.title}</h2><p>{h.description}</p></article>)}</div>
+ <section className="r2-products" aria-labelledby="r2-product-heading"><div className="r2-section-heading"><small>SOFTWARE & INFRASTRUCTURE</small><h2 id="r2-product-heading">Explore our products</h2></div><div className="r2-product-track">{navSets.products.map((p,i)=><Link className="r2-product-card" key={p.slug} href={withDesign(d,p.route)}><span>0{i+1} / SOLUTION</span><div className={'r2-product-graphic r2-product-graphic-'+i%3}><div className="r2-graphic-toolbar">● ● ● <em>Original platform illustration</em></div><div className="r2-graphic-plot"><i/><i/><i/><i/><i/><i/></div></div><strong>{p.title}</strong><span>Explore capability ↗</span></Link>)}</div></section>
+ </>;
 }

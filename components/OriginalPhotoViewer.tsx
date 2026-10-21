@@ -2,6 +2,7 @@
 import {useEffect,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
 const selector='.ftt-home-editorial figure img,.ftt-interior figure img';
+const fallbackKinds=['chart','workspace','infrastructure','integrations'] as const;
 type Photo={src:string;alt:string};
 /** Smaller article photos expand only on request; no heavyweight lightbox dependency. */
 export function OriginalPhotoViewer(){
@@ -11,6 +12,13 @@ export function OriginalPhotoViewer(){
  const isOriginal=!/^\/design-[2-6](?:\/|$)/.test(pathname);
  useEffect(()=>{
    if(!isOriginal)return;
+   const assignFallbackKind=(img:HTMLImageElement)=>{
+     const figure=img.closest('figure');
+     if(!figure||figure.classList.contains('ftt-photo-fallback--chart')||figure.classList.contains('ftt-photo-fallback--workspace')||figure.classList.contains('ftt-photo-fallback--infrastructure')||figure.classList.contains('ftt-photo-fallback--integrations'))return;
+     const figures=[...document.querySelectorAll<HTMLImageElement>(selector)].map(image=>image.closest('figure')).filter((item):item is HTMLElement=>!!item);
+     const index=figures.indexOf(figure);
+     figure.classList.add('ftt-photo-fallback--'+fallbackKinds[(index<0?0:index)%fallbackKinds.length]);
+   };
    const click=(event:MouseEvent)=>{
      const target=event.target;
      if(!(target instanceof HTMLImageElement)||!target.matches(selector))return;
@@ -27,6 +35,7 @@ export function OriginalPhotoViewer(){
    const onImageError=(event:Event)=>{
      const target=event.target;
      if(target instanceof HTMLImageElement && target.matches(selector)){
+       assignFallbackKind(target);
        target.closest('figure')?.classList.add('ftt-photo-missing');
        target.removeAttribute('role');
        target.removeAttribute('tabindex');
@@ -34,6 +43,7 @@ export function OriginalPhotoViewer(){
    };
    const setup=()=>{
      document.querySelectorAll<HTMLImageElement>(selector).forEach(img=>{
+       assignFallbackKind(img);
        if(img.complete && img.currentSrc && !img.naturalWidth){
          img.closest('figure')?.classList.add('ftt-photo-missing');
        }

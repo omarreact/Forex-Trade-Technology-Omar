@@ -30,6 +30,7 @@ test('Design 1 actual slider selector receives professional compact mobile/deskt
  assert.match(css,/height:clamp\(535px,85svh,670px\)!important/);
  assert.match(css,/ftt-rd-section-wrap/);
  assert.match(css,/ftt-home-inline-media img/);
+ assert.match(text('app/layout.tsx'),/import '\.\/home-fullwidth\.css';/);
 });
 test('independent style systems loaded without competitor trademarks or source image hotlinks',()=>{
  assert.match(text('app/layout.tsx'),/import '\.\/premium-studio\.css';/);
@@ -56,4 +57,13 @@ test('remote photography failure cannot create a blank image column',()=>{
  assert.match(css,/ftt-photo-missing/);
  assert.match(text('components/OriginalPhotoViewer.tsx'),/onImageError/);
  assert.match(text('app/layout.tsx'),/import '\.\/reliable-media-layouts\.css';/);
+});
+test('source-photo failures receive four distinct visual fallbacks',()=>{
+ const viewer=text('components/OriginalPhotoViewer.tsx');
+ const css=text('app/reliable-media-layouts.css');
+ for(const kind of ['chart','workspace','infrastructure','integrations']){
+  assert.match(viewer,new RegExp('ftt-photo-fallback--'+kind));
+  assert.match(css,new RegExp('figure\\.ftt-photo-fallback--'+kind+':before'));
+  assert.match(css,new RegExp('figure\\.ftt-photo-fallback--'+kind+':after'));
+ }
 });
