@@ -54,7 +54,9 @@ export function withRealHomePhotos(html: string): string {
         <a href="/solutions/forex-liquidity-connectivity/"><span>02 / EXECUTION</span><strong>Bridge &amp; Liquidity</strong><small>Explore Liquidity Connectivity ↗</small></a>
         <a href="/products/forex-crm/"><span>03 / OPERATIONS</span><strong>Reporting &amp; CRM</strong><small>Explore Forex CRM ↗</small></a>
       </nav>`;
-      updated = updated.replace(/(<\\/div>\\s*<\\/section>\\s*)$/i, workflow + '$1');
+      const endTag = '</div></section>';
+      const closeAt = updated.lastIndexOf(endTag);
+      if (closeAt >= 0) updated = updated.slice(0, closeAt) + workflow + updated.slice(closeAt);
     }
     if (slug === 'how-it-works') {
       updated += figure(standalone.centered, 'ftt-home-center-photo', 'Building the systems behind your brokerage');
