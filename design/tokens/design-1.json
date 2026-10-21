@@ -4,11 +4,14 @@
   "audit_date": "2026-10-21",
   "reference_css_measured": false,
   "fonts": {
-    "stack": "Existing Tailwind/theme default sans-serif; no font-family change"
+    "body": "Inter, Arial, Helvetica, sans-serif",
+    "headings": "Manrope, Inter, Arial, sans-serif",
+    "weights": "Inter 300-700; Manrope 400-700",
+    "loading": "Google Fonts v20 WOFF2, font-display:swap"
   },
   "colors": {
     "primary": "#17241A",
-    "secondary": "#F6F7F2",
+    "secondary": "#F5F6F1",
     "accent": "#D9F17A",
     "background": "#FFFFFF",
     "text": "#192219"
@@ -24,5 +27,7 @@
   },
   "responsive": "Preserve original hero; collapse empty legacy rail",
   "animation": "Original slider + reduced-motion support",
-  "implementation": "app/home-polish.css + app/design-1-original-cta.css"
+  "implementation": "app/design-1-compact.css + components/OriginalPhotoViewer.tsx",
+  "reference_audit": "Supplied reference screenshot analyzed on 2026-10-22; color values are approximations, not computed original CSS",
+  "screenshot_correction": "Original visual identity preserved; hero now capped at 630px on desktop and ~430px on mobile; sections compress to 31–60px vertical padding; large photos now cap at 235–275px. Interior source text occupies an intentional full-width grid with no empty fixed rail. The small media open in an accessible click-to-expand preview."
 }
