@@ -70,6 +70,7 @@ test('each interior and homepage uses full body width and never reserves an abse
  assert.match(css,/\.c4 \.c4-feature>\.c4-feature-copy\{grid-area:copy!important/);
  assert.match(css,/\.c5 \.c5-unit>\.c5-unit-body\{grid-area:body!important/);
  assert.match(css,/\.c6 \.c6-story>\.c6-story-words\{grid-area:body!important/);
+ assert.doesNotMatch(css,/grid-area:(?:copy|body)!important;grid-column:auto!important/,'CSS longhand must not reset named grid areas');
  assert.match(css,/\.c4 \.c4-feature:not\(:has/);
  assert.match(css,/\.c6 \.c6-story:not\(:has/);
  assert.match(read('app/layout.tsx'),/unique-fullwidth-compositions\.css/);
