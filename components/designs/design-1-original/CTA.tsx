@@ -6,7 +6,7 @@ export function OriginalCTA({meta}:{meta?:ThemePageMeta}){
  return <section className="ftt-original-cta" aria-label="Contact Forex Trade Technology">
    <div className="ftt-original-cta__inner"><div><p className="ftt-original-cta__eyebrow">FOREX TRADE TECHNOLOGY / CONSULTATION</p>
      <h2>{heading}</h2>
-     <p>Tell us about your brokerage technology requirements and we'll discuss the practical next steps.</p>
+     <p>Tell us about your brokerage technology requirements and we&apos;ll discuss the practical next steps.</p>
    </div><Link href="/contact/#contact-form" className="ftt-original-cta__button">Request a Consultation <span aria-hidden="true">↗</span></Link></div>
  </section>;
 }
