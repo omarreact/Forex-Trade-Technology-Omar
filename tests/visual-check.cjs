@@ -26,7 +26,8 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
       if(await page.locator('footer').count()===0)throw Error('Missing footer');
       const cta=d===1?'.ftt-original-cta':'.c'+d+'-cta';
       if(await page.locator(cta).count()!==1)throw Error('Missing theme-specific CTA '+cta);
-      if(!await page.locator(cta+' a[href*="/contact/"]').count())throw Error('CTA contact link missing');
+      const contactPaths=await page.locator(cta+' a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname.replace(/\/$/,'')));
+      if(!contactPaths.some(p=>p.endsWith('/contact')))throw Error('CTA contact link missing: '+contactPaths.join(','));
       const result=await page.evaluate(()=>{
        const b=document.body,doc=document.documentElement;
        const w=Math.max(b.scrollWidth,doc.scrollWidth);
