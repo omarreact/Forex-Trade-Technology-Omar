@@ -8,6 +8,7 @@ import './editorial-flow.css';
 import './doc-refresh-2026.css';
 import './heading-system.css';
 import './variants.css';
+import {ContactFormHandler} from '@/components/variants/ContactFormHandler';
 
 export const metadata: Metadata = {
   title: 'Forex Trade Technology | Brokerage Technology & FinTech Infrastructure',
@@ -35,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen antialiased" suppressHydrationWarning>
+        <ContactFormHandler />
         {children}
       </body>
     </html>
