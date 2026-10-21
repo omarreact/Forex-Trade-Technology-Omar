@@ -19,6 +19,7 @@ export interface HomeHeroIntro {
 export interface HomeHeroSlide {
   title: string;
   summary: string;
+  description: string;
   image: string;
   alt: string;
   href: string;
@@ -63,7 +64,15 @@ function contentForClass(html: string, tag: string, className: string): string {
   return decodeHtmlText(html.match(expression)?.[1] || '');
 }
 
-export function getHomeHeroData(heroHtml: string): {
+function sourceSectionLead(html: string, id: string): string {
+  const start = html.indexOf('<section id="' + id + '"');
+  if (start < 0) return '';
+  const end = html.indexOf('</section>', start);
+  if (end < start) return '';
+  return contentForClass(html.slice(start, end), 'p', 'bs-copy');
+}
+
+export function getHomeHeroData(heroHtml: string, restHtml: string): {
   intro: HomeHeroIntro;
   slides: HomeHeroSlide[];
 } {
@@ -78,6 +87,11 @@ export function getHomeHeroData(heroHtml: string): {
     return {
       title: contentForClass(part, 'h3', 'ftt-slide-title'),
       summary: contentForClass(part, 'p', 'ftt-slide-summary'),
+      description: i === 1
+        ? sourceSectionLead(restHtml, 'a-forex-crm-built-around-how-brokerages-actually-work')
+        : i === 2
+          ? sourceSectionLead(restHtml, 'brokerage-infrastructure-you-can-rely-on')
+          : '',
       image: [pexels.screens.src, pexels.tradingOffice.src, pexels.dataCenter.src][i] || pexels.screens.src,
       alt: [pexels.screens.alt, pexels.tradingOffice.alt, pexels.dataCenter.alt][i] || decodeHtmlText(alt),
       href: serviceLinks[i] || '/solutions/',
@@ -88,6 +102,7 @@ export function getHomeHeroData(heroHtml: string): {
     {
       title: 'MT5 White Label',
       summary: 'Branded MT5 technology for a professional brokerage launch, with more control over your trading environment.',
+      description: '',
       image: pexels.screens.src,
       alt: 'Technology workstation',
       href: serviceLinks[0],
@@ -95,6 +110,7 @@ export function getHomeHeroData(heroHtml: string): {
     {
       title: 'Forex CRM',
       summary: 'Clients, KYC, deposits, withdrawals, IBs and day-to-day operations managed from one system.',
+      description: sourceSectionLead(restHtml, 'a-forex-crm-built-around-how-brokerages-actually-work'),
       image: pexels.tradingOffice.src,
       alt: 'Analytics workstation',
       href: serviceLinks[1],
@@ -102,6 +118,7 @@ export function getHomeHeroData(heroHtml: string): {
     {
       title: 'Forex Broker Hosting',
       summary: 'MT4 and MT5 server infrastructure with monitoring, backups and technical support.',
+      description: sourceSectionLead(restHtml, 'brokerage-infrastructure-you-can-rely-on'),
       image: pexels.dataCenter.src,
       alt: 'Data center equipment',
       href: serviceLinks[2],

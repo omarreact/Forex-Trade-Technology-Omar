@@ -62,7 +62,7 @@ export default function HomePage() {
   const { html } = getThemePageBySlug('home');
   const { hero, rest } = partitionHomeMarkup(html);
   const realEditorial = withRealHomePhotos(rest);
-  const { intro, slides } = getHomeHeroData(hero);
+  const { intro, slides } = getHomeHeroData(hero, rest);
 
   return (
     <div className="ftt-home min-h-screen flex flex-col">

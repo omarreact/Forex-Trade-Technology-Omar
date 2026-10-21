@@ -88,7 +88,20 @@
     "heroCrossfadeMs": 900,
     "heroAutoplayMs": 7000,
     "hoverMs": "200–350",
-    "respectsReducedMotion": true
+    "respectsReducedMotion": true,
+    "heroTransition": "whole-slide-translateX",
+    "heroTransitionMs": 850,
+    "heroSlideContent": [
+      "photo",
+      "eyebrow",
+      "heading",
+      "lead",
+      "description",
+      "primaryCTA",
+      "secondaryCTA",
+      "slideNumber"
+    ],
+    "heroH1Placement": "first-slide-only"
   },
   "components": [
     "SiteHeader",

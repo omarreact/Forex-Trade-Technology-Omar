@@ -2,13 +2,14 @@
 
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronDown } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import type { HomeHeroIntro, HomeHeroSlide } from '@/lib/home-hero';
 
-const PERIOD = 7000;
+const INTERVAL_MS = 7000;
 interface Props { intro: HomeHeroIntro; slides: HomeHeroSlide[] }
 
+/** Each article is a complete sliding panel: photography, copy and CTAs. */
 export function HomeHero({ intro, slides }: Props) {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -16,135 +17,148 @@ export function HomeHero({ intro, slides }: Props) {
   const [visible, setVisible] = useState(true);
   const [tabVisible, setTabVisible] = useState(true);
   const [interaction, setInteraction] = useState(0);
-  const container = useRef<HTMLElement>(null);
-  const touchX = useRef<{ x: number; y: number } | null>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const touchStart = useRef<{x:number;y:number}|null>(null);
   const count = slides.length;
-  const go = (index: number) => {
-    if (count === 0) return;
+
+  function go(index:number) {
+    if (!count) return;
     setCurrent((index + count) % count);
-    setInteraction((value) => value + 1);
-  };
+    setInteraction(n => n + 1);
+  }
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const listener = () => setReducedMotion(mq.matches);
-    listener();
-    mq.addEventListener('change', listener);
-    return () => mq.removeEventListener('change', listener);
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
   }, []);
-
   useEffect(() => {
-    const listener = () => setTabVisible(!document.hidden);
-    listener();
-    document.addEventListener('visibilitychange', listener);
-    return () => document.removeEventListener('visibilitychange', listener);
+    const update = () => setTabVisible(!document.hidden);
+    update();
+    document.addEventListener('visibilitychange', update);
+    return () => document.removeEventListener('visibilitychange', update);
   }, []);
-
   useEffect(() => {
-    if (!container.current || !('IntersectionObserver' in window)) return;
-    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.12 });
-    observer.observe(container.current);
+    const node = heroRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting), { threshold: 0.12 }
+    );
+    observer.observe(node);
     return () => observer.disconnect();
   }, []);
-
   useEffect(() => {
     if (count < 2 || paused || reducedMotion || !visible || !tabVisible) return;
-    const timer = window.setInterval(() => setCurrent((i) => (i + 1) % count), PERIOD);
+    const timer = window.setInterval(() => setCurrent(i => (i + 1) % count), INTERVAL_MS);
     return () => window.clearInterval(timer);
   }, [count, paused, reducedMotion, visible, tabVisible, interaction]);
 
-  const handleTouchStart = (event: React.TouchEvent) => {
-    if (event.touches.length === 1) touchX.current = { x: event.touches[0].clientX, y: event.touches[0].clientY };
-  };
-  const handleTouchEnd = (event: React.TouchEvent) => {
-    if (!touchX.current || !event.changedTouches.length) return;
-    const dx = event.changedTouches[0].clientX - touchX.current.x;
-    const dy = event.changedTouches[0].clientY - touchX.current.y;
-    touchX.current = null;
-    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) go(current + (dx < 0 ? 1 : -1));
-  };
+  function onTouchStart(event: React.TouchEvent) {
+    if (event.touches.length === 1) {
+      touchStart.current = {x:event.touches[0].clientX,y:event.touches[0].clientY};
+    }
+  }
+  function onTouchEnd(event: React.TouchEvent) {
+    const first = touchStart.current;
+    touchStart.current = null;
+    if (!first || !event.changedTouches.length) return;
+    const dx = event.changedTouches[0].clientX - first.x;
+    const dy = event.changedTouches[0].clientY - first.y;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)*1.2)
+      go(current + (dx < 0 ? 1 : -1));
+  }
 
   return (
-    <section
-      ref={container}
-      className="ftt-wide-hero"
-      id="top"
+    <section ref={heroRef} id="top" className="ftt-wide-hero ftt-full-slide-hero"
+      role="region" aria-roledescription="carousel"
       aria-label="Forex brokerage technology and featured solutions"
-      aria-roledescription="carousel"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
-      onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false); }}
-      onKeyDown={(event) => {
+      onBlurCapture={event => {if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);}}
+      onKeyDown={event => {
         if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
         event.preventDefault();
         go(current + (event.key === 'ArrowRight' ? 1 : -1));
       }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      <div className="ftt-wide-hero-photos" aria-hidden="true">
-        {slides.map((slide, i) => (
-          <div className={`ftt-wide-hero-photo${i === current ? ' is-active' : ''}`} key={slide.href}>
-            <img
-              src={slide.image}
-              alt=""
-              width={1600}
-              height={1000}
-              fetchPriority={i === 0 ? 'high' : 'auto'}
-              loading={i === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-            />
-          </div>
-        ))}
-        <div className="ftt-wide-hero-wash" />
-      </div>
-      <div className="ftt-wide-hero-content">
-        <div className="ftt-wide-hero-copy">
-          <p className="ftt-wide-eyebrow"><span aria-hidden="true" />{intro.eyebrow}</p>
-          <h1>{intro.title}</h1>
-          <p className="ftt-wide-lead">{intro.lead}</p>
-          <p className="ftt-wide-description">{intro.description}</p>
-          <div className="ftt-wide-actions">
-            <Link className="ftt-wide-button-primary" href={intro.primaryHref}>{intro.primaryLabel}<ArrowUpRight size={18} aria-hidden="true" /></Link>
-            <Link className="ftt-wide-button-secondary" href={intro.secondaryHref}>{intro.secondaryLabel}<ArrowUpRight size={17} aria-hidden="true" /></Link>
-          </div>
-          <p className="ftt-wide-proof"><Check size={16} aria-hidden="true" /> Trading platforms · CRM · Liquidity · Hosting</p>
-        </div>
-
-        <div className="ftt-wide-hero-lower">
-          <div className="ftt-wide-current-service" aria-live="off">
-            <span className="ftt-wide-index">{String(current + 1).padStart(2, '0')} / {String(count).padStart(2, '0')} — FEATURED SOLUTION</span>
-            {slides[current] && (
-              <div key={slides[current].href} className="ftt-wide-service-detail">
-                <h2>{slides[current].title}</h2>
-                <p>{slides[current].summary}</p>
-                <Link href={slides[current].href}>Discover solution <ArrowUpRight size={15} aria-hidden="true" /></Link>
+      onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+      <div className="ftt-full-slide-track">
+        {slides.map((slide,index) => {
+          const active = index === current;
+          const half = Math.floor(count/2);
+          const offset = count === 1 ? 0 : ((index-current+count+half)%count)-half;
+          const primaryHref = index === 0 ? intro.primaryHref : slide.href;
+          const primaryLabel = index === 0 ? intro.primaryLabel : 'Explore '+slide.title;
+          const secondaryHref = index === 0 ? intro.secondaryHref : '/contact/#contact-form';
+          const secondaryLabel = index === 0 ? intro.secondaryLabel : 'Request a Consultation';
+          const eyebrow = index === 0 ? intro.eyebrow :
+            index === 1 ? 'Client Management & Brokerage CRM' : 'Reliable Trading Infrastructure';
+          return (
+            <article key={slide.href}
+              className={'ftt-full-slide'+(active?' is-active':'')}
+              style={{transform:'translate3d('+(offset*100)+'%,0,0)'}}
+              role="group" aria-roledescription="slide"
+              aria-label={(index+1)+' of '+count+': '+slide.title}
+              aria-hidden={!active} inert={!active}>
+              <div className="ftt-full-slide-media" aria-hidden="true">
+                <img src={slide.image} alt="" width={1600} height={1000}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : 'auto'} decoding="async" />
+                <div className="ftt-full-slide-scrim" />
               </div>
-            )}
-          </div>
-          <div className="ftt-wide-hero-controls">
-            <div className="ftt-wide-dots" role="group" aria-label="Select featured solution">
-              {slides.map((slide, i) => (
-                <button
-                  key={slide.href}
-                  aria-label={`Show ${slide.title}`}
-                  aria-current={current === i ? 'true' : undefined}
-                  className={current === i ? 'is-active' : ''}
-                  type="button"
-                  onClick={() => go(i)}
-                />
-              ))}
-            </div>
-            <div className="ftt-wide-arrows">
-              <button type="button" aria-label="Previous photo" onClick={() => go(current - 1)}><ArrowLeft size={19} /></button>
-              <button type="button" aria-label="Next photo" onClick={() => go(current + 1)}><ArrowRight size={19} /></button>
-            </div>
-          </div>
+              <div className="ftt-full-slide-content">
+                <div className="ftt-full-slide-copy">
+                  <p className="ftt-wide-eyebrow"><span aria-hidden="true" />{eyebrow}</p>
+                  {index === 0
+                    ? <h1 className="ftt-full-slide-title">{intro.title}</h1>
+                    : <h2 className="ftt-full-slide-title">{slide.title}</h2>}
+                  <p className="ftt-wide-lead">{index === 0 ? intro.lead : slide.summary}</p>
+                  {(index === 0 ? intro.description : slide.description) && (
+                    <p className="ftt-wide-description">
+                      {index === 0 ? intro.description : slide.description}
+                    </p>
+                  )}
+                  <div className="ftt-wide-actions">
+                    <Link className="ftt-wide-button-primary" href={primaryHref}>
+                      {primaryLabel}<ArrowUpRight size={18} aria-hidden="true"/>
+                    </Link>
+                    <Link className="ftt-wide-button-secondary" href={secondaryHref}>
+                      {secondaryLabel}<ArrowUpRight size={17} aria-hidden="true"/>
+                    </Link>
+                  </div>
+                  {index === 0 && <p className="ftt-wide-proof">
+                    <Check size={16} aria-hidden="true"/>Trading platforms · CRM · Liquidity · Hosting
+                  </p>}
+                </div>
+                <div className="ftt-full-slide-meta" aria-hidden="true">
+                  <span>{String(index+1).padStart(2,'0')} / {String(count).padStart(2,'0')}</span>
+                  <span>{slide.title}</span>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+      <div className="ftt-wide-hero-controls ftt-full-slide-controls">
+        <div className="ftt-wide-dots" role="group" aria-label="Select featured solution">
+          {slides.map((slide,index) =>
+            <button key={slide.href} type="button" aria-label={'Show '+slide.title}
+              aria-current={current === index ? 'true' : undefined}
+              className={current === index ? 'is-active' : ''}
+              onClick={() => go(index)} />
+          )}
+        </div>
+        <div className="ftt-wide-arrows">
+          <button type="button" aria-label="Previous slide" onClick={() => go(current-1)}>
+            <ArrowLeft size={19} aria-hidden="true"/>
+          </button>
+          <button type="button" aria-label="Next slide" onClick={() => go(current+1)}>
+            <ArrowRight size={19} aria-hidden="true"/>
+          </button>
         </div>
       </div>
-      <a className="ftt-wide-scroll-hint" href="#solutions" aria-label="Scroll to solutions"><ChevronDown size={19} aria-hidden="true" /></a>
-
     </section>
   );
 }

@@ -225,3 +225,9 @@ Every major theme change must update:
 - At widths **0–1023px**, the hamburger and expandable mobile drawer remain, with its own contact CTA. At widths **>=1024px** the drawer/hamburger must be hidden and desktop inline navigation visible, including the contact CTA.
 - The header should retain a maximum content width of **1320px** and 20px or greater desktop side gutters. Responsive logo and link sizing at the compact desktop edge must never cause nav wrapping or horizontal page overflow.
 - WordPress Gutenberg parity: maintain this precise breakpoint, inline links and mobile drawer behavior in the `header` template part; use real navigation block semantics, preserve labels and URLs, and do not surface a public WordPress admin/login button.
+
+## 14. Complete homepage slide transitions (2026-10-21)
+
+The photographic homepage carousel now transitions **the complete slide panel**, not the image alone. Every panel holds a photograph, background scrim, eyebrow, headline, lead/description, both CTA buttons and slide number. The first panel retains the original verified homepage H1 and intro; subsequent panels use H2 headings and source-verified featured solution titles, summaries and supporting CRM/Hosting paragraphs. Preserve one H1. Manual arrows, dots, touch swipe, keyboard arrow keys, cyclic wrapping, 7-second autoplay and reduced-motion behavior remain. Autoplay pauses on hover/focus, when hidden/offscreen, or when reduced-motion applies. Inactive panels are `aria-hidden` and `inert`. Gutenberg parity requires each full panel to be serialized together inside its slide block rather than floating text outside a photo slider.
+
+Source of truth: `components/home/HomeHero.tsx`, `lib/home-hero.ts`, `app/home-fullwidth.css`.
