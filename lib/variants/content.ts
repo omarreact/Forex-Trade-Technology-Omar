@@ -15,7 +15,7 @@ function paragraphTexts(html:string){return [...html.matchAll(/<p\b[^>]*>([\s\S]
 function cleanMarkup(html:string){
   // Strip legacy design classes and inline presentation so each React variation owns its design.
   // Keep semantic content, linked sources, alt text, lists, tables, forms and native FAQ details.
-  return html.replace(/<figure\\b[^>]*class=(["'])[^"']*\\bftt-doc-home-photo\\b[^"']*\\1[^>]*>[\\s\\S]*?<\\/figure>/gi,'')
+  return html.replace(/<figure\b[^>]*class=(["'])[^"']*\bftt-doc-home-photo\b[^"']*\1[^>]*>[\s\S]*?<\/figure>/gi,'')
     .replace(/<!--\\s*[\\s\\S]*?-->/g,'')
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'')
     .replace(/\sclass=(["'])(.*?)\1/gi, (_match,_quote,classes:string)=>{
