@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import HomeSpotlight from './HomeSpotlight';
+import InfrastructureTerminal from './InfrastructureTerminal';
 import {Action,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 const design='design-5' as const;
 function Header(){
@@ -15,8 +16,7 @@ function Hero({content}:{content:VariationContent}){
  return <section className="c5-hero"><div className="c5-hero-copy"><span className="c5-label">&#47;&#47; FOREX TRADE TECHNOLOGY</span><h1>{content.title}</h1>
  <p>{content.description}</p>{content.lead&&<p className="c5-lead">{content.lead}</p>}
  <div className="c5-hero-actions"><Action design={design} label="Discuss your project"/><a href="#c5-sections">Explore capabilities ↘</a></div></div>
- <div className="c5-hero-system"><div className="c5-diagram" aria-label="Trading technology ecosystem diagram"><span className="c5-diagram-label">OPERATING SYSTEM</span><div className="c5-diagram-core">Brokerage<br/>Technology</div><div className="c5-diagram-grid"><span>PLATFORM</span><span>LIQUIDITY</span><span>CRM</span><span>HOSTING</span></div></div>
- <SegmentPhoto page={content} index={0} offset={3} className="c5-diagram-photo"/></div></section>;
+ <div className="c5-hero-system c5-hero-system--interactive"><InfrastructureTerminal/></div></section>;
 }
 function Infrastructure({content}:{content:VariationContent}){
  return <div className="c5-sections" id="c5-sections">

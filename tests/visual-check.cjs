@@ -41,6 +41,25 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
       if(await selected.count()!==1)throw Error('Design switcher selection missing');
       const links=await page.locator('.ftt-design-switcher__link').count();
       if(links!==6)throw Error('Design switcher needs six links, got '+links);
+      // Inspect the *actual* original homepage slider dimensions (the previous selector missed them).
+      if(d===1 && meta.slug==='home' && (width===1440||width===390)){
+        const h=await page.locator('.ftt-full-slide-hero').evaluate(el=>Math.round(el.getBoundingClientRect().height));
+        const limit=width===1440?625:675;
+        if(h>limit)throw Error('Original hero still oversized '+h+'px (limit '+limit+')');
+      }
+      // Exercise each design's independent, keyboard-usable software preview.
+      if(d>=2 && meta.slug==='mt5-white-label' && (width===1440||width===390)){
+        const selector='.rp'+d+'-'+({2:'desk',3:'eco',4:'workbench',5:'terminal',6:'crm'}[d]);
+        const root=page.locator(selector);
+        if(await root.count()!==1)throw Error('Missing independent interactive design preview '+selector);
+        const tabs=root.getByRole('tab');
+        if(await tabs.count()<2)throw Error('Interactive preview lacks tabs');
+        await tabs.nth(1).click({timeout:6000});
+        if(await tabs.nth(1).getAttribute('aria-selected')!=='true')throw Error('Tab selection failed');
+        await tabs.nth(0).click({timeout:6000});
+        if(await tabs.nth(0).getAttribute('aria-selected')!=='true')throw Error('Tab restore failed');
+      }
+
       if(width===1440&&(meta.slug==='home'||['mt5-white-label','forex-crm','about-us'].includes(meta.slug))){
         await page.screenshot({path:path.join(screenshots,key+'.png'),fullPage:true,animations:'disabled',timeout:50000});
       }

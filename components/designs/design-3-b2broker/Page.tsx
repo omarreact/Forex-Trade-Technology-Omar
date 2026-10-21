@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import HomeSpotlight from './HomeSpotlight';
+import EcosystemView from './EcosystemView';
 import {Action,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 const design='design-3' as const;
 function Header(){
@@ -11,11 +12,11 @@ function Header(){
  <Link href={withDesign(design,'/how-it-works/')}>How it Works</Link><Link href={withDesign(design,'/about-us/')}>About</Link></nav><Action design={design} label="Get Started"/></div></header>;
 }
 function Hero({content}:{content:VariationContent}){
- return <section className="c3-hero" aria-labelledby="c3-title"><SegmentPhoto page={content} index={0} offset={1} className="c3-backdrop"/>
+ return <section className="c3-hero" aria-labelledby="c3-title"><div className="c3-gradient-atmosphere" aria-hidden="true"/>
  <div className="c3-hero-inner"><span className="c3-eyebrow"><i/> INSTITUTIONAL FINTECH SERVICES</span><h1 id="c3-title">{content.title}</h1>
  <p>{content.description}</p>{content.lead&&<p className="c3-hero-lead">{content.lead}</p>}
  <div className="c3-buttons"><Action design={design}/><a href="#c3-sections">Explore the ecosystem ↓</a></div></div>
- <div className="c3-hero-end"><span>PLATFORM ENGINEERING</span><span>CONNECTIVITY</span><span>OPERATIONS</span></div>
+ <EcosystemView/><div className="c3-hero-end"><span>PLATFORM ENGINEERING</span><span>CONNECTIVITY</span><span>OPERATIONS</span></div>
  </section>;
 }
 function Body({content}:{content:VariationContent}){

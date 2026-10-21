@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import HomeSpotlight from './HomeSpotlight';
+import TradingDesk from './TradingDesk';
 import {Action,ChapterHeading,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 
 const design='design-2' as const;
@@ -16,9 +17,7 @@ function Hero({content}:{content:VariationContent}){
  return <section className="c2-hero" aria-labelledby="c2-title"><div className="c2-hero-copy"><span className="c2-kicker">{content.eyebrow}</span>
   <h1 id="c2-title">{content.title}</h1><p>{content.description}</p>{content.lead&&<p className="c2-support">{content.lead}</p>}
   <div className="c2-actions"><Action design={design}/><a href="#c2-content">Discover our technology ↓</a></div>
- </div><div className="c2-visual"><SegmentPhoto page={content} index={0} offset={0} className="c2-hero-photo"/>
- <div className="c2-float c2-float--top"><span>CONNECTED WORKFLOWS</span><strong>Trading platforms</strong></div>
- <div className="c2-float c2-float--bottom"><b>CORE INFRASTRUCTURE</b><span>Platforms / Liquidity / CRM</span></div></div></section>;
+ </div><div className="c2-visual c2-visual--interactive"><TradingDesk/></div></section>;
 }
 function Story({content}:{content:VariationContent}){
  return <div id="c2-content" className="c2-content">

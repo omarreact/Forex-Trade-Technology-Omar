@@ -24,6 +24,7 @@ jobs:
           npm run test:variants
           npm run test:designs
           npm run test:references
+          npm run test:premium
       - name: TypeScript
         run: npx tsc --noEmit
       - name: ESLint
