@@ -217,3 +217,22 @@
 .c5 .c5-tech-strip{background:#1b211c;border:1px solid #3e5f3c;color:#b2e19d;border-radius:2px}
 .c6 .c6-tech-strip{background:#eef6fb;border:1px solid #d2eaf4;color:#1c6587;border-radius:6px}
 @media(max-width:700px){.concept main :is(.c2-tech-strip,.c3-tech-strip,.c4-tech-strip,.c5-tech-strip,.c6-tech-strip){width:calc(100% - 30px);margin-top:12px}}
+
+/* Four source-specific original interface compositions when licensed remote
+   photography cannot load. Each chapter changes composition, not only color. */
+.concept .concept-media-system-flow{width:100%;display:flex;align-items:center;justify-content:space-around;gap:6px;flex:1}
+.concept .concept-media-system-flow span{padding:10px 7px;border:1px solid currentColor;font-size:clamp(9px,.9vw,12px);font-weight:750;flex:1;text-align:center;letter-spacing:.02em;background:#ffffff12}
+.concept .concept-media-system-flow b{font-size:21px}
+.concept .concept-media-system-metrics{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:stretch;flex:1;padding:10px 0}
+.concept .concept-media-system-metrics span{border:1px solid currentColor;min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-around;font-size:11px;font-weight:700;padding:8px;background:#ffffff0d}
+.concept .concept-media-system-metrics i{font-style:normal;font-size:19px;opacity:.75}
+.concept .concept-media-system-integrations{width:100%;flex:1;display:grid;grid-template-columns:1fr 1.15fr 1fr;grid-template-rows:1fr 1fr;gap:7px;align-items:stretch;text-align:center}
+.concept .concept-media-system-integrations>*{font-size:11px;font-weight:750;display:grid;place-items:center;background:#ffffff13;border:1px solid currentColor}
+.concept .concept-media-system-integrations strong{grid-column:2;grid-row:1/-1;font-size:12px}
+.concept .concept-media-system-integrations span:nth-of-type(3){grid-column:1;grid-row:2}
+.concept .concept-media-system-integrations span:nth-of-type(4){grid-column:3;grid-row:2}
+@media(max-width:560px){
+ .concept .concept-media-system-flow span{font-size:9px;padding:7px 3px}
+ .concept .concept-media-system-metrics span{font-size:9px;padding:6px}
+ .concept .concept-media-system-integrations>*{font-size:9px}
+}
