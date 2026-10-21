@@ -46,7 +46,7 @@ export function resolveVariationPage(route:string,design:VariationId):VariationC
   const details=paragraphs.filter(p=>p!==eyebrow && p.length>45);
   const description=details[0]||meta.meta_description;
   const lead=details[1]||'';
-  const highlights=[...intro.matchAll(/<h3\\b[^>]*ftt-slide-title[^>]*>([\\s\\S]*?)<\\/h3>[\\s\\S]*?<p\\b[^>]*ftt-slide-summary[^>]*>([\\s\\S]*?)<\\/p>/gi)]
+  const highlights=[...intro.matchAll(/<h3\b[^>]*ftt-slide-title[^>]*>([\s\S]*?)<\/h3>[\s\S]*?<p\b[^>]*ftt-slide-summary[^>]*>([\s\S]*?)<\/p>/gi)]
    .map(item=>({title:plain(item[1]),description:plain(item[2])}));
   const more=sections.slice(1).map((section,i)=>{
     const id=section.match(/<section\b[^>]*\bid=["']([^"']+)["']/i)?.[1]||('chapter-'+(i+1));
