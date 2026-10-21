@@ -171,3 +171,14 @@
  .c2 .r2-home-hero,.c4 .r4-hero,.c5 .r5-homehero,.c6 .r6-hero{padding-inline:17px!important}
 }
 @media(prefers-reduced-motion:reduce){.concept :is(.c2-chapter,.c3-section,.c4-feature,.c5-unit,.c6-story) *, .concept :is(.r2-products,.r4-journey,.r5-product-matrix) *{transition:none!important;animation:none!important}}
+
+/* Only reserve a visual grid area when an actual figure exists. A text-only
+   section gets the entire content grid, at every breakpoint. */
+.c4 .c4-feature:not(:has(>.c4-side-media)){grid-template-areas:"head head" "copy copy"!important}
+.c5 .c5-unit:not(:has(>.c5-unit-photo)){grid-template-areas:"head head" "body body" "line line"!important}
+.c6 .c6-story:not(:has(>.c6-story-photo)){grid-template-areas:"head head" "body body"!important}
+@media(max-width:760px){
+ .c4 .c4-feature:not(:has(>.c4-side-media)){grid-template-areas:"head" "copy"!important}
+ .c5 .c5-unit:not(:has(>.c5-unit-photo)){grid-template-areas:"head" "body" "line"!important}
+ .c6 .c6-story:not(:has(>.c6-story-photo)){grid-template-areas:"head" "body"!important}
+}
