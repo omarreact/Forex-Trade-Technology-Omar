@@ -21,7 +21,7 @@ function Hero({content}:{content:VariationContent}){
 }
 function Body({content}:{content:VariationContent}){
  return <div id="c3-sections" className={'c3-content'+(content.home?' c3-content--home':'')}>
- {content.sections.map((section,i)=><section id={section.id} className={'c3-section c3-section-'+i%3} key={section.id}>
+ {content.sections.map((section,i)=>section.id==='trust'?<aside id={section.id} key={section.id} className="c3-tech-strip"><HtmlSection section={section}/></aside>:<section id={section.id} className={'c3-section c3-section-'+i%3} key={section.id}>
   <div className="c3-left"><span>{String(i+1).padStart(2,'0')} / {String(content.sections.length).padStart(2,'0')}</span><SegmentPhoto page={content} index={i+2} className="c3-inset-photo"/></div>
   <div className="c3-text"><h2>{section.heading}</h2><HtmlSection section={section}/></div>
  </section>)}</div>;
