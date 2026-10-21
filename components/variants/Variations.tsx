@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import {variationPath} from '@/lib/variants/content';
-import {Brand,EndFooter,PageChapters,QuickCTA,SectionBody,SectionIndex,ShortLinks,VariationLinks,pexelsPhoto} from './shared';
+import {Brand,EndFooter,IntroHighlights,PageChapters,QuickCTA,SectionBody,SectionIndex,ShortLinks,VariationLinks,pexelsPhoto} from './shared';
 import {getExpandedPagePhotos} from '@/lib/pexels-photos';
 
 type Props={content:VariationContent};
@@ -20,7 +20,7 @@ export function VariationTwo({content}:Props){
     </div>
     <div className="v2-hero-image"><img src={getExpandedPagePhotos(content.meta.slug)[0]?.src||pexelsPhoto} alt={getExpandedPagePhotos(content.meta.slug)[0]?.alt||"Financial technology team at work"} width="1000" height="720"/><div className="v2-image-stat"><b>One connected ecosystem</b><span>Platform · Liquidity · CRM · Hosting</span></div></div>
    </div><div className="v2-shell v2-trust"><span>Brokerage technology</span><strong>Platforms</strong><strong>Liquidity</strong><strong>Client systems</strong><strong>Infrastructure</strong></div></section>
-   <div className="v2-shell v2-body" id="v2-contents">
+   <div className="v2-shell"><IntroHighlights content={content}/></div><div className="v2-shell v2-body" id="v2-contents">
      <div className="v2-section-caption"><span>OUR EXPERTISE</span><p>Integrated solutions for every stage of your brokerage</p></div>
      {content.sections.map((section,index)=><section className={'v2-chapter v2-chapter-'+index%3} id={section.id} key={section.id}>
       <div className="v2-chapter-top"><div><SectionIndex section={section}/><h2>{section.heading}</h2></div><span aria-hidden="true" className="v2-chapter-arrow">↗</span></div>
@@ -47,7 +47,7 @@ export function VariationThree({content}:Props){
      <div className="v3-chart" aria-hidden="true"><div className="v3-chart-line"/><div className="v3-chart-bars">{[25,42,32,58,47,73,56,82,72,93].map((h,i)=><span key={i} style={{height:h+'%'}}/>)}</div><div className="v3-chart-caption">INFRASTRUCTURE / CONNECTIVITY / DELIVERY</div></div>
     </div>
    </div></section>
-   <div className="v3-shell v3-editorial">
+   <div className="v3-shell"><IntroHighlights content={content}/></div><div className="v3-shell v3-editorial">
     <div className="v3-editorial-heading"><span>THE TECHNOLOGY STACK</span><strong>{String(content.sections.length).padStart(2,'0')} expertise chapters</strong></div>
     {content.sections.map((section,index)=><section id={section.id} key={section.id} className={'v3-chapter v3-chapter-'+index%2}>
       <aside className="v3-chapter-meta"><SectionIndex section={section}/><span>FOREX TRADE TECHNOLOGY</span></aside>
@@ -77,7 +77,7 @@ export function VariationFour({content}:Props){
      </div><div className="v4-float-chip">Connected by design ✓</div>
     </div>
    </div></section>
-   <div className="v4-shell v4-contents" id="v4-sections"><div className="v4-section-heading"><span>EXPLORE OUR CAPABILITIES</span><h2>Everything connects.</h2></div>
+   <div className="v4-shell"><IntroHighlights content={content}/></div><div className="v4-shell v4-contents" id="v4-sections"><div className="v4-section-heading"><span>EXPLORE OUR CAPABILITIES</span><h2>Everything connects.</h2></div>
     {content.sections.map((section,i)=><section className={'v4-chapter v4-chapter-'+(i%3)} id={section.id} key={section.id}>
      <div className="v4-chapter-title"><SectionIndex section={section}/><h2>{section.heading}</h2></div>
      <div className="v4-chapter-body"><SectionBody section={section}/></div>
@@ -101,7 +101,7 @@ export function VariationFive({content}:Props){
      <div className="v5-node v5-node-root">Brokerage<br/>core</div><div className="v5-nodes"><span>MT4 / MT5</span><span>BRIDGES</span><span>CRM</span><span>HOSTING</span></div><div className="v5-system-bottom">AUTOMATED • MONITORED • INTEGRATED</div>
     </div>
    </div><div className="v5-shell v5-overline">DELIVERING RELIABLE TRADING TECHNOLOGY <span>NETWORK / OPERATIONS / SUPPORT</span></div></section>
-   <div className="v5-shell v5-docs"><aside className="v5-sidebar"><p>DOCUMENTATION / INDEX</p><PageChapters content={content}/><Link href={variationPath(design,'/contact/')}>Request an assessment ↗</Link></aside>
+   <div className="v5-shell"><IntroHighlights content={content}/></div><div className="v5-shell v5-docs"><aside className="v5-sidebar"><p>DOCUMENTATION / INDEX</p><PageChapters content={content}/><Link href={variationPath(design,'/contact/')}>Request an assessment ↗</Link></aside>
     <div className="v5-docs-body">{content.sections.map(section=><section className="v5-chapter" id={section.id} key={section.id}>
      <span className="v5-chapter-label">SECTION {String(section.number).padStart(2,'0')} / {content.meta.category.toUpperCase()}</span><h2>{section.heading}</h2><SectionBody section={section}/>
     </section>)}</div>
@@ -126,7 +126,7 @@ export function VariationSix({content}:Props){
     </div>
    </div></section>
    <div className="v6-service-row"><div className="v6-shell"><span>WHAT WE CONNECT</span><b>Trading</b><b>Liquidity</b><b>Operations</b><b>Growth</b></div></div>
-   <div className="v6-shell v6-content" id="v6-capabilities"><div className="v6-intro-strip"><span>CAPABILITIES & SOLUTIONS</span><h2>Everything you need to move forward.</h2></div>
+   <div className="v6-shell"><IntroHighlights content={content}/></div><div className="v6-shell v6-content" id="v6-capabilities"><div className="v6-intro-strip"><span>CAPABILITIES & SOLUTIONS</span><h2>Everything you need to move forward.</h2></div>
     {content.sections.map((section,i)=><section className={'v6-chapter v6-chapter-'+(i%4)} id={section.id} key={section.id}>
      <div className="v6-chapter-head"><span>{String(section.number).padStart(2,'0')} / {content.meta.category}</span><h2>{section.heading}</h2><span aria-hidden="true" className="v6-spark">✦</span></div>
      <SectionBody section={section}/>
