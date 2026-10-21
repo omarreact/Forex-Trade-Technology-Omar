@@ -27,7 +27,7 @@ export function VariationTwo({content}:Props){
       <SectionBody section={section}/>
      </section>)}
    </div>
-   <section className="v2-contact-band"><div className="v2-shell"><span>LET'S BUILD IT TOGETHER</span><h2>Technology that works as one.</h2><QuickCTA design={design} label="Talk to our specialists"/></div></section>
+   <section className="v2-contact-band"><div className="v2-shell"><span>LET&apos;S BUILD IT TOGETHER</span><h2>Technology that works as one.</h2><QuickCTA design={design} label="Talk to our specialists"/></div></section>
   </main>
   <footer className="v2-footer"><div className="v2-shell"><div className="v-footer-top"><div><Brand design={design}/><p>Trading infrastructure designed for how your brokerage operates.</p></div><ShortLinks design={design}/></div><EndFooter design={design}/></div></footer>
  </div>;
@@ -41,7 +41,7 @@ export function VariationThree({content}:Props){
   </header>
   <main>
    <section className="v3-hero"><div className="v3-shell">
-    <div className="v3-hero-label"><span>EST. FOR WHAT'S NEXT</span><span>01 — 06 / FOREX TRADE TECHNOLOGY</span></div>
+    <div className="v3-hero-label"><span>EST. FOR WHAT&apos;S NEXT</span><span>01 — 06 / FOREX TRADE TECHNOLOGY</span></div>
     <h1>{content.title}</h1>
     <div className="v3-hero-bottom"><div><p>{content.description}</p>{content.lead&&<small>{content.lead}</small>}<QuickCTA design={design} label="Speak to our team"/></div>
      <div className="v3-chart" aria-hidden="true"><div className="v3-chart-line"/><div className="v3-chart-bars">{[25,42,32,58,47,73,56,82,72,93].map((h,i)=><span key={i} style={{height:h+'%'}}/>)}</div><div className="v3-chart-caption">INFRASTRUCTURE / CONNECTIVITY / DELIVERY</div></div>
@@ -64,7 +64,7 @@ export function VariationFour({content}:Props){
  const design='design-4';
  return <div className="variant-site v-four">
   <div className="v4-ribbon">POWERING THE NEXT GENERATION OF BROKERAGE TECHNOLOGY <span aria-hidden="true">✦</span></div>
-  <header className="v4-header"><div className="v4-shell v4-header-inner"><Brand design={design}/><VariationLinks design={design}/><QuickCTA design={design} label="Let's talk"/></div></header>
+  <header className="v4-header"><div className="v4-shell v4-header-inner"><Brand design={design}/><VariationLinks design={design}/><QuickCTA design={design} label="Let&apos;s talk"/></div></header>
   <main>
    <section className="v4-hero"><div className="v4-shell v4-hero-grid"><div className="v4-hero-copy">
     <div className="v4-tag">✦ &nbsp; {content.eyebrow}</div><h1>{content.title}</h1><p>{content.description}</p>{content.lead&&<p className="v-summary">{content.lead}</p>}
@@ -83,7 +83,7 @@ export function VariationFour({content}:Props){
      <div className="v4-chapter-body"><SectionBody section={section}/></div>
     </section>)}
    </div>
-   <section className="v4-final"><div className="v4-shell"><div className="v4-final-card"><span>LET'S MAKE IT HAPPEN</span><h2>What could your brokerage become?</h2><QuickCTA design={design} label="Book a consultation"/></div></div></section>
+   <section className="v4-final"><div className="v4-shell"><div className="v4-final-card"><span>LET&apos;S MAKE IT HAPPEN</span><h2>What could your brokerage become?</h2><QuickCTA design={design} label="Book a consultation"/></div></div></section>
   </main>
   <footer className="v4-footer"><div className="v4-shell"><div className="v-footer-top"><div><Brand design={design}/><p>Smarter systems. Stronger brokerage operations.</p></div><ShortLinks design={design}/></div><EndFooter design={design}/></div></footer>
  </div>;
@@ -115,11 +115,11 @@ export function VariationFive({content}:Props){
 export function VariationSix({content}:Props){
  const design='design-6';
  return <div className="variant-site v-six">
-  <header className="v6-header"><div className="v6-shell v6-header-inner"><Brand design={design}/><VariationLinks design={design}/><QuickCTA design={design} label="Let's connect"/></div></header>
+  <header className="v6-header"><div className="v6-shell v6-header-inner"><Brand design={design}/><VariationLinks design={design}/><QuickCTA design={design} label="Let&apos;s connect"/></div></header>
   <main>
    <section className="v6-hero"><div className="v6-shell v6-hero-grid"><div className="v6-copy">
     <div className="v6-pill">✳ &nbsp; {content.eyebrow}</div><h1>{content.title}</h1><p>{content.description}</p>{content.lead&&<p className="v-summary">{content.lead}</p>}
-    <div className="v6-actions"><QuickCTA design={design} label="Start building"/><a href="#v6-capabilities">See what's possible ↓</a></div>
+    <div className="v6-actions"><QuickCTA design={design} label="Start building"/><a href="#v6-capabilities">See what&apos;s possible ↓</a></div>
    </div>
     <div className="v6-photo-stack"><div className="v6-photo-main"><img src={getExpandedPagePhotos(content.meta.slug)[2]?.src||pexelsPhoto} alt={getExpandedPagePhotos(content.meta.slug)[2]?.alt||"Technology specialists at work"} width="1000" height="720"/></div>
      <div className="v6-photo-bubble">CONNECTED<br/><strong>TECHNOLOGY</strong><span>↗</span></div><div className="v6-photo-doodle" aria-hidden="true">✳</div>
@@ -132,7 +132,7 @@ export function VariationSix({content}:Props){
      <SectionBody section={section}/>
     </section>)}
    </div>
-   <section className="v6-outro"><div className="v6-shell v6-outro-inner"><span>BIG IDEAS. CONNECTED SYSTEMS.</span><h2>Let's make it work.</h2><QuickCTA design={design} label="Tell us what you need"/></div></section>
+   <section className="v6-outro"><div className="v6-shell v6-outro-inner"><span>BIG IDEAS. CONNECTED SYSTEMS.</span><h2>Let&apos;s make it work.</h2><QuickCTA design={design} label="Tell us what you need"/></div></section>
   </main>
   <footer className="v6-footer"><div className="v6-shell"><div className="v-footer-top"><div><Brand design={design}/><p>Independent brokerage technology, thoughtfully integrated.</p></div><ShortLinks design={design}/></div><EndFooter design={design}/></div></footer>
  </div>;

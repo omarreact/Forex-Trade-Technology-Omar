@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
 
 const DESIGN_IDS = [1, 2, 3, 4, 5, 6] as const;
 
@@ -15,6 +16,13 @@ export function DesignSwitcher() {
   const active = match ? Number(match[1]) : 1;
   const suffix = match ? pathname.replace(/^\/design-[1-6](?=\/|$)/, '') || '/' : pathname;
   const pagePath = suffix === '/' ? '' : suffix;
+  useEffect(() => {
+    const selected = pathname.match(/^\/design-([1-6])(?=\/|$)/);
+    if (!selected) return;
+    try {
+      window.localStorage.setItem('forex-showroom-last-design', selected[1]);
+    } catch { /* Storage disabled in private browsing. */ }
+  }, [pathname]);
 
   return (
     <div className="ftt-design-switcher" role="region" aria-label="Website design switcher">

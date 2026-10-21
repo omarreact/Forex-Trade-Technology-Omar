@@ -1,0 +1,28 @@
+{
+  "design": "design-6",
+  "reference": "https://uptrader.io/",
+  "audit_date": "2026-10-21",
+  "reference_css_measured": false,
+  "fonts": {
+    "stack": "Trebuchet MS, Arial, Helvetica, sans-serif (implemented; reference computed font not verified)"
+  },
+  "colors": {
+    "primary": "#08AACF",
+    "secondary": "#B0E8E7",
+    "accent": "#1484A1",
+    "background": "#F7F7F3",
+    "text": "#202A30"
+  },
+  "components": {
+    "header": "Short white header with narrow Products/Solutions dropdowns and quiet outline contact action",
+    "hero": "Static copy-left with a three-tile photographic bento right",
+    "sections": "Pastel product cards, alternating story text/media, occasional full-span editorial photos",
+    "photos": "Soft natural-light workspaces and operations photos in asymmetric arch/bento crops",
+    "buttons": "Bright ocean-blue capsule CTA",
+    "cta": "Full-bleed photograph with blue gradient scrim and oversized type",
+    "footer": "Soft pale-teal three-column editorial directory"
+  },
+  "responsive": "Friendly bento keeps two mini tiles while content stories collapse to full width",
+  "animation": "Simple hover actions and reduced-motion overrides",
+  "implementation": "app/design-6-uptrader.css"
+}

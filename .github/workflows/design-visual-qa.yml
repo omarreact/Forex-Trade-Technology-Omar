@@ -1,0 +1,53 @@
+name: Six-design visual regression QA
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/independent-five-design-architectures
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Structural and route tests
+        run: |
+          npm run test:variants
+          npm run test:designs
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: ESLint
+        run: npm run lint
+      - name: Production build
+        run: npm run build
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Start production server
+        run: |
+          nohup npm run start -- -p 3100 > /tmp/next-app.log 2>&1 &
+          for n in $(seq 1 90); do
+            curl --fail --silent http://127.0.0.1:3100/design-2 >/dev/null && exit 0
+            sleep 2
+          done
+          cat /tmp/next-app.log
+          exit 1
+      - name: Screenshot and 468 viewport-route assertions
+        run: node tests/visual-check.cjs
+      - name: Upload browser QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: six-design-screenshots-and-qa
+          path: artifacts/
+          if-no-files-found: ignore

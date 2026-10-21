@@ -5,6 +5,7 @@ import { getAllThemePages } from '@/lib/theme-pages';
 import type { ThemePageMeta } from '@/lib/theme-pages';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
+import {OriginalCTA} from '@/components/designs/design-1-original/CTA';
 import { curateInteriorMedia } from '@/lib/theme-media';
 import { getExpandedPagePhotos } from '@/lib/pexels-photos';
 import { InteriorEditorialFlow } from './InteriorEditorialFlow';
@@ -111,6 +112,7 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
           </aside>
         )}
       </main>
+      <OriginalCTA meta={meta}/>
       <SiteFooter />
     </div>
   );

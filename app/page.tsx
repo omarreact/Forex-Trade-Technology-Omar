@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import { getThemePageBySlug } from '@/lib/theme-pages';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
+import {OriginalCTA} from '@/components/designs/design-1-original/CTA';
 import { HomeHero } from '@/components/home/HomeHero';
 import { getHomeHeroData } from '@/lib/home-hero';
 import { withRealHomePhotos } from '@/lib/home-media';
@@ -77,6 +78,7 @@ export default function HomePage() {
           />
         )}
       </main>
+      <OriginalCTA />
       <SiteFooter />
     </div>
   );

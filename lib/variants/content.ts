@@ -29,9 +29,26 @@ function cleanMarkup(html:string){
     .replace(/href=("|')\/(?!\/)/g,'href=$1/__VARIANT__/');
 
 }
+/** Capture top-level source sections without losing text to nested sections. */
 function sectionsOf(html:string){
-  const sections=[...html.matchAll(/<section\b[^>]*>[\s\S]*?<\/section>/gi)].map(m=>m[0]);
-  return sections.length?sections:[html];
+  const result:string[]=[];
+  const tags=/<\/?section\b[^>]*>/gi;
+  let depth=0;
+  let sectionStart=-1;
+  let match:RegExpExecArray|null;
+  while((match=tags.exec(html))!==null){
+    if(/^<section\b/i.test(match[0])){
+      if(depth===0)sectionStart=match.index;
+      depth++;
+    }else if(depth>0){
+      depth--;
+      if(depth===0&&sectionStart>=0){
+        result.push(html.slice(sectionStart,tags.lastIndex));
+        sectionStart=-1;
+      }
+    }
+  }
+  return result.length?result:[html];
 }
 export function resolveVariationPage(route:string,design:VariationId):VariationContent|null{
   const meta=getAllThemePages().find(p=>p.route.replace(/\/$/,'')===route.replace(/\/$/,''))||null;
@@ -51,7 +68,13 @@ export function resolveVariationPage(route:string,design:VariationId):VariationC
   const more=sections.slice(1).map((section,i)=>{
     const id=section.match(/<section\b[^>]*\bid=["']([^"']+)["']/i)?.[1]||('chapter-'+(i+1));
     const heading=firstTag(section,'h2')||firstTag(section,'h3')||'Explore '+meta.title;
-    const inner=section.replace(/^<section\b[^>]*>/i,'').replace(/<\/section>\s*$/i,'').replace(/<h2\b[^>]*>[\s\S]*?<\/h2>/i,'');
+    const inner=section
+      .replace(/^<section\b[^>]*>/i,'')
+      .replace(/<\/section>\s*$/i,'')
+      // The legacy left index/sidebar is duplicated by the new design's real heading.
+      // Remove that index only; keep every approved paragraph/list/card.
+      .replace(/<div\b[^>]*class=["'][^"']*ftt-rd-side(?:\s|["'])[^>]*>[\s\S]*?<\/div>/gi,'')
+      .replace(/<h2\b[^>]*>[\s\S]*?<\/h2>/i,'');
     return {id,heading,html:cleanMarkup(inner).replaceAll('/__VARIANT__/', '/'+design+'/'),number:i+1};
   });
   return {meta,title,eyebrow,description,lead,highlights,sections:more,home:meta.slug==='home'};
