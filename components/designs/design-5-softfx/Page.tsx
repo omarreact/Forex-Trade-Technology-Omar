@@ -11,7 +11,7 @@ function Header(){
  </nav></header>;
 }
 function Hero({content}:{content:VariationContent}){
- return <section className="c5-hero"><div className="c5-hero-copy"><span className="c5-label">// FOREX TRADE TECHNOLOGY</span><h1>{content.title}</h1>
+ return <section className="c5-hero"><div className="c5-hero-copy"><span className="c5-label">&#47;&#47; FOREX TRADE TECHNOLOGY</span><h1>{content.title}</h1>
  <p>{content.description}</p>{content.lead&&<p className="c5-lead">{content.lead}</p>}
  <div className="c5-hero-actions"><Action design={design} label="Discuss your project"/><a href="#c5-sections">Explore capabilities ↘</a></div></div>
  <div className="c5-hero-system"><div className="c5-diagram" aria-label="Trading technology ecosystem diagram"><span className="c5-diagram-label">OPERATING SYSTEM</span><div className="c5-diagram-core">Brokerage<br/>Technology</div><div className="c5-diagram-grid"><span>PLATFORM</span><span>LIQUIDITY</span><span>CRM</span><span>HOSTING</span></div></div>
@@ -32,6 +32,6 @@ function CTA({content}:{content:VariationContent}){
 }
 function Footer(){
  return <footer className="c5-footer"><div className="c5-footer-inner"><div className="c5-footer-lead"><SiteMark design={design}/><p>Software and infrastructure for modern broker operations.</p></div>
- <div className="c5-footer-directory"><section><h3>// Solutions</h3><SectionsNav design={design} filter="solutions"/></section><section><h3>// Products</h3><SectionsNav design={design} filter="products"/></section><section><h3>// Information</h3><SectionsNav design={design} filter="company"/></section></div></div><Legal design={design}/></footer>;
+ <div className="c5-footer-directory"><section><h3>&#47;&#47; Solutions</h3><SectionsNav design={design} filter="solutions"/></section><section><h3>&#47;&#47; Products</h3><SectionsNav design={design} filter="products"/></section><section><h3>&#47;&#47; Information</h3><SectionsNav design={design} filter="company"/></section></div></div><Legal design={design}/></footer>;
 }
 export default function SoftFxProposal({content}:{content:VariationContent}){return <div className="concept c5"><Header/><main><Hero content={content}/><Infrastructure content={content}/></main><CTA content={content}/><Footer/></div>;}
