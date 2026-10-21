@@ -1,0 +1,28 @@
+{
+  "design": "design-5",
+  "reference": "https://www.soft-fx.com/",
+  "audit_date": "2026-10-21",
+  "reference_css_measured": false,
+  "fonts": {
+    "stack": "system-ui, -apple-system, Segoe UI, Arial (implemented; reference computed font not verified)"
+  },
+  "colors": {
+    "primary": "#0B1010",
+    "secondary": "#182A1B",
+    "accent": "#A9F06A",
+    "background": "#090E0B",
+    "text": "#EDF6EE"
+  },
+  "components": {
+    "header": "Dark two-row header with service navigation, top status/integration positioning",
+    "hero": "Split headline and native-CSS technical infrastructure topology illustration",
+    "sections": "Interleaved source-backed module paragraphs, full-width infra photos and thin-lime outlines",
+    "photos": "Real server-room and infrastructure photo strips, no glossy rounded gallery",
+    "buttons": "Green square rounded CTA",
+    "cta": "Lime-toned photo/text technical callout, flush to dark footer",
+    "footer": "Charcoal engineering specification footer with slash-prefixed groups"
+  },
+  "responsive": "Diagram shrinks to card; units reflow into meaningful single-column content",
+  "animation": "Small hover/diagram transitions; reduced-motion overrides",
+  "implementation": "app/design-5-softfx.css"
+}
