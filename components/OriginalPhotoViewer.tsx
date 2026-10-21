@@ -14,6 +14,7 @@ export function OriginalPhotoViewer(){
    const click=(event:MouseEvent)=>{
      const target=event.target;
      if(!(target instanceof HTMLImageElement)||!target.matches(selector))return;
+     if(target.closest('figure')?.classList.contains('ftt-photo-missing'))return;
      if(!target.currentSrc && !target.src)return;
      setPhoto({src:target.currentSrc||target.src,alt:target.alt||'Forex Trade Technology editorial image'});
    };
@@ -23,8 +24,20 @@ export function OriginalPhotoViewer(){
        event.preventDefault();setPhoto({src:event.target.currentSrc||event.target.src,alt:event.target.alt||'Forex Trade Technology editorial image'});
      }
    };
+   const onImageError=(event:Event)=>{
+     const target=event.target;
+     if(target instanceof HTMLImageElement && target.matches(selector)){
+       target.closest('figure')?.classList.add('ftt-photo-missing');
+       target.removeAttribute('role');
+       target.removeAttribute('tabindex');
+     }
+   };
    const setup=()=>{
      document.querySelectorAll<HTMLImageElement>(selector).forEach(img=>{
+       if(img.complete && img.currentSrc && !img.naturalWidth){
+         img.closest('figure')?.classList.add('ftt-photo-missing');
+       }
+       if(img.closest('figure')?.classList.contains('ftt-photo-missing'))return;
        img.tabIndex=0;
        img.setAttribute('role','button');
        img.setAttribute('aria-label','Enlarge image: '+(img.alt||'Photo'));
@@ -33,9 +46,10 @@ export function OriginalPhotoViewer(){
    setup();
    const observer=new MutationObserver(setup);
    observer.observe(document.body,{childList:true,subtree:true});
+   document.addEventListener('error',onImageError,true);
    document.addEventListener('click',click);
    document.addEventListener('keydown',key);
-   return ()=>{observer.disconnect();document.removeEventListener('click',click);document.removeEventListener('keydown',key);};
+   return ()=>{observer.disconnect();document.removeEventListener('error',onImageError,true);document.removeEventListener('click',click);document.removeEventListener('keydown',key);};
  },[pathname,isOriginal]);
  useEffect(()=>{if(photo)close.current?.focus();},[photo]);
  if(!photo)return null;
