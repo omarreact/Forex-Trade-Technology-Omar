@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import HomeSpotlight from './HomeSpotlight';
+import CRMWorkflow from './CRMWorkflow';
 import {Action,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 const design='design-6' as const;
 function Header(){return <header className="c6-header"><div className="c6-head-inner"><SiteMark design={design}/><nav aria-label="UpTrader-inspired navigation">
@@ -10,7 +11,7 @@ function Header(){return <header className="c6-header"><div className="c6-head-i
 function Hero({content}:{content:VariationContent}){
  return <section className="c6-hero"><div className="c6-hero-word"><span className="c6-hero-kicker">FOREX TRADE TECHNOLOGY · BROKER SERVICES</span><h1>{content.title}</h1><p>{content.description}</p>{content.lead&&<p className="c6-hero-lead">{content.lead}</p>}
  <div className="c6-hero-actions"><Action design={design}/><a href="#c6-more">Explore what we do →</a></div></div>
- <div className="c6-hero-bento"><SegmentPhoto page={content} index={0} offset={4} className="c6-bento-main"/><SegmentPhoto page={content} index={1} offset={3} className="c6-bento-small"/><div className="c6-bento-note"><span>BUILT AROUND YOUR REQUIREMENTS</span><strong>Connected<br/>technology</strong></div></div>
+ <div className="c6-hero-bento c6-hero-bento--interactive"><CRMWorkflow/></div>
  </section>;
 }
 function Content({content}:{content:VariationContent}){
