@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import {Action,navSets,withDesign} from '../data';
+import BrokerageWorkbench from './BrokerageWorkbench';
 const d='design-4' as const;
-function PlatformMock(){return <div className="r4-platform" aria-label="Illustrative brokerage platform interface"><div className="r4-screen-top"><span>FOREX TRADE TECHNOLOGY</span><span>● ● ●</span></div><div className="r4-screen-grid"><div className="r4-side-nav"><i/><i/><i/><i/><i/></div><div className="r4-price"><small>PLATFORM TECHNOLOGY</small><strong>Trading infrastructure</strong><div className="r4-line-chart"><svg viewBox="0 0 360 125" aria-hidden="true"><polyline points="0,100 32,73 65,82 90,52 118,64 150,37 185,50 209,19 245,32 275,14 315,30 359,9" stroke="#F06050" strokeWidth="4" fill="none"/></svg></div></div><div className="r4-stat-grid"><span>MT5</span><span>CRM</span><span>API</span></div></div></div>}
-export default function HomeSpotlight({content}:{content:VariationContent}){
- return <><section className="r4-hero"><div className="r4-hero-copy"><small>ONE TECHNOLOGY PARTNER</small><h1>{content.title}</h1><p>{content.description}</p><Action design={d} label="Explore the solutions"/></div><div className="r4-hero-visual"><PlatformMock/><div className="r4-floating-mobile"><span>FOREX TRADE</span><div className="r4-mobile-bars"><i/><i/><i/><i/></div><b>Brokerage<br/>Technology</b><small>Illustrative interface</small></div></div></section>
- <section className="r4-journey"><small>TECHNOLOGY SOLUTIONS</small><h2>Solutions for every stage of your brokerage</h2><div className="r4-pill-nav"><a href="#r4-solutions">Solutions</a><a href="#r4-platforms">Technology</a><a href="#r4-services">Services</a></div><div id="r4-solutions" className="r4-solution-cards">{navSets.solutions.map((p,i)=><Link key={p.slug} href={withDesign(d,p.route)}><span>0{i+1}</span><h3>{p.title}</h3><span>Explore solution →</span></Link>)}</div></section>
- <section id="r4-platforms" className="r4-comparison"><div><small>TECHNOLOGY & INFRASTRUCTURE</small><h2>Connect the systems behind your brokerage.</h2><p>{content.lead||content.description}</p><Link href={withDesign(d,'/how-it-works/')}>How it works ↗</Link></div><div className="r4-comparison-list">{navSets.products.slice(0,5).map((p,i)=><Link key={p.slug} href={withDesign(d,p.route)}><span>0{i+1}</span><strong>{p.title}</strong><b>↗</b></Link>)}</div></section>
- <section id="r4-services" className="r4-catalogue"><small>AN INTEGRATED SERVICE OFFER</small><h2>Explore our capabilities</h2><div>{content.highlights.map((h,i)=><article key={i}><span>0{i+1}</span><h3>{h.title}</h3><p>{h.description}</p></article>)}</div></section></>;
-}
+function PlatformMock(){return <BrokerageWorkbench/>}
+export default function HomeSpotlight({content}:{content:VariationContent}){return <>
+ <section className="r4-hero" aria-labelledby="r4-home-title"><div className="r4-hero-copy"><small>ONE TECHNOLOGY PARTNER</small><h1 id="r4-home-title">{content.title}</h1><p>{content.description}</p><Action design={d} label="Explore the solutions"/></div><div className="r4-hero-visual"><PlatformMock/></div></section>
+ <section className="r4-journey" aria-labelledby="r4-journey-title"><small>TECHNOLOGY SOLUTIONS</small><h2 id="r4-journey-title">Solutions for your brokerage</h2><div className="r4-solution-cards">{navSets.solutions.map((p,i)=><Link key={p.slug} href={withDesign(d,p.route)}><span>0{i+1}</span><h3>{p.title}</h3><span>Explore solution →</span></Link>)}</div></section>
+ <div className="r4-home-proof" aria-label="Featured technology">{content.highlights.map((h,i)=><article key={h.title}><span>0{i+1}</span><h2>{h.title}</h2><p>{h.description}</p></article>)}</div>
+ </>}
