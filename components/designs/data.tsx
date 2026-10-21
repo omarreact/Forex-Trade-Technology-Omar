@@ -40,5 +40,5 @@ export function ChapterHeading({section}:{section:ContentSection}){
 }
 export function SegmentPhoto({page,index,offset=0,className}:{page:VariationContent,index:number,offset?:number,className?:string}){
  const photo=imageFor(page,index,offset);
- return <figure className={(className||'concept-image')+' concept-visual-media'}><PhotoWithFallback src={photo?.src} alt={photo?.alt||'Forex Trade Technology platform systems'}/><figcaption><strong>{page.meta.title}</strong><span>Trading infrastructure · Software integration</span></figcaption></figure>;
+ return <figure className={(className||'concept-image')+' concept-visual-media'}><PhotoWithFallback src={photo?.src} alt={photo?.alt||'Forex Trade Technology platform systems'} variant={index+offset}/><figcaption><strong>{page.meta.title}</strong><span>Trading infrastructure · Software integration</span></figcaption></figure>;
 }
