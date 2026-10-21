@@ -1,0 +1,77 @@
+/* Canonical two-tone headline tokens, usable in WordPress / Gutenberg. */
+:root { --ftt-heading-accent: #b4d184; }
+.ftt-heading-base { color: inherit; }
+.ftt-heading-accent { color: var(--ftt-heading-accent) !important; }
+:where(.ftt-home,.ftt-interior-layout,.ftt-site-footer) :is(h1,h2,h3,h4,h5,h6) {
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+/* Keep long Google-Docs headlines readable without obscuring slider photos. */
+.ftt-home .ftt-full-slide-hero {
+  height: clamp(630px, 79svh, 800px) !important;
+}
+.ftt-home .ftt-full-slide-content {
+  padding-top: 46px !important;
+  padding-bottom: 92px !important;
+}
+.ftt-home .ftt-full-slide-copy { max-width: 790px !important; }
+.ftt-home .ftt-full-slide-title {
+  font-size: clamp(39px, 3.65vw, 56px) !important;
+  line-height: 1.11 !important;
+  letter-spacing: -.043em !important;
+  max-width: 790px !important;
+  margin-top: 15px !important;
+}
+.ftt-home .ftt-full-slide-title.ftt-full-slide-title--long {
+  font-size: clamp(36px, 3.25vw, 50px) !important;
+  line-height: 1.12 !important;
+  max-width: 840px !important;
+}
+.ftt-home .ftt-wide-lead {
+  font-size: clamp(15px, 1.05vw, 17px) !important;
+  line-height: 1.51 !important;
+  max-width: 700px !important;
+  margin-top: 18px !important;
+}
+.ftt-home .ftt-wide-description {
+  font-size: 13px !important;
+  line-height: 1.58 !important;
+  max-width: 680px !important;
+  margin-top: 11px !important;
+}
+.ftt-home .ftt-wide-actions { margin-top: 20px !important; }
+.ftt-home .ftt-wide-proof { margin-top: 11px !important; }
+.ftt-home .ftt-full-slide-meta { bottom: 26px !important; }
+.ftt-home .ftt-full-slide-controls { bottom: 21px !important; }
+@media (max-width: 900px) {
+  .ftt-home .ftt-full-slide-hero { height: max(675px, 82svh) !important; }
+  .ftt-home .ftt-full-slide-content { width: calc(100% - 48px); padding: 38px 0 92px !important; }
+  .ftt-home .ftt-full-slide-title,
+  .ftt-home .ftt-full-slide-title.ftt-full-slide-title--long {
+    font-size: clamp(34px, 4.7vw, 45px) !important;
+    max-width: 740px !important;
+  }
+  .ftt-home .ftt-wide-lead { font-size: 15px !important; }
+}
+@media (max-width: 600px) {
+  .ftt-home .ftt-full-slide-hero { height: max(700px, 100svh) !important; }
+  .ftt-home .ftt-full-slide-content { width: calc(100% - 36px); padding: 22px 0 116px !important; }
+  .ftt-home .ftt-full-slide-title,
+  .ftt-home .ftt-full-slide-title.ftt-full-slide-title--long {
+    font-size: clamp(30px, 8vw, 38px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -.037em !important;
+    margin-top: 12px !important;
+  }
+  .ftt-home .ftt-wide-lead { font-size: 14px !important; line-height: 1.48 !important; margin-top: 13px !important; }
+  .ftt-home .ftt-wide-description { font-size: 12px !important; line-height: 1.48 !important; margin-top: 10px !important; }
+  .ftt-home .ftt-wide-actions { margin-top: 15px !important; }
+  .ftt-home .ftt-wide-proof { margin-top: 10px !important; }
+  .ftt-home .ftt-full-slide-meta { bottom: 77px !important; font-size: 9px !important; }
+  .ftt-home .ftt-full-slide-controls { bottom: 17px !important; }
+}
+@media (max-width: 380px) {
+  .ftt-home .ftt-full-slide-hero { height: max(740px, 107svh) !important; }
+  .ftt-home .ftt-full-slide-title,
+  .ftt-home .ftt-full-slide-title.ftt-full-slide-title--long { font-size: 29px !important; }
+}
