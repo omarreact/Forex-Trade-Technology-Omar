@@ -20,7 +20,7 @@ function Hero({content}:{content:VariationContent}){
 }
 function Infrastructure({content}:{content:VariationContent}){
  return <div className={'c5-sections'+(content.home?' c5-sections--home':'')} id="c5-sections">
- {content.sections.map((s,i)=><section id={s.id} className={'c5-unit c5-unit-'+i%4} key={s.id}>
+ {content.sections.map((s,i)=>s.id==='trust'?<aside id={s.id} key={s.id} className="c5-tech-strip"><HtmlSection section={s}/></aside>:<section id={s.id} className={'c5-unit c5-unit-'+i%4} key={s.id}>
   <div className="c5-unit-head"><span>MODULE / {String(i+1).padStart(2,'0')}</span><h2>{s.heading}</h2></div>
   {i%2===0&&<SegmentPhoto page={content} index={i+1} className="c5-unit-photo"/>}
   <div className="c5-unit-body"><HtmlSection section={s}/></div>
