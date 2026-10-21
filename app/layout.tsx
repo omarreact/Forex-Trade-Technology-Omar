@@ -26,6 +26,7 @@ import './reference-6.css';
 import './original-photo-viewer.css';
 import './premium-studio.css';
 import './reliable-media-layouts.css';
+import './unique-fullwidth-compositions.css';
 import { DesignSwitcher } from '@/components/DesignSwitcher';
 import {OriginalPhotoViewer} from '@/components/OriginalPhotoViewer';
 import {ContactFormHandler} from '@/components/variants/ContactFormHandler';
