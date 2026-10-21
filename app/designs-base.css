@@ -1,0 +1,49 @@
+/* Universal content semantics only; each proposal defines its own layout, navigation and presentation. */
+.concept{box-sizing:border-box;min-width:0;overflow-x:clip}
+.concept *, .concept *::before,.concept *::after{box-sizing:border-box}
+.concept :is(h1,h2,h3,h4,p,figure){margin:0}
+.concept a{text-decoration:none;color:inherit}
+.concept img{display:block;width:100%;height:100%;object-fit:cover}
+.concept :is(a,button,summary,input,textarea):focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.concept .concept-brand{display:inline-flex;align-items:center;gap:.35em;white-space:normal;line-height:1.1;font-size:clamp(18px,1.5vw,23px);font-weight:900;letter-spacing:-.07em;max-width:230px}
+.concept .concept-brand small{font-size:.37em;font-weight:750;letter-spacing:.13em;align-self:center}
+.concept .concept-brand span{font-weight:400}
+.concept .concept-action{display:inline-flex;justify-content:space-between;align-items:center;gap:26px;max-width:100%;padding:15px 22px;line-height:1.2;font-size:14px;font-weight:750;white-space:normal;transition:transform .2s ease}
+.concept .concept-action:hover{transform:translateY(-2px)}
+.concept .concept-legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;line-height:1.6;opacity:.67}
+.concept .concept-copy{width:100%;min-width:0;font-size:clamp(15px,1.07vw,17px);line-height:1.8;overflow-wrap:anywhere}
+.concept .concept-copy > * + *{margin-top:1em}
+.concept .concept-copy :is(div,section,article){max-width:100%;min-width:0}
+.concept .concept-copy :is(p,li){font-size:inherit;line-height:1.8;max-width:72ch}
+.concept .concept-copy :is(h3,h4){font-size:clamp(18px,1.4vw,25px);line-height:1.32;letter-spacing:-.025em;font-weight:700;margin:1.1em 0 .45em}
+.concept .concept-copy :is(ol,ul){list-style-position:outside;padding-left:23px;margin:16px 0;display:grid;gap:8px}
+.concept .concept-copy a{text-decoration:underline;text-underline-offset:3px}
+.concept .concept-copy img{max-width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+.concept .concept-copy figure{margin:18px 0;max-width:100%}
+.concept .concept-copy table{display:block;overflow-x:auto;max-width:100%;border-collapse:collapse}
+.concept .concept-copy td,.concept .concept-copy th{border:1px solid currentColor;padding:8px 10px}
+.concept .concept-copy blockquote{margin:1.5em 0;padding:10px 18px;border-left:3px solid currentColor}
+.concept .concept-copy [data-v-grid]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0;align-items:stretch}
+.concept .concept-copy [data-v-card]{min-width:0;padding:23px;display:flex;flex-direction:column;gap:7px}
+.concept .concept-copy [data-v-card] h3{margin:4px 0 6px}
+.concept .concept-copy details{padding:14px 0;border-bottom:1px solid currentColor}
+.concept .concept-copy details summary{cursor:pointer;font-weight:700;line-height:1.45}
+.concept .concept-copy details > *:not(summary){margin-top:13px}
+.concept .concept-copy input,.concept .concept-copy select,.concept .concept-copy textarea{display:block;width:100%;padding:13px;border:1px solid #a0afab;border-radius:4px;min-height:44px;font:inherit}
+.concept .concept-copy button[type=submit]{padding:14px 22px;border:0;cursor:pointer;font:inherit}
+.concept .concept-copy .bs-contact-form{display:grid;gap:12px}
+.concept .concept-copy [data-v-honeypot]{position:absolute!important;left:-9999px!important}
+.concept nav details{position:relative}
+.concept nav details summary{cursor:pointer;list-style:none}
+.concept nav details summary::-webkit-details-marker{display:none}
+.concept nav details>div{position:absolute;top:calc(100% + 9px);left:0;z-index:50;min-width:250px;max-width:350px;display:grid;padding:14px;box-shadow:0 20px 55px #0002}
+.concept nav details>div a{padding:10px;font-size:13px;line-height:1.45}
+.concept nav details>div a:hover{text-decoration:underline}
+.concept .concept-image{overflow:hidden}
+@media(max-width:750px){
+ .concept .concept-copy [data-v-grid]{grid-template-columns:minmax(0,1fr)}
+ .concept .concept-legal{display:grid;gap:5px}
+ .concept .concept-copy [data-v-card]{padding:20px}
+ .concept nav details>div{max-width:min(330px,88vw)}
+}
+@media(prefers-reduced-motion:reduce){.concept *, .concept *::before,.concept *::after{animation:none!important;scroll-behavior:auto!important;transition-duration:0.01ms!important}}
