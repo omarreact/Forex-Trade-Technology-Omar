@@ -4,14 +4,17 @@
   "audit_date": "2026-10-21",
   "reference_css_measured": false,
   "fonts": {
-    "stack": "Arial, Helvetica, sans-serif (implemented; reference computed font not verified)"
+    "body": "Inter, Arial, Helvetica, sans-serif",
+    "headings": "Manrope, Inter, Arial, sans-serif",
+    "weights": "Inter 300-700; Manrope 400-700",
+    "loading": "Google Fonts v20 WOFF2, font-display:swap"
   },
   "colors": {
-    "primary": "#45BED7",
-    "secondary": "#DFF8FF",
-    "accent": "#199AB1",
-    "background": "#FAFCFD",
-    "text": "#101F2E"
+    "primary": "#0A1325",
+    "secondary": "#F7F8FA",
+    "accent": "#32BDDD",
+    "background": "#FFFFFF",
+    "text": "#101827"
   },
   "components": {
     "header": "Horizontal white header, inline Products/Solutions dropdowns and a pill contact link",
@@ -24,5 +27,7 @@
   },
   "responsive": "Header becomes scrollable nav, photo below copy, split stories stack",
   "animation": "Hover on CTA and photo overlay; reduced-motion overrides",
-  "implementation": "app/design-2-matchtrade.css"
+  "implementation": "components/designs/design-2-matchtrade/HomeSpotlight.tsx + app/reference-2.css",
+  "reference_audit": "Supplied reference screenshot analyzed on 2026-10-22; color values are approximations, not computed original CSS",
+  "screenshot_correction": "Actual screenshot reads as a dark navy trading-app hero with two mobile terminals, then a white product catalogue. Replaced light cyan photography hero with original CSS trading-phone devices, compact company introduction, horizontal software-card gallery, service columns, and dark navy navigation."
 }
