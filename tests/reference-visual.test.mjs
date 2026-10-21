@@ -21,11 +21,7 @@ test('the five screenshot-derived home layouts are independently implemented',()
   assert.match(css,/@media\(max-width:/);
  }
 });
-test('design 2 has interactive device-oriented product carousel, not generic hero',()=>{
- const a=read('components/designs/design-2-matchtrade/HomeSpotlight.tsx');
- assert.match(a,/r2-phone/);assert.match(a,/r2-product-track/);
- assert.match(read('app/reference-2.css'),/scroll-snap-type:x mandatory/);
-});
+test('design 2 opens with an interactive platform and a swipeable product catalogue',()=>{const a=read('components/designs/design-2-matchtrade/HomeSpotlight.tsx');assert.match(a,/TradingDesk/);assert.match(a,/r2-product-track/);assert.match(read('app/reference-2.css'),/scroll-snap-type:x mandatory/);});
 test('design 3 contains cinematic blue hero and overlapping white ecosystem',()=>{
  const a=read('components/designs/design-3-b2broker/HomeSpotlight.tsx');
  assert.match(a,/r3-skyhero/);assert.match(a,/EcosystemPanel/);
@@ -41,11 +37,7 @@ test('design 5 has original trading terminal UI and technical matrix',()=>{
  assert.match(a,/Terminal/);assert.match(a,/r5-topology-map/);
  assert.match(a,/r5-product-matrix/);
 });
-test('design 6 has original CRM dashboards, process steps and alternate walkthrough',()=>{
- const a=read('components/designs/design-6-uptrader/HomeSpotlight.tsx');
- assert.match(a,/CrmDashboard/);assert.match(a,/r6-process-grid/);
- assert.match(a,/r6-component/);
-});
+test('design 6 presents the CRM first without repeating the document process and product sections',()=>{const a=read('components/designs/design-6-uptrader/HomeSpotlight.tsx');assert.match(a,/CrmDashboard/);assert.match(a,/r6-home-rail/);assert.doesNotMatch(a,/r6-components|r6-process-grid/);});
 test('Inter and Manrope use supplied Google Fonts assets and all surfaces',()=>{
  const s=read('app/fonts-reference.css');
  assert.match(s,/font-family:"Inter"/);assert.match(s,/font-family:"Manrope"/);
@@ -62,4 +54,23 @@ test('design 1 shrinks the original hero, imagery and unused interior page rails
  assert.match(s,/ftt-rd-section-wrap/);
  assert.match(s,/grid-template-columns:minmax\(0,1fr\)!important/);
  assert.match(read('components/InteriorPageShell.tsx'),/<OriginalCTA meta=\{meta\}\/>/);
+});
+
+test('no alternative homepage repeats the long source narrative in a second custom section collection',()=>{
+ const forbidden=['r2-about','r2-offer','r3-solutions','r3-solve','r4-comparison','r4-catalogue','r5-product-highlight','r5-services','r6-components','r6-process-grid'];
+ for(let i=2;i<=6;i++){
+  const name=['','', 'matchtrade','b2broker','leverate','softfx','uptrader'][i];
+  const source=read('components/designs/design-'+i+'-'+name+'/HomeSpotlight.tsx');
+  for(const className of forbidden)assert.ok(!source.includes('className="'+className+'"'),i+' duplicated block '+className);
+ }
+});
+test('each interior and homepage uses full body width and never reserves an absent media column',()=>{
+ const css=read('app/unique-fullwidth-compositions.css');
+ assert.match(css,/\.c2 \.c2-chapter>\.c2-chapter-body\{grid-area:copy!important/);
+ assert.match(css,/\.c4 \.c4-feature>\.c4-feature-copy\{grid-area:copy!important/);
+ assert.match(css,/\.c5 \.c5-unit>\.c5-unit-body\{grid-area:body!important/);
+ assert.match(css,/\.c6 \.c6-story>\.c6-story-words\{grid-area:body!important/);
+ assert.match(css,/\.c4 \.c4-feature:not\(:has/);
+ assert.match(css,/\.c6 \.c6-story:not\(:has/);
+ assert.match(read('app/layout.tsx'),/unique-fullwidth-compositions\.css/);
 });
