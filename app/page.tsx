@@ -12,6 +12,7 @@ import { withRealHomePhotos } from '@/lib/home-media';
 import './home-polish.css';
 import './home-fullwidth.css';
 import './home-editorial-media.css';
+import './home-section-fix.css';
 
 export const revalidate = 3600;
 
