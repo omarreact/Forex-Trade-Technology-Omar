@@ -81,6 +81,7 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
           return {ratios,repeated,sections:rows.length};
         },d);
         if(detail.sections<7)throw Error('Missing source homepage sections: '+detail.sections);
+        if(await page.locator('.concept-copy img[alt="Real-world financial technology environment"]').count()>0)throw Error('Legacy decorative image still taking space in theme content');
         const threshold=d===3?.55:.75;
         if(detail.ratios.some(ratio=>ratio<threshold))throw Error('Source content left in narrow partial grid: '+JSON.stringify(detail.ratios));
         if(detail.repeated.length)throw Error('Repeated homepage section headings: '+detail.repeated.join(' | '));
