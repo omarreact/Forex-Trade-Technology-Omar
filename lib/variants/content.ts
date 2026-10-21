@@ -6,7 +6,7 @@ export type VariationId=typeof VARIATION_IDS[number];
 export function isVariation(value:string):value is VariationId{return VARIATION_IDS.includes(value as VariationId);}
 export function variationPath(design:VariationId,route:string){return '/'+design+(route==='/'?'':route);}
 export type ContentSection={id:string;heading:string;html:string;number:number};
-export type VariationContent={meta:ThemePageMeta;title:string;eyebrow:string;description:string;lead:string;sections:ContentSection[];home:boolean;};
+export type VariationContent={meta:ThemePageMeta;title:string;eyebrow:string;description:string;lead:string;highlights:{title:string;description:string}[];sections:ContentSection[];home:boolean;};
 
 const unescape=(value:string)=>value.replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(Number(n))).replace(/&#x([0-9a-f]+);/gi,(_,n)=>String.fromCodePoint(parseInt(n,16))).replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&apos;|&#39;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>');
 function plain(input:string){return unescape(input.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim());}
@@ -46,13 +46,15 @@ export function resolveVariationPage(route:string,design:VariationId):VariationC
   const details=paragraphs.filter(p=>p!==eyebrow && p.length>45);
   const description=details[0]||meta.meta_description;
   const lead=details[1]||'';
+  const highlights=[...intro.matchAll(/<h3\\b[^>]*ftt-slide-title[^>]*>([\\s\\S]*?)<\\/h3>[\\s\\S]*?<p\\b[^>]*ftt-slide-summary[^>]*>([\\s\\S]*?)<\\/p>/gi)]
+   .map(item=>({title:plain(item[1]),description:plain(item[2])}));
   const more=sections.slice(1).map((section,i)=>{
     const id=section.match(/<section\b[^>]*\bid=["']([^"']+)["']/i)?.[1]||('chapter-'+(i+1));
     const heading=firstTag(section,'h2')||firstTag(section,'h3')||'Explore '+meta.title;
     const inner=section.replace(/^<section\b[^>]*>/i,'').replace(/<\/section>\s*$/i,'');
     return {id,heading,html:cleanMarkup(inner).replaceAll('/__VARIANT__/', '/'+design+'/'),number:i+1};
   });
-  return {meta,title,eyebrow,description,lead,sections:more,home:meta.slug==='home'};
+  return {meta,title,eyebrow,description,lead,highlights,sections:more,home:meta.slug==='home'};
 }
 export function allVariationRoutes(){
   return VARIATION_IDS.flatMap(design=>getAllThemePages().map(page=>({design,segments:page.route.split('/').filter(Boolean)})));
