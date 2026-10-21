@@ -15,12 +15,11 @@ function Hero({content}:{content:VariationContent}){
  </section>;
 }
 function Content({content}:{content:VariationContent}){
- return <div id="c6-more" className="c6-content">
+ return <div id="c6-more" className={'c6-content'+(content.home?' c6-content--home':'')}>
  {content.sections.map((s,i)=><section id={s.id} key={s.id} className={'c6-story c6-story-'+i%5}>
-  <div className="c6-story-lead"><span>STORY {String(i+1).padStart(2,'0')}</span><h2>{s.heading}</h2></div>
-  {i%2===0&&<SegmentPhoto page={content} index={i+2} className="c6-story-photo"/>}
+  <div className="c6-story-lead"><span>TECHNOLOGY {String(i+1).padStart(2,'0')}</span><h2>{s.heading}</h2></div>
+  {i%3!==2&&<SegmentPhoto page={content} index={i+2} className="c6-story-photo"/>}
   <div className="c6-story-words"><HtmlSection section={s}/></div>
-  {i%2!==0&&<SegmentPhoto page={content} index={i+2} className="c6-story-photo"/>}
  </section>)}</div>;
 }
 function CTA({content}:{content:VariationContent}){
