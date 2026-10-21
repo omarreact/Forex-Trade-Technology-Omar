@@ -58,7 +58,7 @@ export function withRealHomePhotos(html: string): string {
     if (slug === 'who-we-serve') {
       updated += `<section class="ftt-flow-parallax ftt-home-parallax" aria-label="Trading infrastructure image" style="--ftt-parallax-photo:url('${standalone.parallax.src}')">
         <div class="ftt-flow-parallax-scrim" aria-hidden="true"></div>
-        <div class="ftt-flow-parallax-inner"><span class="ftt-flow-parallax-line" aria-hidden="true"></span><p>Connected technology. Confident operations.</p></div>
+        <div class="ftt-flow-parallax-inner"><span class="ftt-flow-parallax-line" aria-hidden="true"></span></div>
       </section>`;
     }
     return updated;
