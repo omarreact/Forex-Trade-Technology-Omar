@@ -128,3 +128,20 @@
 }
 @media(max-width:390px){.v2-shell,.v3-shell,.v4-shell,.v5-shell,.v6-shell{width:calc(100% - 28px)}.variant-site .v-brand{font-size:18px}.variant-site .v-menu--header{font-size:11px;gap:2px 8px}.variant-site .v-footer-links{grid-template-columns:1fr 1fr}.v5-system{padding:13px}.v4-showcase-window{transform:none}.v4-mock-number{font-size:33px}}
 @media(prefers-reduced-motion:reduce){.variant-site *, .variant-site *:before,.variant-site *:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+/* Variant-specific type systems and wordmarks, deliberately not inherited from Design 1. */
+.v-two{font-family:"Trebuchet MS",Arial,Helvetica,sans-serif}
+.v-two .v-brand{font-family:"Trebuchet MS",Arial,sans-serif;letter-spacing:-.075em}
+.v-three{font-family:"Segoe UI",Arial,sans-serif}
+.v-three :is(.v3-hero h1,.v3-chapter article h2,.v3-close h2){font-family:Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:-.05em}
+.v-three .v-brand{text-transform:uppercase;font-size:18px;letter-spacing:.065em;line-height:1.2}
+.v-three .v-brand span{display:block;font-size:13px;letter-spacing:.11em;color:var(--v-accent)}
+.v-four{font-family:"Trebuchet MS",Arial,sans-serif}
+.v-four :is(.v4-hero h1,.v4-chapter-title h2,.v4-section-heading h2){font-family:"Arial Rounded MT Bold","Trebuchet MS",Arial,sans-serif;letter-spacing:-.065em}
+.v-four .v-brand{font-weight:900;letter-spacing:-.05em}
+.v-five{font-family:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif}
+.v-five :is(.v5-hero h1,.v5-chapter h2,.v5-outro h2){font-family:"Courier New",monospace;letter-spacing:-.06em}
+.v-five .v-brand{font-family:"Courier New",monospace;font-size:17px;letter-spacing:-.07em}
+.v-six{font-family:"Avenir Next","Segoe UI",Tahoma,sans-serif}
+.v-six :is(.v6-hero h1,.v6-chapter-head h2,.v6-outro h2){font-weight:800;letter-spacing:-.075em}
+.v-six .v-brand{font-family:"Avenir Next","Segoe UI",sans-serif;font-weight:900}
