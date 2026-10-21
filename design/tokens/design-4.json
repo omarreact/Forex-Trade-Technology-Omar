@@ -4,14 +4,17 @@
   "audit_date": "2026-10-21",
   "reference_css_measured": false,
   "fonts": {
-    "stack": "Arial, Helvetica, sans-serif (implemented; reference computed font not verified)"
+    "body": "Inter, Arial, Helvetica, sans-serif",
+    "headings": "Manrope, Inter, Arial, sans-serif",
+    "weights": "Inter 300-700; Manrope 400-700",
+    "loading": "Google Fonts v20 WOFF2, font-display:swap"
   },
   "colors": {
-    "primary": "#4825AC",
-    "secondary": "#E2CAFF",
-    "accent": "#EAFF82",
-    "background": "#F7F5FF",
-    "text": "#1D173B"
+    "primary": "#2C313A",
+    "secondary": "#FAF2EF",
+    "accent": "#F16451",
+    "background": "#FFFFFF",
+    "text": "#22232C"
   },
   "components": {
     "header": "Dark brand ribbon + floating white rounded header, contextual product dropdowns",
@@ -24,5 +27,7 @@
   },
   "responsive": "Hero stacks with compact visual collage; content photo/card stacks",
   "animation": "Soft float transform and gentle link microinteraction, reduced-motion overrides",
-  "implementation": "app/design-4-leverate.css"
+  "implementation": "components/designs/design-4-leverate/HomeSpotlight.tsx + app/reference-4.css",
+  "reference_audit": "Supplied reference screenshot analyzed on 2026-10-22; color values are approximations, not computed original CSS",
+  "screenshot_correction": "Actual screenshot is primarily white with coral accents and pastel split-hero product dashboard visuals, not violet. Replaced violet appearance with coral/white, original CSS desktop/mobile interface, solutions tabs, split technology comparison, dark service band and light footer."
 }
