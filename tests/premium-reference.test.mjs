@@ -43,3 +43,17 @@ test('content rendering retains semantic sections and distinct footers',()=>{
  assert.match(source,/function sectionsOf/);assert.match(source,/function cleanMarkup/);
  for(let i=0;i<5;i++){const p=text('components/designs/design-'+(i+2)+'-'+names[i]+'/Page.tsx');assert.match(p,/function Footer\(/);assert.match(p,/function CTA\(/);}
 });
+
+test('remote photography failure cannot create a blank image column',()=>{
+ const source=text('components/designs/data.tsx');
+ const fallback=text('components/designs/PhotoWithFallback.tsx');
+ const css=text('app/reliable-media-layouts.css');
+ assert.match(source,/concept-visual-media/);
+ assert.doesNotMatch(source,/if\(!photo\)return null/);
+ assert.match(fallback,/onError=\{\(\)=>setFailed\(true\)\}/);
+ assert.match(fallback,/concept-media-system/);
+ assert.match(css,/concept-media-system/);
+ assert.match(css,/ftt-photo-missing/);
+ assert.match(text('components/OriginalPhotoViewer.tsx'),/onImageError/);
+ assert.match(text('app/layout.tsx'),/import '\.\/reliable-media-layouts\.css';/);
+});
