@@ -4,7 +4,7 @@
 
 | Component | Design 1 (Original) | Design 2 (Match-Trade) | Design 3 (B2Broker) | Design 4 (Leverate) | Design 5 (Soft-FX) | Design 6 (UpTrader) |
 |---|---|---|---|---|---|---|
-| Fonts | Inter + Manrope | Inter + Manrope | Inter + Manrope | Inter + Manrope | Inter + Manrope | Inter + Manrope |
+| Font family | Inter + Manrope | Inter + Manrope | Inter + Manrope | Inter + Manrope | Inter + Manrope | Inter + Manrope |
 | Primary palette | Deep green #17241A, lime #D9F17A | Navy #0A1325, cyan #32BDDD | Blue #063252, white, green #009D64 | White, charcoal #2C313A, coral #F16451 | Black #111315, neon green #7CDB4C | White, ice #EAF2FA, blue #00A7DC |
 | Header | Original established navbar | Slim dark trading tech navbar | Light corporate navbar plus institutional utility strip | Minimal white navbar with subtle CTA | Dark compact engineering navigation | Light simple SaaS navigation |
 | Hero | Preserved full-panel slider, compact height | Two overlapping original trading phone interfaces on navy | Centered cinematic blue skyline/cloud composition | Pastel split hero, original desktop + phone UI | Full-width dark trading-terminal interface | Software/CRM desktop dashboard with smaller app panel |
