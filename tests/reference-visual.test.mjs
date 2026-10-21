@@ -21,7 +21,7 @@ test('the five screenshot-derived home layouts are independently implemented',()
   assert.match(css,/@media\(max-width:/);
  }
 });
-test('design 2 opens with an interactive platform and a swipeable product catalogue',()=>{const a=read('components/designs/design-2-matchtrade/HomeSpotlight.tsx');assert.match(a,/TradingDesk/);assert.match(a,/r2-product-track/);assert.match(read('app/reference-2.css'),/scroll-snap-type:x mandatory/);});
+test('design 2 opens with an interactive platform and a swipeable product catalogue',()=>{const a=read('components/designs/design-2-matchtrade/HomeSpotlight.tsx');assert.match(a,/TraderPhone/);assert.match(a,/r2-devices/);assert.match(a,/r2-product-track/);assert.match(read('app/reference-2.css'),/scroll-snap-type:x mandatory/);});
 test('design 3 contains cinematic blue hero and overlapping white ecosystem',()=>{
  const a=read('components/designs/design-3-b2broker/HomeSpotlight.tsx');
  assert.match(a,/r3-skyhero/);assert.match(a,/EcosystemPanel/);
