@@ -15,7 +15,6 @@ const backgrounds: Record<string, HomePhoto> = {
 };
 const standalone = {
   centered: pexels.codeLaptop,
-  right: pexels.phoneTrading,
   parallax: pexels.serverRows,
 } as const;
 
@@ -47,10 +46,6 @@ export function withRealHomePhotos(html: string): string {
         if (cls.test(rest)) rest = rest.replace(cls, 'class="$1 ftt-home-photo-wash"');
         return `${start}${rest} style="--ftt-home-backdrop:url('${backdrop.src}')"${end}`;
       });
-    }
-    if (slug === 'the-product-ecosystem') {
-      const img = figure(standalone.right, 'ftt-home-inline-media', 'Connected trading experiences');
-      updated = updated.replace(/(<\/h2>)/, '$1' + img);
     }
     if (slug === 'how-it-works') {
       updated += figure(standalone.centered, 'ftt-home-center-photo', 'Building the systems behind your brokerage');
