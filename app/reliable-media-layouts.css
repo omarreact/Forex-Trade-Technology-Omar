@@ -61,6 +61,25 @@
 .ftt-home .ftt-home-editorial figure.ftt-photo-missing:before,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing:before{content:'';display:block;position:absolute;inset:16px 16px 36px;opacity:.4;background:repeating-linear-gradient(90deg,transparent 0 38px,#2d72452f 39px 40px),repeating-linear-gradient(0deg,transparent 0 28px,#2d72452f 29px 30px);pointer-events:none}
 .ftt-home .ftt-home-editorial figure.ftt-photo-missing:after,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing:after{content:'FOREX TRADE TECHNOLOGY  /  BROKER INFRASTRUCTURE';display:block;position:absolute;bottom:14px;left:14px;right:14px;font:700 10px "Inter",sans-serif;letter-spacing:.11em;color:#376341}
 .ftt-home .ftt-home-editorial figure.ftt-photo-missing img,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing img{display:none!important}
+/* Four visual fallbacks keep an unavailable photo from becoming an empty tile.
+   Figure order is stable per page and assigned by OriginalPhotoViewer. */
+.ftt-home .ftt-home-editorial figure.ftt-photo-missing:before,.ftt-interior-layout .ftt-interior figure.ftt-photo-missing:before{inset:14px 14px 40px;opacity:1;border:1px solid #ffffff85;border-radius:7px;box-shadow:0 7px 22px #102b2420}
+.ftt-home .ftt-home-editorial figure.ftt-photo-fallback--chart:before,.ftt-interior-layout .ftt-interior figure.ftt-photo-fallback--chart:before{
+ background:linear-gradient(157deg,transparent 0 61%,#2c9c65 62% 63%,transparent 64%),linear-gradient(172deg,transparent 0 47%,#2c9c65 48% 49%,transparent 50%),repeating-linear-gradient(0deg,transparent 0 31px,#304d3b22 32px 33px),repeating-linear-gradient(90deg,transparent 0 45px,#304d3b22 46px 47px),linear-gradient(145deg,#fff,#e9f3e8)
+}
+.ftt-home .ftt-home-editorial figure.ftt-photo-fallback--workspace:before,.ftt-interior-layout .ftt-interior figure.ftt-photo-fallback--workspace:before{
+ background:linear-gradient(#397c91 0 0) 14px 14px/26% 7px no-repeat,linear-gradient(#d8e5e4 0 0) 14px 31px/54% 5px no-repeat,linear-gradient(#a6d6cb 0 0) 14px 48px/36% 21px no-repeat,linear-gradient(#e5efec 0 0) 14px 78px/44% 18px no-repeat,linear-gradient(#d5e2df 0 0) 14px 107px/44% 6px no-repeat,linear-gradient(#e5efec 0 0) 14px 123px/62% 6px no-repeat,linear-gradient(140deg,#fff,#edf5f2)
+}
+.ftt-home .ftt-home-editorial figure.ftt-photo-fallback--infrastructure:before,.ftt-interior-layout .ftt-interior figure.ftt-photo-fallback--infrastructure:before{
+ background:repeating-linear-gradient(90deg,#14271f 0 25px,#406b4b 26px 29px,#182e23 30px 54px),repeating-linear-gradient(0deg,transparent 0 35px,#a8d28536 36px 38px),linear-gradient(125deg,#17261d,#526e50)
+}
+.ftt-home .ftt-home-editorial figure.ftt-photo-fallback--integrations:before,.ftt-interior-layout .ftt-interior figure.ftt-photo-fallback--integrations:before{
+ background:radial-gradient(circle at 18% 50%,#fff 0 8px,#187e83 9px 11px,transparent 12px),radial-gradient(circle at 50% 30%,#fff 0 9px,#187e83 10px 12px,transparent 13px),radial-gradient(circle at 82% 50%,#fff 0 8px,#187e83 9px 11px,transparent 12px),radial-gradient(circle at 50% 77%,#fff 0 8px,#187e83 9px 11px,transparent 12px),linear-gradient(#559e93,#559e93) center 48%/58% 2px no-repeat,linear-gradient(30deg,transparent 48%,#559e93 49% 51%,transparent 52%),linear-gradient(150deg,transparent 48%,#559e93 49% 51%,transparent 52%),linear-gradient(140deg,#eff8f5,#d7ebe4)
+}
+.ftt-home .ftt-home-editorial figure.ftt-photo-fallback--chart:after,.ftt-interior-layout .ftt-interior figure.ftt-photo-fallback--chart:after{content:'TRADING VIEW  /  MARKET FLOW'}
+.ftt-home .ftt-home-editorial figure.ftt-photo-fallback--workspace:after,.ftt-interior-layout .ftt-interior figure.ftt-photo-fallback--workspace:after{content:'CLIENT OPERATIONS  /  CRM WORKSPACE'}
+.ftt-home .ftt-home-editorial figure.ftt-photo-fallback--infrastructure:after,.ftt-interior-layout .ftt-interior figure.ftt-photo-fallback--infrastructure:after{content:'HOSTING  /  SERVER INFRASTRUCTURE'}
+.ftt-home .ftt-home-editorial figure.ftt-photo-fallback--integrations:after,.ftt-interior-layout .ftt-interior figure.ftt-photo-fallback--integrations:after{content:'SYSTEMS  /  CONNECTED TECHNOLOGY'}
 
 /* Final screenshot review: three source decorative photo placeholders were still
    reserving pale empty boxes next to otherwise complete editorial content.

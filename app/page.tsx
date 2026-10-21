@@ -10,11 +10,6 @@ import {OriginalCTA} from '@/components/designs/design-1-original/CTA';
 import { HomeHero } from '@/components/home/HomeHero';
 import { getHomeHeroData } from '@/lib/home-hero';
 import { withRealHomePhotos } from '@/lib/home-media';
-import './home-polish.css';
-import './home-fullwidth.css';
-import './home-editorial-media.css';
-import './home-section-fix.css';
-
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
