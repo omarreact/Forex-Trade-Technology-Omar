@@ -145,3 +145,16 @@
 .v-six{font-family:"Avenir Next","Segoe UI",Tahoma,sans-serif}
 .v-six :is(.v6-hero h1,.v6-chapter-head h2,.v6-outro h2){font-weight:800;letter-spacing:-.075em}
 .v-six .v-brand{font-family:"Avenir Next","Segoe UI",sans-serif;font-weight:900}
+
+/* Previously published homepage carousel highlights, presented in each independent visual system. */
+.variant-site .v-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:60px 0 28px}
+.variant-site .v-highlight{padding:31px;min-width:0;background:var(--v-background);border:1px solid var(--v-border);border-radius:var(--v-radius)}
+.variant-site .v-highlight>span{display:block;font-size:11px;letter-spacing:.14em;font-weight:850;color:var(--v-accent)}
+.variant-site .v-highlight h2{font-size:clamp(1.45rem,2vw,2.15rem);line-height:1.15;margin:23px 0 13px}
+.variant-site .v-highlight p{font-size:14px;line-height:1.65;opacity:.78}
+.v-two .v-highlights{padding:55px 0 0}.v-two .v-highlight{background:white;border-radius:22px;border-color:#daeeee}.v-two .v-highlight>span{color:#07989a}
+.v-three .v-highlights{padding:65px 0}.v-three .v-highlight{background:#1b202b;border:1px solid #464755;border-radius:0}.v-three .v-highlight h2{font-family:Georgia,serif;font-weight:500}
+.v-four .v-highlight{background:#efe4ff;border-radius:30px;transform:translateY(-12px)}.v-four .v-highlight:nth-child(2){background:#3a187d;color:#fff;transform:translateY(12px)}
+.v-five .v-highlights{padding:62px 0}.v-five .v-highlight{background:#192c37;border-radius:0;border:1px solid #42606e}.v-five .v-highlight h2{font-family:monospace;font-size:clamp(1.3rem,1.7vw,1.85rem)}
+.v-six .v-highlight{background:#ecf1dd;border:0;border-radius:36px}.v-six .v-highlight:nth-child(2){background:#fce6cf}.v-six .v-highlight:nth-child(3){background:#d9e6ef}.v-six .v-highlight>span{color:#af6c45}
+@media(max-width:720px){.variant-site .v-highlights{grid-template-columns:1fr;padding:35px 0;gap:14px}.variant-site .v-highlight{padding:25px}.v-four .v-highlight,.v-four .v-highlight:nth-child(2){transform:none}}
