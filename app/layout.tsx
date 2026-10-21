@@ -5,6 +5,7 @@ import './interior-polish.css';
 import './brand-consistency.css';
 import './site-compact.css';
 import './editorial-flow.css';
+import './doc-refresh-2026.css';
 
 export const metadata: Metadata = {
   title: 'Forex Trade Technology | Brokerage Technology & FinTech Infrastructure',

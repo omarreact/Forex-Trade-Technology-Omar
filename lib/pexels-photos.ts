@@ -70,6 +70,9 @@ export type PhotoKey = keyof typeof pexels;
 
 /** Four DIFFERENT context-specific actual photographs for every service page. */
 export const pagePhotoKeys: Record<string, readonly [PhotoKey, PhotoKey, PhotoKey, PhotoKey]> = {
+  'brokerage-setup': ['team', 'strategy', 'tradeTeam', 'dataCenter'],
+  'kyc-aml-integration': ['supportLead', 'codeLaptop', 'supportTeam', 'phoneCharts'],
+  'how-it-works': ['meeting', 'strategy', 'devTeam', 'serverRows'],
   'forex-broker-hosting': ['dataCenter', 'network', 'serverCables', 'blackServers'],
   'forex-liquidity-connectivity': ['tradeTeam', 'screens', 'analyst', 'pointing'],
   'forex-turnkey-solution': ['team', 'tradingOffice', 'dataCenter', 'support'],
@@ -106,6 +109,9 @@ export function getPagePhotos(slug: string): EditorialPhoto[] {
  * become a varied editorial gallery. Attribution records remain in code.
  */
 const extraPhotoKeys: Record<string, readonly [PhotoKey, PhotoKey]> = {
+  'brokerage-setup': ['codeOffice','markets'],
+  'kyc-aml-integration': ['businessMeeting','metricsMeeting'],
+  'how-it-works': ['codeLaptop','team'],
   'forex-broker-hosting': ['serverRows','modernServers'],
   'forex-liquidity-connectivity': ['tradingOffice','markets'],
   'forex-turnkey-solution': ['codeLaptop','tradeTeam'],

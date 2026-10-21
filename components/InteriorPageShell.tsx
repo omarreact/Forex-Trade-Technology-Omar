@@ -32,12 +32,14 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
   const categoryName =
     category === 'solutions' ? 'Solutions'
       : category === 'products' ? 'Products'
+      : meta.route.startsWith('/technology/') ? 'Technology'
       : 'Company';
 
   const categoryDestination = category === 'solutions'
     ? '/#solutions'
     : category === 'products'
       ? '/#the-product-ecosystem'
+      : meta.route.startsWith('/technology/') ? '/technology/'
       : '/';
 
   const relatedPool = getAllThemePages()

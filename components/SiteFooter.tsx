@@ -23,6 +23,8 @@ export function SiteFooter() {
               <Link href="/technology" className="hover:text-[#d9f17a]">Technology</Link>
               <Link href="/about-us" className="hover:text-[#d9f17a]">About Us</Link>
               <Link href="/portfolio" className="hover:text-[#d9f17a]">Portfolio</Link>
+              <Link href="/how-it-works" className="hover:text-[#d9f17a]">How It Works</Link>
+              <Link href="/technology/kyc-aml-integration" className="hover:text-[#d9f17a]">KYC / AML</Link>
               <Link href="/faq" className="hover:text-[#d9f17a]">FAQs</Link>
               <Link href="/blog" className="hover:text-[#d9f17a]">Insights</Link>
               <Link href="/contact" className="hover:text-[#d9f17a]">Contact</Link>

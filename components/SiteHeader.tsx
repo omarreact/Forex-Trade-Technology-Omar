@@ -11,6 +11,7 @@ export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const solutions = [
+    { title: 'Brokerage Setup', href: '/solutions/brokerage-setup' },
     { title: 'MT5 White Label', href: '/solutions/mt5-white-label' },
     { title: 'MT5 Grey Label', href: '/solutions/mt5-grey-label' },
     { title: 'MT4 White Label', href: '/solutions/mt4-white-label' },
@@ -222,6 +223,8 @@ export function SiteHeader() {
             >
               About
             </Link>
+            <Link href="/how-it-works" onClick={() => setMobileMenuOpen(false)} className="block text-base font-semibold text-[#141613]">How It Works</Link>
+            <Link href="/technology/kyc-aml-integration" onClick={() => setMobileMenuOpen(false)} className="block text-base font-semibold text-[#141613]">KYC &amp; AML Integration</Link>
             <Link
               href="/faq"
               onClick={() => setMobileMenuOpen(false)}

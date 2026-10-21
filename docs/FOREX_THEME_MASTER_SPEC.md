@@ -231,3 +231,13 @@ Every major theme change must update:
 The photographic homepage carousel now transitions **the complete slide panel**, not the image alone. Every panel holds a photograph, background scrim, eyebrow, headline, lead/description, both CTA buttons and slide number. The first panel retains the original verified homepage H1 and intro; subsequent panels use H2 headings and source-verified featured solution titles, summaries and supporting CRM/Hosting paragraphs. Preserve one H1. Manual arrows, dots, touch swipe, keyboard arrow keys, cyclic wrapping, 7-second autoplay and reduced-motion behavior remain. Autoplay pauses on hover/focus, when hidden/offscreen, or when reduced-motion applies. Inactive panels are `aria-hidden` and `inert`. Gutenberg parity requires each full panel to be serialized together inside its slide block rather than floating text outside a photo slider.
 
 Source of truth: `components/home/HomeHero.tsx`, `lib/home-hero.ts`, `app/home-fullwidth.css`.
+
+## 15. Google Docs 2026-10-21 synchronized live content
+
+The production Next.js website now uses **26** source-backed page entries. Thirteen Google Doc sources updated the homepage and nine existing interior pages, adding three new routes:
+
+- `/solutions/brokerage-setup/`
+- `/technology/kyc-aml-integration/`
+- `/how-it-works/`
+
+Sources and SEO values are tracked in `public/theme-assets/content/page-manifest.json`. HTML is stored in `public/theme-assets/content/pages` and keeps the current `ftt-rd-*` / `ftt-content-*` class contract. The Next.js main homepage retains the **complete-panel sliding carousel** and external real-photo URLs. The existing design tokens are unchanged. The shared `app/doc-refresh-2026.css` handles document-specific lists, FAQs, article headings and responsive photo elements. Changes must be ported to the independent WordPress FSE theme when its content is refreshed again.
