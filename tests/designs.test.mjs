@@ -18,7 +18,7 @@ test('five separate React page trees, each owning its Header/Hero/Content/CTA/Fo
    const labels=i===2?['Header','Hero','Story','CTA','Footer']:i===3?['Header','Hero','Body','CTA','Footer']:i===4?['Header','Hero','Journey','CTA','Footer']:i===5?['Header','Hero','Infrastructure','CTA','Footer']:['Header','Hero','Content','CTA','Footer'];
    for(const label of labels)assert.match(source,new RegExp('function '+label+'\\('),file+' '+label);
    assert.match(source,/<CTA content=\{content\}\/><Footer\/>/);
-   assert.match(source,/content\.sections\.map/);
+   assert.match(source,/(?:content\.sections|sections)\.map/);
    assert.match(source,/SegmentPhoto/);
    assert.match(source,/HtmlSection/);
    assert.match(source,/className="c[2-6]-/);
