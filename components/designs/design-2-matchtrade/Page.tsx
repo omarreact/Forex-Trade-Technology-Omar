@@ -8,7 +8,7 @@ function Header(){
   <details><summary>Our Solutions</summary><div className="c2-mega">{navSets.solutions.map(p=><Link href={withDesign(design,p.route)} key={p.slug}>{p.title}<span>↗</span></Link>)}</div></details>
   <details><summary>Platforms & Products</summary><div className="c2-mega">{navSets.products.map(p=><Link href={withDesign(design,p.route)} key={p.slug}>{p.title}<span>↗</span></Link>)}</div></details>
   <Link href={withDesign(design,'/how-it-works/')}>How it works</Link><Link href={withDesign(design,'/about-us/')}>Company</Link></nav>
-  <Link className="c2-nav-cta" href={withDesign(design,'/contact/')}>Let's talk <span>↗</span></Link>
+  <Link className="c2-nav-cta" href={withDesign(design,'/contact/')}>Let&apos;s talk <span>↗</span></Link>
  </div></header>;
 }
 function Hero({content}:{content:VariationContent}){
