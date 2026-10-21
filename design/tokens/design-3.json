@@ -1,0 +1,28 @@
+{
+  "design": "design-3",
+  "reference": "https://b2broker.com/",
+  "audit_date": "2026-10-21",
+  "reference_css_measured": false,
+  "fonts": {
+    "stack": "Arial Narrow, Arial, Helvetica, sans-serif (implemented; reference computed font not verified)"
+  },
+  "colors": {
+    "primary": "#0A0F14",
+    "secondary": "#17222B",
+    "accent": "#BEFFF1",
+    "background": "#060A0D",
+    "text": "#F4F8FA"
+  },
+  "components": {
+    "header": "Two-tier dark utility strip + institutional navigation/dropdowns",
+    "hero": "Full-bleed monochrome photographic background under a high-contrast dark overlay",
+    "sections": "Full-width section divider + meaningful chapter index side rails, large editorial columns",
+    "photos": "Monochrome financial infrastructure, occasional cinematic wide strip photos",
+    "buttons": "Square mint-white action buttons",
+    "cta": "Centered extra-large type on deep teal field; no photo card",
+    "footer": "Black three-column product taxonomy, enormous typographic wordmark"
+  },
+  "responsive": "Labels stack, content index narrows to a line; full-bleed photo remains",
+  "animation": "Restrained reveal via hovering links; reduced-motion overrides",
+  "implementation": "app/design-3-b2broker.css"
+}
