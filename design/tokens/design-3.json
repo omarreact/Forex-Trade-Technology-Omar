@@ -4,14 +4,17 @@
   "audit_date": "2026-10-21",
   "reference_css_measured": false,
   "fonts": {
-    "stack": "Arial Narrow, Arial, Helvetica, sans-serif (implemented; reference computed font not verified)"
+    "body": "Inter, Arial, Helvetica, sans-serif",
+    "headings": "Manrope, Inter, Arial, sans-serif",
+    "weights": "Inter 300-700; Manrope 400-700",
+    "loading": "Google Fonts v20 WOFF2, font-display:swap"
   },
   "colors": {
-    "primary": "#0A0F14",
-    "secondary": "#17222B",
-    "accent": "#BEFFF1",
-    "background": "#060A0D",
-    "text": "#F4F8FA"
+    "primary": "#063252",
+    "secondary": "#F2F5F7",
+    "accent": "#009D64",
+    "background": "#FFFFFF",
+    "text": "#192733"
   },
   "components": {
     "header": "Two-tier dark utility strip + institutional navigation/dropdowns",
@@ -24,5 +27,7 @@
   },
   "responsive": "Labels stack, content index narrows to a line; full-bleed photo remains",
   "animation": "Restrained reveal via hovering links; reduced-motion overrides",
-  "implementation": "app/design-3-b2broker.css"
+  "implementation": "components/designs/design-3-b2broker/HomeSpotlight.tsx + app/reference-3.css",
+  "reference_audit": "Supplied reference screenshot analyzed on 2026-10-22; color values are approximations, not computed original CSS",
+  "screenshot_correction": "Actual screenshot shows a blue cinematic technology hero with a white ecosystem panel that overlaps its lower edge. Replaced dark full-page institutional styling with an original gradient/city silhouette, overlapping solution/product feature panel, light content tiles and green CTA."
 }
