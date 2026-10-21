@@ -204,3 +204,16 @@
  .ftt-home .ftt-home-editorial #how-your-trading-stack-connects>.bs-container>.ftt-stack-workflow{grid-column:1!important;width:100%;margin-top:12px}
 }
 @media(prefers-reduced-motion:reduce){.ftt-home .ftt-stack-workflow a{transition:none!important}}
+
+/* Text-preserving trust band: the source has a label and technology list, NOT
+   a second homepage H2. No invented duplicate hero heading or unused photo. */
+.concept main :is(.c2-tech-strip,.c3-tech-strip,.c4-tech-strip,.c5-tech-strip,.c6-tech-strip){width:min(1320px,calc(100% - 42px));margin:18px auto 0;padding:13px clamp(14px,2vw,24px);min-width:0}
+.concept main :is(.c2-tech-strip,.c3-tech-strip,.c4-tech-strip,.c5-tech-strip,.c6-tech-strip) .concept-copy{display:flex;align-items:center;justify-content:flex-start;gap:12px 22px;flex-wrap:wrap;font-size:13px;line-height:1.48}
+.concept main :is(.c2-tech-strip,.c3-tech-strip,.c4-tech-strip,.c5-tech-strip,.c6-tech-strip) .concept-copy p{margin:0!important;max-width:none!important;font-size:inherit;line-height:inherit}
+.concept main :is(.c2-tech-strip,.c3-tech-strip,.c4-tech-strip,.c5-tech-strip,.c6-tech-strip) .concept-copy p:first-child{font-size:10px;font-weight:800;letter-spacing:.1em;white-space:nowrap}
+.c2 .c2-tech-strip{background:#edf7fb;border-left:3px solid #3fc5e9;color:#1b4554}
+.c3 .c3-tech-strip{background:#eef7f5;border-top:2px solid #01a263;color:#24514a}
+.c4 .c4-tech-strip{background:#fff7f4;border:1px solid #f4d6d0;color:#803d31;border-radius:5px}
+.c5 .c5-tech-strip{background:#1b211c;border:1px solid #3e5f3c;color:#b2e19d;border-radius:2px}
+.c6 .c6-tech-strip{background:#eef6fb;border:1px solid #d2eaf4;color:#1c6587;border-radius:6px}
+@media(max-width:700px){.concept main :is(.c2-tech-strip,.c3-tech-strip,.c4-tech-strip,.c5-tech-strip,.c6-tech-strip){width:calc(100% - 30px);margin-top:12px}}
