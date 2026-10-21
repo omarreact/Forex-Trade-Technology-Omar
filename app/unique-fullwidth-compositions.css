@@ -182,3 +182,25 @@
  .c5 .c5-unit:not(:has(>.c5-unit-photo)){grid-template-areas:"head" "body" "line"!important}
  .c6 .c6-story:not(:has(>.c6-story-photo)){grid-template-areas:"head" "body"!important}
 }
+
+/* Design 1: the previously empty right half of the trading-stack explanation is
+   now a true functional connection flow linked to the THREE approved pages. */
+.ftt-home .ftt-home-editorial #how-your-trading-stack-connects>.bs-container{
+ width:min(1280px,calc(100% - 48px))!important;max-width:none!important;
+ display:grid!important;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)!important;
+ column-gap:clamp(20px,4vw,65px)!important;align-items:center!important
+}
+.ftt-home .ftt-home-editorial #how-your-trading-stack-connects>.bs-container>:not(.ftt-stack-workflow){grid-column:1!important;min-width:0}
+.ftt-home .ftt-home-editorial .ftt-stack-workflow{grid-column:2!important;grid-row:1/span 6!important;display:grid;gap:10px;align-self:stretch;align-content:center;padding:15px;background:#eef5e9;border:1px solid #d8e8d3;border-radius:10px}
+.ftt-home .ftt-home-editorial .ftt-stack-workflow a{display:grid;gap:7px;padding:clamp(12px,1.35vw,20px);background:#fff;border:1px solid #dce7d6;border-left:3px solid #8eac62;border-radius:5px;text-decoration:none;position:relative;transition:transform .2s ease,box-shadow .2s ease}
+.ftt-home .ftt-home-editorial .ftt-stack-workflow a:not(:last-child):after{content:'↓';display:block;position:absolute;left:50%;bottom:-14px;color:#3c834c;background:#eef5e9;z-index:2;line-height:18px}
+.ftt-home .ftt-home-editorial .ftt-stack-workflow a:hover{transform:translateX(3px);box-shadow:0 5px 14px #25432810}
+.ftt-home .ftt-home-editorial .ftt-stack-workflow a span{font:700 10px "Inter",sans-serif;letter-spacing:.11em;color:#5c8661}
+.ftt-home .ftt-home-editorial .ftt-stack-workflow a strong{font:700 clamp(16px,1.5vw,22px) "Manrope",sans-serif;line-height:1.22;color:#203521}
+.ftt-home .ftt-home-editorial .ftt-stack-workflow a small{font:500 12px "Inter",sans-serif;color:#44754a}
+@media(max-width:800px){
+ .ftt-home .ftt-home-editorial #how-your-trading-stack-connects>.bs-container{grid-template-columns:minmax(0,1fr)!important;width:calc(100% - 30px)!important}
+ .ftt-home .ftt-home-editorial #how-your-trading-stack-connects>.bs-container>:not(.ftt-stack-workflow){grid-column:1!important}
+ .ftt-home .ftt-home-editorial #how-your-trading-stack-connects>.bs-container>.ftt-stack-workflow{grid-column:1!important;grid-row:auto!important;width:100%;margin-top:12px}
+}
+@media(prefers-reduced-motion:reduce){.ftt-home .ftt-stack-workflow a{transition:none!important}}
