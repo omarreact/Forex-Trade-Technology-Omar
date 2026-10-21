@@ -63,3 +63,24 @@ test('homepage slide editorial remains included in the other five designs',()=>{
  const components=read('components/variants/Variations.tsx');
  assert.equal((components.match(/<IntroHighlights content=\{content\}\/>/g)||[]).length,5);
 });
+
+test('fixed home sections have isolated non-floating grid layout',()=>{
+ const css=read('app/home-section-fix.css');
+ const home=read('public/theme-assets/content/pages/home.html');
+ for(const id of ['the-product-ecosystem','why-brokers-work-with-us','frequently-asked-questions']){
+  assert.ok(css.includes('#'+id),id);
+  assert.ok(home.includes('id="'+id+'"'),id);
+ }
+ assert.match(css,/float:\s*none\s*!important/);
+ assert.match(css,/grid-template-columns:\s*minmax\(0,1fr\)\s*!important/);
+ assert.ok(!read('lib/home-media.ts').includes("slug === 'the-product-ecosystem'"));
+});
+test('every website design gets a persistent top switcher with route-preserving links',()=>{
+ const layout=read('app/layout.tsx');
+ const switcher=read('components/DesignSwitcher.tsx');
+ assert.match(layout,/<DesignSwitcher \/>/);
+ assert.match(switcher,/usePathname/);
+ assert.match(switcher,/DESIGN_IDS = \[1, 2, 3, 4, 5, 6\]/);
+ assert.match(switcher,/pagePath/);
+ assert.match(read('app/design-switcher.css'),/position:\s*sticky/);
+});
