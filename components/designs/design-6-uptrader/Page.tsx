@@ -23,7 +23,7 @@ function Content({content}:{content:VariationContent}){
  </section>)}</div>;
 }
 function CTA({content}:{content:VariationContent}){
- return <section className="c6-cta"><SegmentPhoto page={content} index={5} className="c6-cta-photo"/><div className="c6-cta-content"><span>READY FOR THE NEXT STEP?</span><h2>Let's discuss your brokerage technology.</h2><p>Talk through your requirements, including {content.meta.title.toLowerCase()}, with our team.</p><Action design={design} label="Request a consultation"/></div></section>;
+ return <section className="c6-cta"><SegmentPhoto page={content} index={5} className="c6-cta-photo"/><div className="c6-cta-content"><span>READY FOR THE NEXT STEP?</span><h2>Let&apos;s discuss your brokerage technology.</h2><p>Talk through your requirements, including {content.meta.title.toLowerCase()}, with our team.</p><Action design={design} label="Request a consultation"/></div></section>;
 }
 function Footer(){
  return <footer className="c6-footer"><div className="c6-foot-heading"><SiteMark design={design}/><p>Systems for modern brokerage operations.</p></div><div className="c6-foot-grid"><div><h3>Explore solutions</h3><SectionsNav design={design} filter="solutions"/></div><div><h3>Our products</h3><SectionsNav design={design} filter="products"/></div><div><h3>Information</h3><SectionsNav design={design} filter="company"/></div></div><Legal design={design}/></footer>;
