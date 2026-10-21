@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "clean": "next clean",
     "test:showroom": "node --test tests/showroom.test.mjs",
-    "prebuild": "npm run test:showroom"
+    "prebuild": "npm run test:variants",
+    "test:variants": "node --test tests/variants.test.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
