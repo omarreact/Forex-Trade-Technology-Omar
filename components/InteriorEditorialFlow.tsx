@@ -112,7 +112,7 @@ export function ParallaxBreak({ photo }: {photo: EditorialPhoto}) {
       <div className="ftt-flow-parallax-scrim" aria-hidden="true" />
       <div className="ftt-flow-parallax-inner">
         <span className="ftt-flow-parallax-line" aria-hidden="true" />
-        <p>Built for connected brokerage infrastructure.</p>
+        
       </div>
     </section>
   );
