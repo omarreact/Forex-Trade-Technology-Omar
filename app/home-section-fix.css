@@ -174,3 +174,6 @@
     margin-top: 15px;
   }
 }
+
+/* Clearfix pseudo-elements are not valid children of explicit grid rows. */
+.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions) > .bs-container::after { display:none !important; content:none !important; }
