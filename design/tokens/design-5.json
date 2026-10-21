@@ -4,14 +4,17 @@
   "audit_date": "2026-10-21",
   "reference_css_measured": false,
   "fonts": {
-    "stack": "system-ui, -apple-system, Segoe UI, Arial (implemented; reference computed font not verified)"
+    "body": "Inter, Arial, Helvetica, sans-serif",
+    "headings": "Manrope, Inter, Arial, sans-serif",
+    "weights": "Inter 300-700; Manrope 400-700",
+    "loading": "Google Fonts v20 WOFF2, font-display:swap"
   },
   "colors": {
-    "primary": "#0B1010",
-    "secondary": "#182A1B",
-    "accent": "#A9F06A",
-    "background": "#090E0B",
-    "text": "#EDF6EE"
+    "primary": "#111315",
+    "secondary": "#1D2120",
+    "accent": "#7CDB4C",
+    "background": "#111315",
+    "text": "#F4F5F5"
   },
   "components": {
     "header": "Dark two-row header with service navigation, top status/integration positioning",
@@ -24,5 +27,7 @@
   },
   "responsive": "Diagram shrinks to card; units reflow into meaningful single-column content",
   "animation": "Small hover/diagram transitions; reduced-motion overrides",
-  "implementation": "app/design-5-softfx.css"
+  "implementation": "components/designs/design-5-softfx/HomeSpotlight.tsx + app/reference-5.css",
+  "reference_audit": "Supplied reference screenshot analyzed on 2026-10-22; color values are approximations, not computed original CSS",
+  "screenshot_correction": "Actual screenshot is a near-black product-centric trading technology site with neon-green accents. Replaced generic photography-led hero with original terminal UI mockups, trading product cards, an integration topology map and precise low-radius dark modules."
 }
