@@ -51,7 +51,7 @@ export function resolveVariationPage(route:string,design:VariationId):VariationC
   const more=sections.slice(1).map((section,i)=>{
     const id=section.match(/<section\b[^>]*\bid=["']([^"']+)["']/i)?.[1]||('chapter-'+(i+1));
     const heading=firstTag(section,'h2')||firstTag(section,'h3')||'Explore '+meta.title;
-    const inner=section.replace(/^<section\b[^>]*>/i,'').replace(/<\/section>\s*$/i,'');
+    const inner=section.replace(/^<section\b[^>]*>/i,'').replace(/<\/section>\s*$/i,'').replace(/<h2\b[^>]*>[\s\S]*?<\/h2>/i,'');
     return {id,heading,html:cleanMarkup(inner).replaceAll('/__VARIANT__/', '/'+design+'/'),number:i+1};
   });
   return {meta,title,eyebrow,description,lead,highlights,sections:more,home:meta.slug==='home'};
