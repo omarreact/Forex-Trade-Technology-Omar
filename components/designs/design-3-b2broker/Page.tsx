@@ -27,7 +27,7 @@ function Body({content}:{content:VariationContent}){
  </section>)}</div>;
 }
 function CTA({content}:{content:VariationContent}){
- return <section className="c3-cta"><span>LET'S TALK TECHNOLOGY</span><h2>{content.home?'Ready to discuss your brokerage technology?':content.meta.title}</h2><p>Tell us about your goals and the systems you need to connect.</p><Action design={design} label="Start a conversation"/></section>;
+ return <section className="c3-cta"><span>LET&apos;S TALK TECHNOLOGY</span><h2>{content.home?'Ready to discuss your brokerage technology?':content.meta.title}</h2><p>Tell us about your goals and the systems you need to connect.</p><Action design={design} label="Start a conversation"/></section>;
 }
 function Footer(){
  return <footer className="c3-footer"><div className="c3-footer-title"><SiteMark design={design}/><span>Technology behind the trading experience.</span></div>
