@@ -1,0 +1,28 @@
+{
+  "design": "design-1",
+  "reference": "https://forextrade.pincodeit.com/",
+  "audit_date": "2026-10-21",
+  "reference_css_measured": false,
+  "fonts": {
+    "stack": "Existing Tailwind/theme default sans-serif; no font-family change"
+  },
+  "colors": {
+    "primary": "#17241A",
+    "secondary": "#F6F7F2",
+    "accent": "#D9F17A",
+    "background": "#FFFFFF",
+    "text": "#192219"
+  },
+  "components": {
+    "header": "Original sticky SiteHeader navigation with Solutions/Products dropdowns",
+    "hero": "Existing full-panel sliding photographic banner",
+    "sections": "Source original editorial sections, established grid layouts and preserved style",
+    "photos": "Existing source-backed editorial photos and Pexels media",
+    "buttons": "Lime/dark circular CTAs",
+    "cta": "Full-width dark green original-brand banner",
+    "footer": "Original SiteFooter, navigation preserved"
+  },
+  "responsive": "Preserve original hero; collapse empty legacy rail",
+  "animation": "Original slider + reduced-motion support",
+  "implementation": "app/home-polish.css + app/design-1-original-cta.css"
+}
