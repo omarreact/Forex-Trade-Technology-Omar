@@ -50,3 +50,16 @@ test('approved form semantics and cross-site internal navigation are retained',(
  assert.match(shared,/variationPath\(design,/);
  assert.match(contact,/name="email"/);
 });
+
+test('homepage slide editorial remains included in the other five designs',()=>{
+ const home=read('public/theme-assets/content/pages/home.html');
+ const slideCount=(home.match(/ftt-slide-title/g)||[]).length;
+ assert.equal(slideCount,3);
+ const source=read('lib/variants/content.ts');
+ assert.match(source,/intro\.matchAll/);
+ assert.match(source,/highlights/);
+ const shared=read('components/variants/shared.tsx');
+ assert.match(shared,/export function IntroHighlights/);
+ const components=read('components/variants/Variations.tsx');
+ assert.equal((components.match(/<IntroHighlights content=\{content\}\/>/g)||[]).length,5);
+});
