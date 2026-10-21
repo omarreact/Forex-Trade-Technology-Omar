@@ -1,0 +1,176 @@
+/*
+ * Explicit source-backed layout repair for three homepage sections with
+ * editorial photographs. Float-based placement previously let the cards
+ * flow around the photos, causing broken widths and overlaps.
+ */
+.ftt-home .ftt-home-editorial :is(
+  #the-product-ecosystem,
+  #why-brokers-work-with-us,
+  #frequently-asked-questions
+) > .bs-container {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+  column-gap: clamp(22px, 4.5vw, 70px);
+  row-gap: 0;
+  align-items: start;
+  width: min(1210px, calc(100% - 72px));
+  margin-inline: auto;
+  min-width: 0;
+}
+.ftt-home .ftt-home-editorial :is(
+  #the-product-ecosystem,
+  #why-brokers-work-with-us,
+  #frequently-asked-questions
+) > .bs-container > .bs-kicker {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-self: start;
+  margin: 0 0 18px;
+}
+.ftt-home .ftt-home-editorial :is(
+  #the-product-ecosystem,
+  #why-brokers-work-with-us,
+  #frequently-asked-questions
+) > .bs-container > .bs-section-title {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0 0 21px;
+  text-wrap: balance;
+}
+.ftt-home .ftt-home-editorial :is(
+  #the-product-ecosystem,
+  #why-brokers-work-with-us,
+  #frequently-asked-questions
+) > .bs-container > figure.ftt-doc-home-photo {
+  grid-column: 2;
+  grid-row: 2 / 4;
+  float: none !important;
+  display: block;
+  width: 100% !important;
+  min-width: 0;
+  max-width: 100%;
+  height: clamp(220px, 22vw, 290px);
+  margin: 0 !important;
+  padding: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  align-self: stretch;
+}
+.ftt-home .ftt-home-editorial :is(
+  #the-product-ecosystem,
+  #why-brokers-work-with-us,
+  #frequently-asked-questions
+) > .bs-container > figure.ftt-doc-home-photo img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  object-fit: cover;
+  aspect-ratio: auto;
+}
+.ftt-home .ftt-home-editorial #the-product-ecosystem > .bs-container > .bs-copy {
+  grid-column: 1;
+  grid-row: 3;
+  min-width: 0;
+  max-width: 64ch;
+  margin: 0 0 5px;
+}
+.ftt-home .ftt-home-editorial :is(
+  #the-product-ecosystem,
+  #why-brokers-work-with-us,
+  #frequently-asked-questions
+) > .bs-container > .ftt-content-grid {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  clear: both;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: clamp(12px, 1.5vw, 20px);
+  width: 100%;
+  min-width: 0;
+  margin-top: 34px;
+}
+.ftt-home .ftt-home-editorial :is(
+  #the-product-ecosystem,
+  #why-brokers-work-with-us,
+  #frequently-asked-questions
+) > .bs-container > .ftt-content-grid > .ftt-content-card {
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  float: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-wrap: anywhere;
+}
+.ftt-home .ftt-home-editorial #frequently-asked-questions .ftt-content-card h3 {
+  font-size: clamp(17px, 1.55vw, 23px);
+  line-height: 1.3;
+}
+.ftt-home .ftt-home-editorial #frequently-asked-questions .ftt-content-card p.bs-copy {
+  font-size: 14px;
+  line-height: 1.75;
+}
+.ftt-home .ftt-home-editorial #frequently-asked-questions .ftt-content-grid {
+  grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+}
+@media (max-width: 900px) {
+  .ftt-home .ftt-home-editorial :is(
+    #the-product-ecosystem,
+    #why-brokers-work-with-us,
+    #frequently-asked-questions
+  ) > .bs-container { grid-template-columns: minmax(0,1fr) minmax(220px,.9fr); gap: 0 23px; }
+  .ftt-home .ftt-home-editorial :is(
+    #the-product-ecosystem,
+    #why-brokers-work-with-us,
+    #frequently-asked-questions
+  ) > .bs-container > .ftt-content-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+}
+@media (max-width: 680px) {
+  .ftt-home .ftt-home-editorial :is(
+    #the-product-ecosystem,
+    #why-brokers-work-with-us,
+    #frequently-asked-questions
+  ) > .bs-container {
+    width: calc(100% - 36px);
+    grid-template-columns: minmax(0,1fr);
+  }
+  .ftt-home .ftt-home-editorial :is(
+    #the-product-ecosystem,
+    #why-brokers-work-with-us,
+    #frequently-asked-questions
+  ) > .bs-container > .bs-section-title {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0 0 20px;
+  }
+  .ftt-home .ftt-home-editorial :is(
+    #the-product-ecosystem,
+    #why-brokers-work-with-us,
+    #frequently-asked-questions
+  ) > .bs-container > figure.ftt-doc-home-photo {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100% !important;
+    height: clamp(195px,53vw,275px);
+    margin-bottom: 18px !important;
+  }
+  .ftt-home .ftt-home-editorial #the-product-ecosystem > .bs-container > .bs-copy {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .ftt-home .ftt-home-editorial :is(
+    #the-product-ecosystem,
+    #why-brokers-work-with-us,
+    #frequently-asked-questions
+  ) > .bs-container > .ftt-content-grid {
+    grid-column: 1;
+    grid-row: 5;
+    grid-template-columns: minmax(0,1fr) !important;
+    margin-top: 15px;
+  }
+}
