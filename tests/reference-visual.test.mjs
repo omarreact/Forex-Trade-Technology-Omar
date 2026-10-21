@@ -11,7 +11,7 @@ test('the five screenshot-derived home layouts are independently implemented',()
   assert.ok(source.includes('content.title'));
   assert.ok(source.includes('content.description'));
   assert.match(source,/content\.highlights\.map/);
-  assert.match(source,/<h1>/);
+  assert.match(source,/<h1(?:\\s|>)/);
   assert.match(container,/content\.home\?<HomeSpotlight content=\{content\}\/>:<Hero content=\{content\}\/>/);
   assert.match(container,/content\.sections\.map|sections\.map/);
   assert.ok(!container.includes('content.home&&'), 'Home highlights must not be duplicated');
