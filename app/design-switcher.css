@@ -82,3 +82,7 @@
 @media(prefers-reduced-motion: reduce) {
   .ftt-design-switcher__link { transition: none; }
 }
+
+.ftt-design-switcher__resume{color:#dbffc2!important;border:1px solid #79a05e;padding:7px 12px;border-radius:7px;font-size:11px;font-weight:800;white-space:nowrap;text-decoration:none}
+.ftt-design-switcher__resume:hover{background:#2c5137}
+@media(max-width:760px){.ftt-design-switcher__resume{display:none}}
