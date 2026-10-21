@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import HomeSpotlight from './HomeSpotlight';
+import BrokerageWorkbench from './BrokerageWorkbench';
 import {Action,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 const design='design-4' as const;
 function Header(){return <><div className="c4-ribbon">FOREX TRADE TECHNOLOGY <span>TRADING SYSTEMS / INTEGRATIONS / HOSTING</span></div>
@@ -12,7 +13,7 @@ function Header(){return <><div className="c4-ribbon">FOREX TRADE TECHNOLOGY <sp
 function Hero({content}:{content:VariationContent}){
  return <section className="c4-hero"><div className="c4-star c4-star-a" aria-hidden="true">✳</div><div className="c4-star c4-star-b" aria-hidden="true">✳</div>
  <div className="c4-heading"><span>FLEXIBLE BROKERAGE TECHNOLOGY</span><h1>{content.title}</h1><p>{content.description}</p>{content.lead&&<p className="c4-lead">{content.lead}</p>}<div className="c4-buttons"><Action design={design}/><a href="#c4-journey">Explore the platform ↓</a></div></div>
- <div className="c4-hero-art"><SegmentPhoto page={content} index={0} offset={2} className="c4-main-photo"/><div className="c4-glass">MT5 / CRM / PAYMENTS <span>CONNECTED SYSTEMS</span></div><SegmentPhoto page={content} index={2} offset={3} className="c4-mini-photo"/></div>
+ <div className="c4-hero-art c4-hero-art--interactive"><BrokerageWorkbench/></div>
  </section>;
 }
 function Journey({content}:{content:VariationContent}){
