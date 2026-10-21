@@ -9,6 +9,13 @@ import './doc-refresh-2026.css';
 import './heading-system.css';
 import './variants.css';
 import './design-switcher.css';
+import './designs-base.css';
+import './design-2-matchtrade.css';
+import './design-3-b2broker.css';
+import './design-4-leverate.css';
+import './design-5-softfx.css';
+import './design-6-uptrader.css';
+import './design-1-original-cta.css';
 import { DesignSwitcher } from '@/components/DesignSwitcher';
 import {ContactFormHandler} from '@/components/variants/ContactFormHandler';
 
