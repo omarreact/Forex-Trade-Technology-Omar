@@ -217,3 +217,11 @@ Every major theme change must update:
 5. QA results and known gaps.
 
 **Known gaps at writing:** recent Next.js visual changes were build-verified, not tested with full paired browser screenshots; URL-only third-party photos can fail if remote hosts change; Gutenberg FSE does **not** automatically render React-side media composition; contact backend and live WordPress editing integration must be verified separately. Pixel-perfect parity requires an explicit implementation and review, not simply copying this specification.
+
+## 13. Header breakpoint correction (2026-10-21)
+
+- Inline desktop primary navigation, including Home, Solutions, Products, Technology, Portfolio, About, FAQs and Market Intel, begins at **1024px**. The former 1280px cutoff caused the hamburger to appear on desktop/laptop displays.
+- Navigation dropdown menus stay within the current screen height and are keyboard-focusable.
+- At widths **0–1023px**, the hamburger and expandable mobile drawer remain, with its own contact CTA. At widths **>=1024px** the drawer/hamburger must be hidden and desktop inline navigation visible, including the contact CTA.
+- The header should retain a maximum content width of **1320px** and 20px or greater desktop side gutters. Responsive logo and link sizing at the compact desktop edge must never cause nav wrapping or horizontal page overflow.
+- WordPress Gutenberg parity: maintain this precise breakpoint, inline links and mobile drawer behavior in the `header` template part; use real navigation block semantics, preserve labels and URLs, and do not surface a public WordPress admin/login button.

@@ -34,17 +34,17 @@ export function SiteHeader() {
   ];
 
   return (
-    <header className="bs-site-header sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#e5e5e0]">
-      <div className="bs-header-inner max-w-[1210px] min-h-[84px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-6">
+    <header className="bs-site-header ftt-site-header sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#e5e5e0]">
+      <div className="bs-header-inner ftt-header-inner mx-auto flex items-center justify-between">
         {/* Brand Wordmark */}
-        <div className="bs-wordmark flex items-center shrink-0">
-          <Link href="/" className="bs-logo-text text-[24px] sm:text-[26px] font-extrabold text-[#161816] tracking-tighter">
+        <div className="bs-wordmark ftt-header-brand flex items-center shrink-0">
+          <Link href="/" className="bs-logo-text ftt-header-logo font-extrabold text-[#161816] tracking-tighter">
             Forex Trade Technology<span className="text-[#86a627] ml-0.5">•</span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden xl:flex items-center gap-5 text-[14px] font-semibold text-[#141613]">
+        <nav className="ftt-inline-nav hidden lg:flex items-center whitespace-nowrap font-semibold text-[#141613]" aria-label="Primary navigation">
           <Link href="/" className="hover:text-[#798b32] transition-colors py-2">
             Home
           </Link>
@@ -129,7 +129,7 @@ export function SiteHeader() {
         </nav>
 
         {/* Public consultation CTA */}
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="ftt-header-cta hidden lg:flex items-center shrink-0">
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 bg-[#171915] hover:bg-[#424638] text-white px-5 py-2.5 rounded-full text-[13px] font-bold tracking-tight shadow-md hover:-translate-y-0.5 transition-all"
@@ -140,11 +140,13 @@ export function SiteHeader() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="xl:hidden flex items-center">
+        <div className="ftt-menu-toggle lg:hidden flex items-center">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl text-[#141613] hover:bg-[#f4f5f0] focus:outline-none"
-            aria-label="Toggle navigation menu"
+            className="p-2 rounded-xl text-[#141613] hover:bg-[#f4f5f0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#799642]"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="ftt-mobile-navigation"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -153,7 +155,7 @@ export function SiteHeader() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-t border-[#e5e5e0] bg-white px-4 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
+        <div id="ftt-mobile-navigation" className="ftt-mobile-drawer lg:hidden border-t border-[#e5e5e0] bg-white px-4 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}

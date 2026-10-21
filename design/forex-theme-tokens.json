@@ -144,5 +144,23 @@
   },
   "urls": {
     "canonicalProduction": "https://forextrade.pincodeit.com/"
+  },
+  "header": {
+    "desktopInlineNavigationMin": 1024,
+    "mobileDrawerMax": 1023,
+    "desktopMaxWidth": "1320px",
+    "desktopMinGutter": "20px",
+    "inlineItems": [
+      "Home",
+      "Solutions",
+      "Products",
+      "Technology",
+      "Portfolio",
+      "About",
+      "FAQs",
+      "Market Intel"
+    ],
+    "cta": "Contact Us",
+    "publicAdminButton": false
   }
 }

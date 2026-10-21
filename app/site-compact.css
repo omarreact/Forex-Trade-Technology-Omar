@@ -352,3 +352,80 @@
 @media (prefers-reduced-motion: reduce) {
  .ftt-editorial-photos--refined .ftt-editorial-photo { transition: none !important; transform: none !important; }
 }
+
+
+/* Desktop uses inline navigation from >=1024px (lg), not the 1280px (xl)
+ * threshold that wrongly displayed the hamburger on laptop screens. */
+.ftt-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.ftt-site-header .ftt-header-inner {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(9px, 1.4vw, 22px);
+  width: min(1320px, calc(100% - 40px));
+  max-width: none;
+  min-height: 70px;
+  padding: 0;
+  margin: 0 auto;
+}
+.ftt-site-header .ftt-header-brand { min-width: 0; flex: 0 0 auto; }
+.ftt-site-header .ftt-header-logo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(18px, 1.75vw, 24px);
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.ftt-site-header .ftt-inline-nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: center;
+  gap: clamp(9px, 1.14vw, 21px);
+  font-size: clamp(12px, 1vw, 14px);
+  line-height: 1.35;
+}
+.ftt-site-header .ftt-inline-nav > a,
+.ftt-site-header .ftt-inline-nav > div > button {
+  white-space: nowrap;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.ftt-site-header .ftt-inline-nav button:focus-visible,
+.ftt-site-header .ftt-inline-nav a:focus-visible,
+.ftt-site-header .ftt-header-cta a:focus-visible {
+  outline: 2px solid #799642;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.ftt-site-header .ftt-header-cta a {
+  white-space: nowrap;
+  padding: 10px clamp(10px, 1.25vw, 20px);
+  font-size: clamp(11px, .92vw, 13px);
+}
+.ftt-site-header .ftt-inline-nav > div > div {
+  max-height: min(68vh, 580px);
+  overflow-y: auto;
+}
+@media (min-width: 1024px) {
+  .ftt-site-header .ftt-inline-nav { display: flex !important; }
+  .ftt-site-header .ftt-menu-toggle,
+  .ftt-site-header .ftt-mobile-drawer { display: none !important; }
+  .ftt-site-header .ftt-header-cta { display: flex !important; }
+}
+@media (max-width: 1023px) {
+  .ftt-site-header .ftt-inline-nav,
+  .ftt-site-header .ftt-header-cta { display: none !important; }
+  .ftt-site-header .ftt-menu-toggle { display: flex !important; }
+  .ftt-site-header .ftt-header-inner { width: calc(100% - 36px); }
+  .ftt-site-header .ftt-header-logo { font-size: clamp(17px, 3vw, 23px); }
+}
+@media (max-width: 390px) {
+  .ftt-site-header .ftt-header-inner { width: calc(100% - 28px); }
+  .ftt-site-header .ftt-header-logo { font-size: 17px; }
+}
