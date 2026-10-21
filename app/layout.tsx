@@ -7,9 +7,7 @@ import './site-compact.css';
 import './editorial-flow.css';
 import './doc-refresh-2026.css';
 import './heading-system.css';
-import './showroom.css';
-import { Suspense } from 'react';
-import { DesignShowroomShell } from '@/components/showroom/DesignShowroomShell';
+import './variants.css';
 
 export const metadata: Metadata = {
   title: 'Forex Trade Technology | Brokerage Technology & FinTech Infrastructure',
@@ -37,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen antialiased" suppressHydrationWarning>
-        <Suspense fallback={children}><DesignShowroomShell>{children}</DesignShowroomShell></Suspense>
+        {children}
       </body>
     </html>
   );
