@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
 import {variationPath} from '@/lib/variants/content';
-import {Brand,EndFooter,PageChapters,QuickCTA,SectionBody,SectionIndex,ShortLinks,VariationLinks,pexelsPhoto,photo} from './shared';
+import {Brand,EndFooter,PageChapters,QuickCTA,SectionBody,SectionIndex,ShortLinks,VariationLinks,pexelsPhoto} from './shared';
+import {getExpandedPagePhotos} from '@/lib/pexels-photos';
 
 type Props={content:VariationContent};
 
@@ -17,7 +18,7 @@ export function VariationTwo({content}:Props){
      <p className="v-lead">{content.description}</p>{content.lead&&<p className="v-summary">{content.lead}</p>}
      <div className="v2-actions"><QuickCTA design={design} label="Request a consultation"/><a href="#v2-contents">Explore our solutions <span>↓</span></a></div>
     </div>
-    <div className="v2-hero-image"><img src={pexelsPhoto} alt="A collaborative financial technology team at work"/><div className="v2-image-stat"><b>One connected ecosystem</b><span>Platform · Liquidity · CRM · Hosting</span></div></div>
+    <div className="v2-hero-image"><img src={getExpandedPagePhotos(content.meta.slug)[0]?.src||pexelsPhoto} alt={getExpandedPagePhotos(content.meta.slug)[0]?.alt||"Financial technology team at work"} width="1000" height="720"/><div className="v2-image-stat"><b>One connected ecosystem</b><span>Platform · Liquidity · CRM · Hosting</span></div></div>
    </div><div className="v2-shell v2-trust"><span>Brokerage technology</span><strong>Platforms</strong><strong>Liquidity</strong><strong>Client systems</strong><strong>Infrastructure</strong></div></section>
    <div className="v2-shell v2-body" id="v2-contents">
      <div className="v2-section-caption"><span>OUR EXPERTISE</span><p>Integrated solutions for every stage of your brokerage</p></div>
@@ -120,7 +121,7 @@ export function VariationSix({content}:Props){
     <div className="v6-pill">✳ &nbsp; {content.eyebrow}</div><h1>{content.title}</h1><p>{content.description}</p>{content.lead&&<p className="v-summary">{content.lead}</p>}
     <div className="v6-actions"><QuickCTA design={design} label="Start building"/><a href="#v6-capabilities">See what's possible ↓</a></div>
    </div>
-    <div className="v6-photo-stack"><div className="v6-photo-main"><img src={pexelsPhoto} alt="Technology specialists collaborating around a workspace"/></div>
+    <div className="v6-photo-stack"><div className="v6-photo-main"><img src={getExpandedPagePhotos(content.meta.slug)[2]?.src||pexelsPhoto} alt={getExpandedPagePhotos(content.meta.slug)[2]?.alt||"Technology specialists at work"} width="1000" height="720"/></div>
      <div className="v6-photo-bubble">CONNECTED<br/><strong>TECHNOLOGY</strong><span>↗</span></div><div className="v6-photo-doodle" aria-hidden="true">✳</div>
     </div>
    </div></section>
