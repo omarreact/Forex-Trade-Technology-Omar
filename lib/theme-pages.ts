@@ -6,6 +6,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { colorizeHtmlHeadings } from './heading-colors';
 
 export interface ThemePageMeta {
   title: string;
@@ -98,7 +99,7 @@ export function getThemePageBySlug(slug: string): {
 
     return {
       meta,
-      html: processedHtml.trim(),
+      html: colorizeHtmlHeadings(processedHtml.trim()),
     };
   } catch (err) {
     console.error(`[ThemePages] Failed to read page HTML for ${slug}:`, err);

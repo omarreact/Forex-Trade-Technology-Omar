@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import type { HomeHeroIntro, HomeHeroSlide } from '@/lib/home-hero';
+import { SplitHeading } from '@/components/SplitHeading';
 
 const INTERVAL_MS = 7000;
 interface Props { intro: HomeHeroIntro; slides: HomeHeroSlide[] }
@@ -112,8 +113,8 @@ export function HomeHero({ intro, slides }: Props) {
                 <div className="ftt-full-slide-copy">
                   <p className="ftt-wide-eyebrow"><span aria-hidden="true" />{eyebrow}</p>
                   {index === 0
-                    ? <h1 className="ftt-full-slide-title">{intro.title}</h1>
-                    : <h2 className="ftt-full-slide-title">{slide.title}</h2>}
+                    ? <h1 className={`ftt-full-slide-title${intro.title.length > 54 ? ' ftt-full-slide-title--long' : ''}`}><SplitHeading text={intro.title} /></h1>
+                    : <h2 className={`ftt-full-slide-title${slide.title.length > 54 ? ' ftt-full-slide-title--long' : ''}`}><SplitHeading text={slide.title} /></h2>}
                   <p className="ftt-wide-lead">{index === 0 ? intro.lead : slide.summary}</p>
                   {(index === 0 ? intro.description : slide.description) && (
                     <p className="ftt-wide-description">

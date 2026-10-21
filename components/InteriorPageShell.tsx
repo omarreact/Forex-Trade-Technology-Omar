@@ -8,6 +8,7 @@ import { SiteFooter } from '@/components/SiteFooter';
 import { curateInteriorMedia } from '@/lib/theme-media';
 import { getExpandedPagePhotos } from '@/lib/pexels-photos';
 import { InteriorEditorialFlow } from './InteriorEditorialFlow';
+import { SplitHeading } from '@/components/SplitHeading';
 
 type InteriorPageShellProps = {
   meta: ThemePageMeta;
@@ -91,7 +92,7 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
               <div className="ftt-interior-more-top">
                 <div>
                   <p className="ftt-interior-more-kicker">EXPLORE NEXT</p>
-                  <h2 id="ftt-interior-more-heading">Keep exploring brokerage technology</h2>
+                  <h2 id="ftt-interior-more-heading"><SplitHeading text="Keep exploring brokerage technology" /></h2>
                 </div>
                 <Link href="/contact/#contact-form" className="ftt-interior-contact-link">
                   Discuss your requirements <ArrowUpRight size={17} aria-hidden="true" />
@@ -101,7 +102,7 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
                 {related.map((page, i) => (
                   <Link href={page.route} className="ftt-interior-more-card" key={page.route}>
                     <span className="ftt-interior-more-index">{String(i + 1).padStart(2, '0')} / {categoryName.toUpperCase()}</span>
-                    <strong>{page.title}</strong>
+                    <strong><SplitHeading text={page.title} /></strong>
                     <span className="ftt-interior-more-action">View page <ArrowUpRight size={16} aria-hidden="true" /></span>
                   </Link>
                 ))}

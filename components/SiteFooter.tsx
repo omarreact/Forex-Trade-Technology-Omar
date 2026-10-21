@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { SplitHeading } from '@/components/SplitHeading';
 
 /** Compact, accessible conversion footer shared across the entire public site. */
 export function SiteFooter() {
@@ -16,7 +17,7 @@ export function SiteFooter() {
             </p>
           </div>
           <nav className="ftt-footer-links" aria-label="Footer navigation">
-            <h2 className="bs-footer-heading text-[11px] font-extrabold uppercase tracking-widest text-[#bcc5b6]">Explore</h2>
+            <h2 className="bs-footer-heading text-[11px] font-extrabold uppercase tracking-widest text-[#bcc5b6]"><SplitHeading text="Explore" /></h2>
             <div className="bs-footer-nav grid grid-cols-2 gap-x-4 text-[13px] text-[#d6ddd2]">
               <Link href="/#solutions" className="hover:text-[#d9f17a]">Solutions</Link>
               <Link href="/#the-product-ecosystem" className="hover:text-[#d9f17a]">Products</Link>
@@ -31,7 +32,7 @@ export function SiteFooter() {
             </div>
           </nav>
           <div className="ftt-footer-contact">
-            <h2 className="bs-footer-heading text-[11px] font-extrabold uppercase tracking-widest text-[#bcc5b6]">Start a conversation</h2>
+            <h2 className="bs-footer-heading text-[11px] font-extrabold uppercase tracking-widest text-[#bcc5b6]"><SplitHeading text="Start a conversation" /></h2>
             <Link href="/contact" className="inline-flex items-center gap-2 text-[#d9f17a] text-[14px] font-bold hover:underline">
               Request a Consultation <ArrowUpRight size={17} aria-hidden="true" />
             </Link>

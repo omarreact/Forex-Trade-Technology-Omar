@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "id": "ftt-editorial-v1",
   "project": "Forex Trade Technology",
-  "revision": "2026-10-20",
+  "revision": "2026-10-21",
   "description": "Canonical portable design tokens. Keep in sync with docs/FOREX_THEME_MASTER_SPEC.md.",
   "colors": {
     "ink": "#161816",
@@ -18,7 +18,8 @@
     "muted": "#5E6E60",
     "border": "#DFE8DA",
     "editorialLight": "#F5F8F0",
-    "link": "#3D6D30"
+    "link": "#3D6D30",
+    "headingAccent": "#B4D184"
   },
   "typography": {
     "fontFamily": "Arial, Helvetica, sans-serif",
@@ -30,20 +31,28 @@
       "extraBold": 800
     },
     "sizes": {
-      "heroH1Desktop": "clamp(44px,5.8vw,82px)",
-      "heroH1Mobile": "clamp(34px,9vw,46px)",
+      "heroH1Desktop": "clamp(39px,3.65vw,56px)",
+      "heroH1Mobile": "clamp(30px,8vw,38px)",
       "interiorH1Desktop": "clamp(36px,4.4vw,63px)",
       "interiorH1Mobile": "clamp(33px,8.5vw,44px)",
       "editorialH2": "clamp(33px,3.8vw,53px)",
       "interiorH2": "clamp(30px,3.6vw,48px)",
       "body": "15px–17px",
       "eyebrow": "10px–11px",
-      "button": "12px–14px"
+      "button": "12px–14px",
+      "heroH1LongDesktop": "clamp(36px,3.25vw,50px)",
+      "heroH1LongMobile": "clamp(30px,8vw,38px)"
     },
     "lineHeight": {
       "body": "1.65–1.75",
       "heroTitle": 1.045,
       "interiorTitle": 1.075
+    },
+    "dualToneHeadings": {
+      "firstHalf": "inherit existing heading color",
+      "secondHalf": "#B4D184",
+      "split": "closest word boundary to midpoint",
+      "appliesTo": "all H1-H6, static Gutenberg and React"
     }
   },
   "grid": {
