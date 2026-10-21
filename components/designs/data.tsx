@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {allVariationPages,variationPath,type VariationId,type ContentSection,type VariationContent} from '@/lib/variants/content';
 import {getExpandedPagePhotos} from '@/lib/pexels-photos';
+import PhotoWithFallback from './PhotoWithFallback';
 
 /** Shared data only. Every visual composition is implemented in its own design. */
 export const approvedPages=allVariationPages();
@@ -39,6 +40,5 @@ export function ChapterHeading({section}:{section:ContentSection}){
 }
 export function SegmentPhoto({page,index,offset=0,className}:{page:VariationContent,index:number,offset?:number,className?:string}){
  const photo=imageFor(page,index,offset);
- if(!photo)return null;
- return <figure className={className||'concept-image'}><img src={photo.src} alt={photo.alt} width={1100} height={750} loading="lazy" decoding="async"/></figure>;
+ return <figure className={(className||'concept-image')+' concept-visual-media'}><PhotoWithFallback src={photo?.src} alt={photo?.alt||'Forex Trade Technology platform systems'}/><figcaption><strong>{page.meta.title}</strong><span>Trading infrastructure · Software integration</span></figcaption></figure>;
 }
