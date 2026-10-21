@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type {VariationContent} from '@/lib/variants/content';
+import HomeSpotlight from './HomeSpotlight';
 import {Action,HtmlSection,SegmentPhoto,SiteMark,Legal,SectionsNav,navSets,withDesign} from '../data';
 const design='design-6' as const;
 function Header(){return <header className="c6-header"><div className="c6-head-inner"><SiteMark design={design}/><nav aria-label="UpTrader-inspired navigation">
@@ -14,7 +15,6 @@ function Hero({content}:{content:VariationContent}){
 }
 function Content({content}:{content:VariationContent}){
  return <div id="c6-more" className="c6-content">
- {content.home&&<div className="c6-services"><div className="c6-services-lead"><span>WHAT WE OFFER</span><h2>Connect the systems that matter.</h2></div><div className="c6-service-grid">{content.highlights.map((h,i)=><article key={i}><span>0{i+1}</span><h3>{h.title}</h3><p>{h.description}</p></article>)}</div></div>}
  {content.sections.map((s,i)=><section id={s.id} key={s.id} className={'c6-story c6-story-'+i%5}>
   <div className="c6-story-lead"><span>STORY {String(i+1).padStart(2,'0')}</span><h2>{s.heading}</h2></div>
   {i%2===0&&<SegmentPhoto page={content} index={i+2} className="c6-story-photo"/>}
@@ -28,4 +28,4 @@ function CTA({content}:{content:VariationContent}){
 function Footer(){
  return <footer className="c6-footer"><div className="c6-foot-heading"><SiteMark design={design}/><p>Systems for modern brokerage operations.</p></div><div className="c6-foot-grid"><div><h3>Explore solutions</h3><SectionsNav design={design} filter="solutions"/></div><div><h3>Our products</h3><SectionsNav design={design} filter="products"/></div><div><h3>Information</h3><SectionsNav design={design} filter="company"/></div></div><Legal design={design}/></footer>;
 }
-export default function UpTraderProposal({content}:{content:VariationContent}){return <div className="concept c6"><Header/><main><Hero content={content}/><Content content={content}/></main><CTA content={content}/><Footer/></div>;}
+export default function UpTraderProposal({content}:{content:VariationContent}){return <div className="concept c6"><Header/><main>{content.home?<HomeSpotlight content={content}/>:<Hero content={content}/>}<Content content={content}/></main><CTA content={content}/><Footer/></div>;}
