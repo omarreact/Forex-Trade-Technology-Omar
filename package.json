@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "clean": "next clean"
+    "clean": "next clean",
+    "prebuild": "npm run test:variants",
+    "test:variants": "node --test tests/variants.test.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
