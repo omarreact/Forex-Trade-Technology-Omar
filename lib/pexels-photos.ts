@@ -75,30 +75,17 @@ export const pagePhotoKeys: Record<string, readonly [PhotoKey, PhotoKey, PhotoKe
   'how-it-works': ['meeting', 'strategy', 'devTeam', 'serverRows'],
   'forex-broker-hosting': ['dataCenter', 'network', 'serverCables', 'blackServers'],
   'forex-liquidity-connectivity': ['tradeTeam', 'screens', 'analyst', 'pointing'],
-  'forex-turnkey-solution': ['team', 'tradingOffice', 'dataCenter', 'support'],
-  'forex-white-label': ['mt5', 'colleagues', 'dataCenter', 'tradeTeam'],
-  'mt4-grey-label': ['trader', 'desk', 'markets', 'strategy'],
-  'mt4-white-label': ['screens', 'tradeTeam', 'trader', 'serverRows'],
-  'mt5-grey-label': ['analyst', 'tradingOffice', 'screens', 'network'],
   'mt5-white-label': ['mt5', 'desk', 'tradingOffice', 'dataCenter'],
-  'start-a-forex-brokerage': ['team', 'strategy', 'trader', 'serverRows'],
-  'forex-broker-website': ['codeLaptop', 'codeOffice', 'colleagues', 'devTeam'],
   'forex-crm': ['crm', 'support', 'metricsMeeting', 'tradingOffice'],
-  'forex-manager-api': ['codeMonitor', 'developer', 'screens', 'network'],
-  'mobile-trading-app': ['mobileForex', 'phoneCharts', 'phoneTrading', 'phoneMarket'],
-  'pamm-mam': ['financialDesk', 'strategy', 'markets', 'analyst'],
   'payment-gateway-integration': ['paymentLaptop', 'terminal', 'phonePayment', 'paymentCard'],
   'prop-firm-crm-api': ['trader', 'tradeTeam', 'codeLaptop', 'markets'],
-  'web-trading-platform': ['desk', 'codeOffice', 'screens', 'phoneCharts'],
   'about-us': ['team', 'colleagues', 'metricsMeeting', 'businessMeeting'],
   'contact': ['supportLead', 'supportTeam', 'meeting', 'supportDesk'],
   'faq': ['support', 'supportDesk', 'strategy', 'colleagues'],
-  'portfolio': ['tradingOffice', 'dataCenter', 'devTeam', 'team'],
-  'technology': ['network', 'serverRows', 'developer', 'screens'],
 };
 
 export function getPagePhotos(slug: string): EditorialPhoto[] {
-  const keys = pagePhotoKeys[slug] || pagePhotoKeys.technology;
+  const keys = pagePhotoKeys[slug] || pagePhotoKeys['about-us'];
   return keys.map((key) => pexels[key]);
 }
 
@@ -114,31 +101,18 @@ const extraPhotoKeys: Record<string, readonly [PhotoKey, PhotoKey]> = {
   'how-it-works': ['codeLaptop','team'],
   'forex-broker-hosting': ['serverRows','modernServers'],
   'forex-liquidity-connectivity': ['tradingOffice','markets'],
-  'forex-turnkey-solution': ['codeLaptop','tradeTeam'],
-  'forex-white-label': ['phoneCharts','strategy'],
-  'mt4-grey-label': ['tradingOffice','pointing'],
-  'mt4-white-label': ['mt5','pointing'],
-  'mt5-grey-label': ['desk','phoneTrading'],
   'mt5-white-label': ['trader','analyst'],
-  'start-a-forex-brokerage': ['metricsMeeting','codeOffice'],
-  'forex-broker-website': ['codeMonitor','meeting'],
   'forex-crm': ['supportTeam','businessMeeting'],
-  'forex-manager-api': ['codeLaptop','devTeam'],
-  'mobile-trading-app': ['banking','phonePayment'],
-  'pamm-mam': ['screens','pointing'],
   'payment-gateway-integration': ['banking','phoneCharts'],
   'prop-firm-crm-api': ['screens','strategy'],
-  'web-trading-platform': ['mt5','analyst'],
   'about-us': ['supportDesk','codeOffice'],
   'contact': ['businessMeeting','team'],
   'faq': ['meetingBoard','supportTeam'],
-  'portfolio': ['codeOffice','metricsMeeting'],
-  'technology': ['codeMonitor','devTeam'],
 };
 
 export function getExpandedPagePhotos(slug: string): EditorialPhoto[] {
-  const originals = pagePhotoKeys[slug] || pagePhotoKeys.technology;
-  const additions = extraPhotoKeys[slug] || extraPhotoKeys.technology;
+  const originals = pagePhotoKeys[slug] || pagePhotoKeys['about-us'];
+  const additions = extraPhotoKeys[slug] || extraPhotoKeys['about-us'];
   const uniqueKeys = [...new Set([...originals, ...additions])];
   return uniqueKeys.map(key => pexels[key]);
 }

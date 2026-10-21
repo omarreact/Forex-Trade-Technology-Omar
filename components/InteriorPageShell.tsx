@@ -71,7 +71,7 @@ export function InteriorPageShell({ meta, html }: InteriorPageShellProps) {
               <span>Home</span>
             </Link>
             <ChevronRight size={13} aria-hidden="true" />
-            <Link href={categoryDestination}>{categoryName}</Link>
+            {meta.route.startsWith('/technology/') ? <span>{categoryName}</span> : <Link href={categoryDestination}>{categoryName}</Link>}
             <ChevronRight size={13} aria-hidden="true" />
             <span className="ftt-interior-current" aria-current="page">{meta.title}</span>
           </div>

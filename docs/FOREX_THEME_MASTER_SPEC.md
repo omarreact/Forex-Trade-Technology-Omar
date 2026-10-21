@@ -241,3 +241,7 @@ The production Next.js website now uses **26** source-backed page entries. Thirt
 - `/how-it-works/`
 
 Sources and SEO values are tracked in `public/theme-assets/content/page-manifest.json`. HTML is stored in `public/theme-assets/content/pages` and keeps the current `ftt-rd-*` / `ftt-content-*` class contract. The Next.js main homepage retains the **complete-panel sliding carousel** and external real-photo URLs. The existing design tokens are unchanged. The shared `app/doc-refresh-2026.css` handles document-specific lists, FAQs, article headings and responsive photo elements. Changes must be ported to the independent WordPress FSE theme when its content is refreshed again.
+
+## 16. 13-document-only published site (2026-10-21)
+
+Owner-supplied **13 unique Google Docs replace all old page content**. Only their 13 routes remain in the public manifest. Do not merge or republish the previous 23 or 26 page collection. Remove former Portfolio, Technology index, Blog and unapproved service/product pages. Preserve the existing full-panel photo slider, visual system, desktop inline navigation and responsive imagery. New content must have an explicitly supplied source document. The independent downloadable WordPress theme is not updated by this Next.js commit and must be regenerated separately if used.

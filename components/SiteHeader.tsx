@@ -13,25 +13,15 @@ export function SiteHeader() {
   const solutions = [
     { title: 'Brokerage Setup', href: '/solutions/brokerage-setup' },
     { title: 'MT5 White Label', href: '/solutions/mt5-white-label' },
-    { title: 'MT5 Grey Label', href: '/solutions/mt5-grey-label' },
-    { title: 'MT4 White Label', href: '/solutions/mt4-white-label' },
-    { title: 'MT4 Grey Label', href: '/solutions/mt4-grey-label' },
-    { title: 'Forex White Label', href: '/solutions/forex-white-label' },
-    { title: 'Start a Forex Brokerage', href: '/solutions/start-a-forex-brokerage' },
+    { title: 'Trading Server Hosting', href: '/solutions/forex-broker-hosting' },
     { title: 'Liquidity & Connectivity', href: '/solutions/forex-liquidity-connectivity' },
-    { title: 'Broker Hosting', href: '/solutions/forex-broker-hosting' },
-    { title: 'Turnkey Brokerage', href: '/solutions/forex-turnkey-solution' },
+    { title: 'How It Works', href: '/how-it-works' },
   ];
 
   const products = [
-    { title: 'Forex CRM', href: '/products/forex-crm' },
-    { title: 'Broker Website', href: '/products/forex-broker-website' },
-    { title: 'Mobile Trading App', href: '/products/mobile-trading-app' },
-    { title: 'Web Trading Platform', href: '/products/web-trading-platform' },
-    { title: 'Forex Manager API', href: '/products/forex-manager-api' },
-    { title: 'Prop Firm CRM API', href: '/products/prop-firm-crm-api' },
-    { title: 'PAMM / MAM', href: '/products/pamm-mam' },
+    { title: 'Forex CRM & Back Office', href: '/products/forex-crm' },
     { title: 'Payment Gateway Integration', href: '/products/payment-gateway-integration' },
+    { title: 'Prop Firm CRM & API', href: '/products/prop-firm-crm-api' },
   ];
 
   return (
@@ -112,20 +102,17 @@ export function SiteHeader() {
             )}
           </div>
 
-          <Link href="/technology" className="hover:text-[#798b32] transition-colors py-2">
-            Technology
+          <Link href="/technology/kyc-aml-integration" className="hover:text-[#798b32] transition-colors py-2">
+            KYC / AML
           </Link>
-          <Link href="/portfolio" className="hover:text-[#798b32] transition-colors py-2">
-            Portfolio
+          <Link href="/how-it-works" className="hover:text-[#798b32] transition-colors py-2">
+            How It Works
           </Link>
           <Link href="/about-us" className="hover:text-[#798b32] transition-colors py-2">
             About
           </Link>
           <Link href="/faq" className="hover:text-[#798b32] transition-colors py-2">
             FAQs
-          </Link>
-          <Link href="/blog" className="hover:text-[#798b32] transition-colors py-2 text-[#71823c]">
-            Market Intel
           </Link>
         </nav>
 
@@ -203,18 +190,18 @@ export function SiteHeader() {
 
           <div className="pt-2 border-t border-[#dedfd8] space-y-2">
             <Link
-              href="/technology"
+              href="/technology/kyc-aml-integration"
               onClick={() => setMobileMenuOpen(false)}
               className="block text-base font-semibold text-[#141613]"
             >
-              Technology
+              KYC / AML
             </Link>
             <Link
-              href="/portfolio"
+              href="/how-it-works"
               onClick={() => setMobileMenuOpen(false)}
               className="block text-base font-semibold text-[#141613]"
             >
-              Portfolio
+              How It Works
             </Link>
             <Link
               href="/about-us"
@@ -223,21 +210,12 @@ export function SiteHeader() {
             >
               About
             </Link>
-            <Link href="/how-it-works" onClick={() => setMobileMenuOpen(false)} className="block text-base font-semibold text-[#141613]">How It Works</Link>
-            <Link href="/technology/kyc-aml-integration" onClick={() => setMobileMenuOpen(false)} className="block text-base font-semibold text-[#141613]">KYC &amp; AML Integration</Link>
             <Link
               href="/faq"
               onClick={() => setMobileMenuOpen(false)}
               className="block text-base font-semibold text-[#141613]"
             >
               FAQs
-            </Link>
-            <Link
-              href="/blog"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-base font-semibold text-[#71823c]"
-            >
-              Market Intel
             </Link>
           </div>
 
