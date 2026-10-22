@@ -28,4 +28,8 @@ Full-resolution captures for all 24 comparisons are available in the generated l
 
 ## Release status
 
-Production deployment and domain verification are pending the follow-up PR merge. The contact form was not submitted or provider-configured.
+The showroom corrections were merged in PR #7 (`b320abe9acb8dc2db855fada7da99db1da2ef87a`). A production smoke test found the project’s configured canonical origin was stale, so PR #8 pinned the canonical origin to `https://forextrade.pincodeit.com` and added host assertions; it was merged as `2e64d3ec687ee2c5a67e870cdbc09e78b0e9985d`.
+
+The resulting Vercel production deployment `dpl_EvJ1RNnnJuFS9V9ddBVMCeBQXWCp` reached `READY` on Node.js 24.x and carries the `forextrade.pincodeit.com` alias. Public smoke checks returned HTTP 200 for the homepage, robots, sitemap, and representative content pages; the sitemap has 13 unique routes, indexable pages canonicalize to the production hostname, and design previews return `noindex`.
+
+The contact form was not submitted or provider-configured.
