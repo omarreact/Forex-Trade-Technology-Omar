@@ -4,6 +4,7 @@ const manifest=require('../public/theme-assets/content/page-manifest.json');
 const fs=require('node:fs');
 const path=require('node:path');
 const base=process.env.BASE_URL||'http://127.0.0.1:3100';
+const productionOrigin='https://forextrade.pincodeit.com';
 const widthList=[1440,1280,1024,768,390,360];
 const screenshots=path.resolve(process.env.SCREENSHOT_DIR||'artifacts/design-screenshots');
 const resultPath=path.resolve(process.env.VISUAL_CHECKS_PATH||'artifacts/visual-checks.json');
@@ -38,7 +39,7 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
     if(pageResponse.status()!==200)throw Error('Canonical route '+route+' returned HTTP '+pageResponse.status());
     const html=await pageResponse.text();
     const canonical=html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
-    if(!canonical||new URL(canonical).pathname!==route)throw Error('Canonical source route '+route+' has incorrect canonical '+canonical);
+    if(!canonical||new URL(canonical).pathname!==route||new URL(canonical).origin!==productionOrigin)throw Error('Canonical source route '+route+' has incorrect canonical '+canonical);
     if(/<meta name="robots" content="[^"]*noindex/i.test(html))throw Error('Canonical source route '+route+' is marked noindex');
    }
   }finally{await seoContext.close()}
@@ -54,7 +55,7 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
       if(!response||response.status()!==200)throw Error('HTTP '+response?.status());
       const canonical=await page.locator('link[rel="canonical"]').getAttribute('href');
       const expectedCanonical=meta.route.replace(/\/$/,'')||'/';
-      if(!canonical||new URL(canonical).pathname!==expectedCanonical)throw Error('Missing or incorrect canonical '+canonical+' expected '+expectedCanonical);
+      if(!canonical||new URL(canonical).pathname!==expectedCanonical||new URL(canonical).origin!==productionOrigin)throw Error('Missing or incorrect canonical '+canonical+' expected '+productionOrigin+expectedCanonical);
       const robots=await page.locator('meta[name="robots"]').getAttribute('content');
       if(!robots?.includes('noindex'))throw Error('Design preview is missing noindex metadata');
       if(!response.headers()['x-robots-tag']?.includes('noindex'))throw Error('Design preview is missing its noindex response header');
