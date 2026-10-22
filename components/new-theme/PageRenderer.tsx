@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import {canonicalHref,type ButtonData,type ContentBlock,type FaqItem,type PageData,type SectionData} from '@/lib/site-data';
+import Image from 'next/image';
+import {canonicalHref,getImage,type ButtonData,type ContentBlock,type FaqItem,type PageData,type SectionData} from '@/lib/site-data';
 import {Icon} from './Icon';
 import {ContactForm} from './ContactForm';
 import {HomeSlider} from './HomeSlider';
@@ -52,6 +53,40 @@ function EditorialSection({section,index,pageImages}:{section:SectionData;index:
   </div>
  </section>;
 }
+
+function DenseEditorialSection({section,index}:{section:SectionData;index:number}){
+ const grouped=regroup(section.blocks||[]),intro=grouped.filter(g=>!g.heading),topics=grouped.filter(g=>g.heading);
+ const faq=/(frequently asked|FAQ)/i.test(section.title||'')&&topics.some(g=>(g.heading||'').includes('?'));
+ const card=topics.length>=2&&!!section.layout?.startsWith('cardGrid')&&!faq;
+ const col=section.layout==='cardGrid2'?'bs-dense-cols-2':section.layout==='cardGrid4'?'bs-dense-cols-4':'bs-dense-cols-3';
+ if(section.title==='Request a Consultation'&&section.blocks?.some(b=>/Business Email\*/.test(b.text)))
+  return <section id={section.id} className="bs-section bs-dense-section bs-dense-contact"><div className="bs-shell"><h2>{section.title}</h2><ContactForm/></div></section>;
+ return <section id={section.id} className={'bs-section bs-dense-section '+(index%2?'bs-dense-tint':'')} data-view-transition={section.viewTransition||'section'}>
+  <div className="bs-shell">
+   <header className="bs-dense-heading"><span className="bs-dense-kicker">FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>
+   {intro.length>0&&<div className="bs-dense-intro">{intro.map((g,i)=><TextParagraphs key={i} paragraphs={g.paragraphs}/>)}</div>}
+   {faq?<div className="bs-dense-accordion">{topics.map((g,i)=><details key={i}><summary><span>{g.heading}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer"><TextParagraphs paragraphs={g.paragraphs}/></div></details>)}</div>
+    :card?<div className={'bs-dense-cards '+col}>{topics.map((g,i)=><article className="bs-dense-card" key={i}><div className="bs-dense-card-head"><span className="bs-dense-card-icon"><Icon name={['server','shield','link','users','layers','payments'][i%6]} size={23}/></span><span className="bs-dense-card-index">{String(i+1).padStart(2,'0')}</span></div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>
+    :topics.length>0?<div className="bs-dense-prose">{topics.map((g,i)=><div key={i} className="bs-dense-prose-group"><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div>)}</div>:null}
+  </div>
+ </section>;
+}
+function DenseMediaBand({section}:{section:SectionData}){
+ const photo=getImage(section.media?.imageKey);if(!photo)return null;
+ return <section className="bs-media-band" id={section.id} aria-label={section.media?.caption||'Technology imagery'}>
+   <Image src={photo.url} alt={photo.alt} fill unoptimized loading="lazy" sizes="100vw"/>
+   <div className="bs-media-band-overlay"/>
+   {section.media?.caption&&<div className="bs-shell bs-media-band-caption"><p>{section.media.caption}</p></div>}
+ </section>;
+}
+function DenseFaq({section}:{section:SectionData}){
+ const items=(section.items||[]).filter((x):x is FaqItem=>typeof x!=='string'&&'q'in x);
+ return <section className="bs-section bs-dense-section bs-dense-faq-page" id={section.id}><div className="bs-shell">
+  <header className="bs-dense-heading"><span className="bs-dense-kicker">SUPPORT & GUIDANCE</span><h2>Frequently Asked Questions</h2><p>{items.length} questions answered</p></header>
+  <div className="bs-dense-accordion">{items.map((item,i)=><details key={i}><summary><span>{item.q}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer"><p>{item.a}</p></div></details>)}</div>
+ </div></section>;
+}
+
 function DarkCta({section}:{section:SectionData}){return <section className="bs-cta-wrap" id={section.id} data-view-transition={section.viewTransition||'section'}><div className="bs-shell"><div className="bs-dark-cta"><div className="bs-cta-decoration"/><SectionMedia media={section.media}/><div><span className="bs-eyebrow">YOUR NEXT MOVE</span><h2>{section.title}</h2><p>{section.subtitle}</p></div>{section.cta&&<Button item={section.cta}/>}</div></div></section>}
 function CtaRow({section}:{section:SectionData}){return <section className="bs-cta-row" id={section.id} aria-label="Next actions"><div className="bs-shell bs-cta-row-content"><span>Ready to connect your technology?</span><div>{(section.ctas||[]).map((item,i)=><Button item={item} key={i}/>)}</div></div></section>}
 function Faq({section}:{section:SectionData}){const items=(section.items||[]).filter((x):x is FaqItem=>typeof x!=='string'&&'q'in x);
@@ -60,17 +95,18 @@ function Faq({section}:{section:SectionData}){const items=(section.items||[]).fi
 function Section({section,index,pageImages}:{section:SectionData;index:number;pageImages?:string[]}){
  switch(section.type){
   case 'trustStrip':return <Trust section={section}/>;
-  case 'contentSection':return <EditorialSection section={section} index={index} pageImages={pageImages}/>;
+  case 'contentSection':return <DenseEditorialSection section={section} index={index}/>;
+  case 'mediaBand':return <DenseMediaBand section={section}/>;
   case 'ctaRow':return <CtaRow section={section}/>;
   case 'darkCta':return <DarkCta section={section}/>;
-  case 'faqAccordion':return <Faq section={section}/>;
+  case 'faqAccordion':return <DenseFaq section={section}/>;
   default:return null;
  }
 }
 function Notes({notes}:{notes?:string[]}){if(!notes?.length)return null;return <aside className="bs-notes"><div className="bs-shell"><details><summary>Additional information and risk disclosure</summary>{notes.map((note,i)=><p key={i}>{note}</p>)}</details></div></aside>}
 export function PageRenderer({page}:{page:PageData}){
  const top=page.pageTop;
- return <main id="main-content" className="bs-main">
+ return <main id="main-content" className="bs-main bs-v4-dense">
   {top?.variant==='homeSlider'&&top.slides?.length ? <HomeSlider slides={top.slides} intervalMs={top.intervalMs} autoplay={top.autoplay}/> : <PageHeader page={page}/>}
   {page.sections.map((section,index)=><Section key={section.id} section={section} index={index} pageImages={page.pageImages}/>)}
   <Notes notes={page.documentFooterNotes}/>

@@ -9,7 +9,7 @@ if(site.routing.trailingSlash!==false)throw new Error('Redirect loop risk: trail
 if(ids.length!==13||pages.length!==13||new Set(ids).size!==13)throw new Error('Expected 13 unique configured pages');
 if(!site.navigation?.primary||!site.footer||!theme.assets?.images||Object.keys(theme.assets.images).length!==26)throw new Error('Missing site navigation, footer, or 26-image library');
 if(!site.features?.homeHeroSlider?.enabled||!site.features?.scrollToTop?.enabled)throw new Error('Missing configured slider or scroll-to-top feature');
-const visited=new Set(),allowed=new Set(['trustStrip','contentSection','ctaRow','darkCta','faqAccordion']);
+const visited=new Set(),allowed=new Set(['trustStrip','contentSection','ctaRow','darkCta','faqAccordion','mediaBand']);
 const layouts=new Set(['splitLeft','splitRight','cardThumb','fullBleed','gridGallery','backgroundWash']);
 let sections=0,fullWords=0,faqs=0,mediaSections=0;
 for(const p of pages){
@@ -23,7 +23,7 @@ for(const p of pages){
   const keys=p.pageTop.slides.map(s=>s.imageKey);
   if(new Set(keys).size!==5||keys.some(k=>!theme.assets.images[k]))throw new Error('Home slides must have unique library images');
  }else{
-  if(p.pageTop?.variant!=='pageHeader'||p.pageTop.height!=='300px')throw new Error(`Wrong interior header ${p.id}`);
+  if(p.pageTop?.variant!=='pageHeader'||p.pageTop.height!=='240px')throw new Error(`Wrong interior header ${p.id}`);
   if(!p.pageTop.breadcrumbs?.length||!theme.assets.images[p.pageTop.backgroundImageKey])throw new Error(`Missing breadcrumbs or header image ${p.id}`);
  }
  const headings=new Set((p.fullBlocks||[]).filter(b=>b.type==='h2').map(b=>b.text));
@@ -37,12 +37,12 @@ for(const p of pages){
   if(section.type==='faqAccordion')faqs+=section.items?.length||0;
   if(section.media){
    mediaSections++;
-   if(!theme.assets.images[section.media.imageKey]||!layouts.has(section.media.layout))throw new Error(`Broken image key/layout at ${p.id}/${section.id}`);
+   if(!theme.assets.images[section.media.imageKey]||!new Set(['backgroundWash','mediaBand']).has(section.media.layout))throw new Error(`Broken image key/layout at ${p.id}/${section.id}`);
   }
  }
 }
 const navChildren=site.navigation.primary.find(x=>x.id==='solutions')?.children||[];
 if(navChildren.length!==8)throw new Error(`Expected eight solutions, found ${navChildren.length}`);
-if(fullWords<19000||sections<125||faqs!==42||mediaSections<110)throw new Error(`Full-content regression: ${fullWords} words, ${sections} sections, ${faqs} FAQ, ${mediaSections} images`);
+if(fullWords<19000||sections<140||faqs!==42||mediaSections<18)throw new Error(`Full-content regression: ${fullWords} words, ${sections} sections, ${faqs} FAQ, ${mediaSections} images`);
 if(site.routing.paths.faq!=='/faq'||site.routing.paths.contact!=='/contact')throw new Error('FAQ/contact redirects must use exact paths');
-console.log(`Validated v3: ${pages.length} pages, ${fullWords} source words, ${sections} sections, ${faqs} FAQs, ${mediaSections} image layouts, ${Object.keys(theme.assets.images).length} images, 5 slides, nested routes`);
+console.log(`Validated v4 dense: ${pages.length} pages, ${fullWords} source words, ${sections} sections, ${faqs} FAQs, ${mediaSections} image layouts, ${Object.keys(theme.assets.images).length} images, 5 slides, nested routes`);
