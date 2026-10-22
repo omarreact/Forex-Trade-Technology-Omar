@@ -185,7 +185,7 @@
     },
     "innerPageHeader": {
       "enabled": true,
-      "height": "300px",
+      "height": "240px",
       "showBreadcrumbs": true,
       "showKicker": true,
       "backgroundStyle": "dark-gradient-with-optional-image"
@@ -226,6 +226,8 @@
       "pexels": "https://www.pexels.com/",
       "unsplash": "https://unsplash.com/",
       "policy": "Use only remote URLs from Pexels/Unsplash CDN. Never hotlink without params; prefer images.unsplash.com and images.pexels.com."
-    }
+    },
+    "layoutDensity": "compact",
+    "forbidLonelySideImages": true
   }
 }

@@ -1,6 +1,6 @@
 {
-  "themeId": "broker-setup-lime-v3",
-  "name": "Forex Trade Technology — Lime Fintech",
+  "themeId": "broker-setup-lime-v4-dense",
+  "name": "Forex Trade Technology — Dense Professional",
   "basedOn": "forex-trade-technology-preview-2.html + live forextrade.pincodeit.com",
   "fonts": {
     "sans": [
@@ -35,10 +35,13 @@
       "pill": "100px"
     },
     "shell": "min(1210px, calc(100% - 88px))",
-    "innerHeaderHeight": "300px",
+    "innerHeaderHeight": "240px",
     "spacing": {
-      "sectionY": "clamp(64px, 8vw, 110px)",
-      "headerH": "88px"
+      "sectionY": "clamp(48px, 5.5vw, 72px)",
+      "headerH": "72px",
+      "sectionYTight": "clamp(36px, 4vw, 56px)",
+      "blockGap": "20px",
+      "cardGap": "16px"
     },
     "typography": {
       "h1": "clamp(40px, 5.5vw, 72px)",
@@ -53,7 +56,7 @@
     "homeSlider": {
       "className": "bs-home-slider",
       "fullWidth": true,
-      "minHeight": "clamp(560px, 72vh, 820px)",
+      "minHeight": "clamp(480px, 62vh, 640px)",
       "overlay": "linear-gradient(90deg, rgba(8,12,8,0.88) 0%, rgba(8,12,8,0.55) 55%, rgba(8,12,8,0.25) 100%)",
       "contentMaxWidth": "640px",
       "dots": true,
@@ -61,7 +64,7 @@
     },
     "pageHeader": {
       "className": "bs-page-header",
-      "height": "300px",
+      "height": "240px",
       "padding": "0 24px",
       "breadcrumbClass": "bs-breadcrumb",
       "titleClass": "bs-page-title",
@@ -85,12 +88,40 @@
       }
     },
     "imageLayouts": {
-      "splitLeft": "Image left 45% / text right 55%",
-      "splitRight": "Text left 55% / image right 45%",
-      "fullBleed": "Full-width image with caption overlay",
-      "cardThumb": "Card with top image 180–220px",
-      "gridGallery": "2–3 column image grid with captions",
-      "backgroundWash": "Section background image at 20–30% opacity"
+      "rules": [
+        "Never place a single decorative image alone on the right of a short text block with large empty space.",
+        "Prefer 2x2 or 3-column card grids for feature lists.",
+        "Use split 50/50 only when BOTH sides have substantial content (text min ~120 words OR multi-bullet list).",
+        "For process steps use numbered horizontal timeline or compact 3-col cards, not one big photo.",
+        "FAQ: full-width accordion, optional small illustration in sticky sidebar only if viewport > 1100px.",
+        "CTA bands: full-width dark/lime with optional background image at low opacity, text centered or left with button."
+      ],
+      "allowed": {
+        "cardGrid2": "2-column equal cards with optional top icon or small thumb (120px)",
+        "cardGrid3": "3-column equal cards",
+        "cardGrid4": "4-column on desktop, 2 on tablet",
+        "splitEqual": "50/50 text + image only if text is long; image object-fit cover, rounded-xl",
+        "splitContent": "60/40 text heavy + supporting visual",
+        "mediaBand": "Full-width image 280–360px height with caption overlay, between sections",
+        "iconRow": "Horizontal icons + labels, no large photo",
+        "timeline": "Horizontal or vertical numbered steps, compact",
+        "stack": "Text only, max-width 720px, no side image",
+        "ctaBand": "Full bleed dark or lime CTA",
+        "gallery3": "3 equal photos in a row with short captions"
+      },
+      "forbidden": [
+        "singleRightFloat",
+        "largeEmptyWhitespaceBesideOneImage",
+        "heroHeightOnInnerPages"
+      ]
+    },
+    "sectionDensity": {
+      "maxWidthProse": "720px",
+      "cardMinHeight": "auto",
+      "avoidMinHeightForced": true,
+      "paddingX": "clamp(16px, 4vw, 24px)",
+      "titleMarginBottom": "12px",
+      "subtitleMarginBottom": "20px"
     }
   },
   "viewTransitions": {
@@ -329,6 +360,8 @@
     "--bs-border": "#dedfd8",
     "--bs-radius": "22px",
     "--bs-shell": "min(1210px, calc(100% - 88px))",
-    "--bs-inner-header-h": "300px"
+    "--bs-inner-header-h": "240px",
+    "--bs-section-y": "clamp(48px, 5.5vw, 72px)",
+    "--bs-card-gap": "16px"
   }
 }
