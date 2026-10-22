@@ -11,7 +11,7 @@ export async function POST(req:NextRequest){
  if(name.length<2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || message.length<10)return NextResponse.json({message:'Enter your name, a valid email and a project description of at least 10 characters.'},{status:400});
  const key=process.env.RESEND_API_KEY,to=process.env.CONTACT_TO_EMAIL,from=process.env.CONTACT_FROM_EMAIL;
  if(!key||!to||!from)return NextResponse.json({message:'Email delivery is not configured. Please contact business@forextradetechnology.com directly.'},{status:503});
- const other=['contact','company'].map(k=>`${k}: ${read(form,k,150)}`);
+ const other=['company','country','contact','interest','stage'].map(k=>`${k}: ${read(form,k,150)}`);
  try{
   const rsp=await fetch('https://api.resend.com/emails',{method:'POST',headers:{Authorization:`Bearer ${key}`,'Content-Type':'application/json'},body:JSON.stringify({from,to:[to],reply_to:email,subject:'New Forex Trade Technology enquiry',text:['New enquiry',`Name: ${name}`,`Email: ${email}`,...other,'',message].join('\n')}),cache:'no-store',signal:AbortSignal.timeout(10000)});
   if(!rsp.ok)throw new Error(`Resend HTTP ${rsp.status}`);
