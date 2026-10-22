@@ -3,35 +3,46 @@ import path from 'node:path';
 const root=path.resolve(import.meta.dirname,'../site-data');
 const read=name=>JSON.parse(fs.readFileSync(path.join(root,name),'utf8'));
 const site=read('site.config.json'),theme=read('theme.styles.json'),content=read('pages.content.json');
-const configured=new Set(site.pages.map(p=>p.id));
-const pageIds=content.pages.map(p=>p.id), slugs=content.pages.map(p=>p.slug);
-if(configured.size!==13||pageIds.length!==13||new Set(pageIds).size!==13||new Set(slugs).size!==13||configured.size!==new Set(pageIds).size||pageIds.some(id=>!configured.has(id)))
- throw new Error('Expected 13 unique pages matching the site configuration by id.');
-if(!theme.assets?.images||!site.navigation?.primary||!site.footer||!site.site?.name)throw new Error('Missing site or theme configuration.');
-const types=new Set(['contentSection','ctaRow','faqAccordion','darkCta','trustStrip']);
-let totalWords=0,sectionCount=0,renderableBlocks=0,faqCount=0;
-for(const page of content.pages){
- if(!page.seo?.title||!page.seo?.description||!page.hero?.title||!page.slug)throw new Error(`Missing page fields: ${page.id}`);
- if(!page.slug.startsWith('/')||page.seo.canonicalPath!==page.slug)throw new Error(`Invalid canonical path ${page.slug}`);
- const h3=(page.fullBlocks||[]).filter(b=>b.type==='h3').map(b=>b.text);
- const h2=(page.fullBlocks||[]).filter(b=>b.type==='h2').map(b=>b.text);
- const rendered=[];
- for(const section of page.sections){
-  sectionCount++;
-  if(!types.has(section.type))throw new Error(`Unrendered section type ${page.id}: ${section.type}`);
+const routeMap=site.routing?.paths||{};
+const ids=Object.keys(routeMap),pages=content.pages;
+if(site.routing.trailingSlash!==false)throw new Error('Redirect loop risk: trailingSlash must be false');
+if(ids.length!==13||pages.length!==13||new Set(ids).size!==13)throw new Error('Expected 13 unique configured pages');
+if(!site.navigation?.primary||!site.footer||!theme.assets?.images||Object.keys(theme.assets.images).length!==26)throw new Error('Missing site navigation, footer, or 26-image library');
+if(!site.features?.homeHeroSlider?.enabled||!site.features?.scrollToTop?.enabled)throw new Error('Missing configured slider or scroll-to-top feature');
+const visited=new Set(),allowed=new Set(['trustStrip','contentSection','ctaRow','darkCta','faqAccordion']);
+const layouts=new Set(['splitLeft','splitRight','cardThumb','fullBleed','gridGallery','backgroundWash']);
+let sections=0,fullWords=0,faqs=0,mediaSections=0;
+for(const p of pages){
+ if(!ids.includes(p.id)||visited.has(p.id))throw new Error(`Unexpected or repeated id ${p.id}`);
+ visited.add(p.id);
+ if(p.slug!==routeMap[p.id]||p.seo.canonicalPath!==p.slug||p.slug!=='/'&&p.slug.endsWith('/'))throw new Error(`Routing mismatch ${p.id}: ${p.slug}`);
+ if(!p.seo.title||!p.seo.description||!p.hero.title)throw new Error(`Missing SEO or hero ${p.id}`);
+ fullWords+=p.wordCountApprox||0;
+ if(p.id==='home'){
+  if(p.pageTop?.variant!=='homeSlider'||p.pageTop.slides?.length!==5||p.pageTop.intervalMs!==6000)throw new Error('Home must have five slides at six-second intervals');
+  const keys=p.pageTop.slides.map(s=>s.imageKey);
+  if(new Set(keys).size!==5||keys.some(k=>!theme.assets.images[k]))throw new Error('Home slides must have unique library images');
+ }else{
+  if(p.pageTop?.variant!=='pageHeader'||p.pageTop.height!=='300px')throw new Error(`Wrong interior header ${p.id}`);
+  if(!p.pageTop.breadcrumbs?.length||!theme.assets.images[p.pageTop.backgroundImageKey])throw new Error(`Missing breadcrumbs or header image ${p.id}`);
+ }
+ const headings=new Set((p.fullBlocks||[]).filter(b=>b.type==='h2').map(b=>b.text));
+ for(const section of p.sections){
+  sections++;
+  if(!allowed.has(section.type))throw new Error(`Unknown section type ${section.type}`);
   if(section.type==='contentSection'){
-   if(!section.title)throw new Error(`Untitled content section ${page.id}`);
-   if(!h2.includes(section.title))throw new Error(`Full-content H2 missing in original blocks: ${page.id}: ${section.title}`);
-   for(const block of section.blocks||[]){if(!['h3','p'].includes(block.type))throw new Error(`Unsupported editorial block ${block.type}`);rendered.push(block);}
+   if(!headings.has(section.title))throw new Error(`Source heading missing ${p.id}: ${section.title}`);
+   if(!section.blocks?.length)throw new Error(`Source paragraphs missing ${p.id}: ${section.id}`);
   }
-  if(section.type==='faqAccordion'){faqCount+=(section.items||[]).length;if(page.id==='faq'&&section.items.length<40)throw new Error('Full FAQ must contain all 42 questions.');}
+  if(section.type==='faqAccordion')faqs+=section.items?.length||0;
+  if(section.media){
+   mediaSections++;
+   if(!theme.assets.images[section.media.imageKey]||!layouts.has(section.media.layout))throw new Error(`Broken image key/layout at ${p.id}/${section.id}`);
+  }
  }
- if(page.id!=='faq'){
-  if(rendered.length===0)throw new Error(`Page has no renderable blocks ${page.id}`);
-  for(const heading of h3) if(!rendered.some(b=>b.type==='h3'&&b.text===heading))throw new Error(`Missing original H3: ${page.id}: ${heading}`);
- }
- renderableBlocks+=rendered.length;
- totalWords+=(page.wordCountApprox||0);
 }
-if(totalWords<18000||sectionCount<125||faqCount<40)throw new Error(`Full-content regression detected: ${totalWords} words, ${sectionCount} sections, ${faqCount} FAQ items.`);
-console.log(`OK: ${pageIds.length} full pages, ${totalWords} approx source words, ${sectionCount} sections, ${renderableBlocks} content blocks, ${faqCount} FAQ answers. All nested routes/SEO slugs validated.`);
+const navChildren=site.navigation.primary.find(x=>x.id==='solutions')?.children||[];
+if(navChildren.length!==8)throw new Error(`Expected eight solutions, found ${navChildren.length}`);
+if(fullWords<19000||sections<125||faqs!==42||mediaSections<110)throw new Error(`Full-content regression: ${fullWords} words, ${sections} sections, ${faqs} FAQ, ${mediaSections} images`);
+if(site.routing.paths.faq!=='/faq'||site.routing.paths.contact!=='/contact')throw new Error('FAQ/contact redirects must use exact paths');
+console.log(`Validated v3: ${pages.length} pages, ${fullWords} source words, ${sections} sections, ${faqs} FAQs, ${mediaSections} image layouts, ${Object.keys(theme.assets.images).length} images, 5 slides, nested routes`);

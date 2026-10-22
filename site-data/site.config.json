@@ -2,14 +2,34 @@
   "site": {
     "name": "Forex Trade Technology",
     "tagline": "MT5 setup, hosting, liquidity, CRM & payment integrations for brokers and prop firms",
-    "url": "https://forextradetechnology.com",
+    "url": "https://forextrade.pincodeit.com",
     "email": "business@forextradetechnology.com",
     "locale": "en",
     "copyright": "© 2026 Forex Trade Technology. All rights reserved. We provide technology and infrastructure services. We are not a broker and do not hold client funds."
   },
+  "routing": {
+    "trailingSlash": false,
+    "canonicalPolicy": "no-trailing-slash",
+    "note": "Avoid redirect loops on /faq and /contact — use exact paths without trailing slash and do not chain rewrite+redirect for the same path.",
+    "paths": {
+      "home": "/",
+      "brokerage-setup": "/solutions/brokerage-setup",
+      "mt5-white-label": "/solutions/mt5-white-label",
+      "hosting": "/solutions/forex-broker-hosting",
+      "liquidity": "/solutions/forex-liquidity-connectivity",
+      "crm": "/products/forex-crm",
+      "kyc-aml": "/technology/kyc-aml-integration",
+      "payments": "/products/payment-gateway-integration",
+      "prop-firm": "/products/prop-firm-crm-api",
+      "how-it-works": "/how-it-works",
+      "about": "/about-us",
+      "faq": "/faq",
+      "contact": "/contact"
+    }
+  },
   "navigation": {
     "logo": {
-      "text": "Forex Trade Technology",
+      "text": "FOREXTRADE TECHNOLOGY",
       "dot": true,
       "href": "/"
     },
@@ -25,42 +45,42 @@
         "children": [
           {
             "label": "Brokerage Setup",
-            "href": "/brokerage-setup",
+            "href": "/solutions/brokerage-setup",
             "id": "brokerage-setup"
           },
           {
             "label": "MT5 White Label",
-            "href": "/mt5-white-label",
+            "href": "/solutions/mt5-white-label",
             "id": "mt5-white-label"
           },
           {
             "label": "Trading Server Hosting",
-            "href": "/hosting",
+            "href": "/solutions/forex-broker-hosting",
             "id": "hosting"
           },
           {
             "label": "Liquidity & Connectivity",
-            "href": "/liquidity",
+            "href": "/solutions/forex-liquidity-connectivity",
             "id": "liquidity"
           },
           {
             "label": "Forex CRM",
-            "href": "/crm",
+            "href": "/products/forex-crm",
             "id": "crm"
           },
           {
             "label": "KYC & AML",
-            "href": "/kyc-aml",
+            "href": "/technology/kyc-aml-integration",
             "id": "kyc-aml"
           },
           {
             "label": "Payment Gateway",
-            "href": "/payments",
+            "href": "/products/payment-gateway-integration",
             "id": "payments"
           },
           {
             "label": "Prop Firm Technology",
-            "href": "/prop-firm",
+            "href": "/products/prop-firm-crm-api",
             "id": "prop-firm"
           }
         ]
@@ -72,7 +92,7 @@
       },
       {
         "label": "About",
-        "href": "/about",
+        "href": "/about-us",
         "id": "about"
       },
       {
@@ -98,35 +118,35 @@
         "links": [
           {
             "label": "Brokerage Setup",
-            "href": "/brokerage-setup"
+            "href": "/solutions/brokerage-setup"
           },
           {
             "label": "MT5 White Label",
-            "href": "/mt5-white-label"
+            "href": "/solutions/mt5-white-label"
           },
           {
             "label": "Trading Server Hosting",
-            "href": "/hosting"
+            "href": "/solutions/forex-broker-hosting"
           },
           {
             "label": "Liquidity & Connectivity",
-            "href": "/liquidity"
+            "href": "/solutions/forex-liquidity-connectivity"
           },
           {
             "label": "Forex CRM",
-            "href": "/crm"
+            "href": "/products/forex-crm"
           },
           {
             "label": "KYC & AML",
-            "href": "/kyc-aml"
+            "href": "/technology/kyc-aml-integration"
           },
           {
             "label": "Payment Gateway",
-            "href": "/payments"
+            "href": "/products/payment-gateway-integration"
           },
           {
             "label": "Prop Firm Technology",
-            "href": "/prop-firm"
+            "href": "/products/prop-firm-crm-api"
           }
         ]
       },
@@ -135,7 +155,7 @@
         "links": [
           {
             "label": "About Us",
-            "href": "/about"
+            "href": "/about-us"
           },
           {
             "label": "How It Works",
@@ -154,6 +174,22 @@
     ]
   },
   "features": {
+    "homeHeroSlider": {
+      "enabled": true,
+      "fullWidth": true,
+      "autoplay": true,
+      "intervalMs": 6000,
+      "pauseOnHover": true,
+      "transition": "fade-cross",
+      "viewTransitionName": "home-slider"
+    },
+    "innerPageHeader": {
+      "enabled": true,
+      "height": "300px",
+      "showBreadcrumbs": true,
+      "showKicker": true,
+      "backgroundStyle": "dark-gradient-with-optional-image"
+    },
     "scrollToTop": {
       "enabled": true,
       "threshold": 400,
@@ -168,7 +204,8 @@
         "page",
         "section",
         "hero",
-        "card"
+        "card",
+        "slider"
       ],
       "defaultTransition": "fade-slide"
     },
@@ -187,74 +224,8 @@
         "unsplash"
       ],
       "pexels": "https://www.pexels.com/",
-      "unsplash": "https://unsplash.com/"
+      "unsplash": "https://unsplash.com/",
+      "policy": "Use only remote URLs from Pexels/Unsplash CDN. Never hotlink without params; prefer images.unsplash.com and images.pexels.com."
     }
-  },
-  "pages": [
-    {
-      "slug": "/",
-      "id": "home",
-      "title": "Home"
-    },
-    {
-      "slug": "/brokerage-setup",
-      "id": "brokerage-setup",
-      "title": "Brokerage Setup"
-    },
-    {
-      "slug": "/mt5-white-label",
-      "id": "mt5-white-label",
-      "title": "MT5 White Label"
-    },
-    {
-      "slug": "/hosting",
-      "id": "hosting",
-      "title": "Trading Server Hosting"
-    },
-    {
-      "slug": "/liquidity",
-      "id": "liquidity",
-      "title": "Liquidity & Connectivity"
-    },
-    {
-      "slug": "/crm",
-      "id": "crm",
-      "title": "Forex CRM"
-    },
-    {
-      "slug": "/kyc-aml",
-      "id": "kyc-aml",
-      "title": "KYC & AML Integration"
-    },
-    {
-      "slug": "/payments",
-      "id": "payments",
-      "title": "Payment Gateway"
-    },
-    {
-      "slug": "/prop-firm",
-      "id": "prop-firm",
-      "title": "Prop Firm Technology"
-    },
-    {
-      "slug": "/how-it-works",
-      "id": "how-it-works",
-      "title": "How It Works"
-    },
-    {
-      "slug": "/about",
-      "id": "about",
-      "title": "About Us"
-    },
-    {
-      "slug": "/faq",
-      "id": "faq",
-      "title": "FAQ"
-    },
-    {
-      "slug": "/contact",
-      "id": "contact",
-      "title": "Contact"
-    }
-  ]
+  }
 }

@@ -1,14 +1,6 @@
-# Forex Trade Technology — Full-content Lime Fintech Next.js
+# Forex Trade Technology — Lime Fintech Next.js
 
-Production-oriented Next.js App Router site using the supplied **`nextjs-theme-json-full.zip`** package. The three source JSON files remain separate under `site-data/` and are not duplicated into React components.
-
-## Content coverage
-
-- **13** pages, including nested `/solutions/`, `/products/` and `/technology/` original document URLs.
-- **19,517** approximate source words, **114** editorial `contentSection` blocks, **42** FAQ answers, and all original source `fullBlocks` preserved in the JSON.
-- Rich content display uses accessible editorial card grids, staged timelines, technical feature lists, two-column bands, question accordions and dark content panels.
-- All source heading and paragraph blocks are rendered once (except contact form labels and instructions, represented by functional accessible form controls). SEO uses original source canonical paths.
-- Short legacy URLs such as `/crm` and `/hosting` permanently redirect to the original nested URLs. Header and footer use canonical destinations automatically.
+A Next.js App Router site powered **entirely by three separate JSON files in `site-data/`**, created from the attached `nextjs-theme-json-v3.zip` with full v3 source content and media/layout rules.
 
 ## Start
 
@@ -16,23 +8,32 @@ Production-oriented Next.js App Router site using the supplied **`nextjs-theme-j
 npm install
 cp .env.example .env.local
 npm run validate:data
-npm run build
-npm run start
+npm run dev
 ```
 
-## Source-of-truth separation
+All 13 JSON-defined pages are statically generated. Run `npm run build` for production.
 
-- `site-data/site.config.json` — navigation, footer, 13-page inventory, site features.
-- `site-data/theme.styles.json` — palette, CSS variables, assets, icons and transition settings.
-- `site-data/pages.content.json` — all hero and section source content, metadata, CTAs and FAQs.
-- `components/new-theme` — reusable components, no business content databases.
-- `app/new-theme.css` — Lime Fintech design.
-- `scripts/validate-data.mjs` — regression checks for 13 pages, original full headings, 42 FAQs, source volume and supported content sections.
+### Source-of-truth separation
 
-## Production setup and limitations
+- `site-data/site.config.json` — primary navigation, footer, features, exact routes for all 13 pages.
+- `site-data/theme.styles.json` — colors, typography, 26 image-library entries, section layout rules, transition keys.
+- `site-data/pages.content.json` — SEO, 5-slide home hero, 300px interior header data, 138 content sections, 42 FAQs, section media.
+- `components/new-theme` — generic, reusable presentation. No marketing copy duplicated in components except decorative supporting UI.
+- `app/new-theme.css` — design CSS. All original Design-1 code is intentionally omitted from this package.
 
-- Set `NEXT_PUBLIC_SITE_URL` to `https://forextrade.pincodeit.com` for canonical URLs. The source JSON's `site.url` points to a different domain, which is deliberately not assumed to be the deployment domain.
-- To enable real message delivery set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL`; verify the Resend sender domain. Until then the contact form reports a configuration error rather than claiming an email was sent.
-- Pexels and Unsplash externally hosted images may change or fail; replace these with owned local media if permanent image availability is required.
-- Semantic Lucide SVGs implement icons; the bundled NextIcons/Magnific URLs remain references, not external runtime dependencies.
-- CSS view transitions are progressive enhancements. Reduced-motion preferences are honored.
+### Deployment notes
+
+- Configure `NEXT_PUBLIC_SITE_URL` for your production domain (defaults to `https://forextrade.pincodeit.com`), because the site needs a stable canonical URL that should not accidentally become the live canonical URL.
+- The contact form only sends if `RESEND_API_KEY`, `CONTACT_TO_EMAIL` and `CONTACT_FROM_EMAIL` are configured and sender identity verified. Otherwise it returns a transparent 503; no fake success message.
+- External image URLs are linked to Pexels/Unsplash and may depend on provider availability; no local rights or backups are assumed.
+- The source specifies NextIcons/Magnific providers but is not an installable icon package. Lucide SVG icons implement the supplied semantic icon keys without remotely loading executable assets.
+- CSS `@view-transition` and named component transitions progressively enhance navigation in browsers that implement View Transitions. Do not assume unsupported browsers have identical animations.
+
+## v3 features
+
+- Home-only full-width slider: five unique curated backgrounds, 6000ms autoplay, focus and hover pause, keyboard arrows, reduced-motion awareness.
+- All 12 interior pages: 300px title band, source-defined breadcrumbs and background image; no tall interior hero.
+- Section-level image layouts: splitLeft, splitRight, cardThumb, gridGallery, backgroundWash and fullBleed.
+- Source material is not truncated; all detailed prose and FAQ answers are present in `site-data/pages.content.json`.
+- `npm run validate:data` checks content totals, all referenced images, route/canonical consistency, and slider configuration.
+- SEO paths are nested (`/solutions/...`, `/products/...`, `/technology/...`) with no trailing slashes; legacy short aliases redirect one-way without redirecting `/faq` or `/contact`.
