@@ -35,8 +35,10 @@ import './design-1-home-refresh.css';
 import { DesignSwitcher } from '@/components/DesignSwitcher';
 import {OriginalPhotoViewer} from '@/components/OriginalPhotoViewer';
 import {ContactFormHandler} from '@/components/variants/ContactFormHandler';
+import { siteMetadataBase } from '@/lib/seo';
 
 export const metadata: Metadata = {
+  metadataBase: siteMetadataBase,
   title: 'Forex Trade Technology | Brokerage Technology & FinTech Infrastructure',
   description:
     'MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms. Plan your trading infrastructure with our team.',

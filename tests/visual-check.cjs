@@ -5,13 +5,43 @@ const fs=require('node:fs');
 const path=require('node:path');
 const base=process.env.BASE_URL||'http://127.0.0.1:3100';
 const widthList=[1440,1280,1024,768,390,360];
-const screenshots=path.resolve('artifacts/design-screenshots');
+const screenshots=path.resolve(process.env.SCREENSHOT_DIR||'artifacts/design-screenshots');
+const resultPath=path.resolve(process.env.VISUAL_CHECKS_PATH||'artifacts/visual-checks.json');
 fs.mkdirSync(screenshots,{recursive:true});
+fs.mkdirSync(path.dirname(resultPath),{recursive:true});
 const errors=[];
 const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
 (async()=>{
  const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
  try{
+  const seoContext=await browser.newContext();
+  try{
+   const robotsResponse=await seoContext.request.get(base+'/robots.txt');
+   if(robotsResponse.status()!==200)throw Error('robots.txt HTTP '+robotsResponse.status());
+   const robotsText=await robotsResponse.text();
+   const sitemapUrl=robotsText.match(/^Sitemap:\s*(\S+)/im)?.[1];
+   if(!sitemapUrl)throw Error('robots.txt is missing its sitemap reference');
+   const sitemapTarget=new URL(sitemapUrl,base);
+   // In local QA the generated robots file intentionally retains the canonical
+   // production origin. Fetch that sitemap route from the server under test.
+   const localSitemapTarget=new URL(sitemapTarget.pathname+sitemapTarget.search,new URL(base).origin);
+   const sitemapResponse=await seoContext.request.get(localSitemapTarget.toString());
+   if(sitemapResponse.status()!==200)throw Error('sitemap.xml HTTP '+sitemapResponse.status()+' at '+sitemapTarget);
+   const sitemapText=await sitemapResponse.text();
+   const sitemapRoutes=[...sitemapText.matchAll(/<loc>(.*?)<\/loc>/g)].map(match=>new URL(match[1].replaceAll('&amp;','&')).pathname.replace(/\/$/,'')||'/');
+   const approvedRoutes=manifest.map(({route})=>route.replace(/\/$/,'')||'/').sort();
+   if(sitemapRoutes.length!==13||new Set(sitemapRoutes).size!==13)throw Error('Sitemap must contain 13 unique canonical routes, got '+sitemapRoutes.length);
+   if(JSON.stringify([...sitemapRoutes].sort())!==JSON.stringify(approvedRoutes))throw Error('Sitemap routes differ from the approved 13-page manifest');
+   if(sitemapRoutes.some(route=>/^\/design-[1-6](\/|$)/.test(route)))throw Error('Design previews must not appear in the canonical sitemap');
+   for(const route of approvedRoutes){
+    const pageResponse=await seoContext.request.get(base+route);
+    if(pageResponse.status()!==200)throw Error('Canonical route '+route+' returned HTTP '+pageResponse.status());
+    const html=await pageResponse.text();
+    const canonical=html.match(/<link rel="canonical" href="([^"]+)"/i)?.[1];
+    if(!canonical||new URL(canonical).pathname!==route)throw Error('Canonical source route '+route+' has incorrect canonical '+canonical);
+    if(/<meta name="robots" content="[^"]*noindex/i.test(html))throw Error('Canonical source route '+route+' is marked noindex');
+   }
+  }finally{await seoContext.close()}
   for(const width of widthList){
    const ctx=await browser.newContext({viewport:{width,height:900},deviceScaleFactor:1,reducedMotion:'reduce'});
    const page=await ctx.newPage();
@@ -22,8 +52,19 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
      try{
       const response=await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:35000});
       if(!response||response.status()!==200)throw Error('HTTP '+response?.status());
-      if(await page.locator('h1').count()===0)throw Error('Missing H1');
+      const canonical=await page.locator('link[rel="canonical"]').getAttribute('href');
+      const expectedCanonical=meta.route.replace(/\/$/,'')||'/';
+      if(!canonical||new URL(canonical).pathname!==expectedCanonical)throw Error('Missing or incorrect canonical '+canonical+' expected '+expectedCanonical);
+      const robots=await page.locator('meta[name="robots"]').getAttribute('content');
+      if(!robots?.includes('noindex'))throw Error('Design preview is missing noindex metadata');
+      if(!response.headers()['x-robots-tag']?.includes('noindex'))throw Error('Design preview is missing its noindex response header');
+      if(width===1440&&meta.slug!=='home'){
+       const imageCount=await page.locator('img').count();
+       if(imageCount<7||imageCount>9)throw Error('Interior page must place 7–9 images section-to-section, got '+imageCount);
+      }
+      if(await page.locator('h1').count()!==1)throw Error('Every page must have exactly one H1');
       if(await page.locator('footer').count()===0)throw Error('Missing footer');
+      if(await page.locator('img:not([alt])').count()>0)throw Error('An image is missing an alternative-text attribute');
       const cta=d===1?'.ftt-original-cta':'.c'+d+'-cta';
       if(await page.locator(cta).count()!==1)throw Error('Missing theme-specific CTA '+cta);
       const contactPaths=await page.locator(cta+' a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname.replace(/\/$/,'')));
@@ -41,6 +82,11 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
       if(await selected.count()!==1)throw Error('Design switcher selection missing');
       const links=await page.locator('.ftt-design-switcher__link').count();
       if(links!==6)throw Error('Design switcher needs six links, got '+links);
+      const switchPaths=await page.locator('.ftt-design-switcher__link').evaluateAll(anchors=>anchors.map(anchor=>new URL(anchor.href).pathname));
+      for(let index=1;index<=6;index++){
+       const target='/design-'+index+(expectedCanonical==='/'?'':expectedCanonical);
+       if(!switchPaths.includes(target))throw Error('Design switcher does not preserve '+meta.route+' for Design '+index);
+      }
       // Inspect the *actual* original homepage slider dimensions (the previous selector missed them).
       if(d===1 && meta.slug==='home' && (width===1440||width===390)){
         const h=await page.locator('.ftt-full-slide-hero').evaluate(el=>Math.round(el.getBoundingClientRect().height));
@@ -92,6 +138,18 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
         if(detail.repeated.length)throw Error('Repeated homepage section headings: '+detail.repeated.join(' | '));
       }
       if(width===1440&&(meta.slug==='home'||['mt5-white-label','forex-crm','about-us'].includes(meta.slug))){
+        // Full-page screenshots do not scroll through lazy media. Eagerly load
+        // the page's existing photos before capture so visual review sees the
+        // actual section compositions (and any deliberate fallbacks).
+        await page.evaluate(async()=>{
+         const images=[...document.images];
+         images.forEach(image=>{image.loading='eager'});
+         await Promise.race([
+          Promise.all(images.map(image=>image.decode().catch(()=>undefined))),
+          new Promise(resolve=>setTimeout(resolve,10000)),
+         ]);
+        });
+        await page.waitForTimeout(100);
         await page.screenshot({path:path.join(screenshots,key+'.png'),fullPage:true,animations:'disabled',timeout:50000});
       }
      }catch(error){errors.push({key,route,error:String(error)});console.error('FAIL',key,String(error));}
@@ -134,7 +192,7 @@ const slugify=s=>s.replace(/^\/|\/$/g,'').replace(/\//g,'-')||'home';
   }catch(error){errors.push({key:'photo-fallbacks',route:'/',error:String(error)});console.error('FAIL photo-fallbacks',String(error));}
   finally{await fallbackPage.close();}
  }finally{await browser.close()}
- fs.writeFileSync(path.resolve('artifacts/visual-checks.json'),JSON.stringify({checks:6*6*manifest.length,errors},null,2));
+ fs.writeFileSync(resultPath,JSON.stringify({base,checks:6*6*manifest.length,errors},null,2));
  console.log('Total checked:',6*6*manifest.length,'failures:',errors.length);
  if(errors.length)process.exitCode=1;
 })().catch(e=>{console.error(e);process.exitCode=1});

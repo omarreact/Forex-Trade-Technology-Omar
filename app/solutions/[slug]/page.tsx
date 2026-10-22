@@ -10,6 +10,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllThemePages, getThemePageBySlug } from '@/lib/theme-pages';
 import { InteriorPageShell } from '@/components/InteriorPageShell';
+import { canonicalPath } from '@/lib/seo';
 
 export const revalidate = 86400; // Static delivery, revalidated on content update
 
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: meta.seo_title,
     description: meta.meta_description,
+    alternates: { canonical: canonicalPath(meta.route) },
     keywords: [meta.primary_keyword, meta.secondary_keywords].filter(Boolean).join(', '),
     openGraph: {
       title: meta.seo_title,

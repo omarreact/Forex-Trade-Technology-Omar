@@ -110,5 +110,13 @@ export function getExpandedPagePhotos(slug: string): EditorialPhoto[] {
   const originals = pagePhotoKeys[slug] || pagePhotoKeys['about-us'];
   const additions = extraPhotoKeys[slug] || extraPhotoKeys['about-us'];
   const uniqueKeys = [...new Set([...originals, ...additions])];
+  // Keep a ninth contextual option available for section layouts that need an
+  // additional, non-repeating editorial image (for example the institutional
+  // closing composition). The design still chooses where it appears.
+  const reserveKeys: PhotoKey[] = ['mt5', 'markets', 'team', 'serverRows', 'supportTeam', 'businessMeeting'];
+  for (const key of reserveKeys) {
+    if (uniqueKeys.length >= 9) break;
+    if (!uniqueKeys.includes(key)) uniqueKeys.push(key);
+  }
   return uniqueKeys.map(key => pexels[key]);
 }
