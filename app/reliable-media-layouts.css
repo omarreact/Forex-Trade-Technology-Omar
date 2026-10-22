@@ -94,3 +94,6 @@
 @media(max-width:850px){.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions) .ftt-content-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media(max-width:600px){.ftt-home .ftt-home-editorial :is(#the-product-ecosystem,#why-brokers-work-with-us,#frequently-asked-questions) .ftt-content-grid{grid-template-columns:minmax(0,1fr)!important}}
 @media(prefers-reduced-motion:reduce){.ftt-home .ftt-home-editorial .ftt-content-card{transition:none!important}}
+.c3 .c3-cta figure.c3-cta-photo{display:block!important;width:min(560px,calc(100% - 48px))!important;height:175px!important;min-height:0!important;max-height:none!important;margin:28px auto 0!important}
+.c4 .c4-cta-panel figure.c4-cta-photo{position:absolute!important;right:clamp(24px,4vw,56px)!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;width:clamp(205px,25vw,315px)!important;height:190px!important}
+@media(max-width:750px){.c4 .c4-cta-panel figure.c4-cta-photo{right:25px!important;top:auto!important;bottom:25px!important;transform:none!important;width:calc(100% - 50px)!important;height:190px!important}}

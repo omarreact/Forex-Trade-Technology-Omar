@@ -22,12 +22,12 @@ function Hero({content}:{content:VariationContent}){
 function Body({content}:{content:VariationContent}){
  return <div id="c3-sections" className={'c3-content'+(content.home?' c3-content--home':'')}>
  {content.sections.map((section,i)=>section.id==='trust'?<aside id={section.id} key={section.id} className="c3-tech-strip"><HtmlSection section={section}/></aside>:<section id={section.id} className={'c3-section c3-section-'+i%3} key={section.id}>
-  <div className="c3-left"><span>{String(i+1).padStart(2,'0')} / {String(content.sections.length).padStart(2,'0')}</span><SegmentPhoto page={content} index={i+2} className="c3-inset-photo"/></div>
+  <div className="c3-left"><span>{String(i+1).padStart(2,'0')} / {String(content.sections.length).padStart(2,'0')}</span>{i<8&&<SegmentPhoto page={content} index={i+2} className="c3-inset-photo"/>}</div>
   <div className="c3-text"><h2>{section.heading}</h2><HtmlSection section={section}/></div>
  </section>)}</div>;
 }
 function CTA({content}:{content:VariationContent}){
- return <section className="c3-cta"><span>LET&apos;S TALK TECHNOLOGY</span><h2>{content.home?'Ready to discuss your brokerage technology?':content.meta.title}</h2><p>Tell us about your goals and the systems you need to connect.</p><Action design={design} label="Start a conversation"/></section>;
+ return <section className="c3-cta"><span>LET&apos;S TALK TECHNOLOGY</span><h2>{content.home?'Ready to discuss your brokerage technology?':content.meta.title}</h2><p>Tell us about your goals and the systems you need to connect.</p><Action design={design} label="Start a conversation"/>{content.meta.slug!=='home'&&<SegmentPhoto page={content} index={1} className="c3-cta-photo"/>}</section>;
 }
 function Footer(){
  return <footer className="c3-footer"><div className="c3-footer-title"><SiteMark design={design}/><span>Technology behind the trading experience.</span></div>

@@ -43,6 +43,7 @@
 .c3-cta>span{color:#9aeede;letter-spacing:.2em;font-size:11px;font-weight:800}
 .c3-cta h2{margin:22px auto;font-size:clamp(35px,4.4vw,67px);line-height:1.06;max-width:860px;letter-spacing:-.06em;text-transform:uppercase}
 .c3-cta p{margin:0 auto 32px;font-size:16px;color:#bed5d4;max-width:720px}
+.c3-cta-photo{display:block!important;width:min(560px,100%)!important;height:175px!important;max-height:none!important;min-height:0!important;margin:28px auto 0!important;overflow:hidden;border:1px solid #4e8c82}
 .c3-footer{padding:70px max(24px,calc((100vw - 1370px)/2)) 27px;background:#060a0d}
 .c3-footer-title{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid #283840;padding-bottom:45px;gap:30px}
 .c3-footer-title .concept-brand{font-size:clamp(25px,3.4vw,48px);max-width:none}

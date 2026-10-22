@@ -11,9 +11,11 @@ import { HomeHero } from '@/components/home/HomeHero';
 import { getHomeHeroData } from '@/lib/home-hero';
 import { withRealHomePhotos } from '@/lib/home-media';
 import { OriginalHomeInteractions } from '@/components/home/OriginalHomeInteractions';
+import { canonicalPath } from '@/lib/seo';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
+  alternates: { canonical: canonicalPath('/') },
   title: 'Forex Brokerage Technology & MT5 Solutions for Brokers | Forex Trade Technology',
   description:
     'MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms. Plan your trading infrastructure with our team.',

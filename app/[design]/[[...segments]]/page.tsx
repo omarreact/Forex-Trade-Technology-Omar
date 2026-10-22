@@ -27,7 +27,7 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
  return {
   title:entry.meta.seo_title+' | '+route.design,
   description:entry.meta.meta_description,
-  alternates:{canonical:entry.meta.route},
+  alternates:{canonical:entry.meta.route.replace(/\/$/,'')||'/'},
   robots:{index:false,follow:true},
   openGraph:{title:entry.meta.seo_title,description:entry.meta.meta_description,type:'website'}
  };

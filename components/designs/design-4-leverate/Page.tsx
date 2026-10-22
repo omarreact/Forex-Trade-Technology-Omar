@@ -21,12 +21,12 @@ function Journey({content}:{content:VariationContent}){
  return <div className={'c4-content'+(content.home?' c4-content--home':'')} id="c4-journey">
  {sections.map((s,i)=>s.id==='trust'?<aside id={s.id} key={s.id} className="c4-tech-strip"><HtmlSection section={s}/></aside>:<section id={s.id} className={'c4-feature c4-feature-'+i%4} key={s.id}>
   <div className="c4-feature-head"><span className="c4-number">0{i+1} / TECHNOLOGY</span><h2>{s.heading}</h2></div>
-  {i%3!==2&&<div className="c4-side-media"><SegmentPhoto page={content} index={i+1} className="c4-photo"/></div>}
+  {(i%3!==2||content.meta.slug==='contact')&&<div className="c4-side-media"><SegmentPhoto page={content} index={i+1} className="c4-photo"/></div>}
   <article className="c4-feature-copy"><HtmlSection section={s}/></article>
  </section>)}</div>;
 }
 function CTA({content}:{content:VariationContent}){
- return <section className="c4-cta"><div className="c4-cta-panel"><span>LET&apos;S GET STARTED</span><h2>{content.home?'Build a stronger trading technology stack.':'Let’s talk about '+content.meta.title+'.'}</h2><p>Discuss your project with the Forex Trade Technology team.</p><Action design={design} label="Request a consultation"/><span className="c4-cta-orb" aria-hidden="true"/></div></section>;
+ return <section className="c4-cta"><div className="c4-cta-panel"><span>LET&apos;S GET STARTED</span><h2>{content.home?'Build a stronger trading technology stack.':'Let’s talk about '+content.meta.title+'.'}</h2><p>Discuss your project with the Forex Trade Technology team.</p><Action design={design} label="Request a consultation"/>{content.meta.slug!=='home'&&<SegmentPhoto page={content} index={8} className="c4-cta-photo"/>}<span className="c4-cta-orb" aria-hidden="true"/></div></section>;
 }
 function Footer(){
  return <footer className="c4-footer"><div className="c4-foot-first"><SiteMark design={design}/><strong>Forex technology with the systems behind it.</strong></div><div className="c4-foot-second"><div><h3>Solutions</h3><SectionsNav design={design} filter="solutions"/></div><div><h3>Products</h3><SectionsNav design={design} filter="products"/></div><div><h3>Explore</h3><SectionsNav design={design} filter="company"/></div></div><Legal design={design}/></footer>;
