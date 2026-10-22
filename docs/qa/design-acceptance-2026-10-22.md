@@ -14,6 +14,7 @@ PR #5 was already merged as `2835d7cbf2ef24f0aa91f16783a9ccf090063a13`; these po
 - Production browser checks: 468 of 468 checks passed across 1440, 1280, 1024, 768, 390, and 360 px. The checks cover every preview route, navigation, responsive overflow, content, image alt attributes, keyboard interaction, CTA links, canonical/noindex behavior, and the 13 source-page canonicals.
 - Screenshot review: 24 comparable full-page captures (six homepages plus MT5 White Label, Forex CRM, and About Us in all six designs) were visually reviewed. Four distinct original-photo fallbacks were also verified.
 - Sitemap: exactly the approved 13 canonical content routes; design previews are excluded. Preview routes carry `noindex` metadata and an `X-Robots-Tag` response header.
+- Canonical origin: all 13 indexable source routes point to `https://forextrade.pincodeit.com`; preview routes canonicalize to their corresponding source paths.
 
 ## Screenshot artifacts
 
