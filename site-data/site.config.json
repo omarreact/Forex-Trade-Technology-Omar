@@ -1,0 +1,260 @@
+{
+  "site": {
+    "name": "Forex Trade Technology",
+    "tagline": "MT5 setup, hosting, liquidity, CRM & payment integrations for brokers and prop firms",
+    "url": "https://forextradetechnology.com",
+    "email": "business@forextradetechnology.com",
+    "locale": "en",
+    "copyright": "© 2026 Forex Trade Technology. All rights reserved. We provide technology and infrastructure services. We are not a broker and do not hold client funds."
+  },
+  "navigation": {
+    "logo": {
+      "text": "Forex Trade Technology",
+      "dot": true,
+      "href": "/"
+    },
+    "primary": [
+      {
+        "label": "Home",
+        "href": "/",
+        "id": "home"
+      },
+      {
+        "label": "Solutions",
+        "id": "solutions",
+        "children": [
+          {
+            "label": "Brokerage Setup",
+            "href": "/brokerage-setup",
+            "id": "brokerage-setup"
+          },
+          {
+            "label": "MT5 White Label",
+            "href": "/mt5-white-label",
+            "id": "mt5-white-label"
+          },
+          {
+            "label": "Trading Server Hosting",
+            "href": "/hosting",
+            "id": "hosting"
+          },
+          {
+            "label": "Liquidity & Connectivity",
+            "href": "/liquidity",
+            "id": "liquidity"
+          },
+          {
+            "label": "Forex CRM",
+            "href": "/crm",
+            "id": "crm"
+          },
+          {
+            "label": "KYC & AML",
+            "href": "/kyc-aml",
+            "id": "kyc-aml"
+          },
+          {
+            "label": "Payment Gateway",
+            "href": "/payments",
+            "id": "payments"
+          },
+          {
+            "label": "Prop Firm Technology",
+            "href": "/prop-firm",
+            "id": "prop-firm"
+          }
+        ]
+      },
+      {
+        "label": "How It Works",
+        "href": "/how-it-works",
+        "id": "how-it-works"
+      },
+      {
+        "label": "About",
+        "href": "/about",
+        "id": "about"
+      },
+      {
+        "label": "FAQ",
+        "href": "/faq",
+        "id": "faq"
+      }
+    ],
+    "cta": {
+      "label": "Contact Us",
+      "href": "/contact",
+      "icon": "arrow-up-right"
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "Forex Trade Technology",
+      "description": "MT5 setup, server hosting, liquidity connectivity, CRM and payment integrations for forex brokers and prop firms."
+    },
+    "columns": [
+      {
+        "heading": "Solutions",
+        "links": [
+          {
+            "label": "Brokerage Setup",
+            "href": "/brokerage-setup"
+          },
+          {
+            "label": "MT5 White Label",
+            "href": "/mt5-white-label"
+          },
+          {
+            "label": "Trading Server Hosting",
+            "href": "/hosting"
+          },
+          {
+            "label": "Liquidity & Connectivity",
+            "href": "/liquidity"
+          },
+          {
+            "label": "Forex CRM",
+            "href": "/crm"
+          },
+          {
+            "label": "KYC & AML",
+            "href": "/kyc-aml"
+          },
+          {
+            "label": "Payment Gateway",
+            "href": "/payments"
+          },
+          {
+            "label": "Prop Firm Technology",
+            "href": "/prop-firm"
+          }
+        ]
+      },
+      {
+        "heading": "Company",
+        "links": [
+          {
+            "label": "About Us",
+            "href": "/about"
+          },
+          {
+            "label": "How It Works",
+            "href": "/how-it-works"
+          },
+          {
+            "label": "FAQ",
+            "href": "/faq"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact"
+          }
+        ]
+      }
+    ]
+  },
+  "features": {
+    "scrollToTop": {
+      "enabled": true,
+      "threshold": 400,
+      "icon": "arrow-up",
+      "label": "Back to top",
+      "position": "bottom-right"
+    },
+    "viewTransitions": {
+      "enabled": true,
+      "docs": "https://nextjs.org/docs/app/guides/view-transitions",
+      "types": [
+        "page",
+        "section",
+        "hero",
+        "card"
+      ],
+      "defaultTransition": "fade-slide"
+    },
+    "icons": {
+      "provider": "nexticons",
+      "url": "https://www.nexticons.com/",
+      "defaultSet": "outline"
+    },
+    "elements": {
+      "provider": "magnific",
+      "url": "https://www.magnific.com/"
+    },
+    "images": {
+      "providers": [
+        "pexels",
+        "unsplash"
+      ],
+      "pexels": "https://www.pexels.com/",
+      "unsplash": "https://unsplash.com/"
+    }
+  },
+  "pages": [
+    {
+      "slug": "/",
+      "id": "home",
+      "title": "Home"
+    },
+    {
+      "slug": "/brokerage-setup",
+      "id": "brokerage-setup",
+      "title": "Brokerage Setup"
+    },
+    {
+      "slug": "/mt5-white-label",
+      "id": "mt5-white-label",
+      "title": "MT5 White Label"
+    },
+    {
+      "slug": "/hosting",
+      "id": "hosting",
+      "title": "Trading Server Hosting"
+    },
+    {
+      "slug": "/liquidity",
+      "id": "liquidity",
+      "title": "Liquidity & Connectivity"
+    },
+    {
+      "slug": "/crm",
+      "id": "crm",
+      "title": "Forex CRM"
+    },
+    {
+      "slug": "/kyc-aml",
+      "id": "kyc-aml",
+      "title": "KYC & AML Integration"
+    },
+    {
+      "slug": "/payments",
+      "id": "payments",
+      "title": "Payment Gateway"
+    },
+    {
+      "slug": "/prop-firm",
+      "id": "prop-firm",
+      "title": "Prop Firm Technology"
+    },
+    {
+      "slug": "/how-it-works",
+      "id": "how-it-works",
+      "title": "How It Works"
+    },
+    {
+      "slug": "/about",
+      "id": "about",
+      "title": "About Us"
+    },
+    {
+      "slug": "/faq",
+      "id": "faq",
+      "title": "FAQ"
+    },
+    {
+      "slug": "/contact",
+      "id": "contact",
+      "title": "Contact"
+    }
+  ]
+}

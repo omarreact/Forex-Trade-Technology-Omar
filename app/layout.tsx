@@ -1,74 +1,18 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import './theme.css';
-import './interior-polish.css';
-import './brand-consistency.css';
-import './site-compact.css';
-import './editorial-flow.css';
-import './doc-refresh-2026.css';
-import './heading-system.css';
-import './variants.css';
-import './design-switcher.css';
-import './designs-base.css';
-import './home-polish.css';
-import './home-fullwidth.css';
-import './home-editorial-media.css';
-import './home-section-fix.css';
-import './design-2-matchtrade.css';
-import './design-3-b2broker.css';
-import './design-4-leverate.css';
-import './design-5-softfx.css';
-import './design-6-uptrader.css';
-import './design-1-original-cta.css';
-import './fonts-reference.css';
-import './design-1-compact.css';
-import './reference-2.css';
-import './reference-3.css';
-import './reference-4.css';
-import './reference-5.css';
-import './reference-6.css';
-import './original-photo-viewer.css';
-import './premium-studio.css';
-import './reliable-media-layouts.css';
-import './unique-fullwidth-compositions.css';
-import './design-1-home-refresh.css';
-import { DesignSwitcher } from '@/components/DesignSwitcher';
-import {OriginalPhotoViewer} from '@/components/OriginalPhotoViewer';
-import {ContactFormHandler} from '@/components/variants/ContactFormHandler';
-import { siteMetadataBase } from '@/lib/seo';
+import type {Metadata,Viewport} from 'next';
+import {siteConfig,themeConfig,absoluteUrl} from '@/lib/site-data';
+import {SiteHeader} from '@/components/new-theme/SiteHeader';
+import {SiteFooter} from '@/components/new-theme/SiteFooter';
+import {ScrollToTop} from '@/components/new-theme/ScrollToTop';
+import './new-theme.css';
 
-export const metadata: Metadata = {
-  metadataBase: siteMetadataBase,
-  title: 'Forex Trade Technology | Brokerage Technology & FinTech Infrastructure',
-  description:
-    'MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms. Plan your trading infrastructure with our team.',
-  openGraph: {
-    title: 'Forex Trade Technology | Brokerage Solutions',
-    description:
-      'MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms. Plan your trading infrastructure with our team.',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Forex Trade Technology | Brokerage Solutions',
-    description:
-      'MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms. Plan your trading infrastructure with our team.',
-  },
+export const metadata:Metadata={
+ metadataBase:new URL(absoluteUrl('/')),
+ title:{default:siteConfig.site.name,template:`%s | ${siteConfig.site.name}`},
+ description:siteConfig.site.tagline,
+ openGraph:{type:'website',siteName:siteConfig.site.name},
+ robots:{index:true,follow:true}
 };
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className="min-h-screen antialiased" suppressHydrationWarning>
-        <DesignSwitcher />
-        <ContactFormHandler />
-        <OriginalPhotoViewer />
-        {children}
-      </body>
-    </html>
-  );
+export const viewport:Viewport={width:'device-width',initialScale:1};
+export default function RootLayout({children}:{children:React.ReactNode}){
+ return <html lang={siteConfig.site.locale}><body style={themeConfig.cssVariables as unknown as React.CSSProperties}><a href="#main-content" className="bs-skip-link">Skip to main content</a><SiteHeader/>{children}<SiteFooter/><ScrollToTop/></body></html>;
 }

@@ -1,0 +1,1059 @@
+{
+  "version": "1.0",
+  "theme": "broker-setup-lime",
+  "viewTransitions": true,
+  "scrollToTop": true,
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "seo": {
+        "title": "Forex Brokerage Technology & MT5 Solutions for Brokers",
+        "description": "MT5 setup, server hosting, liquidity connectivity and CRM integrations for forex brokers and prop firms."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "Forex Brokerage Technology Built for Launch, Connectivity & Scale",
+        "subtitle": "Most brokerages don't stall because of a weak business plan. They stall because the trading platform, the liquidity link, the CRM and the payment flow were all picked up from different vendors and nobody made them work together properly.",
+        "imageKey": "hero",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "trust",
+          "type": "trustStrip",
+          "viewTransition": "section",
+          "items": [
+            "MT4 & MT5 Platforms",
+            "Bridge, Gateway & FIX Connectivity",
+            "CRM, KYC & Payment Integrations",
+            "Hosting, Monitoring & Backups",
+            "Ongoing Technical Support"
+          ]
+        },
+        {
+          "id": "solutions",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "kicker": "SOLUTIONS",
+          "title": "Solutions for Every Stage of a Brokerage",
+          "subtitle": "Whether you're launching your first entity or untangling a setup that grew too fast, the starting point is usually one of these.",
+          "columns": 3,
+          "items": [
+            {
+              "num": "01",
+              "title": "Brokerage Setup",
+              "desc": "A technology-led launch plan covering platform, servers, liquidity, CRM and testing, built in the right order.",
+              "href": "/brokerage-setup",
+              "icon": "layers",
+              "imageKey": "aboutPrimary"
+            },
+            {
+              "num": "02",
+              "title": "MT5 White Label",
+              "desc": "Your brand on a properly configured MT5 environment, with trading groups, symbols and integrations.",
+              "href": "/mt5-white-label",
+              "icon": "settings",
+              "imageKey": "mt5"
+            },
+            {
+              "num": "03",
+              "title": "Trading Server Hosting",
+              "desc": "Dedicated MT4 and MT5 hosting with security hardening, monitoring, backups and a tested recovery plan.",
+              "href": "/hosting",
+              "icon": "server",
+              "imageKey": "hosting"
+            },
+            {
+              "num": "04",
+              "title": "Liquidity & Connectivity",
+              "desc": "Bridge, gateway and FIX connections to your liquidity providers, with symbol mapping and backup routes.",
+              "href": "/liquidity",
+              "icon": "link",
+              "imageKey": "liquidity"
+            },
+            {
+              "num": "05",
+              "title": "Broker CRM & Back Office",
+              "desc": "Lead-to-client workflows, account management, IB tracking and reporting connected to your trading platform.",
+              "href": "/crm",
+              "icon": "users",
+              "imageKey": "crm"
+            },
+            {
+              "num": "06",
+              "title": "Prop Firm Technology",
+              "desc": "Challenge accounts, rule configuration, risk monitoring and payout review workflows.",
+              "href": "/prop-firm",
+              "icon": "zap",
+              "imageKey": "propFirm"
+            }
+          ]
+        },
+        {
+          "id": "process",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "kicker": "PROCESS",
+          "title": "From First Call to Go-Live",
+          "subtitle": "A brokerage launch has a lot of moving parts. Here's the order we work in, and why.",
+          "columns": 3,
+          "items": [
+            {
+              "num": "01",
+              "title": "Discovery",
+              "desc": "We start with your business model. Target markets, account types, expected volumes, the providers you already have.",
+              "icon": "message"
+            },
+            {
+              "num": "02",
+              "title": "Architecture",
+              "desc": "Next we map the stack: which platform, where it's hosted, how liquidity connects and which systems need to sync.",
+              "icon": "layers"
+            },
+            {
+              "num": "03",
+              "title": "Integration",
+              "desc": "Platform, bridge, CRM, KYC and payment providers get connected and configured.",
+              "icon": "link"
+            },
+            {
+              "num": "04",
+              "title": "Testing",
+              "desc": "Pricing, order flow, rejects, deposits, onboarding — tested end to end before live clients.",
+              "icon": "check"
+            },
+            {
+              "num": "05",
+              "title": "Go-Live",
+              "desc": "Launch with monitoring already running and a clear plan for the first few days.",
+              "icon": "zap"
+            },
+            {
+              "num": "06",
+              "title": "Managed Support",
+              "desc": "Updates, configuration changes, incident response and adjustments every new brokerage needs.",
+              "icon": "settings"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "viewTransition": "section",
+          "title": "Build Your Trading Infrastructure",
+          "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at the gaps and suggest a practical path forward.",
+          "cta": {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "brokerage-setup",
+      "slug": "/brokerage-setup",
+      "seo": {
+        "title": "Forex Brokerage Setup & Launch Technology",
+        "description": "Plan your forex brokerage setup with MT5 configuration, server hosting, liquidity connectivity, CRM, KYC and payment integrations."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "Forex Brokerage Setup & Launch Technology",
+        "subtitle": "A technology-led launch plan covering platform, servers, liquidity, CRM and testing, built in the right order so nothing gets rushed in the final week.",
+        "imageKey": "aboutPrimary",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "overview",
+          "type": "prose",
+          "viewTransition": "section",
+          "title": "A structured path from idea to live trading",
+          "paragraphs": [
+            "Launching a brokerage involves decisions about the market, business structure, providers and technology. An organised setup plan helps you see the full picture before committing valuable time and capital.",
+            "We bring platform selection, hosting, liquidity connectivity, CRM and KYC together into a practical sequence so you can prioritise the right work and move forward with greater certainty."
+          ],
+          "imageKey": "aboutSecondary"
+        },
+        {
+          "id": "scope",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "What the setup covers",
+          "columns": 2,
+          "items": [
+            {
+              "num": "01",
+              "title": "Platform & groups",
+              "desc": "MT5 (or MT4) configuration, trading groups, symbols and margin settings aligned to your account types.",
+              "icon": "settings"
+            },
+            {
+              "num": "02",
+              "title": "Hosting & resilience",
+              "desc": "Server sizing, region choice, hardening, monitoring and backup/restore checks.",
+              "icon": "server"
+            },
+            {
+              "num": "03",
+              "title": "Liquidity path",
+              "desc": "Bridge, gateway or FIX connectivity with symbol mapping and price-feed validation.",
+              "icon": "link"
+            },
+            {
+              "num": "04",
+              "title": "Operations stack",
+              "desc": "CRM, KYC/AML and payment integrations wired to the trading platform.",
+              "icon": "users"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Ready to plan your launch?",
+          "subtitle": "We'll review your goals and outline a clear setup path.",
+          "cta": {
+            "label": "Book a Consultation",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mt5-white-label",
+      "slug": "/mt5-white-label",
+      "seo": {
+        "title": "MT5 White Label Solutions for Forex Brokers",
+        "description": "Launch your brokerage on an MT5 white label with branded terminals, configured trading groups, hosting, liquidity and CRM integrations."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "MT5 White Label Solutions for Forex Brokers",
+        "subtitle": "Your brand on a properly configured MT5 environment, with trading groups, symbols and integrations set up around how you actually plan to operate.",
+        "imageKey": "mt5",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "features",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "What's included",
+          "columns": 3,
+          "items": [
+            {
+              "num": "01",
+              "title": "Branded terminals",
+              "desc": "Client and manager terminals configured under your brand identity.",
+              "icon": "settings",
+              "imageKey": "mt5"
+            },
+            {
+              "num": "02",
+              "title": "Trading groups",
+              "desc": "Groups, symbols and margin settings matched to your product set.",
+              "icon": "layers"
+            },
+            {
+              "num": "03",
+              "title": "Integrations",
+              "desc": "CRM, KYC and payment flows connected so onboarding and funding work end to end.",
+              "icon": "link"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Deploy MT5 under your brand",
+          "cta": {
+            "label": "Discuss MT5 Setup",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hosting",
+      "slug": "/hosting",
+      "seo": {
+        "title": "Forex Broker Hosting | MT4 & MT5 Server Hosting",
+        "description": "Forex broker hosting for MT4 and MT5, with properly sized servers, security, monitoring, tested backups and a disaster recovery plan."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "Forex Broker Hosting for MT4 & MT5",
+        "subtitle": "Dedicated hosting with security hardening, monitoring, backups and a recovery plan that has been tested, not just written down.",
+        "imageKey": "hosting",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "features",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "Hosting that supports live trading",
+          "columns": 2,
+          "items": [
+            {
+              "num": "01",
+              "title": "Right-sized servers",
+              "desc": "Capacity planned for your expected concurrent users and peak load.",
+              "icon": "server"
+            },
+            {
+              "num": "02",
+              "title": "Security hardening",
+              "desc": "Access controls, patching discipline and network posture suited to a trading stack.",
+              "icon": "lock"
+            },
+            {
+              "num": "03",
+              "title": "Monitoring & alerts",
+              "desc": "Active monitoring so issues surface before clients feel them.",
+              "icon": "zap"
+            },
+            {
+              "num": "04",
+              "title": "Backups & recovery",
+              "desc": "Scheduled backups and restore checks you can rely on.",
+              "icon": "shield"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Need reliable MT4/MT5 hosting?",
+          "cta": {
+            "label": "Talk Hosting",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "liquidity",
+      "slug": "/liquidity",
+      "seo": {
+        "title": "Forex Liquidity & Connectivity | MT4 MT5 Liquidity Solutions",
+        "description": "Forex liquidity connectivity for MT4 and MT5 brokers. Provider integration, bridges, FIX API, aggregation, symbol mapping and live monitoring."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "Forex Liquidity & Connectivity",
+        "subtitle": "Bridge, gateway and FIX connections to your liquidity providers, with symbol mapping, price-feed checks and backup routes.",
+        "imageKey": "liquidity",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "options",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "Connection options",
+          "columns": 3,
+          "items": [
+            {
+              "num": "01",
+              "title": "Bridge",
+              "desc": "Proven path for many MT4/MT5 setups with clear symbol and routing control.",
+              "icon": "link"
+            },
+            {
+              "num": "02",
+              "title": "Gateway",
+              "desc": "MT5 gateway options when that model fits your providers and volumes.",
+              "icon": "globe"
+            },
+            {
+              "num": "03",
+              "title": "FIX API",
+              "desc": "Direct FIX when you need deeper control over order routing and execution.",
+              "icon": "settings"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Connect liquidity the right way",
+          "cta": {
+            "label": "Discuss Connectivity",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "crm",
+      "slug": "/crm",
+      "seo": {
+        "title": "Forex CRM Software | CRM for Forex Brokers",
+        "description": "Forex CRM software that runs your whole client lifecycle. Leads, KYC, deposits, withdrawals, trading accounts, IBs and reporting, connected to MT4 and MT5."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "Forex CRM for Brokers",
+        "subtitle": "Lead-to-client workflows, account management, IB tracking and reporting connected directly to your trading platform.",
+        "imageKey": "crm",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "lifecycle",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "Client lifecycle under one roof",
+          "columns": 2,
+          "items": [
+            {
+              "num": "01",
+              "title": "Leads & onboarding",
+              "desc": "Capture, assign and progress leads into verified clients.",
+              "icon": "users"
+            },
+            {
+              "num": "02",
+              "title": "Accounts & IBs",
+              "desc": "Trading accounts, IB structures and reporting tied to the platform.",
+              "icon": "layers"
+            },
+            {
+              "num": "03",
+              "title": "Deposits & withdrawals",
+              "desc": "Payment flows reconciled against CRM and trading balances.",
+              "icon": "creditCard"
+            },
+            {
+              "num": "04",
+              "title": "Operations visibility",
+              "desc": "Dashboards for support, risk and management teams.",
+              "icon": "zap"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Run your back office with confidence",
+          "cta": {
+            "label": "Explore CRM",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "kyc-aml",
+      "slug": "/kyc-aml",
+      "seo": {
+        "title": "KYC & AML Integration for Forex Brokers",
+        "description": "KYC and AML integration for forex brokers. Identity checks, document review, sanctions screening and approval workflows connected to your CRM and trading platform."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "KYC & AML Integration",
+        "subtitle": "Identity checks, document review, sanctions screening and approval workflows connected to your CRM and trading platform.",
+        "imageKey": "kyc",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "flow",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "Verification that fits your process",
+          "columns": 2,
+          "items": [
+            {
+              "num": "01",
+              "title": "Identity & documents",
+              "desc": "Automated and manual review steps aligned to your risk appetite.",
+              "icon": "shield"
+            },
+            {
+              "num": "02",
+              "title": "Sanctions screening",
+              "desc": "Screening integrated into the approval path.",
+              "icon": "lock"
+            },
+            {
+              "num": "03",
+              "title": "CRM sync",
+              "desc": "Results written back so support and compliance see one source of truth.",
+              "icon": "users"
+            },
+            {
+              "num": "04",
+              "title": "Platform readiness",
+              "desc": "Only verified clients progress to live trading accounts.",
+              "icon": "check"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Integrate KYC the practical way",
+          "cta": {
+            "label": "Discuss KYC/AML",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "slug": "/payments",
+      "seo": {
+        "title": "Forex Payment Gateway Integration",
+        "description": "Forex payment gateway integration for MT4 and MT5 brokers. Connect PSPs, automate deposits, control withdrawals and reconcile every transaction with your CRM."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "Payment Gateway Integration",
+        "subtitle": "Connect PSPs, automate deposits, control withdrawals and reconcile every transaction with your CRM.",
+        "imageKey": "payments",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "features",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "Deposits and withdrawals under control",
+          "columns": 2,
+          "items": [
+            {
+              "num": "01",
+              "title": "PSP connectivity",
+              "desc": "Connect the payment providers that match your markets.",
+              "icon": "creditCard"
+            },
+            {
+              "num": "02",
+              "title": "Automated deposits",
+              "desc": "Reduce manual work with clear status and CRM updates.",
+              "icon": "zap"
+            },
+            {
+              "num": "03",
+              "title": "Withdrawal controls",
+              "desc": "Approval rules and checks before funds leave.",
+              "icon": "lock"
+            },
+            {
+              "num": "04",
+              "title": "Reconciliation",
+              "desc": "Every transaction visible against CRM and platform balances.",
+              "icon": "check"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Wire payments into your stack",
+          "cta": {
+            "label": "Discuss Payments",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "prop-firm",
+      "slug": "/prop-firm",
+      "seo": {
+        "title": "Prop Firm CRM & API | Prop Trading Management Software",
+        "description": "Prop firm CRM and API technology for challenge sales, trader accounts, rule enforcement, risk dashboards and payout reviews, connected to your trading platform."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "Prop Firm Technology",
+        "subtitle": "Challenge accounts, rule configuration, risk monitoring and payout review workflows for firms running evaluation models.",
+        "imageKey": "propFirm",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "features",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "Built for evaluation models",
+          "columns": 2,
+          "items": [
+            {
+              "num": "01",
+              "title": "Challenge sales",
+              "desc": "Product and pricing flows for evaluation programs.",
+              "icon": "zap"
+            },
+            {
+              "num": "02",
+              "title": "Rule enforcement",
+              "desc": "Drawdown, profit targets and consistency rules applied consistently.",
+              "icon": "shield"
+            },
+            {
+              "num": "03",
+              "title": "Risk dashboards",
+              "desc": "Visibility for risk and operations teams.",
+              "icon": "layers"
+            },
+            {
+              "num": "04",
+              "title": "Payout reviews",
+              "desc": "Structured review before funded-trader payouts.",
+              "icon": "creditCard"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Run prop operations on solid tech",
+          "cta": {
+            "label": "Discuss Prop Firm Setup",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "slug": "/how-it-works",
+      "seo": {
+        "title": "How Forex Brokerage Technology Setup Works",
+        "description": "See how the forex broker setup process works, from first consultation and solution design to integration, testing, go-live and long-term technical support."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "How the Setup Process Works",
+        "subtitle": "From first consultation and solution design to integration, testing, go-live and long-term technical support.",
+        "imageKey": "howItWorks",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "steps",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "Step by step",
+          "columns": 3,
+          "items": [
+            {
+              "num": "01",
+              "title": "Consultation",
+              "desc": "Understand your model, markets and existing providers.",
+              "icon": "message"
+            },
+            {
+              "num": "02",
+              "title": "Solution design",
+              "desc": "Map platform, hosting, liquidity and operational systems.",
+              "icon": "layers"
+            },
+            {
+              "num": "03",
+              "title": "Integration",
+              "desc": "Connect and configure the stack.",
+              "icon": "link"
+            },
+            {
+              "num": "04",
+              "title": "Testing",
+              "desc": "End-to-end checks before clients go live.",
+              "icon": "check"
+            },
+            {
+              "num": "05",
+              "title": "Go-live",
+              "desc": "Launch with monitoring and a clear first-week plan.",
+              "icon": "zap"
+            },
+            {
+              "num": "06",
+              "title": "Support",
+              "desc": "Ongoing changes, upgrades and incident response.",
+              "icon": "settings"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "See how we'd approach your project",
+          "cta": {
+            "label": "Start a Conversation",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "slug": "/about",
+      "seo": {
+        "title": "About Us | Forex Brokerage Technology Partner",
+        "description": "Meet the forex technology company helping brokers and prop firms launch, connect and run their trading infrastructure."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "About Forex Trade Technology",
+        "subtitle": "We help brokers and prop firms launch, connect and run their trading infrastructure — from MT5 and CRM to liquidity and hosting.",
+        "imageKey": "aboutPrimary",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "story",
+          "type": "prose",
+          "viewTransition": "section",
+          "title": "Technology that works as one system",
+          "paragraphs": [
+            "Forex Trade Technology is a technology partner for brokerage and prop-firm teams that need the trading stack to work as one system rather than a collection of disconnected vendors.",
+            "We focus on MT5 deployment, server hosting, liquidity connectivity, CRM and back-office integrations, KYC/AML workflows and payment gateway connections — configured, tested and supported together."
+          ],
+          "imageKey": "aboutSecondary"
+        },
+        {
+          "id": "values",
+          "type": "cardGrid",
+          "viewTransition": "section",
+          "title": "What we care about",
+          "columns": 3,
+          "items": [
+            {
+              "num": "01",
+              "title": "Clear architecture",
+              "desc": "Design before go-live so dependencies are visible.",
+              "icon": "layers"
+            },
+            {
+              "num": "02",
+              "title": "Honest capacity talk",
+              "desc": "Latency and sizing discussed in practical terms.",
+              "icon": "server"
+            },
+            {
+              "num": "03",
+              "title": "Support after launch",
+              "desc": "We stay for the changes every new brokerage needs.",
+              "icon": "message"
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Work with a focused technology partner",
+          "cta": {
+            "label": "Contact Us",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "slug": "/faq",
+      "seo": {
+        "title": "Forex Broker Technology FAQ",
+        "description": "Answers to common forex broker technology questions on MT5, CRM, liquidity, hosting, payments, verification, prop firms and support."
+      },
+      "hero": {
+        "kicker": "FOREX TRADE TECHNOLOGY",
+        "title": "Frequently Asked Questions",
+        "subtitle": "Answers to common questions about MT5, hosting, liquidity, CRM and more.",
+        "imageKey": "hero",
+        "ctas": [
+          {
+            "label": "Discuss Your Setup",
+            "href": "/contact",
+            "variant": "primary",
+            "icon": "arrowUpRight"
+          },
+          {
+            "label": "Explore Solutions",
+            "href": "/brokerage-setup",
+            "variant": "dark",
+            "icon": "arrowUpRight"
+          }
+        ],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "faq-list",
+          "type": "faqAccordion",
+          "viewTransition": "section",
+          "openFirst": true,
+          "items": [
+            {
+              "q": "Can you help us launch a brokerage from scratch?",
+              "a": "Yes. Our brokerage setup service covers platform selection, hosting, liquidity connectivity, CRM and KYC integration, testing and go-live. Licensing and regulatory approval remain your responsibility."
+            },
+            {
+              "q": "Do you only work with MT5?",
+              "a": "MT5 is our main focus for new deployments, but we also maintain MT4 environments and help brokers plan migrations from MT4 to MT5."
+            },
+            {
+              "q": "What's the difference between a bridge, a gateway and a FIX connection?",
+              "a": "All three connect your trading platform to liquidity. They differ in how orders are routed, how much control you have and how they're maintained. We'll walk you through the options during discovery."
+            },
+            {
+              "q": "Can you take over support of an existing MT5 setup?",
+              "a": "Yes. We start with a technical review of your current configuration, hosting and integrations, then agree on a maintenance plan covering monitoring, upgrades and incident response."
+            },
+            {
+              "q": "Do you handle KYC and AML compliance for us?",
+              "a": "We handle the technical integration: connecting verification providers, building the approval workflow and syncing results to your CRM. Your compliance obligations stay with your regulated business."
+            },
+            {
+              "q": "Can we choose only the services we need?",
+              "a": "Absolutely. Our forex brokerage technology is modular. Some clients come only for hosting or liquidity connectivity; others want the full stack."
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "darkCta",
+          "title": "Still have questions?",
+          "subtitle": "We're happy to walk through your specific setup.",
+          "cta": {
+            "label": "Contact Us",
+            "href": "/contact",
+            "icon": "arrowUpRight"
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "seo": {
+        "title": "Contact Us | Forex Brokerage Technology Consultation",
+        "description": "Book a forex broker technology consultation. Tell us about your brokerage, prop firm or project and our team will come back with practical next steps."
+      },
+      "hero": {
+        "kicker": "READY TO START?",
+        "title": "Ready to start your Forex Broker?",
+        "subtitle": "Tell us about your plans. We can help you work through the next stage of your brokerage journey.",
+        "imageKey": "contact",
+        "ctas": [],
+        "viewTransition": "hero"
+      },
+      "sections": [
+        {
+          "id": "form",
+          "type": "contactForm",
+          "viewTransition": "section",
+          "email": "business@forextradetechnology.com",
+          "fields": [
+            {
+              "name": "name",
+              "label": "Your Name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "label": "Your Email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "contact",
+              "label": "Telegram or WhatsApp",
+              "type": "text",
+              "required": false
+            },
+            {
+              "name": "company",
+              "label": "Company / Region",
+              "type": "text",
+              "required": false
+            },
+            {
+              "name": "message",
+              "label": "Your Project",
+              "type": "textarea",
+              "required": true
+            }
+          ],
+          "submitLabel": "Send Enquiry",
+          "privacyNote": "We use your details only to respond to your enquiry."
+        }
+      ]
+    }
+  ]
+}

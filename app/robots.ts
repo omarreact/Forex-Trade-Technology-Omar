@@ -1,13 +1,3 @@
-import type { MetadataRoute } from 'next';
-import { siteOrigin } from '@/lib/seo';
-
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/api/',
-    },
-    sitemap: `${siteOrigin}/sitemap.xml`,
-  };
-}
+import type {MetadataRoute} from 'next';
+import {absoluteUrl} from '@/lib/site-data';
+export default function robots():MetadataRoute.Robots{return {rules:{userAgent:'*',allow:'/'},sitemap:absoluteUrl('/sitemap.xml')}}

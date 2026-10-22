@@ -1,0 +1,317 @@
+{
+  "themeId": "broker-setup-lime",
+  "name": "Forex Trade Technology — Lime Fintech",
+  "basedOn": "forex-trade-technology-preview-2.html",
+  "fonts": {
+    "sans": [
+      "Inter",
+      "Manrope",
+      "system-ui",
+      "sans-serif"
+    ],
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+  },
+  "tokens": {
+    "colors": {
+      "ink": "#161816",
+      "dark": "#141613",
+      "deep": "#101210",
+      "lime": "#d9f17a",
+      "limeStrong": "#cde760",
+      "stone": "#f4f5f0",
+      "white": "#ffffff",
+      "muted": "#767970",
+      "border": "#dedfd8",
+      "accentText": "#80867e",
+      "heroGradient": "linear-gradient(126deg, #0c0e0e 6%, #171a16 70%, #252c1e 100%)",
+      "contactGradient": "linear-gradient(135deg, #181c15, #0d100e)",
+      "roadmapBg": "#f3f4ef",
+      "faqBg": "#f5f6f2",
+      "footerBg": "#0f110f"
+    },
+    "radius": {
+      "sm": "8px",
+      "md": "13px",
+      "lg": "18px",
+      "xl": "22px",
+      "pill": "100px"
+    },
+    "shell": "min(1210px, calc(100% - 88px))",
+    "spacing": {
+      "sectionY": "clamp(75px, 9vw, 116px)",
+      "headerH": "88px"
+    },
+    "shadows": {
+      "card": "0 16px 30px rgba(25, 29, 25, 0.025)",
+      "cardHover": "0 18px 40px rgba(22, 36, 22, 0.09)",
+      "header": "0 8px 22px rgba(16, 24, 17, 0.06)"
+    },
+    "typography": {
+      "h1": "clamp(48px, 6vw, 88px)",
+      "h2": "clamp(42px, 4.9vw, 72px)",
+      "h3": "28px",
+      "body": "17px",
+      "kicker": "12px",
+      "letterSpacingTight": "-0.065em"
+    }
+  },
+  "components": {
+    "header": {
+      "sticky": true,
+      "className": "bs-site-header",
+      "logoClass": "bs-logo-text",
+      "navClass": "bs-inline-nav",
+      "ctaClass": "bs-btn-dark"
+    },
+    "buttons": {
+      "primary": {
+        "className": "bs-btn-primary",
+        "bg": "var(--bs-lime)",
+        "color": "#171a14"
+      },
+      "dark": {
+        "className": "bs-btn-dark",
+        "bg": "#171915",
+        "color": "#fff"
+      },
+      "line": {
+        "className": "bs-btn-line"
+      }
+    },
+    "hero": {
+      "className": "bs-hero",
+      "minHeight": "clamp(630px, 68vw, 760px)",
+      "kickerClass": "bs-hero-kicker",
+      "titleClass": "bs-hero-title",
+      "subtitleClass": "bs-hero-subtitle"
+    },
+    "cards": {
+      "step": "bs-step-card",
+      "advantage": "bs-adv-card",
+      "solution": "bs-card"
+    },
+    "faq": {
+      "accordion": true,
+      "className": "bs-faq-accordion",
+      "openFirst": true
+    },
+    "scrollToTop": {
+      "className": "bs-scroll-top",
+      "style": {
+        "position": "fixed",
+        "right": "24px",
+        "bottom": "24px",
+        "width": "48px",
+        "height": "48px",
+        "borderRadius": "100px",
+        "background": "#d9f17a",
+        "color": "#171a14",
+        "border": "none",
+        "cursor": "pointer",
+        "zIndex": 90,
+        "boxShadow": "0 8px 24px rgba(0,0,0,0.15)",
+        "display": "flex",
+        "alignItems": "center",
+        "justifyContent": "center"
+      }
+    }
+  },
+  "viewTransitions": {
+    "page": {
+      "name": "page-transition",
+      "type": "fade-slide",
+      "duration": "280ms"
+    },
+    "hero": {
+      "name": "hero-transition",
+      "type": "fade-up",
+      "duration": "400ms"
+    },
+    "section": {
+      "name": "section-transition",
+      "type": "fade",
+      "duration": "320ms"
+    },
+    "card": {
+      "name": "card-transition",
+      "type": "scale-fade",
+      "duration": "240ms"
+    }
+  },
+  "assets": {
+    "icons": {
+      "arrowUpRight": {
+        "provider": "nexticons",
+        "name": "arrow-up-right",
+        "set": "outline"
+      },
+      "arrowUp": {
+        "provider": "nexticons",
+        "name": "arrow-up",
+        "set": "outline"
+      },
+      "shield": {
+        "provider": "nexticons",
+        "name": "shield-check",
+        "set": "outline"
+      },
+      "server": {
+        "provider": "nexticons",
+        "name": "server",
+        "set": "outline"
+      },
+      "link": {
+        "provider": "nexticons",
+        "name": "link",
+        "set": "outline"
+      },
+      "users": {
+        "provider": "nexticons",
+        "name": "users",
+        "set": "outline"
+      },
+      "creditCard": {
+        "provider": "nexticons",
+        "name": "credit-card",
+        "set": "outline"
+      },
+      "zap": {
+        "provider": "nexticons",
+        "name": "zap",
+        "set": "outline"
+      },
+      "check": {
+        "provider": "nexticons",
+        "name": "check-circle",
+        "set": "outline"
+      },
+      "globe": {
+        "provider": "nexticons",
+        "name": "globe",
+        "set": "outline"
+      },
+      "lock": {
+        "provider": "nexticons",
+        "name": "lock",
+        "set": "outline"
+      },
+      "layers": {
+        "provider": "nexticons",
+        "name": "layers",
+        "set": "outline"
+      },
+      "settings": {
+        "provider": "nexticons",
+        "name": "settings",
+        "set": "outline"
+      },
+      "message": {
+        "provider": "nexticons",
+        "name": "message-circle",
+        "set": "outline"
+      },
+      "chevronDown": {
+        "provider": "nexticons",
+        "name": "chevron-down",
+        "set": "outline"
+      },
+      "plus": {
+        "provider": "nexticons",
+        "name": "plus",
+        "set": "outline"
+      },
+      "minus": {
+        "provider": "nexticons",
+        "name": "minus",
+        "set": "outline"
+      }
+    },
+    "images": {
+      "hero": {
+        "url": "https://images.pexels.com/photos/5833747/pexels-photo-5833747.jpeg?auto=compress&cs=tinysrgb&w=1800",
+        "alt": "Trading desk and market screens",
+        "source": "pexels"
+      },
+      "aboutPrimary": {
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Analytics dashboard on laptop",
+        "source": "unsplash"
+      },
+      "aboutSecondary": {
+        "url": "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=1000",
+        "alt": "Business strategy planning",
+        "source": "pexels"
+      },
+      "roadmap": {
+        "url": "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "alt": "Roadmap and planning board",
+        "source": "pexels"
+      },
+      "hosting": {
+        "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Server room infrastructure",
+        "source": "unsplash"
+      },
+      "liquidity": {
+        "url": "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Global financial connectivity",
+        "source": "pexels"
+      },
+      "crm": {
+        "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+        "alt": "CRM and client management",
+        "source": "unsplash"
+      },
+      "kyc": {
+        "url": "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Identity verification process",
+        "source": "pexels"
+      },
+      "payments": {
+        "url": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Secure payment processing",
+        "source": "unsplash"
+      },
+      "propFirm": {
+        "url": "https://images.pexels.com/photos/7567529/pexels-photo-7567529.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Prop trading performance",
+        "source": "pexels"
+      },
+      "contact": {
+        "url": "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Contact and consultation",
+        "source": "unsplash"
+      },
+      "mt5": {
+        "url": "https://images.pexels.com/photos/6802049/pexels-photo-6802049.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Trading platform interface",
+        "source": "pexels"
+      },
+      "howItWorks": {
+        "url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Process and collaboration",
+        "source": "unsplash"
+      }
+    },
+    "magnificElements": {
+      "note": "Decorative UI elements inspired by https://www.magnific.com/ — use as SVG overlays, orbs, grid masks",
+      "heroOrbit": true,
+      "gridMask": true,
+      "accentOrb": true,
+      "starMotif": "✳"
+    }
+  },
+  "cssVariables": {
+    "--bs-ink": "#161816",
+    "--bs-dark": "#141613",
+    "--bs-deep": "#101210",
+    "--bs-lime": "#d9f17a",
+    "--bs-lime-strong": "#cde760",
+    "--bs-stone": "#f4f5f0",
+    "--bs-white": "#fff",
+    "--bs-muted": "#767970",
+    "--bs-border": "#dedfd8",
+    "--bs-radius": "22px",
+    "--bs-shell": "min(1210px, calc(100% - 88px))"
+  }
+}
