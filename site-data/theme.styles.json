@@ -1,5 +1,5 @@
 {
-  "themeId": "broker-setup-lime-v4-dense",
+  "themeId": "broker-setup-lime-v5-no-repeat",
   "name": "Forex Trade Technology — Dense Professional",
   "basedOn": "forex-trade-technology-preview-2.html + live forextrade.pincodeit.com",
   "fonts": {
@@ -122,6 +122,24 @@
       "paddingX": "clamp(16px, 4vw, 24px)",
       "titleMarginBottom": "12px",
       "subtitleMarginBottom": "20px"
+    },
+    "sectionVariety": {
+      "rule": "Each section.layout at most once per page; never consecutive duplicates",
+      "rule2": "Original source fullBlocks are rendered through supplemental details for content fidelity",
+      "designs": [
+        "cardGrid3",
+        "cardGrid2",
+        "stack",
+        "mediaBand",
+        "timeline",
+        "splitContent",
+        "darkBand",
+        "iconRow",
+        "faqAccordion",
+        "ctaBand",
+        "gallery3",
+        "statsRow"
+      ]
     }
   },
   "viewTransitions": {
