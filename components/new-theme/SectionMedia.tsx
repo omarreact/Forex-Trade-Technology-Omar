@@ -7,7 +7,7 @@ function Photo({imageKey,className=''}:{imageKey:string;className?:string}){
  return <div className={`bs-section-photo ${className}`}><Image src={image.url} alt={image.alt} fill unoptimized loading="lazy" sizes="(max-width: 800px) 94vw, (max-width: 1250px) 46vw, 700px"/></div>;
 }
 export function SectionMedia({media,pageImages=[]}:{media?:MediaData;pageImages?:string[]}){
- if(!media||!getImage(media.imageKey))return null;
+ if(!media?.imageKey||!getImage(media.imageKey))return null;
  if(media.layout==='backgroundWash'){
   const img=getImage(media.imageKey)!;
   return <div className="bs-section-wash" aria-hidden="true" style={{backgroundImage:`linear-gradient(90deg,rgba(245,248,238,.96),rgba(245,248,238,.83)),url("${img.url}")`}}/>;

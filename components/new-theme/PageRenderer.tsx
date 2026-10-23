@@ -110,7 +110,7 @@ function V5SectionContent({section,index}:{section:SectionData;index:number}){
  if(layout.startsWith('cardGrid')&&cards.length===0&&leads.length>1){
    cards=leads.map((para,i)=>({title:'',paragraphs:[para],order:i}));
  }
- const leadContent=layout.startsWith('cardGrid')&&topics.length===0&&leads.length>1?[]:leads;
+ const leadContent=(layout.startsWith('cardGrid')||layout==='timeline')&&topics.length===0&&leads.length>1?[]:leads;
  return <section id={section.id} className={'bs-v5-section bs-v5-layout-'+layout+(dark?' bs-v5-dark':'')+(index%2&&!dark?' bs-v5-soft':'')} data-view-transition={section.viewTransition||'section'}>
   <div className="bs-shell">
    <header className="bs-v5-section-heading"><span>FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>

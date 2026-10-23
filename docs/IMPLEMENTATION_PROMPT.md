@@ -1,26 +1,20 @@
-# Forex Trade Technology — Dense Professional Layout v4
+# Forex Trade Technology v5 — No Repeated Section Designs
 
-This site is generated from three versioned source files under `site-data/`: `site.config.json`, `theme.styles.json`, and `pages.content.json`. They are the source of truth, separate from components.
+## Non-negotiable visual rules
 
-## Layout rules
+1. Every top-level \`section.layout\` appears **at most once on the same page**. No two consecutive layouts are identical.
+2. Render \`section.layout\`, not just \`section.type\`. Supported: \`iconRow\`, \`cardGrid2\`, \`cardGrid3\`, \`stack\`, \`mediaBand\`, \`timeline\`, \`splitContent\`, \`darkBand\`, \`gallery3\`, \`faqAccordion\`, \`ctaBand\` and \`statsRow\`.
+3. All service pages use a 240px breadcrumb header. The homepage alone uses a five-slide image carousel with 6-second autoplay, navigation arrows and keyboard-friendly controls.
+4. Never float one lonely image beside short text. Media bands are full width (~300px); galleries have three equal photos; cards are equal-width, compact and use icons.
+5. Vertical section padding 48–72px, gaps 16–20px, auto height, copy prose capped around 720px. FAQ has no decorative side image.
+6. One closing CTA at the bottom of each page, and exact canonical URLs with no trailing slash.
+7. Maintain the original Google Doc copy. The v5 curated layouts show only selected H2 sections, but \`pages.content.json\` includes **fullBlocks** with all source paragraphs and H3s. Before the closing CTA, the renderer must display every block not already shown, in a single accessible "Detailed guidance" disclosure panel. Don't drop content to achieve layout variety.
+8. Keep SEO metadata, contact form, scroll-to-top, accessibility, mobile responsive layouts, and reduced-motion behavior.
 
-- Use `section.layout` and `preferredRender`; don't infer layouts randomly.
-- Section padding: `clamp(48px, 5.5vw, 72px)`. Card gap: 16px. Auto card height. Avoid unnecessary minimum heights and empty gaps.
-- `cardGrid2`, `cardGrid3`, `cardGrid4`: turn H3 content groups into compact equal cards with icons or small thumbnails; preserve every paragraph.
-- `stack`: max-width 720px prose. Never float a decorative image beside short copy.
-- `mediaBand`: full-width 280–360px editorial image between sections; resolve imageKey through `theme.assets.images`.
-- `trustStrip`: compact icons and labels. `ctaBand`: broad dark/lime CTA, optional low-opacity background imagery.
-- `faqAccordion`: full-width accordions, **never** a decorative side image.
-- Home only: 5 different carousel images, autoplay every 6 seconds, arrows/dots, accessible pause/focus, height `clamp(480px,62vh,640px)`.
-- Interior: 240px breadcrumb header, **never** a second oversized hero.
-- No trailing slash redirect loops: `/faq`, `/contact` and original nested URLs stay canonical.
+## QA required
 
-## Fidelity
-
-All 13 pages, full original Google Docs prose, FAQs (42 in FAQ page), SEO, source image keys and route map must remain intact. Don't replace the copy with summaries, truncate H2/H3 or remove disclaimers.
-
-## Visual QA
-
-Check desktop and mobile, especially homepage, brokerage setup, FAQ and contact. Verify there are no lonely right-side stock photos, forced tall gaps, cropped copy, horizontal scrolling, empty cards, overlapping slider controls or broken routes. Keep form functional, navigation keyboard-accessible, proper headings and alt text, and view-transition behavior respectful of reduced-motion preferences.
-
-Run `npm run validate:data`, `npm run build`, and route/visual checks before promoting production.
+- \`npm run validate:data\` succeeds with 13 pages, 87 unique top-level layouts, 42 FAQs, 11 full-width image bands and 26 image assets.
+- Check routes \`/\`, \`/solutions/brokerage-setup\`, \`/products/forex-crm\`, \`/faq\`, \`/contact\`. Old short aliases must redirect without loops.
+- Verify every original \`fullBlocks\` text fragment is either in the selected visible section, or displayed by "Detailed guidance", including all FAQ responses.
+- Check for overlap, large blank areas, image ratios, keyboard navigation, skip link, form submit error/success and responsive layout at mobile/tablet/desktop.
+- Don't claim visual QA or an email-delivery test without testing them.
