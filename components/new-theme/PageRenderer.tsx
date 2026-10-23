@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import {Fragment} from 'react';
 import {canonicalHref,getImage,type ButtonData,type ContentBlock,type FaqItem,type PageData,type SectionData} from '@/lib/site-data';
 import {Icon} from './Icon';
 import {ContactForm} from './ContactForm';
@@ -92,23 +93,88 @@ function CtaRow({section}:{section:SectionData}){return <section className="bs-c
 function Faq({section}:{section:SectionData}){const items=(section.items||[]).filter((x):x is FaqItem=>typeof x!=='string'&&'q'in x);
  return <section className="bs-section bs-faq-section" id={section.id} data-view-transition={section.viewTransition||'section'}><div className="bs-shell bs-faq-grid"><div className="bs-faq-aside"><span className="bs-eyebrow">HAVE QUESTIONS?</span><h2>Clear answers.<br/><em>Better decisions.</em></h2><p>Browse the complete set of common questions about trading technology infrastructure.</p><span className="bs-question-count">{items.length} questions answered</span><SectionMedia media={section.media}/></div><div className="bs-faq-list">{items.map((item,i)=><details key={`${item.q}-${i}`}><summary><span>{item.q}</span><span className="bs-faq-plus" aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div></div></section>;
 }
-function Section({section,index,pageImages}:{section:SectionData;index:number;pageImages?:string[]}){
- switch(section.type){
-  case 'trustStrip':return <Trust section={section}/>;
-  case 'contentSection':return <DenseEditorialSection section={section} index={index}/>;
-  case 'mediaBand':return <DenseMediaBand section={section}/>;
-  case 'ctaRow':return <CtaRow section={section}/>;
-  case 'darkCta':return <DarkCta section={section}/>;
-  case 'faqAccordion':return <DenseFaq section={section}/>;
-  default:return null;
+
+/** The layout key is authoritative in v5; section.type only describes source semantics. */
+function V5EditableBlocks({blocks}:{blocks:ContentBlock[]}){
+ return <div className="bs-v5-copy">{blocks.map((block,i)=>block.type==='h3'?<h3 key={i}>{block.text}</h3>:block.type==='h2'?<h3 key={i}>{block.text}</h3>:<p key={i}>{block.text}</p>)}</div>;
+}
+function V5SectionContent({section,index}:{section:SectionData;index:number}){
+ const groups=regroup(section.blocks||[]);
+ const leads=groups.filter(x=>!x.heading).flatMap(x=>x.paragraphs);
+ const topics=groups.filter(x=>x.heading);
+ const layout=section.layout||'stack';
+ const dark=layout==='darkBand';
+ if(layout==='splitContent'&&section.title==='Request a Consultation')
+  return <section className="bs-v5-section bs-v5-contact" id={section.id}><div className="bs-shell"><h2>{section.title}</h2><ContactForm/></div></section>;
+ let cards=topics.map((g,i)=>({title:g.heading||'',paragraphs:g.paragraphs,order:i}));
+ if(layout.startsWith('cardGrid')&&cards.length===0&&leads.length>1){
+   cards=leads.map((para,i)=>({title:'',paragraphs:[para],order:i}));
  }
+ const leadContent=layout.startsWith('cardGrid')&&topics.length===0&&leads.length>1?[]:leads;
+ return <section id={section.id} className={'bs-v5-section bs-v5-layout-'+layout+(dark?' bs-v5-dark':'')+(index%2&&!dark?' bs-v5-soft':'')} data-view-transition={section.viewTransition||'section'}>
+  <div className="bs-shell">
+   <header className="bs-v5-section-heading"><span>FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>
+   {leadContent.length>0&&<div className="bs-v5-intro">{leadContent.map((p,i)=><p key={i}>{p}</p>)}</div>}
+   {layout.startsWith('cardGrid')&&cards.length>0&&<div className={'bs-v5-grid '+(layout==='cardGrid2'?'bs-v5-grid-two':'bs-v5-grid-three')}>{cards.map((c,i)=>
+    <article className="bs-v5-card" key={i}><div className="bs-v5-card-top"><span className="bs-v5-card-symbol"><Icon name={['layers','server','shield','link','users','payments'][i%6]} size={22}/></span><span>{String(i+1).padStart(2,'0')}</span></div>{c.title&&<h3>{c.title}</h3>}<TextParagraphs paragraphs={c.paragraphs}/></article>)}</div>}
+   {layout==='timeline'&&<div className="bs-v5-steps">{(topics.length?topics:leads.length>=2?leads.map((p,i)=>({heading:'Step '+(i+1),paragraphs:[p]})):[]).map((g,i)=>
+    <article key={i}><span className="bs-v5-step-index">{String(i+1).padStart(2,'0')}</span><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
+   {layout==='stack'&&topics.length>0&&<div className="bs-v5-prose-list">{topics.map((g,i)=><article key={i}><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>}
+   {dark&&topics.length>0&&<div className="bs-v5-dark-list">{topics.map((g,i)=><article key={i}><span>{String(i+1).padStart(2,'0')}</span><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>}
+  </div>
+ </section>;
+}
+function V5MediaBand({section}:{section:SectionData}){
+ const img=getImage(section.media?.imageKey);if(!img)return null;
+ return <section id={section.id} className="bs-v5-media" role="img" aria-label={section.media?.caption||img.alt}>
+  <Image src={img.url} alt="" fill unoptimized loading="lazy" sizes="100vw" className="bs-v5-media-photo"/>
+  <div className="bs-v5-media-shade"/>{section.media?.caption&&<div className="bs-shell bs-v5-media-caption"><p>{section.media.caption}</p></div>}
+ </section>;
+}
+function V5Gallery({section}:{section:SectionData}){
+ const keys=section.media?.imageKeys||[];
+ return <section id={section.id} className="bs-v5-section bs-v5-gallery"><div className="bs-shell">
+  <header className="bs-v5-section-heading"><span>TECHNOLOGY IN PRACTICE</span><h2>{section.title}</h2></header>
+  <div className="bs-v5-gallery-grid">{keys.map(key=>{const img=getImage(key);return img?<figure key={key}><div className="bs-v5-gallery-photo"><Image src={img.url} alt={img.alt} fill unoptimized loading="lazy" sizes="(max-width:700px) 95vw, 33vw"/></div><figcaption>{img.alt}</figcaption></figure>:null})}</div>
+ </div></section>;
+}
+/** All fullBlocks are retained in source JSON; this includes material omitted by the v5 layout shortlist. */
+function getSupplementalContent(page:PageData){
+ const used=new Map<string,number>();
+ for(const sec of page.sections)for(const b of sec.blocks||[]){const key=b.type+'\u0000'+b.text;used.set(key,(used.get(key)||0)+1);}
+ const result:Array<{title:string;blocks:ContentBlock[]}>=[];
+ let active:{title:string;blocks:ContentBlock[]}={title:'Introduction and overview',blocks:[]};
+ const push=()=>{if(active.blocks.length)result.push(active);};
+ for(const b of page.fullBlocks||[]){
+  if(b.type==='h2'){push();active={title:b.text,blocks:[]};continue;}
+  const key=b.type+'\u0000'+b.text,remaining=used.get(key)||0;
+  if(remaining>0){used.set(key,remaining-1);continue;}
+  active.blocks.push(b);
+ }
+ push();return result;
+}
+function V5Guide({page}:{page:PageData}){
+ const groups=getSupplementalContent(page);if(!groups.length)return null;
+ return <section className="bs-v5-guide bs-v5-section" id="complete-technical-guide" aria-labelledby="complete-guide-title"><div className="bs-shell">
+  <div className="bs-v5-guide-head"><span className="bs-v5-guide-kicker">IN-DEPTH TECHNICAL GUIDE</span><h2 id="complete-guide-title">Further details and frequently asked questions</h2><p>Complete supporting explanations, implementation considerations and FAQs from our original service guide.</p></div>
+  <div className="bs-v5-guide-grid">{groups.map((group,i)=><details key={i} className="bs-v5-guide-item"><summary><span>{group.title}</span><Icon name="chevronDown" size={20}/></summary><V5EditableBlocks blocks={group.blocks}/></details>)}</div>
+ </div></section>;
+}
+
+function Section({section,index}:{section:SectionData;index:number}){
+ if(section.layout==='iconRow')return <Trust section={section}/>;
+ if(section.layout==='mediaBand')return <V5MediaBand section={section}/>;
+ if(section.layout==='gallery3')return <V5Gallery section={section}/>;
+ if(section.layout==='faqAccordion')return <DenseFaq section={section}/>;
+ if(section.layout==='ctaBand')return <DarkCta section={section}/>;
+ return <V5SectionContent section={section} index={index}/>;
 }
 function Notes({notes}:{notes?:string[]}){if(!notes?.length)return null;return <aside className="bs-notes"><div className="bs-shell"><details><summary>Additional information and risk disclosure</summary>{notes.map((note,i)=><p key={i}>{note}</p>)}</details></div></aside>}
 export function PageRenderer({page}:{page:PageData}){
  const top=page.pageTop;
- return <main id="main-content" className="bs-main bs-v4-dense">
+ return <main id="main-content" className="bs-main bs-v4-dense bs-v5">
   {top?.variant==='homeSlider'&&top.slides?.length ? <HomeSlider slides={top.slides} intervalMs={top.intervalMs} autoplay={top.autoplay}/> : <PageHeader page={page}/>}
-  {page.sections.map((section,index)=><Section key={section.id} section={section} index={index} pageImages={page.pageImages}/>)}
+  {page.sections.map((section,index)=><Fragment key={section.id}>{section.layout==='ctaBand'&&<V5Guide page={page}/>}<Section section={section} index={index}/></Fragment>)}
   <Notes notes={page.documentFooterNotes}/>
  </main>;
 }

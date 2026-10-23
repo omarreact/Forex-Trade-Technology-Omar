@@ -191,3 +191,61 @@
 @media(max-width:990px){.bs-v4-dense .bs-dense-cols-3,.bs-v4-dense .bs-dense-cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){:root{--bs-header-height:72px;--bs-section-y:clamp(38px,7vw,50px)}.bs-v4-dense .bs-home-slider{height:clamp(480px,75vh,570px)}.bs-v4-dense .bs-slide-copy h1,.bs-v4-dense .bs-slide-copy h2{font-size:clamp(32px,8vw,44px)}.bs-v4-dense .bs-page-header{height:240px;min-height:240px}.bs-v4-dense .bs-page-title{font-size:clamp(25px,6vw,35px)}.bs-v4-dense .bs-dense-cards,.bs-v4-dense .bs-dense-cols-2,.bs-v4-dense .bs-dense-cols-3,.bs-v4-dense .bs-dense-cols-4{grid-template-columns:1fr}.bs-v4-dense .bs-dense-card{padding:20px}.bs-v4-dense .bs-media-band{height:280px}.bs-v4-dense .bs-media-band-caption{padding-bottom:25px}.bs-v4-dense .bs-dark-cta{padding:28px 22px}.bs-v4-dense .bs-dense-accordion summary{font-size:14px;padding-block:17px}}
 @media(prefers-reduced-motion:reduce){.bs-v4-dense .bs-dense-accordion summary svg{transition:none}}
+
+
+/* v5 - explicit non-repeating layouts, no tall empty blocks or floating imagery */
+.bs-v5 .bs-v5-section{padding-block:clamp(48px,5.5vw,72px);min-height:0;position:relative}
+.bs-v5 .bs-v5-soft{background:#f5f7f1}
+.bs-v5 .bs-v5-section-heading{margin-bottom:20px;max-width:900px}
+.bs-v5 .bs-v5-section-heading>span,.bs-v5 .bs-v5-guide-kicker{font-size:11px;letter-spacing:.13em;font-weight:800;color:#637d2b;display:block;margin-bottom:10px}
+.bs-v5 .bs-v5-section-heading h2,.bs-v5 .bs-v5-guide h2{font-size:clamp(27px,3vw,43px);line-height:1.16;letter-spacing:-.035em;margin:0}
+.bs-v5 .bs-v5-intro{max-width:720px;font-size:15px;line-height:1.75;color:#525f4b;margin-bottom:18px}
+.bs-v5 .bs-v5-intro p{margin:0 0 14px}.bs-v5 .bs-v5-intro p:last-child{margin-bottom:0}
+.bs-v5 .bs-v5-grid{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.bs-v5 .bs-v5-grid-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bs-v5 .bs-v5-card{min-width:0;padding:clamp(19px,2.4vw,27px);border:1px solid #dfe6d5;border-radius:18px;background:#fff;box-shadow:0 5px 24px rgba(36,47,20,.035)}
+.bs-v5 .bs-v5-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;font-size:11px;color:#89967c;font-weight:800}
+.bs-v5 .bs-v5-card-symbol{background:#e9f3d4;color:#506b1c;width:44px;height:44px;border-radius:12px;display:grid;place-items:center}
+.bs-v5 .bs-v5-card h3{font-size:clamp(18px,1.8vw,23px);line-height:1.25;margin:0 0 11px}
+.bs-v5 .bs-v5-card p{color:#586750;font-size:14px;line-height:1.7;margin:0 0 11px}.bs-v5 .bs-v5-card p:last-child{margin-bottom:0}
+.bs-v5 .bs-v5-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.bs-v5 .bs-v5-steps article{display:flex;gap:16px;padding:23px;border:1px solid #dfe6d6;border-radius:16px;background:#fff;min-width:0}
+.bs-v5 .bs-v5-step-index{font-size:13px;font-weight:800;color:#688234;background:#eaf3d7;width:40px;height:40px;flex:none;border-radius:50%;display:grid;place-items:center}
+.bs-v5 .bs-v5-steps h3{font-size:20px;margin:0 0 9px}.bs-v5 .bs-v5-steps p{color:#586450;font-size:14px;line-height:1.7;margin:0 0 10px}
+.bs-v5 .bs-v5-layout-stack .bs-v5-prose-list{max-width:720px}
+.bs-v5 .bs-v5-prose-list article{padding:17px 0;border-top:1px solid #dee5d7}
+.bs-v5 .bs-v5-prose-list h3{margin:0 0 9px;font-size:21px}
+.bs-v5 .bs-v5-prose-list p{font-size:15px;line-height:1.75;color:#596552;margin:0 0 10px}
+.bs-v5 .bs-v5-dark{background:#151b13;color:#eff4e6}
+.bs-v5 .bs-v5-dark .bs-v5-section-heading>span{color:#d9f17a}
+.bs-v5 .bs-v5-dark .bs-v5-intro,.bs-v5 .bs-v5-dark p{color:#c4d0ba}
+.bs-v5 .bs-v5-dark-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.bs-v5 .bs-v5-dark-list article{border-top:1px solid rgba(235,255,211,.17);padding:20px 0}
+.bs-v5 .bs-v5-dark-list article>span{font-weight:800;color:#d9f17a;font-size:12px}
+.bs-v5 .bs-v5-dark-list h3{font-size:20px;margin:8px 0}
+.bs-v5 .bs-v5-dark-list p{font-size:14px;line-height:1.7;margin:0 0 12px}
+.bs-v5 .bs-v5-media{position:relative;height:300px;overflow:hidden;background:#172218}
+.bs-v5 .bs-v5-media-photo{object-fit:cover}
+.bs-v5 .bs-v5-media-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,23,13,.44),rgba(12,23,13,.05))}
+.bs-v5 .bs-v5-media-caption{position:absolute;inset:0;display:flex;align-items:flex-end;padding-bottom:35px}
+.bs-v5 .bs-v5-media-caption p{font-size:26px;color:white;max-width:560px;font-weight:700}
+.bs-v5 .bs-v5-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.bs-v5 .bs-v5-gallery-grid figure{margin:0;min-width:0;background:#f4f6ef;border-radius:15px;overflow:hidden}
+.bs-v5 .bs-v5-gallery-photo{height:220px;position:relative}.bs-v5 .bs-v5-gallery-photo img{object-fit:cover}
+.bs-v5 .bs-v5-gallery-grid figcaption{padding:14px 16px;font-size:14px;font-weight:650}
+.bs-v5 .bs-v5-contact h2{font-size:32px;margin:0 0 20px}
+.bs-v5 .bs-v5-guide{background:#edf0e7}
+.bs-v5 .bs-v5-guide-head{max-width:800px;margin-bottom:25px}
+.bs-v5 .bs-v5-guide-head p{max-width:700px;color:#5c6956;font-size:15px;line-height:1.65;margin-top:12px}
+.bs-v5 .bs-v5-guide-grid{max-width:960px;border-top:1px solid #d0d9c6}
+.bs-v5 .bs-v5-guide-item{border-bottom:1px solid #d0d9c6}
+.bs-v5 .bs-v5-guide-item summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:19px 5px;cursor:pointer;list-style:none;font-size:16px;font-weight:700}
+.bs-v5 .bs-v5-guide-item summary::-webkit-details-marker{display:none}
+.bs-v5 .bs-v5-guide-item summary svg{color:#638226;flex-shrink:0}
+.bs-v5 .bs-v5-guide-item[open] summary svg{transform:rotate(180deg)}
+.bs-v5 .bs-v5-copy{max-width:790px;padding:0 26px 18px 5px;color:#526049;font-size:14px;line-height:1.75}
+.bs-v5 .bs-v5-copy h3{font-size:18px;line-height:1.32;color:#25341d;margin:20px 0 10px}
+.bs-v5 .bs-v5-copy p{margin:0 0 13px}
+@media(max-width:980px){.bs-v5 .bs-v5-grid-three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.bs-v5 .bs-v5-grid,.bs-v5 .bs-v5-grid-two,.bs-v5 .bs-v5-grid-three,.bs-v5 .bs-v5-steps,.bs-v5 .bs-v5-dark-list,.bs-v5 .bs-v5-gallery-grid{grid-template-columns:1fr}.bs-v5 .bs-v5-section{padding-block:40px}.bs-v5 .bs-v5-gallery-photo{height:210px}.bs-v5 .bs-v5-media{height:280px}.bs-v5 .bs-v5-section-heading h2{font-size:29px}.bs-v5 .bs-v5-card{padding:20px}}
+@media(prefers-reduced-motion:reduce){.bs-v5 .bs-v5-guide-item summary svg{transition:none}}
