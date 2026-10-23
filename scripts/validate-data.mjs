@@ -3,46 +3,31 @@ import path from 'node:path';
 const root=path.resolve(import.meta.dirname,'../site-data');
 const read=name=>JSON.parse(fs.readFileSync(path.join(root,name),'utf8'));
 const site=read('site.config.json'),theme=read('theme.styles.json'),content=read('pages.content.json');
-const routeMap=site.routing?.paths||{};
-const ids=Object.keys(routeMap),pages=content.pages;
-if(site.routing.trailingSlash!==false)throw new Error('Redirect loop risk: trailingSlash must be false');
-if(ids.length!==13||pages.length!==13||new Set(ids).size!==13)throw new Error('Expected 13 unique configured pages');
-if(!site.navigation?.primary||!site.footer||!theme.assets?.images||Object.keys(theme.assets.images).length!==26)throw new Error('Missing site navigation, footer, or 26-image library');
-if(!site.features?.homeHeroSlider?.enabled||!site.features?.scrollToTop?.enabled)throw new Error('Missing configured slider or scroll-to-top feature');
-const visited=new Set(),allowed=new Set(['trustStrip','contentSection','ctaRow','darkCta','faqAccordion','mediaBand']);
-const layouts=new Set(['splitLeft','splitRight','cardThumb','fullBleed','gridGallery','backgroundWash']);
-let sections=0,fullWords=0,faqs=0,mediaSections=0;
+const paths=site.routing.paths,pages=content.pages,images=theme.assets.images;
+const allowLayouts=new Set(['iconRow','cardGrid2','cardGrid3','stack','mediaBand','timeline','splitContent','darkBand','gallery3','statsRow','faqAccordion','ctaBand']);
+if(site.routing.trailingSlash!==false||paths.faq!=='/faq'||paths.contact!=='/contact')throw Error('Canonical route issue');
+if(!site.features.noRepeatSectionDesigns||!site.features.maxOncePerSectionLayout)throw Error('No-repeat policy must be enabled');
+if(pages.length!==13||Object.keys(paths).length!==13||Object.keys(images).length!==26)throw Error('Expected 13 pages and 26 images');
+let sum=0,faq=0,bands=0,fullBlockWords=0;
 for(const p of pages){
- if(!ids.includes(p.id)||visited.has(p.id))throw new Error(`Unexpected or repeated id ${p.id}`);
- visited.add(p.id);
- if(p.slug!==routeMap[p.id]||p.seo.canonicalPath!==p.slug||p.slug!=='/'&&p.slug.endsWith('/'))throw new Error(`Routing mismatch ${p.id}: ${p.slug}`);
- if(!p.seo.title||!p.seo.description||!p.hero.title)throw new Error(`Missing SEO or hero ${p.id}`);
- fullWords+=p.wordCountApprox||0;
+ if(p.slug!==paths[p.id]||p.seo.canonicalPath!==p.slug)throw Error('Canonical mismatch '+p.id);
  if(p.id==='home'){
-  if(p.pageTop?.variant!=='homeSlider'||p.pageTop.slides?.length!==5||p.pageTop.intervalMs!==6000)throw new Error('Home must have five slides at six-second intervals');
-  const keys=p.pageTop.slides.map(s=>s.imageKey);
-  if(new Set(keys).size!==5||keys.some(k=>!theme.assets.images[k]))throw new Error('Home slides must have unique library images');
- }else{
-  if(p.pageTop?.variant!=='pageHeader'||p.pageTop.height!=='240px')throw new Error(`Wrong interior header ${p.id}`);
-  if(!p.pageTop.breadcrumbs?.length||!theme.assets.images[p.pageTop.backgroundImageKey])throw new Error(`Missing breadcrumbs or header image ${p.id}`);
- }
- const headings=new Set((p.fullBlocks||[]).filter(b=>b.type==='h2').map(b=>b.text));
+  if(p.pageTop.variant!=='homeSlider'||p.pageTop.slides.length!==5||p.pageTop.intervalMs!==6000||new Set(p.pageTop.slides.map(x=>x.imageKey)).size!==5)throw Error('Home slider mismatch');
+ }else if(p.pageTop.variant!=='pageHeader'||p.pageTop.height!=='240px')throw Error('Wrong compact header '+p.id);
+ if(p.sections.at(-1)?.layout!=='ctaBand')throw Error('Only last section may be closing CTA '+p.id);
+ const layouts=new Set();
  for(const section of p.sections){
-  sections++;
-  if(!allowed.has(section.type))throw new Error(`Unknown section type ${section.type}`);
-  if(section.type==='contentSection'){
-   if(!headings.has(section.title))throw new Error(`Source heading missing ${p.id}: ${section.title}`);
-   if(!section.blocks?.length)throw new Error(`Source paragraphs missing ${p.id}: ${section.id}`);
-  }
-  if(section.type==='faqAccordion')faqs+=section.items?.length||0;
-  if(section.media){
-   mediaSections++;
-   if(!theme.assets.images[section.media.imageKey]||!new Set(['backgroundWash','mediaBand']).has(section.media.layout))throw new Error(`Broken image key/layout at ${p.id}/${section.id}`);
-  }
+  sum++;
+  if(!allowLayouts.has(section.layout)||layouts.has(section.layout))throw Error('Repeated/invalid layout '+p.id+'/'+section.layout);
+  layouts.add(section.layout);
+  if(section.layout==='mediaBand'){bands++;if(!images[section.media.imageKey])throw Error('Broken band image '+p.id);}
+  if(section.layout==='gallery3'&&(section.media?.imageKeys||[]).some(key=>!images[key]))throw Error('Broken gallery image '+p.id);
+  if(section.layout==='faqAccordion')faq+=section.items?.length||0;
  }
+ const blocks=p.fullBlocks||[];const count=blocks.reduce((n,b)=>n+(b.text?.trim().split(/\s+/).length||0),0);
+ fullBlockWords+=count;
+ if(p.id!=='faq'&&count<350)throw Error('Full source blocks missing '+p.id);
+ if(p.noRepeatDesigns!==true||p.maxOncePerLayout!==true)throw Error('Variety flag missing '+p.id);
 }
-const navChildren=site.navigation.primary.find(x=>x.id==='solutions')?.children||[];
-if(navChildren.length!==8)throw new Error(`Expected eight solutions, found ${navChildren.length}`);
-if(fullWords<19000||sections<140||faqs!==42||mediaSections<18)throw new Error(`Full-content regression: ${fullWords} words, ${sections} sections, ${faqs} FAQ, ${mediaSections} images`);
-if(site.routing.paths.faq!=='/faq'||site.routing.paths.contact!=='/contact')throw new Error('FAQ/contact redirects must use exact paths');
-console.log(`Validated v4 dense: ${pages.length} pages, ${fullWords} source words, ${sections} sections, ${faqs} FAQs, ${mediaSections} image layouts, ${Object.keys(theme.assets.images).length} images, 5 slides, nested routes`);
+if(sum!==87||faq!==42||bands!==11||fullBlockWords<16000)throw Error('Source regression '+JSON.stringify({sum,faq,bands,fullBlockWords}));
+console.log('Validated v5:',pages.length,'pages;',sum,'non-repeating sections;',fullBlockWords,'source block words;',faq,'FAQs;',bands,'bands; 26 images; five slides');

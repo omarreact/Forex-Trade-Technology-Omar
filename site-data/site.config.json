@@ -228,6 +228,8 @@
       "policy": "Use only remote URLs from Pexels/Unsplash CDN. Never hotlink without params; prefer images.unsplash.com and images.pexels.com."
     },
     "layoutDensity": "compact",
-    "forbidLonelySideImages": true
+    "forbidLonelySideImages": true,
+    "noRepeatSectionDesigns": true,
+    "maxOncePerSectionLayout": true
   }
 }
