@@ -1,0 +1,21 @@
+name: Validate Forex V5
+on:
+  push:
+    branches:
+      - main
+      - work/v5-no-repeat-2026-10-23
+  pull_request:
+    branches: [main]
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+      - run: npm run validate:data
+      - run: npx tsc --noEmit
+      - run: npm run build
