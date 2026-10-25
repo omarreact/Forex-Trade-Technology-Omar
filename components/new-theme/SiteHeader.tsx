@@ -23,9 +23,9 @@ export function SiteHeader(){
          </div>
         </div>
       :<Link href={canonicalHref(('href' in nav && typeof nav.href==='string')?nav.href:'/')} key={nav.id} className={`bs-nav-link ${pathname.replace(/\/$/,'')===canonicalHref(('href' in nav && typeof nav.href==='string')?nav.href:'/').replace(/\/$/,'')?'active':''}`}>{nav.label}</Link>)}
-      <Link className="bs-btn bs-btn-dark bs-nav-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
+      <Link className="bs-btn bs-btn-primary bs-nav-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
     </nav>
-    <Link className="bs-btn bs-btn-dark bs-desktop-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
+    <Link className="bs-btn bs-btn-primary bs-desktop-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
    </div>
   </header>;
 }
