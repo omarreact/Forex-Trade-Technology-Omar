@@ -1,0 +1,108 @@
+/*
+ * Responsive refinement after removing pause buttons and decorative card numbers.
+ * Coverage targets: 320, 360, 390, 430, 600, 768, 830, 1024, 1280, 1440, 1920px.
+ * Actual browser/device QA is separate from these layout rules.
+ */
+.bs-main,.bs-clean-page,.bs-clean-header { min-width:0 }
+.bs-main img { max-width:100% }
+.bs-main :is(h1,h2,h3,p,li) { overflow-wrap:break-word }
+.bs-v5 .bs-v5-grid > *,
+.bs-v5 .bs-v5-steps > *,
+.bs-v5 .bs-v5-dark-list > *,
+.bs-v5 .bs-v5-gallery-grid > *,
+.bs-feature-flex-list > *,
+.bs-audience-slide,
+.bs-story-shell > * { min-width:0 }
+.bs-audience-controls .bs-audience-arrow,
+.bs-home-slider .bs-slide-arrow { min-height:44px;min-width:44px }
+.bs-home-slider .bs-slide-dots button,
+.bs-audience-pagination .bs-audience-dot { min-height:12px }
+.bs-audience-carousel-heading {flex-wrap:wrap}
+.bs-audience-pagination {margin-bottom:4px}
+.bs-icon-card-header {justify-content:flex-start}
+.bs-feature-flex-card .bs-icon-card-header {margin-bottom:clamp(14px,2vw,23px)}
+.bs-v5 .bs-v5-steps article {align-items:flex-start;gap:0}
+.bs-v5 .bs-v5-dark-list article h3 {margin-top:0}
+.bs-story-node {justify-content:flex-start}
+.bs-story-node > span:last-child {min-width:0}
+
+/* Tablet widths: retain breathing space while cards wrap instead of overflowing. */
+@media(max-width:1024px){
+ .bs-v5 .bs-v5-grid > .bs-v5-card,
+ .bs-v5 .bs-v5-grid-three > .bs-v5-card {flex-basis:calc((100% - 20px)/2)}
+ .bs-audience-controls {margin-left:auto}
+ .bs-v5 .bs-story-shell {gap:clamp(20px,3vw,34px)}
+ .bs-v5 .bs-story-copy {flex-basis:390px}
+ .bs-v5 .bs-story-visual {flex-basis:310px}
+}
+@media(max-width:830px){
+ /* The shared width custom property is also set inline on body;
+    an explicit shell width avoids overly narrow 320px layouts. */
+ .bs-shell {width:calc(100% - 40px);max-width:1180px;margin-inline:auto}
+ .bs-clean-header .bs-header-inner {min-width:0}
+ .bs-v5 .bs-story-copy,.bs-v5 .bs-story-visual {flex-basis:100%}
+ .bs-v5 .bs-story-reverse .bs-story-visual {order:0}
+ .bs-v5 .bs-feature-flex-list > .bs-feature-flex-card {
+   flex-basis:calc((100% - 20px)/2);
+   min-width:min(100%,285px);
+ }
+ .bs-clean-header .bs-mobile-menu-toggle {min-width:44px;min-height:44px}
+ .bs-clean-header .bs-submenu a {min-height:44px}
+}
+@media(max-width:640px){
+ .bs-shell {width:calc(100% - 32px)}
+ .bs-v5 .bs-feature-flex-list > .bs-feature-flex-card,
+ .bs-v5 .bs-v5-grid > .bs-v5-card,
+ .bs-v5 .bs-v5-grid-three > .bs-v5-card {
+   flex:1 1 100%;
+   min-width:0;
+ }
+ .bs-audience-slide{flex-basis:100%}
+ .bs-audience-icon-card {min-height:0}
+ .bs-audience-controls {gap:8px}
+ .bs-feature-flex-card{min-height:0}
+ .bs-v5 .bs-story-visual{min-height:320px}
+ .bs-v5 .bs-v5-gallery-grid > figure {flex:1 1 100%;min-width:0}
+ .bs-v5 .bs-v5-guide-grid.bs-clean-accordion{width:100%}
+ .bs-v5 .bs-v5-guide-item summary{overflow-wrap:anywhere}
+ .bs-slide-controls {gap:12px}
+ .bs-trust-carousel-label {min-width:0}
+}
+@media(max-width:390px){
+ .bs-shell {width:calc(100% - 28px)}
+ .bs-clean-header .bs-header-inner {gap:10px}
+ .bs-clean-header .bs-brand {min-width:0}
+ .bs-clean-header .bs-logo-text {font-size:14px}
+ .bs-audience-controls .bs-audience-arrow {width:44px;height:44px}
+ .bs-audience-carousel-heading {gap:14px}
+ .bs-audience-icon-card {padding:20px}
+ .bs-slide-controls {bottom:10px}
+ .bs-slide-dots {gap:6px}
+ .bs-v5 .bs-feature-flex-heading h2 {font-size:clamp(28px,8.2vw,35px)}
+ .bs-v5 .bs-story-diagram {padding:16px}
+ .bs-v5 .bs-story-node {padding:9px}
+ .bs-v5 .bs-v5-guide-item summary {padding-inline:4px}
+ .bs-v5 .bs-v5-media-title {font-size:clamp(24px,7.5vw,31px)}
+}
+/* Extremely short landscape windows: the hero must not develop nested scrollbars. */
+@media(max-height:500px){
+ .bs-main.bs-v4-dense .bs-home-slider {overflow:hidden}
+ .bs-main.bs-v4-dense .bs-slide-copy {
+  overflow:visible;
+  padding-block:6px 43px;
+ }
+ .bs-main.bs-v4-dense .bs-slide-copy h1,
+ .bs-main.bs-v4-dense .bs-slide-copy h2 {
+  font-size:clamp(22px,min(4.8vw,6.7svh),33px);
+  line-height:1.07;
+  margin-bottom:8px;
+ }
+ .bs-main.bs-v4-dense .bs-slide-copy p {font-size:12px;line-height:1.33;margin-bottom:8px}
+ .bs-main.bs-v4-dense .bs-slide-kicker {margin-bottom:5px;font-size:9px}
+ .bs-main.bs-v4-dense .bs-slide-copy .bs-btn {min-height:32px;padding:6px 14px}
+}
+/* Accessible motion preferences remain in effect without on-screen pause buttons. */
+@media(prefers-reduced-motion:reduce){
+ .bs-audience-track,.bs-trust-carousel-track,.bs-slide {transition:none!important}
+ .bs-trust-carousel-track{animation:none!important;will-change:auto}
+}
