@@ -189,3 +189,52 @@
   margin-bottom:10px;
  }
 }
+
+
+/* Dot-only controls keep a small visual footprint and 44px touch targets. */
+.bs-main.bs-v4-dense .bs-slide-dots button,
+.bs-main.bs-v4-dense .bs-slide-dots button.is-active {
+ position:relative;
+ display:grid;
+ place-items:center;
+ width:34px;
+ min-width:34px;
+ height:44px;
+ min-height:44px;
+ background:transparent;
+ padding:0;
+ touch-action:manipulation;
+}
+.bs-main.bs-v4-dense .bs-slide-dots button::after{
+ content:'';
+ display:block;
+ width:9px;
+ height:9px;
+ border-radius:100px;
+ background:rgba(255,255,255,.55);
+ transition:width .22s ease,background-color .22s ease;
+}
+.bs-main.bs-v4-dense .bs-slide-dots button.is-active::after{
+ width:23px;
+ background:var(--bs-lime);
+}
+.bs-main.bs-v4-dense .bs-slide-dots button:focus-visible{
+ outline:2px solid var(--bs-lime);
+ outline-offset:-4px;
+ border-radius:10px;
+}
+@media(max-width:767px){
+ .bs-main.bs-v4-dense .bs-slide-dots{gap:5px}
+ .bs-main.bs-v4-dense .bs-slide-dots button,
+ .bs-main.bs-v4-dense .bs-slide-dots button.is-active{
+  height:44px;
+  min-height:44px;
+ }
+ .bs-main.bs-v4-dense .bs-slide-controls{bottom:6px}
+}
+@media(max-width:390px){
+ .bs-main.bs-v4-dense .bs-slide-controls{bottom:3px}
+}
+@media(prefers-reduced-motion:reduce){
+ .bs-main.bs-v4-dense .bs-slide-dots button::after{transition:none}
+}
