@@ -80,8 +80,10 @@
       "overlay": "linear-gradient(90deg, rgba(8,12,8,0.88) 0%, rgba(8,12,8,0.55) 55%, rgba(8,12,8,0.25) 100%)",
       "contentMaxWidth": "640px",
       "dots": true,
-      "arrows": true,
-      "height": "85svh"
+      "arrows": false,
+      "height": "85svh",
+      "mobileHeight": "clamp(430px, 68svh, 570px)",
+      "mobileBreakpoint": "767px"
     },
     "pageHeader": {
       "className": "bs-page-header",
