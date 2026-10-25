@@ -67,6 +67,11 @@ try {
       numberBoxes:numberBoxes.length,
       sliderHeight:slider?.getBoundingClientRect().height??null,
       slideOverflow:overflowY,
+      sliderArrowButtons:slider?.querySelectorAll('.bs-slide-arrow').length??0,
+      sliderDotCount:slider?.querySelectorAll('.bs-slide-dots button').length??0,
+      sliderDotMinHeight:slider?.querySelector('.bs-slide-dots button')?.getBoundingClientRect().height??null,
+      sliderDotsTop:slider?.querySelector('.bs-slide-dots')?.getBoundingClientRect().top??null,
+      activeSlideButtonBottom:slider?.querySelector('.bs-slide.is-active .bs-slide-copy .bs-btn')?.getBoundingClientRect().bottom??null,
       submenuAccessible:!!document.querySelector('.bs-menu-trigger[aria-expanded]'),
       promotionalImageBands:document.querySelectorAll('.bs-v5-media-title-band').length,
       finalCTAs:document.querySelectorAll('main .bs-global-cta').length,
@@ -98,7 +103,18 @@ try {
     if(route!=='/'&&metrics.promotionalImageBands!==0)problems.push(`unexpected promotional title image bands: ${metrics.promotionalImageBands}`);
     if(route==='/'&&metrics.promotionalImageBands<1)problems.push('homepage promotional image band missing');
     if(metrics.slideOverflow==='auto'||metrics.slideOverflow==='scroll')problems.push('nested slider scrolling');
-    if(route==='/'&&metrics.sliderHeight!==null&&Math.abs(metrics.sliderHeight-viewport.height*.85)>3)problems.push(`hero is ${metrics.sliderHeight}px, expected ${viewport.height*.85}px`);
+    if(route==='/'){
+     const expected=viewport.width<=767
+      ? viewport.height<=560
+       ? Math.min(450,Math.max(405,viewport.height*.73))
+       : Math.min(570,Math.max(430,viewport.height*.68))
+      : viewport.height*.85;
+     if(metrics.sliderHeight===null||Math.abs(metrics.sliderHeight-expected)>3)problems.push(`hero is ${metrics.sliderHeight}px, expected ${expected}px`);
+     if(metrics.sliderArrowButtons!==0)problems.push(`${metrics.sliderArrowButtons} oversized slider arrows remain`);
+     if(metrics.sliderDotCount!==5)problems.push(`expected 5 indicator buttons, found ${metrics.sliderDotCount}`);
+     if(metrics.sliderDotMinHeight!==null&&metrics.sliderDotMinHeight<43)problems.push(`slide dot touch target is ${metrics.sliderDotMinHeight}px`);
+     if(metrics.activeSlideButtonBottom!==null&&metrics.sliderDotsTop!==null&&metrics.activeSlideButtonBottom>metrics.sliderDotsTop-3)problems.push(`hero CTA overlaps slide controls by ${(metrics.activeSlideButtonBottom-metrics.sliderDotsTop).toFixed(1)}px`);
+    }
     if(pageErrors.length)problems.push(`JS: ${pageErrors.slice(0,2).join('; ')}`);
     // A generic overflow check missed the original FAQ regression. Inspect
     // the ACTUAL computed typography, geometry and active/answer colors.
