@@ -1,0 +1,64 @@
+name: Export complete portable website XML
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site-data/**'
+      - 'app/**'
+      - 'components/**'
+      - 'scripts/export-website-xml.mjs'
+      - '.github/workflows/export-website-xml.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: export-website-xml
+  cancel-in-progress: false
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate 13-page XML site specification
+        run: |
+          node scripts/export-website-xml.mjs
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          root=ET.parse('website.xml').getroot()
+          pages=root.find('pages')
+          assert pages is not None and len(pages.findall('page')) == 13
+          styles=root.find('stylesheets')
+          assert styles is not None and len(styles.findall('stylesheet')) >= 10
+          assert root.find('theme-configuration') is not None
+          print('Validated XML: 13 pages; complete theme and CSS sources')
+          PY
+      - name: Commit XML when site source changes
+        id: commit
+        run: |
+          git add website.xml
+          if git diff --cached --quiet; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+            echo 'The XML is already synchronized.'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'chore(export): refresh complete portable website.xml'
+          git push origin HEAD:main
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+      - name: Rebuild GitHub Pages at XML release SHA
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run nextjs.yml --ref main
