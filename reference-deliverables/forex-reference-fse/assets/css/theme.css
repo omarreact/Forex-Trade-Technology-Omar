@@ -3,7 +3,7 @@
 body{font-family:var(--fr-body);font-size:clamp(14px,calc(13.427px + .179vw),16px);line-height:1.65;color:var(--fr-body-color)}
 h1,h2,h3,h4,h5,h6,.wp-block-site-title{font-family:var(--fr-display);font-weight:600;color:var(--fr-ink)}
 h1{font-size:clamp(28.836px,calc(22.752px + 1.89vw),50px);line-height:1.04;letter-spacing:-.055em}
-h2{font-size:clamp(30px,calc(1.875rem + 2.875vw),46px);line-height:1.1;letter-spacing:-.045em}
+h2{font-size:clamp(30px,calc(21.2px + 1.72vw),46px);line-height:1.1;letter-spacing:-.045em}
 h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.025em}
 .wp-site-blocks>.alignfull{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);max-width:none;width:100vw}
 .wp-block-site-title{font-size:1rem;letter-spacing:-.035em}.wp-block-site-title a{text-decoration:none}

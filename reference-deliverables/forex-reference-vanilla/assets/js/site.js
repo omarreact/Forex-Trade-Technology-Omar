@@ -26,8 +26,16 @@
     const main = document.querySelector("main");
     if (!main) return;
     const bar = document.createElement("section");
+    const inner = document.createElement("div");
+    const eyebrow = document.createElement("p");
+    const heading = document.createElement("h1");
     bar.className = "page-title-bar";
-    bar.innerHTML = `<div class="container"><p class="eyebrow">Forex Trade Technology</p><h1>${title}</h1></div>`;
+    inner.className = "container";
+    eyebrow.className = "eyebrow";
+    eyebrow.textContent = "Forex Trade Technology";
+    heading.textContent = title;
+    inner.append(eyebrow, heading);
+    bar.append(inner);
     main.before(bar);
   };
 
