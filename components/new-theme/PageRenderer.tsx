@@ -90,14 +90,14 @@ function DenseFaq({section}:{section:SectionData}){
  const items=(section.items||[]).filter((x):x is FaqItem=>typeof x!=='string'&&'q'in x);
  return <section className="bs-section bs-dense-section bs-dense-faq-page" id={section.id}><div className="bs-shell">
   <header className="bs-dense-heading"><span className="bs-dense-kicker">SUPPORT & GUIDANCE</span><h2>Frequently Asked Questions</h2><p>{items.length} questions answered</p></header>
-  <div className="bs-dense-accordion">{items.map((item,i)=><details key={i}><summary><span>{item.q}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer"><p>{item.a}</p></div></details>)}</div>
+  <div className="bs-dense-accordion bs-clean-accordion">{items.map((item,i)=><details key={i} name="ftt-faq"><summary><span>{item.q}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer"><p>{item.a}</p></div></details>)}</div>
  </div></section>;
 }
 
 function DarkCta({section}:{section:SectionData}){return <section className="bs-cta-wrap" id={section.id} data-view-transition={section.viewTransition||'section'}><div className="bs-shell"><div className="bs-dark-cta"><div className="bs-cta-decoration"/><SectionMedia media={section.media}/><div><span className="bs-eyebrow">YOUR NEXT MOVE</span><h2>{section.title}</h2><p>{section.subtitle}</p></div>{section.cta&&<Button item={section.cta}/>}</div></div></section>}
 function CtaRow({section}:{section:SectionData}){return <section className="bs-cta-row" id={section.id} aria-label="Next actions"><div className="bs-shell bs-cta-row-content"><span>Ready to connect your technology?</span><div>{(section.ctas||[]).map((item,i)=><Button item={item} key={i}/>)}</div></div></section>}
 function Faq({section}:{section:SectionData}){const items=(section.items||[]).filter((x):x is FaqItem=>typeof x!=='string'&&'q'in x);
- return <section className="bs-section bs-faq-section" id={section.id} data-view-transition={section.viewTransition||'section'}><div className="bs-shell bs-faq-grid"><div className="bs-faq-aside"><span className="bs-eyebrow">HAVE QUESTIONS?</span><h2>Clear answers.<br/><em>Better decisions.</em></h2><p>Browse the complete set of common questions about trading technology infrastructure.</p><span className="bs-question-count">{items.length} questions answered</span><SectionMedia media={section.media}/></div><div className="bs-faq-list">{items.map((item,i)=><details key={`${item.q}-${i}`}><summary><span>{item.q}</span><span className="bs-faq-plus" aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div></div></section>;
+ return <section className="bs-section bs-faq-section" id={section.id} data-view-transition={section.viewTransition||'section'}><div className="bs-shell bs-faq-grid"><div className="bs-faq-aside"><span className="bs-eyebrow">HAVE QUESTIONS?</span><h2>Clear answers.<br/><em>Better decisions.</em></h2><p>Browse the complete set of common questions about trading technology infrastructure.</p><span className="bs-question-count">{items.length} questions answered</span><SectionMedia media={section.media}/></div><div className="bs-faq-list bs-clean-accordion">{items.map((item,i)=><details key={`${item.q}-${i}`} name="ftt-faq-general"><summary><span>{item.q}</span><span className="bs-faq-plus" aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div></div></section>;
 }
 
 /** The layout key is authoritative in v5; section.type only describes source semantics. */
@@ -190,7 +190,7 @@ function V5Guide({page}:{page:PageData}){
  const groups=getSupplementalContent(page);if(!groups.length)return null;
  return <section className="bs-v5-guide bs-v5-section" id="complete-technical-guide" aria-labelledby="complete-guide-title"><div className="bs-shell">
   <div className="bs-v5-guide-head"><span className="bs-v5-guide-kicker">IN-DEPTH TECHNICAL GUIDE</span><h2 id="complete-guide-title">Further details and frequently asked questions</h2><p>Complete supporting explanations, implementation considerations and FAQs from our original service guide.</p></div>
-  <div className="bs-v5-guide-grid">{groups.map((group,i)=><details key={i} className="bs-v5-guide-item"><summary><span>{group.title}</span><Icon name="chevronDown" size={20}/></summary><V5EditableBlocks blocks={group.blocks}/></details>)}</div>
+  <div className="bs-v5-guide-grid bs-clean-accordion">{groups.map((group,i)=><details key={i} className="bs-v5-guide-item" name="ftt-guide"><summary><span>{group.title}</span><Icon name="chevronDown" size={20}/></summary><V5EditableBlocks blocks={group.blocks}/></details>)}</div>
  </div></section>;
 }
 
@@ -239,7 +239,7 @@ export function PageRenderer({page}:{page:PageData}){
  const mediaKey=getImage(preferredImage)?preferredImage:'world_map';
  const insertedBand:SectionData={id:'media-page-title',type:'mediaBand',layout:'mediaBand',media:{layout:'mediaBand',imageKey:mediaKey}};
  const insertAfter=page.id==='faq'?0:1;
- return <main id="main-content" className="bs-main bs-v4-dense bs-v5">
+ return <main id="main-content" className="bs-main bs-v4-dense bs-v5 bs-clean-page">
   {top?.variant==='homeSlider'&&top.slides?.length ? <HomeSlider slides={top.slides} intervalMs={top.intervalMs} autoplay={top.autoplay}/> : <PageHeader page={page}/>}
   {page.sections.map((section,index)=><Fragment key={section.id}>
    {section.layout==='ctaBand'&&<V5Guide page={page}/>}
