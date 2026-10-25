@@ -9,6 +9,7 @@ import {TrustCarousel} from './TrustCarousel';
 import {AudienceCarousel} from './AudienceCarousel';
 import {IconCard} from './IconCard';
 import {FeatureFlexSection} from './FeatureFlexSection';
+import {VisualStorySection} from './VisualStorySection';
 import {PageHeader} from './PageHeader';
 import {SectionMedia} from './SectionMedia';
 
@@ -103,7 +104,7 @@ function Faq({section}:{section:SectionData}){const items=(section.items||[]).fi
 function V5EditableBlocks({blocks}:{blocks:ContentBlock[]}){
  return <div className="bs-v5-copy">{blocks.map((block,i)=>block.type==='h3'?<h3 key={i}>{block.text}</h3>:block.type==='h2'?<h3 key={i}>{block.text}</h3>:<p key={i}>{block.text}</p>)}</div>;
 }
-function V5SectionContent({section,index}:{section:SectionData;index:number}){
+function V5SectionContent({section,index,pageId}:{section:SectionData;index:number;pageId:string}){
  const groups=regroup(section.blocks||[]);
  const leads=groups.filter(x=>!x.heading).flatMap(x=>x.paragraphs);
  const topics=groups.filter(x=>x.heading);
@@ -111,6 +112,11 @@ function V5SectionContent({section,index}:{section:SectionData;index:number}){
  const dark=layout==='darkBand';
  if(layout==='splitContent'&&section.title==='Request a Consultation')
   return <section className="bs-v5-section bs-v5-contact" id={section.id}><div className="bs-shell"><h2>{section.title}</h2><ContactForm/></div></section>;
+ // Prose-only and text-only bands should never leave half the desktop canvas empty.
+ // Use alternating editorial content and relevant, content-derived visual diagrams.
+ if(layout==='stack'||(layout==='darkBand'&&topics.length===0)||(layout==='timeline'&&topics.length===0)){
+  return <VisualStorySection section={section} pageId={pageId} index={index} dark={layout==='darkBand'}/>;
+ }
  let cards=topics.map((g,i)=>({title:g.heading||'',paragraphs:g.paragraphs,order:i}));
  if(layout.startsWith('cardGrid')&&cards.length===0&&leads.length>1){
    cards=leads.map((para,i)=>({title:'',paragraphs:[para],order:i}));
@@ -186,7 +192,7 @@ function V5Guide({page}:{page:PageData}){
  </div></section>;
 }
 
-function Section({section,index,pageTitle}:{section:SectionData;index:number;pageTitle:string}){
+function Section({section,index,pageTitle,pageId}:{section:SectionData;index:number;pageTitle:string;pageId:string}){
  if(section.title==='Platform & Infrastructure Under One Roof'||section.title==='Why Brokers Work With Us'){
   const topics=regroup(section.blocks||[]);
   const icons=section.title==='Why Brokers Work With Us'
@@ -220,7 +226,7 @@ function Section({section,index,pageTitle}:{section:SectionData;index:number;pag
  if(section.layout==='gallery3')return <V5Gallery section={section}/>;
  if(section.layout==='faqAccordion')return <DenseFaq section={section}/>;
  if(section.layout==='ctaBand')return <DarkCta section={section}/>;
- return <V5SectionContent section={section} index={index}/>;
+ return <V5SectionContent section={section} index={index} pageId={pageId}/>;
 }
 function Notes({notes}:{notes?:string[]}){if(!notes?.length)return null;return <aside className="bs-notes"><div className="bs-shell"><details><summary>Additional information and risk disclosure</summary>{notes.map((note,i)=><p key={i}>{note}</p>)}</details></div></aside>}
 export function PageRenderer({page}:{page:PageData}){
@@ -235,7 +241,7 @@ export function PageRenderer({page}:{page:PageData}){
   {top?.variant==='homeSlider'&&top.slides?.length ? <HomeSlider slides={top.slides} intervalMs={top.intervalMs} autoplay={top.autoplay}/> : <PageHeader page={page}/>}
   {page.sections.map((section,index)=><Fragment key={section.id}>
    {section.layout==='ctaBand'&&<V5Guide page={page}/>}
-   <Section section={section} index={index} pageTitle={pageTitle}/>
+   <Section section={section} index={index} pageTitle={pageTitle} pageId={page.id}/>
    {!hasImageBand&&index===insertAfter&&<V5MediaBand section={insertedBand} title={pageTitle}/>}
   </Fragment>)}
   <Notes notes={page.documentFooterNotes}/>
