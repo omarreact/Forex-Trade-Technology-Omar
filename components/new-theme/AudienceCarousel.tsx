@@ -97,7 +97,7 @@ export function AudienceCarousel({title,kicker='FOREX TRADE TECHNOLOGY',items}:P
     >
      {[0,1,2].flatMap(copy=>items.map((item,index)=>
       <div className="bs-audience-slide" key={`${copy}-${index}`}>
-       <IconCard title={item.title} icon={item.icon} index={index} className="bs-audience-icon-card">
+       <IconCard title={item.title} icon={item.icon} className="bs-audience-icon-card">
         <p>{item.description}</p>
        </IconCard>
       </div>
