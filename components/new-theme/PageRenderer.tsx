@@ -8,6 +8,7 @@ import {HomeSlider} from './HomeSlider';
 import {TrustCarousel} from './TrustCarousel';
 import {AudienceCarousel} from './AudienceCarousel';
 import {IconCard} from './IconCard';
+import {FeatureFlexSection} from './FeatureFlexSection';
 import {PageHeader} from './PageHeader';
 import {SectionMedia} from './SectionMedia';
 
@@ -166,6 +167,25 @@ function V5Guide({page}:{page:PageData}){
 }
 
 function Section({section,index}:{section:SectionData;index:number}){
+ if(section.title==='Platform & Infrastructure Under One Roof'||section.title==='Why Brokers Work With Us'){
+  const topics=regroup(section.blocks||[]);
+  const icons=section.title==='Why Brokers Work With Us'
+   ? ['server','layers','link','shield','support']
+   : ['settings','server','database','link','users'];
+  const items=topics.filter(group=>group.heading).map((group,i)=>({
+   title:group.heading||'',
+   description:group.paragraphs.join(' '),
+   icon:icons[i%icons.length]
+  }));
+  const intro=topics.filter(group=>!group.heading).flatMap(group=>group.paragraphs);
+  return <FeatureFlexSection
+   id={section.id}
+   title={section.title}
+   items={items}
+   intro={intro}
+   variant={section.title==='Why Brokers Work With Us'?'benefits':'infrastructure'}
+  />;
+ }
  if(section.title==='Who We Work With'&&section.blocks?.some(block=>block.type==='h3')){
   const icons=['building','server','users','settings'];
   const items=regroup(section.blocks).filter(group=>group.heading).map((group,i)=>({
