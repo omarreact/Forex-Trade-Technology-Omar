@@ -102,11 +102,25 @@ try {
        return {badgeWidth:badge?.getBoundingClientRect().width??null,badgeBackground:badge?getComputedStyle(badge).backgroundColor:null,
          titleFont:title?getComputedStyle(title).fontSize:null,bodyFont:body?getComputedStyle(body).fontSize:null};
       })(),
-      heroCopyWidth:(()=>{
+      heroComposition:(()=>{
        const inner=document.querySelector('.bs-slide.is-active .bs-slide-content');
        const shell=inner?.closest('.bs-slide-copy');
-       if(!inner||!shell)return null;
-       return inner.getBoundingClientRect().width/shell.getBoundingClientRect().width;
+       const slider=document.querySelector('.bs-home-slider');
+       if(!inner||!shell||!slider)return null;
+       const a=inner.getBoundingClientRect();
+       const b=shell.getBoundingClientRect();
+       const c=slider.getBoundingClientRect();
+       const elements=[...inner.children].map(x=>x.getBoundingClientRect());
+       const contentTop=Math.min(...elements.map(x=>x.top));
+       const contentBottom=Math.max(...elements.map(x=>x.bottom));
+       return {
+        widthRatio:a.width/b.width,
+        heightRatio:a.height/c.height,
+        topRatio:(a.top-c.top)/c.height,
+        bottomRatio:(c.bottom-a.bottom)/c.height,
+        contentOverflow:contentTop<a.top-3||contentBottom>a.bottom+3,
+        centered:Math.abs((a.top-c.top)-(c.bottom-a.bottom))<4
+       };
       })(),
       submenuAccessible:!!document.querySelector('.bs-menu-trigger[aria-expanded]'),
       promotionalImageBands:document.querySelectorAll('.bs-v5-media-title-band').length,
@@ -139,9 +153,18 @@ try {
      if(metrics.sectionHeadingMetrics.leadFont&&Math.abs(parseFloat(metrics.sectionHeadingMetrics.leadFont)-15)>.2)problems.push(`section subtitle ${metrics.sectionHeadingMetrics.leadFont} instead of 15px`);
      if(metrics.sectionHeadingMetrics.kickerFont&&Math.abs(parseFloat(metrics.sectionHeadingMetrics.kickerFont)-11)>.2)problems.push(`section kicker ${metrics.sectionHeadingMetrics.kickerFont} instead of 11px`);
     }
-    if(route==='/'&&metrics.heroCopyWidth!==null){
-     const expected=viewport.width>=1024?.60:viewport.width>=768?.78:1;
-     if(Math.abs(metrics.heroCopyWidth-expected)>.025)problems.push(`hero copy uses ${Math.round(metrics.heroCopyWidth*100)}% instead of ${Math.round(expected*100)}%`);
+    if(route==='/'){
+     const hero=metrics.heroComposition;
+     if(!hero)problems.push('slide composition missing');
+     else {
+      const expected=viewport.width>=1024?.70:viewport.width>=768?.78:1;
+      if(Math.abs(hero.widthRatio-expected)>.025)problems.push(`hero copy uses ${Math.round(hero.widthRatio*100)}% instead of ${Math.round(expected*100)}%`);
+      if(viewport.width>=1024){
+       if(Math.abs(hero.heightRatio-.70)>.025)problems.push(`hero content height is ${Math.round(hero.heightRatio*100)}% instead of 70%`);
+       if(!hero.centered)problems.push(`hero content vertical alignment not centered: top ${Math.round(hero.topRatio*100)}%, bottom ${Math.round(hero.bottomRatio*100)}%`);
+       if(hero.contentOverflow)problems.push('hero content overflows the 70% layout area');
+      }
+     }
     }
     if(metrics.pauseButtons)problems.push(`${metrics.pauseButtons} pause/resume buttons`);
     if(metrics.numberBoxes)problems.push(`${metrics.numberBoxes} decorative counters`);
@@ -236,6 +259,9 @@ try {
       await final.scrollIntoViewIfNeeded();
       await final.screenshot({path:`artifacts/responsive/cta-${route==='/'?'home':'faq'}-${viewport.width}.png`}).catch(()=>{});
      }
+    }
+    if(route==='/'&&(viewport.width===1024||viewport.width===1440||viewport.width===390)){
+     await page.screenshot({path:`artifacts/responsive/home-hero-${viewport.width}.png`}).catch(()=>{});
     }
     if(problems.length){
      const screenshot=`artifacts/responsive/failure-${viewport.width}-${route.replace(/[^a-z0-9]+/gi,'-')||'home'}.png`;
