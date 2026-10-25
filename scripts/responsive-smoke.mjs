@@ -66,6 +66,15 @@ try {
       scrollWidth:root.scrollWidth,
       mainScrollWidth:main?.scrollWidth??0,
       h1Count:document.querySelectorAll('main h1').length,
+      reviewButton:(()=>{
+       const el=document.querySelector('.bs-review-trigger');
+       if(!el)return null;
+       const b=el.getBoundingClientRect();
+       return {position:getComputedStyle(el).position,visible:b.width>0&&b.height>0,right:innerWidth-b.right,centerGap:Math.abs(b.top+b.height/2-innerHeight/2),height:b.height};
+      })(),
+      tradingStackNodes:document.querySelectorAll('.bs-stack-flow-section .bs-stack-flow-node').length,
+      tradingStackSections:document.querySelectorAll('.bs-stack-flow-section').length,
+      legacyEmptyTradingCards:document.querySelectorAll('#section-5 .bs-ui-card').length,
       pauseButtons:pauseButtons.length,
       numberBoxes:numberBoxes.length,
       sliderHeight:slider?.getBoundingClientRect().height??null,
@@ -141,6 +150,17 @@ try {
     if(metrics.scrollWidth>metrics.width+2)problems.push(`horizontal overflow ${metrics.scrollWidth}px vs ${metrics.width}px`);
     if(metrics.mainScrollWidth>metrics.width+2)problems.push(`main overflow ${metrics.mainScrollWidth}px vs ${metrics.width}px`);
     if(metrics.h1Count!==1)problems.push(`H1 count ${metrics.h1Count}`);
+    if(!metrics.reviewButton?.visible)problems.push('floating change-request button missing');
+    else{
+     if(metrics.reviewButton.position!=='fixed')problems.push('review button is not viewport-fixed');
+     if(metrics.reviewButton.centerGap>4)problems.push(`review button not at screen midpoint: ${metrics.reviewButton.centerGap}px`);
+     if(metrics.reviewButton.right<-2||metrics.reviewButton.right>22)problems.push(`review button is not right-aligned: ${metrics.reviewButton.right}px`);
+     if(metrics.reviewButton.height<44)problems.push('review button hit area under 44px');
+    }
+    if(route==='/'){
+     if(metrics.tradingStackSections!==1||metrics.tradingStackNodes!==5)problems.push(`expected 5 stage connected trading stack, found ${metrics.tradingStackNodes} in ${metrics.tradingStackSections} sections`);
+     if(metrics.legacyEmptyTradingCards>0)problems.push('old empty trading-stack cards still rendered');
+    }else if(metrics.tradingStackSections>0)problems.push('homepage trading-stack flow rendered on internal route');
     if(metrics.sharedHeadings===0)problems.push('no shared heading component rendered');
     if(metrics.cardMetrics){
      if(metrics.cardMetrics.badgeWidth!==null&&Math.abs(metrics.cardMetrics.badgeWidth-46)>1)problems.push(`badge width ${metrics.cardMetrics.badgeWidth} instead of 46px`);
@@ -264,6 +284,15 @@ try {
     }
     if(route==='/'&&(viewport.width===1024||viewport.width===1440||viewport.width===390)){
      await page.screenshot({path:`artifacts/responsive/home-hero-${viewport.width}.png`}).catch(()=>{});
+    }
+    if(route==='/'&&(viewport.width===390||viewport.width===1440)){
+     const toggle=page.getByRole('button',{name:'Suggest a website change'});
+     await toggle.click();
+     if(await page.getByRole('dialog',{name:'Suggest a change'}).count()!==1)problems.push('review dialog failed to open');
+     if(await page.locator('.bs-review-form select').count()!==2)problems.push('review dialog missing section and category fields');
+     await page.screenshot({path:`artifacts/responsive/review-dialog-${viewport.width}.png`}).catch(()=>{});
+     await page.keyboard.press('Escape');
+     if(await page.getByRole('dialog',{name:'Suggest a change'}).count()!==0)problems.push('review dialog did not close with Escape');
     }
     if(problems.length){
      const screenshot=`artifacts/responsive/failure-${viewport.width}-${route.replace(/[^a-z0-9]+/gi,'-')||'home'}.png`;
