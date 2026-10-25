@@ -52,18 +52,24 @@
       "ctaOuterY": "clamp(36px, 5vw, 66px)",
       "ctaPanelPadding": "clamp(30px, 4.2vw, 60px)",
       "ctaContentGap": "clamp(26px, 3vw, 46px)",
-      "footerTopY": "clamp(53px, 6vw, 79px)"
+      "footerTopY": "clamp(53px, 6vw, 79px)",
+      "mainContentWidth": "1210px",
+      "mobileGutter": "16px",
+      "desktopGutter": "44px"
     },
     "typography": {
       "h1": "clamp(40px, 5.5vw, 72px)",
       "h1Inner": "clamp(32px, 4vw, 48px)",
       "h2": "clamp(30px, calc(21.2px + 1.72vw), 46px)",
       "h3": "22px",
-      "body": "17px",
+      "body": "clamp(14px, calc(13.427px + 0.179vw), 16px)",
       "kicker": "12px",
       "ctaHeading": "clamp(30px, 3.65vw, 51px)",
       "ctaHomeHeading": "clamp(35px, 4.6vw, 64px)",
-      "ctaBody": "clamp(14px, 1.15vw, 16px)"
+      "ctaBody": "clamp(14px, 1.15vw, 16px)",
+      "bodyLineHeight": "1.65",
+      "familyDisplay": "Manrope, Inter, system-ui, sans-serif",
+      "familyBody": "Inter, system-ui, sans-serif"
     }
   },
   "components": {
