@@ -11,6 +11,7 @@ import './media-title-bands.css';
 import './editorial-story.css';
 import './clean-reference.css';
 import './responsive-polish.css';
+import './faq-polish.css';
 
 export const metadata:Metadata={
  metadataBase:new URL(absoluteUrl('/')),
