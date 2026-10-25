@@ -306,7 +306,7 @@
 
 /*
  * HOME HERO | 70 × 70 content composition (desktop).
- * The content occupies 70% of both slide dimensions, centered in the hero.
+ * The content occupies 70% of both slide dimensions, vertically centered and left-aligned.
  * Individual kicker/title/subtitle/CTA elements share the available height.
  * Tablet/mobile remain content-first so text never clips behind slide dots.
  */
@@ -316,7 +316,7 @@
   width:var(--bs-shell);
   height:100%;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
  }
  .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-content{
   box-sizing:border-box;
