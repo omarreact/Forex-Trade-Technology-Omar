@@ -245,8 +245,9 @@
       "enabled": true,
       "position": "right-middle",
       "buttonLabel": "Suggest a change",
-      "delivery": "Vercel Resend API; static preview links to production contact form",
-      "recipient": ""
+      "delivery": "Vercel: Resend API; GitHub Pages: public GitHub issue draft requiring user confirmation",
+      "recipient": "",
+      "publicIssueUrl": "https://github.com/omarreact/Forex-Trade-Technology-Omar/issues/new"
     }
   }
 }
