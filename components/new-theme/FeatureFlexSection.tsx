@@ -24,10 +24,9 @@ export function FeatureFlexSection({id,title,items,intro=[],variant}:Props){
     {intro.length>0&&<div className="bs-feature-flex-intro">{intro.map((paragraph,index)=><p key={index}>{paragraph}</p>)}</div>}
    </header>
    <div className="bs-feature-flex-list">
-    {items.map((item,index)=><IconCard
+    {items.map(item=><IconCard
       className={`bs-feature-flex-card ${dark?'bs-benefit-card':'bs-infrastructure-card'}`}
       title={item.title}
-      index={index}
       icon={item.icon}
       key={item.title}
     ><p>{item.description}</p></IconCard>)}
