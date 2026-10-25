@@ -58,6 +58,9 @@ try {
      const slider=document.querySelector('.bs-home-slider');
      const slideCopy=slider?.querySelector('.bs-slide.is-active .bs-slide-copy');
      const overflowY=slideCopy?getComputedStyle(slideCopy).overflowY:'';
+     const ticker=document.querySelector('.bs-trust-carousel');
+     const tickerWindow=ticker?.querySelector('.bs-trust-carousel-window');
+     const tickerBox=tickerWindow?.getBoundingClientRect();
      return {
       width:innerWidth,
       scrollWidth:root.scrollWidth,
@@ -72,6 +75,13 @@ try {
       sliderDotMinHeight:slider?.querySelector('.bs-slide-dots button')?.getBoundingClientRect().height??null,
       sliderDotsTop:slider?.querySelector('.bs-slide-dots')?.getBoundingClientRect().top??null,
       activeSlideButtonBottom:slider?.querySelector('.bs-slide.is-active .bs-slide-copy .bs-btn')?.getBoundingClientRect().bottom??null,
+      tickerCount:document.querySelectorAll('.bs-trust-carousel').length,
+      tickerFixedLabels:document.querySelectorAll('.bs-trust-carousel-label').length,
+      tickerLeft:tickerBox?.left??null,
+      tickerRight:tickerBox?.right??null,
+      tickerGroups:ticker?.querySelectorAll('.bs-trust-carousel-group').length??0,
+      tickerHiddenGroups:ticker?.querySelectorAll('.bs-trust-carousel-group[aria-hidden="true"]').length??0,
+      tickerAnimation:ticker?.querySelector('.bs-trust-carousel-track')?getComputedStyle(ticker.querySelector('.bs-trust-carousel-track')).animationName:'',
       submenuAccessible:!!document.querySelector('.bs-menu-trigger[aria-expanded]'),
       promotionalImageBands:document.querySelectorAll('.bs-v5-media-title-band').length,
       finalCTAs:document.querySelectorAll('main .bs-global-cta').length,
@@ -92,6 +102,15 @@ try {
     if(metrics.h1Count!==1)problems.push(`H1 count ${metrics.h1Count}`);
     if(metrics.pauseButtons)problems.push(`${metrics.pauseButtons} pause/resume buttons`);
     if(metrics.numberBoxes)problems.push(`${metrics.numberBoxes} decorative counters`);
+    if(route==='/'){
+     if(metrics.tickerCount!==1)problems.push(`expected 1 technology marquee, found ${metrics.tickerCount}`);
+     if(metrics.tickerFixedLabels!==0)problems.push('fixed Technology That Connects label still exists');
+     if(metrics.tickerLeft===null||Math.abs(metrics.tickerLeft)>2)problems.push(`marquee not at left viewport edge: ${metrics.tickerLeft}`);
+     if(metrics.tickerRight===null||Math.abs(metrics.tickerRight-viewport.width)>2)problems.push(`marquee not at right viewport edge: ${metrics.tickerRight}`);
+     if(metrics.tickerGroups!==6||metrics.tickerHiddenGroups!==5)problems.push(`loop group copies invalid: ${metrics.tickerGroups} groups, ${metrics.tickerHiddenGroups} hidden`);
+     if(metrics.tickerAnimation!=='bs-trust-marquee')problems.push(`ticker animation missing: ${metrics.tickerAnimation}`);
+    }else if(metrics.tickerCount!==0)problems.push('home technology ticker appears on internal page');
+
     if(metrics.finalCTAs!==1)problems.push(`expected 1 shared CTA, found ${metrics.finalCTAs}`);
     if(metrics.footerCount!==1)problems.push(`expected 1 shared footer, found ${metrics.footerCount}`);
     if(metrics.ctaHeading!=='Build Your Trading Infrastructure')problems.push(`unexpected global CTA headline: ${metrics.ctaHeading}`);
