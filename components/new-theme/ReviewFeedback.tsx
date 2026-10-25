@@ -73,7 +73,7 @@ export function ReviewFeedback(){
   form.set('section',section);form.set('pageUrl',window.location.href);
   form.set('website',honeypot);
   try{
-   const endpoint=staticPreview?'https://forextrade.pincodeit.com/api/contact':'/api/contact';
+   const endpoint=staticPreview?'https://forex-trade-technology.vercel.app/api/contact':'/api/contact';
    const response=await fetch(endpoint,{method:'POST',body:form,headers:{Accept:'application/json'}});
    const data=await response.json() as {ok?:boolean;message?:string};
    if(response.ok&&data.ok){
