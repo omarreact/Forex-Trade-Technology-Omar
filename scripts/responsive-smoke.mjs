@@ -81,6 +81,56 @@ try {
     if(metrics.slideOverflow==='auto'||metrics.slideOverflow==='scroll')problems.push('nested slider scrolling');
     if(route==='/'&&metrics.sliderHeight!==null&&Math.abs(metrics.sliderHeight-viewport.height*.85)>3)problems.push(`hero is ${metrics.sliderHeight}px, expected ${viewport.height*.85}px`);
     if(pageErrors.length)problems.push(`JS: ${pageErrors.slice(0,2).join('; ')}`);
+    // A generic overflow check missed the original FAQ regression. Inspect
+    // the ACTUAL computed typography, geometry and active/answer colors.
+    if(route==='/faq'){
+     const first=page.locator('.bs-faq-polished .bs-faq-questions > details').first();
+     if(await first.count()===0){
+      problems.push('FAQ component not rendered');
+     }else{
+      await first.locator('summary').click();
+      const faq=await page.evaluate(()=>{
+       const scope=document.querySelector('.bs-faq-polished');
+       const heading=scope?.querySelector('.bs-faq-heading h2');
+       const count=scope?.querySelector('.bs-faq-count');
+       const countNumber=count?.querySelector('strong');
+       const countLabel=count?.querySelector('span');
+       const first=scope?.querySelector('.bs-faq-questions details');
+       const summary=first?.querySelector('summary');
+       const answer=first?.querySelector('.bs-faq-answer p');
+       if(!heading||!count||!countNumber||!countLabel||!first||!summary||!answer)return null;
+       const h=heading.getBoundingClientRect();
+       const c=count.getBoundingClientRect();
+       const n=countNumber.getBoundingClientRect();
+       const l=countLabel.getBoundingClientRect();
+       return {
+        countText:count.textContent?.replace(/\s+/g,' ').trim(),
+        headingToCount:c.top-h.bottom,
+        countWordGap:l.left-n.right,
+        countFontSize:getComputedStyle(count).fontSize,
+        countLetterSpacing:getComputedStyle(count).letterSpacing,
+        questionColor:getComputedStyle(summary).color,
+        questionBackground:getComputedStyle(summary).backgroundColor,
+        answerColor:getComputedStyle(answer).color,
+        answerLineHeight:getComputedStyle(answer).lineHeight,
+        expanded:first.open
+       };
+      });
+      if(!faq)problems.push('FAQ typography targets missing');
+      else{
+       if(faq.countText!=='42questions answered'&&faq.countText!=='42 questions answered')problems.push(`FAQ count text: ${faq.countText}`);
+       if(faq.headingToCount<7)problems.push(`FAQ heading and subtitle too close: ${faq.headingToCount.toFixed(1)}px`);
+       if(faq.countWordGap<6)problems.push(`FAQ number and subtitle collide: ${faq.countWordGap.toFixed(1)}px`);
+       if(faq.questionColor!=='rgb(63, 87, 30)')problems.push(`FAQ open question has wrong color: ${faq.questionColor}`);
+       if(faq.answerColor!=='rgb(82, 97, 79)')problems.push(`FAQ answer has wrong color: ${faq.answerColor}`);
+       if(!faq.expanded)problems.push('FAQ did not expand');
+       if(viewport.width===390||viewport.width===1440){
+        await page.locator('.bs-faq-polished').scrollIntoViewIfNeeded();
+        await page.screenshot({path:`artifacts/responsive/faq-open-${viewport.width}.png`});
+       }
+      }
+     }
+    }
     if(problems.length){
      const screenshot=`artifacts/responsive/failure-${viewport.width}-${route.replace(/[^a-z0-9]+/gi,'-')||'home'}.png`;
      await page.screenshot({path:screenshot,fullPage:true}).catch(()=>{});
