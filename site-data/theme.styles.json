@@ -32,7 +32,14 @@
       "ctaInk": "#172118",
       "ctaMuted": "#45543f",
       "ctaAction": "#1b281c",
-      "ctaAccent": "#63842f"
+      "ctaAccent": "#63842f",
+      "sectionHeading": "#161816",
+      "sectionSubtitle": "#4c5c53",
+      "sectionEyebrow": "#637d2b",
+      "cardTitle": "#161816",
+      "cardDescription": "#4c5c53",
+      "cardIconBackground": "#d8e9a2",
+      "cardIconForeground": "#161816"
     },
     "radius": {
       "sm": "8px",
@@ -55,21 +62,34 @@
       "footerTopY": "clamp(53px, 6vw, 79px)",
       "mainContentWidth": "1210px",
       "mobileGutter": "16px",
-      "desktopGutter": "44px"
+      "desktopGutter": "44px",
+      "sectionHeadingBottom": "clamp(24px, 2.6vw, 35px)",
+      "sectionKickerBottom": "10px",
+      "sectionTitleSubtitleGap": "22px",
+      "cardIconBottom": "24px",
+      "cardTitleBodyGap": "11px",
+      "cardIconSize": "46px",
+      "cardPadding": "clamp(20px, 2.2vw, 27px)"
     },
     "typography": {
       "h1": "clamp(40px, 5.5vw, 72px)",
       "h1Inner": "clamp(32px, 4vw, 48px)",
-      "h2": "clamp(30px, calc(21.2px + 1.72vw), 46px)",
-      "h3": "22px",
+      "h2": "clamp(30px, 3.65vw, 46px)",
+      "h3": "clamp(20px, 1.8vw, 23px)",
       "body": "clamp(14px, calc(13.427px + 0.179vw), 16px)",
-      "kicker": "12px",
+      "kicker": "11px",
       "ctaHeading": "clamp(30px, 3.65vw, 51px)",
       "ctaHomeHeading": "clamp(35px, 4.6vw, 64px)",
       "ctaBody": "clamp(14px, 1.15vw, 16px)",
       "bodyLineHeight": "1.65",
       "familyDisplay": "Manrope, Inter, system-ui, sans-serif",
-      "familyBody": "Inter, system-ui, sans-serif"
+      "familyBody": "Inter, system-ui, sans-serif",
+      "sectionSubtitle": "15px",
+      "cardDescription": "14px",
+      "cardTitleLineHeight": "1.25",
+      "sectionTitleLineHeight": "1.12",
+      "sectionSubtitleLineHeight": "1.7",
+      "cardDescriptionLineHeight": "1.72"
     }
   },
   "components": {
@@ -83,7 +103,11 @@
       "arrows": false,
       "height": "85svh",
       "mobileHeight": "clamp(430px, 68svh, 570px)",
-      "mobileBreakpoint": "767px"
+      "mobileBreakpoint": "767px",
+      "desktopTextWidth": "60%",
+      "desktopMinWidth": "1024px",
+      "tabletTextWidth": "78%",
+      "mobileTextWidth": "100%"
     },
     "pageHeader": {
       "className": "bs-page-header",
@@ -163,6 +187,21 @@
         "gallery3",
         "statsRow"
       ]
+    },
+    "sharedHeading": {
+      "name": "SectionHeading",
+      "path": "components/new-theme/SectionHeading.tsx",
+      "kickerToken": "sectionEyebrow",
+      "titleToken": "sectionHeading",
+      "subtitleToken": "sectionSubtitle"
+    },
+    "sharedCard": {
+      "name": "IconCard",
+      "path": "components/new-theme/IconCard.tsx",
+      "iconSize": "46px",
+      "headingSize": "23px",
+      "paragraphSize": "14px",
+      "backgroundIcon": true
     }
   },
   "viewTransitions": {
