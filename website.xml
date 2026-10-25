@@ -3376,11 +3376,6 @@ export function ReviewFeedback(){
  async function submit(event:FormEvent<HTMLFormElement>){
   event.preventDefault();
   setStatus(null);
-  if(staticPreview){
-   window.open(issueURL,'_blank','noopener,noreferrer');
-   setStatus({ok:false,text:'A GitHub issue draft was requested. If it did not open, use the link below. Sign in and click Submit new issue to post your feedback.'});
-   return;
-  }
   setSending(true);
   const form=new FormData();
   form.set('kind','website-feedback');
@@ -3389,16 +3384,17 @@ export function ReviewFeedback(){
   form.set('section',section);form.set('pageUrl',window.location.href);
   form.set('website',honeypot);
   try{
-   const response=await fetch('/api/contact',{method:'POST',body:form,headers:{Accept:'application/json'}});
+   const endpoint=staticPreview?'https://forextrade.pincodeit.com/api/contact':'/api/contact';
+   const response=await fetch(endpoint,{method:'POST',body:form,headers:{Accept:'application/json'}});
    const data=await response.json() as {ok?:boolean;message?:string};
    if(response.ok&&data.ok){
     setStatus({ok:true,text:'Your feedback was accepted by the email service.'});
     setMessage('');
    }else{
-    setStatus({ok:false,text:data.message||'Email submission failed. You can report a public GitHub issue below.'});
+    setStatus({ok:false,text:data.message||'Direct email submission failed. No feedback was delivered; you can open a public GitHub issue draft below.'});
    }
   }catch{
-   setStatus({ok:false,text:'Email delivery is currently unavailable. You can report a public GitHub issue below.'});
+   setStatus({ok:false,text:'The production mail API is unreachable. No feedback was delivered. You can open a public GitHub issue draft below.'});
   }finally{setSending(false);}
  }
 
@@ -3420,22 +3416,21 @@ export function ReviewFeedback(){
     </header>
     <div className="bs-review-body">
      <p id="bs-review-description" className="bs-review-desc">
-      {staticPreview?'Report a website issue directly to the GitHub repository.':
-       'Describe a design or content change for the website team.'}
+      {'Describe a design or content change for the website team.'}
      </p>
      {staticPreview&&<p className="bs-review-privacy">
-      <Icon name="info" size={17}/> GitHub issues are public. Do not include passwords, private emails or personal details.
+      <Icon name="info" size={17}/> Private delivery goes through the production server. If it is unavailable, a public GitHub issue draft can be opened without your name or email.
      </p>}
      <form id="bs-review-form" className="bs-review-form" onSubmit={submit}>
       <label className="bs-review-honeypot" aria-hidden="true">
        Leave blank<input value={honeypot} tabIndex={-1} onChange={e=>setHoneypot(e.target.value)} autoComplete="off"/>
       </label>
-      {!staticPreview&&<div className="bs-review-two">
+      <div className="bs-review-two">
        <label>Your name<input name="name" autoComplete="name" value={name}
         onChange={e=>setName(e.target.value)} minLength={2} maxLength={100} required placeholder="Name"/></label>
        <label>Email for reply<input name="email" autoComplete="email" type="email" value={email}
         onChange={e=>setEmail(e.target.value)} maxLength={150} required placeholder="you@example.com"/></label>
-      </div>}
+      </div>
       <div className="bs-review-two">
        <label>Page<input readOnly value={path} aria-label="Current website page"/></label>
        <label>Section<select value={section} onChange={e=>setSection(e.target.value)}>
@@ -3447,23 +3442,21 @@ export function ReviewFeedback(){
       </select></label>
       <label>What should change?
        <textarea value={message} onChange={e=>setMessage(e.target.value)}
-        minLength={10} maxLength={staticPreview?1800:4000} rows={4} required
+        minLength={10} maxLength={4000} rows={4} required
         placeholder="Describe the problem and how it should look or behave."/>
       </label>
      </form>
     </div>
     <footer className="bs-review-footer">
      {status&&<p role="status" className={`bs-review-status ${status.ok?'success':'warning'}`}>{status.text}</p>}
-     {((staticPreview&&status)||(!staticPreview&&status&&!status.ok))&&<a
+     {(status&&!status.ok)&&<a
       className="bs-review-issue-link" href={issueURL} target="_blank" rel="noopener noreferrer">
       Review draft on GitHub <Icon name="arrowUpRight" size={17}/>
      </a>}
      <button form="bs-review-form" className="bs-review-submit" type="submit" disabled={sending}>
-      {sending?'Sending…':staticPreview?'Review on GitHub':'Send feedback'} <Icon name="arrowRight" size={18}/>
+      {sending?'Sending…':'Send feedback'} <Icon name="arrowRight" size={18}/>
      </button>
-     <p className="bs-review-note">{staticPreview
-      ?'Feedback is posted only after you confirm on GitHub. A GitHub account is required.'
-      :'Email sending requires a configured provider. Failed requests are not marked as delivered.'}</p>
+     <p className="bs-review-note">Email delivery requires the production server and Resend. GitHub issue drafts are public and require your confirmation to post.</p>
     </footer>
    </div>
   </div>}
