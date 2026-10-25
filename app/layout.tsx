@@ -7,6 +7,7 @@ import './new-theme.css';
 import './trust-carousel.css';
 import './icon-box-carousel.css';
 import './flex-layout.css';
+import './media-title-bands.css';
 
 export const metadata:Metadata={
  metadataBase:new URL(absoluteUrl('/')),
