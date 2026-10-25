@@ -12,6 +12,7 @@ import './editorial-story.css';
 import './clean-reference.css';
 import './responsive-polish.css';
 import './faq-polish.css';
+import './global-cta-footer.css';
 
 export const metadata:Metadata={
  metadataBase:new URL(absoluteUrl('/')),
