@@ -1,0 +1,51 @@
+name: Responsive site smoke
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  chromium-responsive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install app and temporary browser test dependency
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@1.56.1
+      - name: Install Chromium dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Build production site
+        run: npm run build
+      - name: Start production server
+        run: |
+          npm run start -- -p 3000 > /tmp/ftt-responsive-server.log 2>&1 &
+          for i in $(seq 1 50); do
+            if curl --fail --silent http://127.0.0.1:3000/ > /dev/null; then
+              echo "Site is ready"
+              exit 0
+            fi
+            sleep 2
+          done
+          cat /tmp/ftt-responsive-server.log
+          exit 1
+      - name: Test 13 routes at 8 viewport sizes
+        run: node scripts/responsive-smoke.mjs
+      - name: Upload responsive evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: responsive-report
+          path: artifacts/responsive/
+          if-no-files-found: ignore
+      - name: Print server log on failure
+        if: failure()
+        run: cat /tmp/ftt-responsive-server.log || true
