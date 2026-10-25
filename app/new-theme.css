@@ -46,12 +46,12 @@
 .bs-feature-marker{flex:0 0 44px;height:44px;background:#eaf0db;color:#4a641f;display:grid;place-items:center;border-radius:13px}
 .bs-feature-row h3{font-size:22px;line-height:1.22;margin:2px 0 12px}.bs-feature-row p{color:#5e6659;font-size:14px;margin:0 0 12px}.bs-feature-row p:last-child{margin-bottom:0}
 .bs-editorial-bands{border-top:1px solid #dae1d4}.bs-band{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(25px,5vw,70px);border-bottom:1px solid #dae1d4;padding:27px 0}
-.bs-band-number{display:block;color:#91a359;font-size:11px;font-weight:800;letter-spacing:.12em;margin-bottom:8px}.bs-band h3{font-size:clamp(21px,2.2vw,28px);margin:0}
+.bs-band h3{font-size:clamp(21px,2.2vw,28px);margin:0}
 .bs-band p{font-size:15px;color:#5f685b;margin:0 0 12px}.bs-band p:last-child{margin-bottom:0}
 .bs-editorial-panel{background:#151913;color:#fff;border-radius:26px;padding:clamp(27px,5vw,60px);box-shadow:0 15px 40px rgba(6,19,6,.07)}
 .bs-panel-heading{display:flex;gap:15px;align-items:center;color:var(--bs-lime);text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:800;border-bottom:1px solid #3b4933;padding-bottom:24px;margin-bottom:28px}
 .bs-panel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 45px}.bs-panel-grid article{border-bottom:1px solid #303a2e;padding-bottom:16px}.bs-panel-grid h3{font-size:22px;color:#f7ffe8;margin-bottom:13px}.bs-panel-grid p{color:#c1cbbb;font-size:14px;line-height:1.87;margin:0 0 13px}
-.bs-timeline-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.bs-timeline-step{display:flex;gap:20px;padding:29px;border-radius:20px;border:1px solid #dfe5d7;background:#fff}.bs-timeline-number{font-size:26px;line-height:1;font-weight:900;color:#81943e}
+.bs-timeline-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.bs-timeline-step{display:flex;gap:20px;padding:29px;border-radius:20px;border:1px solid #dfe5d7;background:#fff}
 .bs-timeline-step h3{font-size:23px;margin:0 0 12px}.bs-timeline-step p{font-size:14px;color:#5c6757;margin:0 0 12px}.bs-timeline-step p:last-child{margin-bottom:0}
 .bs-editorial-faq{border-top:1px solid #d4dfca}.bs-editorial-faq details{border-bottom:1px solid #d4dfca;padding:0}.bs-editorial-faq summary{display:flex;justify-content:space-between;gap:22px;align-items:center;cursor:pointer;padding:22px 6px;font-weight:780;list-style:none}.bs-editorial-faq summary::-webkit-details-marker{display:none}.bs-editorial-faq summary span{font-size:26px;color:#7e972e}.bs-editorial-faq details[open] summary span{transform:rotate(45deg)}.bs-faq-answer{padding:0 26px 17px 6px;max-width:880px;color:#586254}.bs-faq-answer p{margin:0 0 13px}
 .bs-cta-row{padding:30px 0;background:#e8f2c6}.bs-cta-row-content{display:flex;gap:30px;justify-content:space-between;align-items:center}.bs-cta-row-content>span{font-size:18px;font-weight:780}.bs-cta-row-content>div{display:flex;gap:11px;flex-wrap:wrap}
@@ -210,7 +210,7 @@
 .bs-v5 .bs-v5-card p{color:#586750;font-size:14px;line-height:1.7;margin:0 0 11px}.bs-v5 .bs-v5-card p:last-child{margin-bottom:0}
 .bs-v5 .bs-v5-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .bs-v5 .bs-v5-steps article{display:flex;gap:16px;padding:23px;border:1px solid #dfe6d6;border-radius:16px;background:#fff;min-width:0}
-.bs-v5 .bs-v5-step-index{font-size:13px;font-weight:800;color:#688234;background:#eaf3d7;width:40px;height:40px;flex:none;border-radius:50%;display:grid;place-items:center}
+
 .bs-v5 .bs-v5-steps h3{font-size:20px;margin:0 0 9px}.bs-v5 .bs-v5-steps p{color:#586450;font-size:14px;line-height:1.7;margin:0 0 10px}
 .bs-v5 .bs-v5-layout-stack .bs-v5-prose-list{max-width:720px}
 .bs-v5 .bs-v5-prose-list article{padding:17px 0;border-top:1px solid #dee5d7}
@@ -221,7 +221,7 @@
 .bs-v5 .bs-v5-dark .bs-v5-intro,.bs-v5 .bs-v5-dark p{color:#c4d0ba}
 .bs-v5 .bs-v5-dark-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
 .bs-v5 .bs-v5-dark-list article{border-top:1px solid rgba(235,255,211,.17);padding:20px 0}
-.bs-v5 .bs-v5-dark-list article>span{font-weight:800;color:#d8e9a2;font-size:12px}
+
 .bs-v5 .bs-v5-dark-list h3{font-size:20px;margin:8px 0}
 .bs-v5 .bs-v5-dark-list p{font-size:14px;line-height:1.7;margin:0 0 12px}
 .bs-v5 .bs-v5-media{position:relative;height:300px;overflow:hidden;background:#172218}
