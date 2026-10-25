@@ -104,10 +104,13 @@
       "height": "85svh",
       "mobileHeight": "clamp(430px, 68svh, 570px)",
       "mobileBreakpoint": "767px",
-      "desktopTextWidth": "60%",
+      "desktopTextWidth": "70%",
       "desktopMinWidth": "1024px",
       "tabletTextWidth": "78%",
-      "mobileTextWidth": "100%"
+      "mobileTextWidth": "100%",
+      "desktopContentHeight": "70%",
+      "verticalAlignment": "center",
+      "contentDistribution": "space-evenly"
     },
     "pageHeader": {
       "className": "bs-page-header",
