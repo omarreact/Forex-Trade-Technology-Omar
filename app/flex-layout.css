@@ -151,7 +151,7 @@
 .bs-infrastructure-card{
  background:linear-gradient(150deg,#fff 0%,#fbfcf7 100%);
  border:1px solid #d9e3d2;
- border-top:4px solid #d9f17a;
+ border-top:4px solid #d8e9a2;
  box-shadow:0 8px 25px rgba(24,41,13,.035);
 }
 .bs-infrastructure-card:hover{border-color:#aeca72;box-shadow:0 16px 38px rgba(24,41,13,.09)}
@@ -164,7 +164,7 @@
  color:#f3f7ed;
 }
 .bs-feature-flex-benefits .bs-feature-flex-heading h2{color:#f5f8f1}
-.bs-feature-flex-benefits .bs-feature-flex-kicker{color:#d9f17a}
+.bs-feature-flex-benefits .bs-feature-flex-kicker{color:#d8e9a2}
 .bs-benefit-card{
  background:linear-gradient(145deg,#202b1d,#182218);
  border:1px solid rgba(217,241,122,.18);
@@ -173,9 +173,9 @@
 .bs-benefit-card:hover{border-color:rgba(217,241,122,.52);box-shadow:0 18px 40px rgba(0,0,0,.22)}
 .bs-benefit-card h3{color:#f6faef}
 .bs-benefit-card p{color:#c4d1bf}
-.bs-benefit-card .bs-icon-card-number{color:#d9f17a}
-.bs-benefit-card .bs-icon-card-badge{background:#d9f17a;color:#182019}
-.bs-benefit-card .bs-icon-card-watermark{opacity:.1;color:#d9f17a}
+.bs-benefit-card .bs-icon-card-number{color:#d8e9a2}
+.bs-benefit-card .bs-icon-card-badge{background:#d8e9a2;color:#182019}
+.bs-benefit-card .bs-icon-card-watermark{opacity:.1;color:#d8e9a2}
 .bs-benefit-card:hover .bs-icon-card-watermark{opacity:.19}
 .bs-benefit-card .bs-icon-card-copy{max-width:58ch}
 
