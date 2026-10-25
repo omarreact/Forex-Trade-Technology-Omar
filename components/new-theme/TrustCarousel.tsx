@@ -1,7 +1,5 @@
 'use client';
 
-import {useState} from 'react';
-import {Pause,Play} from 'lucide-react';
 import {Icon} from './Icon';
 
 type TrustCarouselProps={items:string[]};
@@ -11,7 +9,6 @@ type TrustCarouselProps={items:string[]};
  * The second group is visually identical to the first and hidden from screen readers.
  */
 export function TrustCarousel({items}:TrustCarouselProps){
- const [paused,setPaused]=useState(false);
  if(items.length===0)return null;
  const capabilities=(duplicate:boolean)=>(
   <div className="bs-trust-carousel-group" aria-hidden={duplicate ? true : undefined}>
@@ -27,20 +24,12 @@ export function TrustCarousel({items}:TrustCarouselProps){
   <div className="bs-shell bs-trust-carousel-inner">
    <span className="bs-trust-carousel-label">TECHNOLOGY THAT<br/>CONNECTS</span>
    <div className="bs-trust-carousel-window" aria-live="off">
-    <div className="bs-trust-carousel-track" data-paused={paused}>
+    <div className="bs-trust-carousel-track">
      {capabilities(false)}
      {capabilities(true)}
     </div>
    </div>
-   <button
-    className="bs-trust-carousel-toggle"
-    type="button"
-    aria-label={paused ? 'Resume technology ticker' : 'Pause technology ticker'}
-    aria-pressed={paused}
-    onClick={()=>setPaused(value=>!value)}
-   >
-    {paused ? <Play aria-hidden="true" size={17}/> : <Pause aria-hidden="true" size={17}/>}
-   </button>
+
   </div>
  </section>;
 }
