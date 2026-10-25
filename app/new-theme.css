@@ -249,3 +249,34 @@
 @media(max-width:980px){.bs-v5 .bs-v5-grid-three{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.bs-v5 .bs-v5-grid,.bs-v5 .bs-v5-grid-two,.bs-v5 .bs-v5-grid-three,.bs-v5 .bs-v5-steps,.bs-v5 .bs-v5-dark-list,.bs-v5 .bs-v5-gallery-grid{grid-template-columns:1fr}.bs-v5 .bs-v5-section{padding-block:40px}.bs-v5 .bs-v5-gallery-photo{height:210px}.bs-v5 .bs-v5-media{height:280px}.bs-v5 .bs-v5-section-heading h2{font-size:29px}.bs-v5 .bs-v5-card{padding:20px}}
 @media(prefers-reduced-motion:reduce){.bs-v5 .bs-v5-guide-item summary svg{transition:none}}
+
+
+/* Reference HTML token alignment (2026-10-25) */
+:root {
+  --bs-font-display: "Manrope", Inter, sans-serif;
+  --bs-font-body: Inter, sans-serif;
+  --bs-content-width: 1180px;
+  --bs-wide-width: 1440px;
+  --bs-inner-width: 1320px;
+  --bs-shell: min(1180px, calc(100% - 48px));
+  --bs-section-y: clamp(48px, 5.5vw, 80px);
+  --bs-section-y-tight: clamp(32px, 4vw, 56px);
+  --bs-block-gap: 24px;
+  --bs-card-gap: 16px;
+  --bs-text-display: clamp(28.836px, calc(22.752px + 1.89vw), 50px);
+  --bs-text-body: clamp(14px, calc(13.427px + 0.179vw), 16px);
+}
+body { font-family: var(--bs-font-body); font-size: var(--bs-text-body); line-height: 1.65; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--bs-font-display); font-weight: 600; }
+.bs-hero-title { font-size: var(--bs-text-display); font-weight: 600; line-height: 1.04; letter-spacing: -0.055em; }
+.bs-hero-subtitle, .bs-hero-lead, .bs-content-intro, .bs-dense-intro { font-size: var(--bs-text-body); line-height: 1.65; }
+.bs-page-title, .bs-content-heading, .bs-v5-section-heading, .bs-dense-heading {
+  font-size: clamp(30px, calc(1.875rem + 2.875vw), 46px);
+  line-height: 1.1; letter-spacing: -0.045em; font-weight: 600;
+}
+.bs-card h3, .bs-dense-card h3, .bs-v5-card h3 {
+  font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.025em; font-weight: 600;
+}
+@media (max-width: 767px) {
+  :root { --bs-shell: min(100% - 32px, 1180px); --bs-section-y: 48px; }
+}

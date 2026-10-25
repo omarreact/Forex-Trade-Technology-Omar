@@ -9,7 +9,18 @@
       "system-ui",
       "sans-serif"
     ],
-    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    "googleFonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap",
+    "display": [
+      "Manrope",
+      "Inter",
+      "system-ui",
+      "sans-serif"
+    ],
+    "body": [
+      "Inter",
+      "system-ui",
+      "sans-serif"
+    ]
   },
   "tokens": {
     "colors": {
@@ -37,19 +48,42 @@
     "shell": "min(1210px, calc(100% - 88px))",
     "innerHeaderHeight": "240px",
     "spacing": {
-      "sectionY": "clamp(48px, 5.5vw, 72px)",
+      "sectionY": "clamp(48px, 5.5vw, 80px)",
       "headerH": "72px",
-      "sectionYTight": "clamp(36px, 4vw, 56px)",
-      "blockGap": "20px",
-      "cardGap": "16px"
+      "sectionYTight": "clamp(32px, 4vw, 56px)",
+      "blockGap": "24px",
+      "cardGap": "16px",
+      "pageGutter": "24px",
+      "contentWidth": "1180px",
+      "wideWidth": "1440px",
+      "innerWidth": "1320px",
+      "presets": {
+        "10": "10px",
+        "20": "14px",
+        "30": "16px",
+        "40": "24px",
+        "50": "32px",
+        "60": "48px",
+        "70": "54px",
+        "80": "81px"
+      }
     },
     "typography": {
-      "h1": "clamp(40px, 5.5vw, 72px)",
-      "h1Inner": "clamp(32px, 4vw, 48px)",
-      "h2": "clamp(28px, 3.5vw, 44px)",
-      "h3": "22px",
-      "body": "17px",
-      "kicker": "12px"
+      "h1": "clamp(28.836px, calc(22.752px + 1.89vw), 50px)",
+      "h1Inner": "clamp(28px, 4vw, 40px)",
+      "h2": "clamp(30px, calc(1.875rem + 2.875vw), 46px)",
+      "h3": "20px",
+      "body": "clamp(14px, calc(13.427px + 0.179vw), 16px)",
+      "kicker": "10px",
+      "h4": "18px",
+      "h5": "16px",
+      "h6": "14px",
+      "bodyLineHeight": "1.65",
+      "headingWeight": "600",
+      "h1LineHeight": "1.04",
+      "h1Tracking": "-0.055em",
+      "h2Tracking": "-0.045em",
+      "h3Tracking": "-0.025em"
     }
   },
   "components": {
