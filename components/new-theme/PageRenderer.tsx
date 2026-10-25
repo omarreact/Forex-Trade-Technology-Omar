@@ -5,6 +5,7 @@ import {canonicalHref,getImage,type ButtonData,type ContentBlock,type FaqItem,ty
 import {Icon} from './Icon';
 import {ContactForm} from './ContactForm';
 import {HomeSlider} from './HomeSlider';
+import {TrustCarousel} from './TrustCarousel';
 import {PageHeader} from './PageHeader';
 import {SectionMedia} from './SectionMedia';
 
@@ -27,7 +28,8 @@ function Button({item}:{item:ButtonData}){
  return <Link href={canonicalHref(item.href)} className={`bs-btn ${item.variant==='dark'?'bs-btn-outline':'bs-btn-primary'}`}>{item.label}<Icon name={item.icon||'arrowUpRight'} size={17}/></Link>;
 }
 function Trust({section}:{section:SectionData}){
- return <section className="bs-trust"><div className="bs-shell bs-trust-inner"><span className="bs-trust-heading">TECHNOLOGY THAT CONNECTS</span><div className="bs-trust-items">{section.items?.map((item,index)=><span key={index}><Icon name="check" size={17}/>{typeof item==='string'?item:''}</span>)}</div></div></section>;
+ const items=(section.items||[]).filter((item):item is string=>typeof item==='string');
+ return <TrustCarousel items={items}/>;
 }
 function TextParagraphs({paragraphs}:{paragraphs:string[]}){return <>{paragraphs.map((p,i)=><p key={i}>{p}</p>)}</>}
 function GroupCard({group,index}:{group:Group;index:number}){return <article className="bs-editorial-card"><span className="bs-editorial-card-num">{String(index+1).padStart(2,'0')}</span><h3>{group.heading}</h3><TextParagraphs paragraphs={group.paragraphs}/></article>}
