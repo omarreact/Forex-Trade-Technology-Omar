@@ -3262,7 +3262,6 @@ export function ReviewFeedback(){
  const [section,setSection]=useState('');
  const [website,setWebsite]=useState('');
  const [wasSent,setWasSent]=useState(false);
- const recipient=siteConfig.site.email;
 
  useEffect(()=>{
   if(!open)return;
@@ -3291,14 +3290,13 @@ export function ReviewFeedback(){
   message
  ].join('\n');
 
- const mailto=()=>`mailto:${recipient}?subject=${encodeURIComponent('Website change request: '+(section||path))}&body=${encodeURIComponent(messageBody())}`;
 
  async function submit(event:FormEvent<HTMLFormElement>){
   event.preventDefault();
   setSubmitting(true);setResult(null);setDraft('');setWasSent(false);
   if(process.env.NEXT_PUBLIC_STATIC_EXPORT==='true'){
-   setDraft(mailto());
-   setResult({ok:false,message:'GitHub Pages is a static preview. Open the email draft below and send it from your email app.'});
+   setDraft(`${siteConfig.site.url}/contact`);
+   setResult({ok:false,message:'GitHub Pages cannot send this request directly. Copy your message and submit it using the production contact form.'});
    setSubmitting(false);
    return;
   }
@@ -3316,12 +3314,10 @@ export function ReviewFeedback(){
     setResult({ok:true,message:'Your feedback was delivered to the website team. Thank you.'});
     setMessage('');
    }else{
-    setDraft(mailto());
-    setResult({ok:false,message:json.message||'Automatic delivery is unavailable. Please send via the email draft.'});
+    setResult({ok:false,message:json.message||'Automatic delivery is unavailable. No message was sent.'});
    }
   }catch{
-   setDraft(mailto());
-   setResult({ok:false,message:'Automatic delivery is unavailable. Please use the email draft below.'});
+   setResult({ok:false,message:'Automatic delivery is unavailable. No message was sent; please retry later.'});
   }finally{setSubmitting(false)}
  }
 
@@ -3368,8 +3364,8 @@ export function ReviewFeedback(){
      <button type="submit" className="bs-review-submit" disabled={submitting}>{submitting?'Sending…':'Send feedback'}<Icon name="arrowRight" size={18}/></button>
     </form>
     {result&&<p role="status" className={`bs-review-status ${result.ok?'success':'warning'}`}>{result.message}</p>}
-    {draft&&!wasSent&&<a className="bs-review-email-fallback" href={draft}>Open email draft <Icon name="arrowUpRight" size={17}/></a>}
-    <p className="bs-review-note">Submitted details are used to respond to this feedback. Email drafts are not delivered until you send them.</p>
+    {draft&&!wasSent&&<div className="bs-review-fallback-actions"><button type="button" className="bs-review-email-fallback" onClick={()=>navigator.clipboard.writeText(messageBody())}>Copy feedback</button><a className="bs-review-email-fallback" href={draft}>Open production contact form <Icon name="arrowUpRight" size={17}/></a></div>}
+    <p className="bs-review-note">Submitted details are used to respond to this feedback. GitHub Pages is static; its feedback form requires the production contact page to submit your message.</p>
    </div>
   </div>}
  </>;
