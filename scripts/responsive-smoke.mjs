@@ -119,7 +119,8 @@ try {
         topRatio:(a.top-c.top)/c.height,
         bottomRatio:(c.bottom-a.bottom)/c.height,
         contentOverflow:contentTop<a.top-3||contentBottom>a.bottom+3,
-        centered:Math.abs((a.top-c.top)-(c.bottom-a.bottom))<4
+        centered:Math.abs((a.top-c.top)-(c.bottom-a.bottom))<4,
+        horizontallyCentered:Math.abs((a.left-b.left)-(b.right-a.right))<4
        };
       })(),
       submenuAccessible:!!document.querySelector('.bs-menu-trigger[aria-expanded]'),
@@ -162,6 +163,7 @@ try {
       if(viewport.width>=1024){
        if(Math.abs(hero.heightRatio-.70)>.025)problems.push(`hero content height is ${Math.round(hero.heightRatio*100)}% instead of 70%`);
        if(!hero.centered)problems.push(`hero content vertical alignment not centered: top ${Math.round(hero.topRatio*100)}%, bottom ${Math.round(hero.bottomRatio*100)}%`);
+       if(!hero.horizontallyCentered)problems.push('hero 70% content not horizontally centered');
        if(hero.contentOverflow)problems.push('hero content overflows the 70% layout area');
       }
      }
