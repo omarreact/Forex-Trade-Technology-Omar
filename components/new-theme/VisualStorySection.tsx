@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import {getImage,type ContentBlock,type SectionData} from '@/lib/site-data';
 import {Icon} from './Icon';
+import {SectionHeading} from './SectionHeading';
 
 type StoryVisual={image:string;eyebrow:string;nodes:[string,string,string];icons:[string,string,string]};
 const stories:Record<string,StoryVisual>={
@@ -39,8 +40,7 @@ export function VisualStorySection({section,pageId,index,dark=false}:Props){
  return <section id={section.id} className={`bs-v5-section bs-story-section ${dark?'bs-story-dark':index%2?'bs-story-tint':'bs-story-light'} ${reverse?'bs-story-reverse':''}`} aria-labelledby={`${section.id}-title`}>
   <div className="bs-shell bs-story-shell">
    <div className="bs-story-copy">
-    <span className="bs-story-kicker">FOREX TRADE TECHNOLOGY</span>
-    <h2 id={`${section.id}-title`}>{section.title}</h2>
+    <SectionHeading id={`${section.id}-title`} title={section.title} className="bs-story-heading"/>
     {narrative.length>0&&<div className="bs-story-prose">{narrative.map((p,i)=><p key={i}>{p}</p>)}</div>}
     {listItems.length>0&&<ul className="bs-story-checklist">{listItems.map((p,i)=><li key={i}><Icon name="check" size={18}/><span>{p.trim().replace(/^\*\s*/, '')}</span></li>)}</ul>}
     {groupItems.length>0&&<div className="bs-story-details">{groupItems.map((g,i)=>
