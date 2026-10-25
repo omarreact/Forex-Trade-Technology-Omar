@@ -178,7 +178,7 @@ function getSupplementalContent(page:PageData){
  const push=()=>{if(active.blocks.length)result.push(active);};
  for(const b of page.fullBlocks||[]){
   // Source document outline labels belong in the actual header, not the visible guide.
-  if(/^(?:breadcrumb|label):\\s/i.test(b.text.trim()))continue;
+  if(/^(?:breadcrumb|label):\s/i.test(b.text.trim()))continue;
   if(b.type==='h2'){push();active={title:b.text,blocks:[]};continue;}
   const key=b.type+'\u0000'+b.text,remaining=used.get(key)||0;
   if(remaining>0){used.set(key,remaining-1);continue;}
