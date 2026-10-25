@@ -260,3 +260,24 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--bs-font-display); font-weight: 600; }
 .bs-page-title,.bs-content-heading,.bs-v5-section-heading,.bs-dense-heading { font-size: clamp(30px, calc(21.2px + 1.72vw), 46px); line-height: 1.1; letter-spacing: -0.045em; font-weight: 600; }
 .bs-card h3,.bs-dense-card h3,.bs-v5-card h3 { font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.025em; font-weight: 600; }
 @media (max-width: 767px) { :root { --bs-shell: min(100% - 32px, 1180px); --bs-section-y: 48px; } }
+
+
+/* Home banner: occupy exactly 85% of the visible viewport, not a fixed pixel height.
+   This final rule overrides older v4/mobile height clamps without changing inner-page headers. */
+.bs-main.bs-v4-dense .bs-home-slider {
+  height: 85vh;
+  height: 85svh;
+  min-height: 0;
+  max-height: none;
+}
+/* Keep long slide copy scrollable on short / landscape viewports. */
+.bs-main.bs-v4-dense .bs-slide-copy {
+  max-height: calc(100% - 86px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+@media (max-height: 560px) {
+  .bs-main.bs-v4-dense .bs-slide-copy { padding-top: 20px; padding-bottom: 24px; }
+  .bs-main.bs-v4-dense .bs-slide-controls { bottom: 12px; }
+}
