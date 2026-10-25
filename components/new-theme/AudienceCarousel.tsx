@@ -1,7 +1,7 @@
 'use client';
 
 import {useCallback,useEffect,useRef,useState} from 'react';
-import {ChevronLeft,ChevronRight,Pause,Play} from 'lucide-react';
+import {ChevronLeft,ChevronRight} from 'lucide-react';
 import {IconCard} from './IconCard';
 
 export type AudienceItem={title:string;description:string;icon:string};
@@ -16,7 +16,6 @@ export function AudienceCarousel({title,kicker='FOREX TRADE TECHNOLOGY',items}:P
  const [position,setPosition]=useState(count);
  const [step,setStep]=useState(0);
  const [animate,setAnimate]=useState(false);
- const [paused,setPaused]=useState(false);
  const [interacting,setInteracting]=useState(false);
  const [reduceMotion,setReduceMotion]=useState(false);
  const viewportRef=useRef<HTMLDivElement>(null);
@@ -53,10 +52,10 @@ export function AudienceCarousel({title,kicker='FOREX TRADE TECHNOLOGY',items}:P
  const previous=useCallback(()=>{setAnimate(true);setPosition(current=>current-1);},[]);
 
  useEffect(()=>{
-  if(count<2||paused||interacting||reduceMotion||step===0)return;
+  if(count<2||interacting||reduceMotion||step===0)return;
   const timer=window.setInterval(next,5600);
   return ()=>window.clearInterval(timer);
- },[count,paused,interacting,reduceMotion,step,next,position]);
+ },[count,interacting,reduceMotion,step,next,position]);
 
  const handleTransitionEnd=(event:React.TransitionEvent<HTMLDivElement>)=>{
   if(event.target!==event.currentTarget||event.propertyName!=='transform')return;
@@ -83,7 +82,6 @@ export function AudienceCarousel({title,kicker='FOREX TRADE TECHNOLOGY',items}:P
     <div className="bs-audience-controls">
      <button type="button" onClick={previous} aria-label="Previous audience" className="bs-audience-arrow"><ChevronLeft size={21}/></button>
      <button type="button" onClick={next} aria-label="Next audience" className="bs-audience-arrow"><ChevronRight size={21}/></button>
-     <button type="button" onClick={()=>setPaused(value=>!value)} aria-label={paused?'Resume automatic carousel':'Pause automatic carousel'} aria-pressed={paused} className="bs-audience-arrow bs-audience-pause">{paused?<Play size={19}/>:<Pause size={19}/>}</button>
     </div>
    </div>
    <div className="bs-audience-viewport" ref={viewportRef}>
@@ -116,7 +114,6 @@ export function AudienceCarousel({title,kicker='FOREX TRADE TECHNOLOGY',items}:P
      onClick={()=>{setAnimate(true);setPosition(count+index);}}
     />)}
    </div>
-   <p className="bs-audience-status" aria-live="off">{active+1} / {count}</p>
    <ul className="bs-audience-screen-reader-list">
     {items.map(item=><li key={item.title}><strong>{item.title}:</strong> {item.description}</li>)}
    </ul>
