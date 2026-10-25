@@ -89,6 +89,8 @@ try {
       problems.push('FAQ component not rendered');
      }else{
       await first.locator('summary').click();
+      // Open-state colors have a 180ms CSS transition; inspect the settled color.
+      await page.waitForTimeout(250);
       const faq=await page.evaluate(()=>{
        const scope=document.querySelector('.bs-faq-polished');
        const heading=scope?.querySelector('.bs-faq-heading h2');
