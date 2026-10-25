@@ -129,11 +129,31 @@ function V5SectionContent({section,index}:{section:SectionData;index:number}){
   </div>
  </section>;
 }
-function V5MediaBand({section}:{section:SectionData}){
+/** Split page titles into a white lead and mild lime emphasis without changing their text. */
+function mediaTitleParts(title:string):[string,string]{
+ const clean=title.trim();
+ if(clean==='Forex Trade Technology')return ['Forex Trade','Technology'];
+ const separator=/\\s(?:&|for)\\s/i.exec(clean);
+ if(separator&&separator.index>7){
+  return [clean.slice(0,separator.index),clean.slice(separator.index+1)];
+ }
+ const words=clean.split(/\\s+/);
+ const pivot=Math.max(1,Math.ceil(words.length*.56));
+ return [words.slice(0,pivot).join(' '),words.slice(pivot).join(' ')];
+}
+function V5MediaBand({section,title}:{section:SectionData;title:string}){
  const img=getImage(section.media?.imageKey);if(!img)return null;
- return <section id={section.id} className="bs-v5-media" role="img" aria-label={section.media?.caption||img.alt}>
+ const [primary,accent]=mediaTitleParts(title);
+ const headingId=`${section.id}-heading`;
+ return <section id={section.id} className="bs-v5-media bs-v5-media-title-band" aria-labelledby={headingId}>
   <Image src={img.url} alt="" fill unoptimized loading="lazy" sizes="100vw" className="bs-v5-media-photo"/>
-  <div className="bs-v5-media-shade"/>{section.media?.caption&&<div className="bs-shell bs-v5-media-caption"><p>{section.media.caption}</p></div>}
+  <div className="bs-v5-media-shade" aria-hidden="true"/>
+  <div className="bs-shell bs-v5-media-caption">
+   <div className="bs-v5-media-title-content">
+    <span className="bs-v5-media-eyebrow">FOREX TRADE TECHNOLOGY</span>
+    <h2 id={headingId} className="bs-v5-media-title">{primary}{accent&&<> <span>{accent}</span></>}</h2>
+   </div>
+  </div>
  </section>;
 }
 function V5Gallery({section}:{section:SectionData}){
@@ -166,7 +186,7 @@ function V5Guide({page}:{page:PageData}){
  </div></section>;
 }
 
-function Section({section,index}:{section:SectionData;index:number}){
+function Section({section,index,pageTitle}:{section:SectionData;index:number;pageTitle:string}){
  if(section.title==='Platform & Infrastructure Under One Roof'||section.title==='Why Brokers Work With Us'){
   const topics=regroup(section.blocks||[]);
   const icons=section.title==='Why Brokers Work With Us'
@@ -196,7 +216,7 @@ function Section({section,index}:{section:SectionData;index:number}){
   return <AudienceCarousel title={section.title} items={items}/>;
  }
  if(section.layout==='iconRow')return <Trust section={section}/>;
- if(section.layout==='mediaBand')return <V5MediaBand section={section}/>;
+ if(section.layout==='mediaBand')return <V5MediaBand section={section} title={pageTitle}/>;
  if(section.layout==='gallery3')return <V5Gallery section={section}/>;
  if(section.layout==='faqAccordion')return <DenseFaq section={section}/>;
  if(section.layout==='ctaBand')return <DarkCta section={section}/>;
@@ -205,9 +225,19 @@ function Section({section,index}:{section:SectionData;index:number}){
 function Notes({notes}:{notes?:string[]}){if(!notes?.length)return null;return <aside className="bs-notes"><div className="bs-shell"><details><summary>Additional information and risk disclosure</summary>{notes.map((note,i)=><p key={i}>{note}</p>)}</details></div></aside>}
 export function PageRenderer({page}:{page:PageData}){
  const top=page.pageTop;
+ const pageTitle=page.slug==='/'?'Forex Trade Technology':top?.title||page.hero.title;
+ const hasImageBand=page.sections.some(section=>section.layout==='mediaBand');
+ const preferredImage=top?.backgroundImageKey||page.hero.imageKey;
+ const mediaKey=getImage(preferredImage)?preferredImage:'world_map';
+ const insertedBand:SectionData={id:'media-page-title',type:'mediaBand',layout:'mediaBand',media:{layout:'mediaBand',imageKey:mediaKey}};
+ const insertAfter=page.id==='faq'?0:1;
  return <main id="main-content" className="bs-main bs-v4-dense bs-v5">
   {top?.variant==='homeSlider'&&top.slides?.length ? <HomeSlider slides={top.slides} intervalMs={top.intervalMs} autoplay={top.autoplay}/> : <PageHeader page={page}/>}
-  {page.sections.map((section,index)=><Fragment key={section.id}>{section.layout==='ctaBand'&&<V5Guide page={page}/>}<Section section={section} index={index}/></Fragment>)}
+  {page.sections.map((section,index)=><Fragment key={section.id}>
+   {section.layout==='ctaBand'&&<V5Guide page={page}/>}
+   <Section section={section} index={index} pageTitle={pageTitle}/>
+   {!hasImageBand&&index===insertAfter&&<V5MediaBand section={insertedBand} title={pageTitle}/>}
+  </Fragment>)}
   <Notes notes={page.documentFooterNotes}/>
  </main>;
 }
