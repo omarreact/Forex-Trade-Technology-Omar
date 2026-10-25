@@ -3,7 +3,7 @@
 .bs-icon-card > :not(.bs-icon-card-watermark){position:relative;z-index:1}
 .bs-icon-card-watermark{
  position:absolute;right:-18px;bottom:-23px;z-index:0;
- display:block;line-height:0;color:#d9f17a;opacity:.32;
+ display:block;line-height:0;color:#d8e9a2;opacity:.32;
  pointer-events:none;transform:rotate(-12deg);
  transition:opacity .25s ease,transform .35s ease;
 }
@@ -16,7 +16,7 @@
 .bs-icon-card-badge{
  display:grid;place-items:center;flex:0 0 46px;
  width:46px;height:46px;border-radius:13px;
- background:#d9f17a;color:#141613;
+ background:#d8e9a2;color:#141613;
  box-shadow:0 6px 17px rgba(146,172,65,.14);
 }
 .bs-icon-card-number{font-size:12px;letter-spacing:.1em;font-weight:800;color:#69735e}
@@ -47,7 +47,7 @@
  color:#141613;border:1px solid #d2ddc2;
  cursor:pointer;transition:background .2s,border-color .2s,transform .2s;
 }
-.bs-audience-arrow:hover{background:#d9f17a;border-color:#a5c05b;transform:translateY(-2px)}
+.bs-audience-arrow:hover{background:#d8e9a2;border-color:#a5c05b;transform:translateY(-2px)}
 .bs-audience-arrow:focus-visible,
 .bs-audience-dot:focus-visible{outline:3px solid #141613;outline-offset:3px}
 .bs-audience-viewport{width:100%;overflow:hidden}
