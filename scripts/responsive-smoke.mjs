@@ -69,6 +69,14 @@ try {
       slideOverflow:overflowY,
       submenuAccessible:!!document.querySelector('.bs-menu-trigger[aria-expanded]'),
       promotionalImageBands:document.querySelectorAll('.bs-v5-media-title-band').length,
+      finalCTAs:document.querySelectorAll('main .bs-global-cta').length,
+      footerCount:document.querySelectorAll('body > footer.bs-footer').length,
+      ctaHeading:document.querySelector('.bs-global-cta h2')?.textContent?.trim(),
+      ctaAction:document.querySelector('.bs-global-cta-button')?.textContent?.trim(),
+      ctaBackground:document.querySelector('.bs-global-cta-panel')?getComputedStyle(document.querySelector('.bs-global-cta-panel')).backgroundImage:'',
+      ctaIsHome:!!document.querySelector('.bs-global-cta-home'),
+      ctaHomeVisual:!!document.querySelector('.bs-global-cta-home .bs-global-cta-visual'),
+      ctaAfterNotes:!!document.querySelector('main > .bs-global-cta:last-child'),
       bodyHeight:document.body.scrollHeight
      };
     });
@@ -79,6 +87,14 @@ try {
     if(metrics.h1Count!==1)problems.push(`H1 count ${metrics.h1Count}`);
     if(metrics.pauseButtons)problems.push(`${metrics.pauseButtons} pause/resume buttons`);
     if(metrics.numberBoxes)problems.push(`${metrics.numberBoxes} decorative counters`);
+    if(metrics.finalCTAs!==1)problems.push(`expected 1 shared CTA, found ${metrics.finalCTAs}`);
+    if(metrics.footerCount!==1)problems.push(`expected 1 shared footer, found ${metrics.footerCount}`);
+    if(metrics.ctaHeading!=='Build Your Trading Infrastructure')problems.push(`unexpected global CTA headline: ${metrics.ctaHeading}`);
+    if(metrics.ctaAction!=='Discuss Your Setup')problems.push(`unexpected CTA label: ${metrics.ctaAction}`);
+    if(!metrics.ctaBackground.includes('gradient'))problems.push('CTA gradient missing');
+    if(metrics.ctaIsHome!==(route==='/'))problems.push('Home CTA variant on incorrect route');
+    if(metrics.ctaHomeVisual!==(route==='/'))problems.push('Connected-stack visual on incorrect route');
+    if(!metrics.ctaAfterNotes)problems.push('Global CTA is not final main element before footer');
     if(route!=='/'&&metrics.promotionalImageBands!==0)problems.push(`unexpected promotional title image bands: ${metrics.promotionalImageBands}`);
     if(route==='/'&&metrics.promotionalImageBands<1)problems.push('homepage promotional image band missing');
     if(metrics.slideOverflow==='auto'||metrics.slideOverflow==='scroll')problems.push('nested slider scrolling');
@@ -134,6 +150,13 @@ try {
         await page.screenshot({path:`artifacts/responsive/faq-open-${viewport.width}.png`});
        }
       }
+     }
+    }
+    if((route==='/'||route==='/faq')&&(viewport.width===390||viewport.width===1440)){
+     const final=page.locator('.bs-global-cta-panel');
+     if(await final.count()) {
+      await final.scrollIntoViewIfNeeded();
+      await final.screenshot({path:`artifacts/responsive/cta-${route==='/'?'home':'faq'}-${viewport.width}.png`}).catch(()=>{});
      }
     }
     if(problems.length){
