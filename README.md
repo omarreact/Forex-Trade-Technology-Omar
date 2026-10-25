@@ -63,18 +63,18 @@ Key values:
 - Main content max-width **1210px**, section padding `clamp(48px, 5.5vw, 72px)`.
 - Home slider copy **70% width × 70% height**, left and vertically centered on desktop; responsive full-width copy on mobile.
 
-## Development feedback
+## Resend sending and development feedback
 
-The fixed right-middle feedback button opens a page/section-aware form. It collects name, reply-to email, issue category and requested change.
-
-On **Vercel**, the server submits review feedback using the same Resend email integration as Contact. Configure these **server-only** environment variables in the Vercel project:
-- `RESEND_API_KEY` — Resend API token.
-- `CONTACT_TO_EMAIL` — the recipient email where *you* want suggestions delivered.
-- `CONTACT_FROM_EMAIL` — a sender verified with Resend.
-
-No API secrets are stored in this repo. Without these three keys, the API reports an explicit delivery failure and offers an email draft; **do not treat the message as sent automatically**.
-
-On **GitHub Pages**, there is no server/API: submission opens a prefilled email draft to `business@forextradetechnology.com`. The reviewer must press Send in their email application. GitHub Pages cannot deliver email silently.
+- Verified Resend sending subdomain: `forextrade.pincodeit.com` (region `ap-northeast-1`; DNS managed by Vercel).
+- Production `CONTACT_FROM_EMAIL`: `Forex Trade Technology <notifications@forextrade.pincodeit.com>`.
+- Production `CONTACT_TO_EMAIL`: a real owner Gmail inbox, stored privately as a Vercel sensitive environment variable; **never embed the private recipient address in public JSON**.
+- `RESEND_API_KEY`: required, must be created from [Resend API Keys](https://resend.com/api-keys) with Sending access limited to this verified subdomain and stored as a Vercel production secret.
+- Do not commit an API key, paste it into public comments or use a `NEXT_PUBLIC_` prefix.
+- Vercel Contact and Suggest a Change both POST to `/api/contact` and forward through Resend **only once all three keys are configured**; before that the endpoint returns HTTP 503 and explicitly confirms nothing was sent.
+- The verified sending subdomain does **not** itself create a receiving mailbox. The old `business@forextradetechnology.com` address is not owned and is intentionally removed from public fallbacks.
+- GitHub Pages is a static preview: its forms cannot call a local backend and now link to the production contact form without revealing the owner's private email. The reviewer must submit through the production site.
+- The floating right-middle feedback control captures current page, section, category, and description. Only a successful response from the server should be shown as accepted by the email provider.
+- New Vercel environment variable values apply to new deployments. Test in production after the API key is configured.
 
 ## Deployment
 
