@@ -133,11 +133,11 @@ function V5SectionContent({section,index}:{section:SectionData;index:number}){
 function mediaTitleParts(title:string):[string,string]{
  const clean=title.trim();
  if(clean==='Forex Trade Technology')return ['Forex Trade','Technology'];
- const separator=/\\s(?:&|for)\\s/i.exec(clean);
- if(separator&&separator.index>7){
-  return [clean.slice(0,separator.index),clean.slice(separator.index+1)];
- }
- const words=clean.split(/\\s+/);
+ const ampersand=clean.indexOf(' & ');
+ const forClause=clean.toLowerCase().indexOf(' for ');
+ const boundary=ampersand>=0?ampersand:forClause;
+ if(boundary>7)return [clean.slice(0,boundary),clean.slice(boundary+1)];
+ const words=clean.split(' ').filter(Boolean);
  const pivot=Math.max(1,Math.ceil(words.length*.56));
  return [words.slice(0,pivot).join(' '),words.slice(pivot).join(' ')];
 }
