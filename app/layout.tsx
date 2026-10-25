@@ -5,6 +5,7 @@ import {SiteFooter} from '@/components/new-theme/SiteFooter';
 import {ScrollToTop} from '@/components/new-theme/ScrollToTop';
 import './new-theme.css';
 import './trust-carousel.css';
+import './icon-box-carousel.css';
 
 export const metadata:Metadata={
  metadataBase:new URL(absoluteUrl('/')),
