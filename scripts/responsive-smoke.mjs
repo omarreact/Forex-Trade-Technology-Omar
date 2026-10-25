@@ -290,7 +290,30 @@ try {
      await toggle.click();
      if(await page.getByRole('dialog',{name:'Suggest a change'}).count()!==1)problems.push('review dialog failed to open');
      if(await page.locator('.bs-review-form select').count()!==2)problems.push('review dialog missing section and category fields');
+     const dialogLayout=await page.evaluate(()=>{
+      const dialog=document.querySelector('.bs-review-dialog');
+      const header=document.querySelector('.bs-review-head');
+      const footer=document.querySelector('.bs-review-footer');
+      const body=document.querySelector('.bs-review-body');
+      if(!dialog||!header||!footer||!body)return null;
+      const a=dialog.getBoundingClientRect(),h=header.getBoundingClientRect(),f=footer.getBoundingClientRect();
+      return {top:a.top,bottom:a.bottom,headerVisible:h.top>=-2,footerVisible:f.bottom<=innerHeight+2,
+       bodyOverflow:getComputedStyle(body).overflowY};
+     });
+     if(!dialogLayout||dialogLayout.top<-2||dialogLayout.bottom>viewport.height+3)problems.push('feedback dialog extends beyond viewport');
+     if(dialogLayout&&(!dialogLayout.headerVisible||!dialogLayout.footerVisible))problems.push('feedback sheet header or submit footer clipped on mobile');
+     if(dialogLayout&&!['auto','scroll'].includes(dialogLayout.bodyOverflow))problems.push('feedback content does not have independent scroll');
      await page.screenshot({path:`artifacts/responsive/review-dialog-${viewport.width}.png`}).catch(()=>{});
+     await page.route('**/api/contact',route=>route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({message:'Email not configured'})}));
+     await page.locator('.bs-review-form input[name="name"]').fill('QA Test Name');
+     await page.locator('.bs-review-form input[name="email"]').fill('qa-private@example.com');
+     await page.locator('.bs-review-form textarea').fill('Please improve the card layout on the homepage');
+     await page.getByRole('button',{name:'Send feedback'}).click();
+     await page.locator('.bs-review-status.warning').waitFor({timeout:10_000});
+     const issueHref=await page.getByRole('link',{name:/Review draft on GitHub/}).getAttribute('href');
+     if(!issueHref?.includes('/issues/new?')||!issueHref.includes('card+layout'))problems.push('GitHub issue fallback missing');
+     if(issueHref?.includes('qa-private%40example.com')||issueHref?.includes('QA+Test+Name'))problems.push('private reviewer info leaked into public GitHub URL');
+     await page.unroute('**/api/contact');
      await page.keyboard.press('Escape');
      if(await page.getByRole('dialog',{name:'Suggest a change'}).count()!==0)problems.push('review dialog did not close with Escape');
     }
