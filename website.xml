@@ -3362,10 +3362,8 @@ export function ReviewFeedback(){
   event.preventDefault();
   setStatus(null);
   if(staticPreview){
-   const opened=window.open(issueURL,'_blank','noopener,noreferrer');
-   setStatus({ok:false,text:opened
-     ?'GitHub opened an issue draft. Sign in and click Submit new issue to post your feedback.'
-     :'Open the GitHub draft link below, then click Submit new issue. Nothing has been posted yet.'});
+   window.open(issueURL,'_blank','noopener,noreferrer');
+   setStatus({ok:false,text:'A GitHub issue draft was requested. If it did not open, use the link below. Sign in and click Submit new issue to post your feedback.'});
    return;
   }
   setSending(true);
