@@ -22,7 +22,7 @@ export function ContactForm(){
    setIssueDraft(issueBase+'?'+new URLSearchParams({title,body:text}).toString());
   }
   try{
-   const response=await fetch(staticPreview?'https://forextrade.pincodeit.com/api/contact':'/api/contact',{method:'POST',body});
+   const response=await fetch(staticPreview?'https://forex-trade-technology.vercel.app/api/contact':'/api/contact',{method:'POST',body});
    const data=await response.json();
    setResult({ok:response.ok,message:data.message||(response.ok?'Message accepted by the email provider.':'Email delivery is not available. No message was sent; use the public GitHub issue fallback only if the content is safe to share.')});
    if(response.ok)form.reset();
