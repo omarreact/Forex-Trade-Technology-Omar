@@ -4,11 +4,15 @@ export const runtime='nodejs';
 // Static GitHub Pages is an approved browser client for the production API.
 // CORS is not authentication: server-side spam defenses must remain enabled.
 const githubPagesOrigin='https://omarreact.github.io';
-function corsHeaders(origin:string|null){
- return origin===githubPagesOrigin
-  ? {'Access-Control-Allow-Origin':githubPagesOrigin,'Access-Control-Allow-Methods':'POST, OPTIONS',
-     'Access-Control-Allow-Headers':'Content-Type, Accept','Access-Control-Max-Age':'600','Vary':'Origin'}
-  : {'Vary':'Origin'};
+function corsHeaders(origin:string|null):Headers{
+ const headers=new Headers({'Vary':'Origin'});
+ if(origin===githubPagesOrigin){
+  headers.set('Access-Control-Allow-Origin',githubPagesOrigin);
+  headers.set('Access-Control-Allow-Methods','POST, OPTIONS');
+  headers.set('Access-Control-Allow-Headers','Content-Type, Accept');
+  headers.set('Access-Control-Max-Age','600');
+ }
+ return headers;
 }
 export async function OPTIONS(req:NextRequest){
  const origin=req.headers.get('origin');
