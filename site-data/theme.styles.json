@@ -111,7 +111,13 @@
       "desktopContentHeight": "70%",
       "verticalAlignment": "center",
       "contentDistribution": "space-evenly",
-      "horizontalAlignment": "left"
+      "horizontalAlignment": "left",
+      "imageTreatment": {
+        "filter": "saturate(.82) contrast(1.07) brightness(.88)",
+        "overlay": "evergreen gradient, deeper under copy",
+        "license": "Unsplash License",
+        "focalPoints": "per-image"
+      }
     },
     "pageHeader": {
       "className": "bs-page-header",
@@ -295,29 +301,44 @@
     },
     "images": {
       "slider_1": {
-        "url": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1920&q=80",
-        "alt": "Financial market charts on multiple screens",
-        "source": "unsplash"
+        "url": "https://images.unsplash.com/photo-1744782211816-c5224434614f?auto=format&fit=crop&w=1920&q=78",
+        "alt": "Multi-screen financial trading desk displaying live candlestick charts",
+        "source": "unsplash",
+        "credit": "Jakub Żerdzicki",
+        "sourcePage": "https://unsplash.com/photos/VM_6EtTAfDQ",
+        "position": "64% center"
       },
       "slider_2": {
-        "url": "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        "alt": "Team planning brokerage strategy",
-        "source": "pexels"
+        "url": "https://images.unsplash.com/photo-1781246212288-7fa538344718?auto=format&fit=crop&w=1920&q=78",
+        "alt": "Brokerage setup planning team collaborating around laptops",
+        "source": "unsplash",
+        "credit": "Ngital",
+        "sourcePage": "https://unsplash.com/photos/RdEFWm0N84o",
+        "position": "62% center"
       },
       "slider_3": {
-        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80",
-        "alt": "Analytics dashboard and trading data",
-        "source": "unsplash"
+        "url": "https://images.unsplash.com/photo-1775519520461-6b6e068d9250?auto=format&fit=crop&w=1920&q=78",
+        "alt": "Industrial server infrastructure racks with cables and network equipment",
+        "source": "unsplash",
+        "credit": "Eric Stoynov",
+        "sourcePage": "https://unsplash.com/photos/k27hkqXuveo",
+        "position": "73% center"
       },
       "slider_4": {
-        "url": "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=1920",
-        "alt": "Modern office technology workspace",
-        "source": "pexels"
+        "url": "https://images.unsplash.com/photo-1770681381576-f1fdceb2ea01?auto=format&fit=crop&w=1920&q=78",
+        "alt": "Business reporting and CRM analytics dashboard displayed on a laptop",
+        "source": "unsplash",
+        "credit": "nicoll camacho",
+        "sourcePage": "https://unsplash.com/photos/adFE-OdO7RA",
+        "position": "65% center"
       },
       "slider_5": {
-        "url": "https://images.unsplash.com/photo-1642790106117-e829e14bf061?auto=format&fit=crop&w=1920&q=80",
-        "alt": "Global finance and connectivity",
-        "source": "unsplash"
+        "url": "https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=1920&q=78",
+        "alt": "Fiber and ethernet cables attached to trading infrastructure network switches",
+        "source": "unsplash",
+        "credit": "Albert Stoynov",
+        "sourcePage": "https://unsplash.com/photos/dyUp7WPu5q4",
+        "position": "70% center"
       },
       "trading_desk": {
         "url": "https://images.pexels.com/photos/6802049/pexels-photo-6802049.jpeg?auto=compress&cs=tinysrgb&w=1400",

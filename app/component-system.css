@@ -386,3 +386,17 @@
   justify-content:center;
  }
 }
+
+/* Five curated brokerage-technology photos: restrained evergreen grading. */
+.bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-photo{
+ object-fit:cover;
+ filter:saturate(.82) contrast(1.07) brightness(.88);
+}
+.bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-shade{
+ background:linear-gradient(90deg,rgba(8,18,11,.91) 0%,rgba(8,18,11,.78) 32%,rgba(8,18,11,.49) 70%,rgba(8,18,11,.28) 100%);
+}
+@media(max-width:767px){
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-shade{
+  background:linear-gradient(90deg,rgba(8,18,11,.9) 0%,rgba(8,18,11,.77) 62%,rgba(8,18,11,.65) 100%);
+ }
+}

@@ -13,6 +13,9 @@ for(const p of pages){
  if(p.slug!==paths[p.id]||p.seo.canonicalPath!==p.slug)throw Error('Canonical mismatch '+p.id);
  if(p.id==='home'){
   if(p.pageTop.variant!=='homeSlider'||p.pageTop.slides.length!==5||p.pageTop.intervalMs!==6000||new Set(p.pageTop.slides.map(x=>x.imageKey)).size!==5)throw Error('Home slider mismatch');
+  const heroImages=p.pageTop.slides.map(slide=>images[slide.imageKey]);
+  if(heroImages.some(img=>!img||!img.url.startsWith('https://images.unsplash.com/photo-')||!img.alt||!img.credit||!img.sourcePage||!img.position))throw Error('Missing curated slider source metadata');
+  if(new Set(heroImages.map(img=>new URL(img.url).pathname)).size!==5)throw Error('Repeated hero images');
  }else if(p.pageTop.variant!=='pageHeader'||p.pageTop.height!=='240px')throw Error('Wrong compact header '+p.id);
  if(p.sections.at(-1)?.layout!=='ctaBand')throw Error('Only last section may be closing CTA '+p.id);
  const layouts=new Set();

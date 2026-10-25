@@ -27,7 +27,7 @@ export function HomeSlider({slides,intervalMs=6000,autoplay=true}:{slides:SlideD
    return <div className={`bs-slide ${active?'is-active':''}`} key={slide.imageKey}
     role="group" aria-roledescription="slide" aria-label={`Slide ${i+1} of ${slides.length}`}
     aria-hidden={!active} inert={!active}>
-    {image&&<Image src={image.url} alt={image.alt} fill priority={i===0} unoptimized sizes="100vw" className="bs-slide-photo"/>}
+    {image&&<Image src={image.url} alt={image.alt} fill priority={i===0} unoptimized sizes="100vw" style={{objectPosition:image.position||'center'}} className="bs-slide-photo"/>}
     <div className="bs-slide-shade"/>
     <div className="bs-shell bs-slide-copy">
      <div className="bs-slide-content">
