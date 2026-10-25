@@ -3,16 +3,6 @@ name: Deploy Next.js static preview to GitHub Pages
 on:
   push:
     branches: ["main"]
-    paths:
-      - "app/**"
-      - "components/**"
-      - "lib/**"
-      - "public/**"
-      - "site-data/**"
-      - "next.config.ts"
-      - "package.json"
-      - "scripts/**"
-      - ".github/workflows/nextjs.yml"
   workflow_dispatch:
 
 permissions:
@@ -45,6 +35,9 @@ jobs:
           GITHUB_PAGES_EXPORT: "true"
           NEXT_PUBLIC_STATIC_EXPORT: "true"
         run: npm run build
+      - name: Stamp built commit for deployment verification
+        run: |
+          node -e 'const fs=require("fs");fs.writeFileSync("out/release.json",JSON.stringify({branch:"main",commit:process.env.GITHUB_SHA,builtAt:new Date().toISOString(),provider:"github-pages"})+"\\n")'
       - name: Disable Jekyll processing
         run: touch out/.nojekyll
       - name: Configure GitHub Pages
@@ -64,3 +57,20 @@ jobs:
       - name: Deploy static preview
         id: deployment
         uses: actions/deploy-pages@v5
+      - name: Verify published commit
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          url="https://omarreact.github.io/Forex-Trade-Technology-Omar/release.json"
+          for attempt in $(seq 1 20); do
+            published_sha=$(curl --fail --silent --show-error --max-time 10 -H 'Cache-Control: no-cache' "${url}?check=${EXPECTED_SHA}-${attempt}" | node -pe 'JSON.parse(require("fs").readFileSync(0,"utf8")).commit' || true)
+            if [ "$published_sha" = "$EXPECTED_SHA" ]; then
+              echo "GitHub Pages is serving this exact main commit: $EXPECTED_SHA"
+              exit 0
+            fi
+            sleep 6
+          done
+          echo "::error::GitHub Pages is not yet serving this commit: $EXPECTED_SHA"
+          exit 1
+
