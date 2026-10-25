@@ -291,15 +291,39 @@
   font-weight:550;
   color:#334155;
 }
-.bs-clean-header .bs-submenu a:hover,
-.bs-clean-header .bs-submenu a.active{
-  color:#047857;
-  background:#effaf4;
+/* Independent states: muted lime hover, strong active page, visible keyboard focus. */
+.bs-clean-header .bs-submenu a {
+  color:#334155;
+  background:transparent;
+  box-shadow:inset 0 0 0 transparent;
+  transition:color .16s ease,background-color .16s ease,box-shadow .16s ease;
+}
+.bs-clean-header .bs-submenu a:hover:not(.active),
+.bs-clean-header .bs-submenu a:focus-visible:not(.active) {
+  color:#3b551d;
+  background:#f3f8e7;
+}
+.bs-clean-header .bs-submenu a.active,
+.bs-clean-header .bs-submenu a[aria-current="page"] {
+  color:#24350f;
+  background:#e7f1c7;
+  font-weight:700;
+  box-shadow:inset 3px 0 0 #6f922b;
+}
+.bs-clean-header .bs-submenu a.active:hover,
+.bs-clean-header .bs-submenu a[aria-current="page"]:hover {
+  color:#1e2f0d;
+  background:#dcebb1;
+}
+.bs-clean-header .bs-menu-trigger.active,
+.bs-clean-header .bs-menu-trigger[aria-expanded="true"] {
+  color:#5a7826;
 }
 .bs-clean-header .bs-menu-trigger:focus-visible,
 .bs-clean-header .bs-nav-link:focus-visible,
-.bs-clean-header .bs-submenu a:focus-visible{
-  outline:2px solid #059669;outline-offset:3px;
+.bs-clean-header .bs-submenu a:focus-visible {
+  outline:2px solid #6d9030;
+  outline-offset:3px;
 }
 @media(max-width:830px) {
   .bs-clean-header .bs-inline-nav{
