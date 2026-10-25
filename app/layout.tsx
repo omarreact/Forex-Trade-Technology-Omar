@@ -14,6 +14,7 @@ import './responsive-polish.css';
 import './faq-polish.css';
 import './global-cta-footer.css';
 import './component-system.css';
+import './trading-stack-flow.css';
 
 export const metadata:Metadata={
  metadataBase:new URL(absoluteUrl('/')),
