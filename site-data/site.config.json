@@ -3,7 +3,7 @@
     "name": "Forex Trade Technology",
     "tagline": "MT5 setup, hosting, liquidity, CRM & payment integrations for brokers and prop firms",
     "url": "https://forextrade.pincodeit.com",
-    "email": "business@forextradetechnology.com",
+    "email": "",
     "locale": "en",
     "copyright": "© 2026 Forex Trade Technology. All rights reserved. We provide technology and infrastructure services. We are not a broker and do not hold client funds."
   },
@@ -245,8 +245,8 @@
       "enabled": true,
       "position": "right-middle",
       "buttonLabel": "Suggest a change",
-      "delivery": "api-contact-with-email-draft-fallback",
-      "recipient": "business@forextradetechnology.com"
+      "delivery": "Vercel Resend API; static preview links to production contact form",
+      "recipient": ""
     }
   }
 }
