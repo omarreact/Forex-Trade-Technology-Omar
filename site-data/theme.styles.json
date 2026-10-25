@@ -56,11 +56,12 @@
     "homeSlider": {
       "className": "bs-home-slider",
       "fullWidth": true,
-      "minHeight": "clamp(480px, 62vh, 640px)",
+      "minHeight": "0",
       "overlay": "linear-gradient(90deg, rgba(8,12,8,0.88) 0%, rgba(8,12,8,0.55) 55%, rgba(8,12,8,0.25) 100%)",
       "contentMaxWidth": "640px",
       "dots": true,
-      "arrows": true
+      "arrows": true,
+      "height": "85svh"
     },
     "pageHeader": {
       "className": "bs-page-header",
