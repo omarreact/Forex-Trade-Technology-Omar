@@ -36,9 +36,8 @@ export function HomeSlider({slides,intervalMs=6000,autoplay=true}:{slides:SlideD
     </div>
    </div>;
   })}
-  <div className="bs-slide-controls"><button type="button" className="bs-slide-arrow" onClick={previous} aria-label="Previous slide"><Icon name="chevronLeft" size={22}/></button>
+  <div className="bs-slide-controls">
    <div className="bs-slide-dots" role="group" aria-label="Choose slide">{slides.map((slide,i)=><button type="button" key={slide.imageKey} aria-label={`Go to slide ${i+1}`} aria-current={i===index?'true':undefined} className={i===index?'is-active':''} onClick={()=>setIndex(i)}/>)}</div>
-   <button type="button" className="bs-slide-arrow" onClick={next} aria-label="Next slide"><Icon name="chevronRight" size={22}/></button>
   </div>
  </section>;
 }
