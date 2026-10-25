@@ -1,6 +1,7 @@
 'use client';
 
 import {useState} from 'react';
+import {Pause,Play} from 'lucide-react';
 import {Icon} from './Icon';
 
 type TrustCarouselProps={items:string[]};
@@ -38,7 +39,7 @@ export function TrustCarousel({items}:TrustCarouselProps){
     aria-pressed={paused}
     onClick={()=>setPaused(value=>!value)}
    >
-    <Icon name={paused?'play':'pause'} size={17}/>
+    {paused ? <Play aria-hidden="true" size={17}/> : <Pause aria-hidden="true" size={17}/>}
    </button>
   </div>
  </section>;
