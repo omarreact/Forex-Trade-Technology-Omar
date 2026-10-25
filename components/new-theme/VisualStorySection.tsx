@@ -58,7 +58,6 @@ export function VisualStorySection({section,pageId,index,dark=false}:Props){
       {info.nodes.map((label,i)=><div className="bs-story-node" key={label}>
        <span className="bs-story-node-icon"><Icon name={info.icons[i]} size={19}/></span>
        <span>{label}</span>
-       <span className="bs-story-node-index">0{i+1}</span>
       </div>)}
      </div>
      <div className="bs-story-diagram-bottom"><span className="bs-story-live-dot"/>Integrated technology workflow</div>
