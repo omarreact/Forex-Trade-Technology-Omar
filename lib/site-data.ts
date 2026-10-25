@@ -39,6 +39,6 @@ export function canonicalHref(href:string){
 }
 export function getPage(slug:string){const path=normalizePath(slug);return allPages.find(p=>normalizePath(p.slug)===path);}
 export function getPageById(id:string){return pageById.get(id);}
-export function getImage(key?:string){const images=theme.assets.images as Record<string,{url:string;alt:string;source?:string}>;return key?images[key]:undefined;}
+export function getImage(key?:string){const images=theme.assets.images as Record<string,{url:string;alt:string;source?:string;position?:string;credit?:string;sourcePage?:string}>;return key?images[key]:undefined;}
 export function absoluteUrl(path:string){const url=process.env.NEXT_PUBLIC_SITE_URL||site.site.url;return new URL(path,url).toString();}
 export const pageStats={...content.stats};
