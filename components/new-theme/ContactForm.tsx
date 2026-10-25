@@ -10,6 +10,19 @@ export function ContactForm(){
  async function send(event:FormEvent<HTMLFormElement>){
   event.preventDefault();setPending(true);setResult(null);
   const form=event.currentTarget;const body=new FormData(form);
+  if(process.env.NEXT_PUBLIC_STATIC_EXPORT==='true'){
+   // Pages cannot send through the Vercel API. Open an unsent email draft.
+   const field=(name:string)=>String(body.get(name)||'').trim();
+   const subject='Forex Trade Technology — Consultation Request';
+   const message=['Name: '+field('name'),'Email: '+field('email'),
+     'Company: '+field('company'),'Country: '+field('country'),
+     'Phone / WhatsApp: '+field('contact'),'Interest: '+field('interest'),
+     'Stage: '+field('stage'),'','Project description:',field('message')].join('\n');
+   window.location.href=`mailto:${siteConfig.site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+   setResult({ok:true,message:'An email draft should open. Nothing has been submitted yet; please send it from your email app.'});
+   setPending(false);
+   return;
+  }
   try{
    const response=await fetch('/api/contact',{method:'POST',body});
    const data=await response.json();
