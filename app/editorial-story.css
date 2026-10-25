@@ -140,11 +140,7 @@
  display:grid;place-items:center;
  background:#d8e9a2;color:#172014;border-radius:9px;
 }
-.bs-v5 .bs-story-node-index{
- margin-left:auto;font-size:10px;font-weight:800;
- color:#bcd3a4;letter-spacing:.1em;
-}
-.bs-v5 .bs-story-diagram-bottom{
+.bs-v5 .bs-v5 .bs-story-diagram-bottom{
  display:flex;align-items:center;gap:8px;
  font-size:11px;color:#d5e2cb;margin-top:15px;
 }
