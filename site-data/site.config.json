@@ -171,7 +171,17 @@
           }
         ]
       }
-    ]
+    ],
+    "cta": {
+      "kicker": "YOUR NEXT MOVE",
+      "title": "Build Your Trading Infrastructure",
+      "description": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "action": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      }
+    }
   },
   "features": {
     "homeHeroSlider": {
