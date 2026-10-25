@@ -3,6 +3,7 @@
 import {useCallback,useEffect,useRef,useState} from 'react';
 import {ChevronLeft,ChevronRight} from 'lucide-react';
 import {IconCard} from './IconCard';
+import {SectionHeading} from './SectionHeading';
 
 export type AudienceItem={title:string;description:string;icon:string};
 type Props={title:string;kicker?:string;items:AudienceItem[]};
@@ -78,7 +79,7 @@ export function AudienceCarousel({title,kicker='FOREX TRADE TECHNOLOGY',items}:P
  >
   <div className="bs-shell">
    <div className="bs-audience-carousel-heading">
-    <div><span className="bs-audience-kicker">{kicker}</span><h2>{title}</h2></div>
+    <SectionHeading title={title} kicker={kicker} as="div" className="bs-audience-title-block"/>
     <div className="bs-audience-controls">
      <button type="button" onClick={previous} aria-label="Previous audience" className="bs-audience-arrow"><ChevronLeft size={21}/></button>
      <button type="button" onClick={next} aria-label="Next audience" className="bs-audience-arrow"><ChevronRight size={21}/></button>
@@ -97,9 +98,7 @@ export function AudienceCarousel({title,kicker='FOREX TRADE TECHNOLOGY',items}:P
     >
      {[0,1,2].flatMap(copy=>items.map((item,index)=>
       <div className="bs-audience-slide" key={`${copy}-${index}`}>
-       <IconCard title={item.title} icon={item.icon} className="bs-audience-icon-card">
-        <p>{item.description}</p>
-       </IconCard>
+       <IconCard title={item.title} icon={item.icon} description={item.description} className="bs-audience-icon-card"/>
       </div>
      ))}
     </div>
