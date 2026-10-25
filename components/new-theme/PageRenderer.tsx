@@ -6,6 +6,8 @@ import {Icon} from './Icon';
 import {ContactForm} from './ContactForm';
 import {HomeSlider} from './HomeSlider';
 import {TrustCarousel} from './TrustCarousel';
+import {AudienceCarousel} from './AudienceCarousel';
+import {IconCard} from './IconCard';
 import {PageHeader} from './PageHeader';
 import {SectionMedia} from './SectionMedia';
 
@@ -32,7 +34,7 @@ function Trust({section}:{section:SectionData}){
  return <TrustCarousel items={items}/>;
 }
 function TextParagraphs({paragraphs}:{paragraphs:string[]}){return <>{paragraphs.map((p,i)=><p key={i}>{p}</p>)}</>}
-function GroupCard({group,index}:{group:Group;index:number}){return <article className="bs-editorial-card"><span className="bs-editorial-card-num">{String(index+1).padStart(2,'0')}</span><h3>{group.heading}</h3><TextParagraphs paragraphs={group.paragraphs}/></article>}
+function GroupCard({group,index}:{group:Group;index:number}){return <IconCard className="bs-editorial-card" title={group.heading||''} icon={['layers','server','shield','link','users','payments'][index%6]} index={index}><TextParagraphs paragraphs={group.paragraphs}/></IconCard>}
 function EditorialSection({section,index,pageImages}:{section:SectionData;index:number;pageImages?:string[]}){
  const grouped=regroup(section.blocks||[]),intro=grouped.filter(g=>!g.heading),topics=grouped.filter(g=>g.heading);
  const isFaq=/frequently asked|^faq|questions/i.test(section.title||'')||topics.filter(g=>g.heading?.includes('?')).length>=2;
@@ -69,7 +71,7 @@ function DenseEditorialSection({section,index}:{section:SectionData;index:number
    <header className="bs-dense-heading"><span className="bs-dense-kicker">FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>
    {intro.length>0&&<div className="bs-dense-intro">{intro.map((g,i)=><TextParagraphs key={i} paragraphs={g.paragraphs}/>)}</div>}
    {faq?<div className="bs-dense-accordion">{topics.map((g,i)=><details key={i}><summary><span>{g.heading}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer"><TextParagraphs paragraphs={g.paragraphs}/></div></details>)}</div>
-    :card?<div className={'bs-dense-cards '+col}>{topics.map((g,i)=><article className="bs-dense-card" key={i}><div className="bs-dense-card-head"><span className="bs-dense-card-icon"><Icon name={['server','shield','link','users','layers','payments'][i%6]} size={23}/></span><span className="bs-dense-card-index">{String(i+1).padStart(2,'0')}</span></div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>
+    :card?<div className={'bs-dense-cards '+col}>{topics.map((g,i)=><IconCard className="bs-dense-card" title={g.heading||''} icon={['server','shield','link','users','layers','payments'][i%6]} index={i} key={i}><TextParagraphs paragraphs={g.paragraphs}/></IconCard>)}</div>
     :topics.length>0?<div className="bs-dense-prose">{topics.map((g,i)=><div key={i} className="bs-dense-prose-group"><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div>)}</div>:null}
   </div>
  </section>;
@@ -118,7 +120,7 @@ function V5SectionContent({section,index}:{section:SectionData;index:number}){
    <header className="bs-v5-section-heading"><span>FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>
    {leadContent.length>0&&<div className="bs-v5-intro">{leadContent.map((p,i)=><p key={i}>{p}</p>)}</div>}
    {layout.startsWith('cardGrid')&&cards.length>0&&<div className={'bs-v5-grid '+(layout==='cardGrid2'?'bs-v5-grid-two':'bs-v5-grid-three')}>{cards.map((c,i)=>
-    <article className="bs-v5-card" key={i}><div className="bs-v5-card-top"><span className="bs-v5-card-symbol"><Icon name={['layers','server','shield','link','users','payments'][i%6]} size={22}/></span><span>{String(i+1).padStart(2,'0')}</span></div>{c.title&&<h3>{c.title}</h3>}<TextParagraphs paragraphs={c.paragraphs}/></article>)}</div>}
+    <IconCard className="bs-v5-card" key={i} title={c.title} icon={['layers','server','shield','link','users','payments'][i%6]} index={i}><TextParagraphs paragraphs={c.paragraphs}/></IconCard>)}</div>}
    {layout==='timeline'&&<div className="bs-v5-steps">{(topics.length?topics:leads.length>=2?leads.map((p,i)=>({heading:'Step '+(i+1),paragraphs:[p]})):[]).map((g,i)=>
     <article key={i}><span className="bs-v5-step-index">{String(i+1).padStart(2,'0')}</span><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
    {layout==='stack'&&topics.length>0&&<div className="bs-v5-prose-list">{topics.map((g,i)=><article key={i}><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>}
@@ -164,6 +166,15 @@ function V5Guide({page}:{page:PageData}){
 }
 
 function Section({section,index}:{section:SectionData;index:number}){
+ if(section.title==='Who We Work With'&&section.blocks?.some(block=>block.type==='h3')){
+  const icons=['building','server','users','settings'];
+  const items=regroup(section.blocks).filter(group=>group.heading).map((group,i)=>({
+   title:group.heading||'',
+   description:group.paragraphs.join(' '),
+   icon:icons[i%icons.length]
+  }));
+  return <AudienceCarousel title={section.title} items={items}/>;
+ }
  if(section.layout==='iconRow')return <Trust section={section}/>;
  if(section.layout==='mediaBand')return <V5MediaBand section={section}/>;
  if(section.layout==='gallery3')return <V5Gallery section={section}/>;
