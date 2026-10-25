@@ -2865,7 +2865,7 @@ export function ContactForm(){
    setIssueDraft(issueBase+'?'+new URLSearchParams({title,body:text}).toString());
   }
   try{
-   const response=await fetch(staticPreview?'https://forextrade.pincodeit.com/api/contact':'/api/contact',{method:'POST',body});
+   const response=await fetch(staticPreview?'https://forex-trade-technology.vercel.app/api/contact':'/api/contact',{method:'POST',body});
    const data=await response.json();
    setResult({ok:response.ok,message:data.message||(response.ok?'Message accepted by the email provider.':'Email delivery is not available. No message was sent; use the public GitHub issue fallback only if the content is safe to share.')});
    if(response.ok)form.reset();
@@ -3377,7 +3377,7 @@ export function ReviewFeedback(){
   form.set('section',section);form.set('pageUrl',window.location.href);
   form.set('website',honeypot);
   try{
-   const endpoint=staticPreview?'https://forextrade.pincodeit.com/api/contact':'/api/contact';
+   const endpoint=staticPreview?'https://forex-trade-technology.vercel.app/api/contact':'/api/contact';
    const response=await fetch(endpoint,{method:'POST',body:form,headers:{Accept:'application/json'}});
    const data=await response.json() as {ok?:boolean;message?:string};
    if(response.ok&&data.ok){
