@@ -36,7 +36,7 @@ function Trust({section}:{section:SectionData}){
  return <TrustCarousel items={items}/>;
 }
 function TextParagraphs({paragraphs}:{paragraphs:string[]}){return <>{paragraphs.map((p,i)=><p key={i}>{p}</p>)}</>}
-function GroupCard({group,index}:{group:Group;index:number}){return <IconCard className="bs-editorial-card" title={group.heading||''} icon={['layers','server','shield','link','users','payments'][index%6]} index={index}><TextParagraphs paragraphs={group.paragraphs}/></IconCard>}
+function GroupCard({group,index}:{group:Group;index:number}){return <IconCard className="bs-editorial-card" title={group.heading||''} icon={['layers','server','shield','link','users','payments'][index%6]}><TextParagraphs paragraphs={group.paragraphs}/></IconCard>}
 function EditorialSection({section,index,pageImages}:{section:SectionData;index:number;pageImages?:string[]}){
  const grouped=regroup(section.blocks||[]),intro=grouped.filter(g=>!g.heading),topics=grouped.filter(g=>g.heading);
  const isFaq=/frequently asked|^faq|questions/i.test(section.title||'')||topics.filter(g=>g.heading?.includes('?')).length>=2;
@@ -51,10 +51,10 @@ function EditorialSection({section,index,pageImages}:{section:SectionData;index:
    <SectionMedia media={section.media} pageImages={pageImages}/>
    {intro.length>0&&<div className="bs-content-intro">{intro.map((g,i)=><TextParagraphs key={i} paragraphs={g.paragraphs}/>)}</div>}
    {variant==='faq'&&<div className="bs-editorial-faq">{topics.map((g,i)=><details key={i}><summary>{g.heading}<span aria-hidden="true">+</span></summary><div className="bs-faq-answer"><TextParagraphs paragraphs={g.paragraphs}/></div></details>)}</div>}
-   {variant==='timeline'&&<div className="bs-timeline-list">{topics.map((g,i)=><div className="bs-timeline-step" key={i}><span className="bs-timeline-number">{String(i+1).padStart(2,'0')}</span><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></div>)}</div>}
+   {variant==='timeline'&&<div className="bs-timeline-list">{topics.map((g,i)=><div className="bs-timeline-step" key={i}><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></div>)}</div>}
    {variant==='cards'&&<div className="bs-editorial-grid">{topics.map((g,i)=><GroupCard group={g} index={i} key={i}/>)}</div>}
    {variant==='feature'&&<div className="bs-feature-list">{topics.map((g,i)=><article className="bs-feature-row" key={i}><span className="bs-feature-marker"><Icon name={['shield','server','layers','settings','globe','check'][i%6]} size={23}/></span><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
-   {variant==='bands'&&<div className="bs-editorial-bands">{topics.map((g,i)=><article className="bs-band" key={i}><div><span className="bs-band-number">{String(i+1).padStart(2,'0')}</span><h3>{g.heading}</h3></div><div><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
+   {variant==='bands'&&<div className="bs-editorial-bands">{topics.map((g,i)=><article className="bs-band" key={i}><div><h3>{g.heading}</h3></div><div><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
    {variant==='panel'&&<div className="bs-editorial-panel"><div className="bs-panel-heading"><Icon name="layers" size={35}/><span>Connected operations</span></div><div className="bs-panel-grid">{topics.map((g,i)=><article key={i}><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div></div>}
    {variant==='split'&&<div className="bs-feature-list">{topics.map((g,i)=><article className="bs-feature-row" key={i}><span className="bs-feature-marker"><Icon name="check" size={23}/></span><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
   </div>
@@ -73,7 +73,7 @@ function DenseEditorialSection({section,index}:{section:SectionData;index:number
    <header className="bs-dense-heading"><span className="bs-dense-kicker">FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>
    {intro.length>0&&<div className="bs-dense-intro">{intro.map((g,i)=><TextParagraphs key={i} paragraphs={g.paragraphs}/>)}</div>}
    {faq?<div className="bs-dense-accordion">{topics.map((g,i)=><details key={i}><summary><span>{g.heading}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer"><TextParagraphs paragraphs={g.paragraphs}/></div></details>)}</div>
-    :card?<div className={'bs-dense-cards '+col}>{topics.map((g,i)=><IconCard className="bs-dense-card" title={g.heading||''} icon={['server','shield','link','users','layers','payments'][i%6]} index={i} key={i}><TextParagraphs paragraphs={g.paragraphs}/></IconCard>)}</div>
+    :card?<div className={'bs-dense-cards '+col}>{topics.map((g,i)=><IconCard className="bs-dense-card" title={g.heading||''} icon={['server','shield','link','users','layers','payments'][i%6]} key={i}><TextParagraphs paragraphs={g.paragraphs}/></IconCard>)}</div>
     :topics.length>0?<div className="bs-dense-prose">{topics.map((g,i)=><div key={i} className="bs-dense-prose-group"><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div>)}</div>:null}
   </div>
  </section>;
@@ -127,11 +127,11 @@ function V5SectionContent({section,index,pageId}:{section:SectionData;index:numb
    <header className="bs-v5-section-heading"><span>FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>
    {leadContent.length>0&&<div className="bs-v5-intro">{leadContent.map((p,i)=><p key={i}>{p}</p>)}</div>}
    {layout.startsWith('cardGrid')&&cards.length>0&&<div className={'bs-v5-grid '+(layout==='cardGrid2'?'bs-v5-grid-two':'bs-v5-grid-three')}>{cards.map((c,i)=>
-    <IconCard className="bs-v5-card" key={i} title={c.title} icon={['layers','server','shield','link','users','payments'][i%6]} index={i}><TextParagraphs paragraphs={c.paragraphs}/></IconCard>)}</div>}
+    <IconCard className="bs-v5-card" key={i} title={c.title} icon={['layers','server','shield','link','users','payments'][i%6]}><TextParagraphs paragraphs={c.paragraphs}/></IconCard>)}</div>}
    {layout==='timeline'&&<div className="bs-v5-steps">{(topics.length?topics:leads.length>=2?leads.map((p,i)=>({heading:'Step '+(i+1),paragraphs:[p]})):[]).map((g,i)=>
-    <article key={i}><span className="bs-v5-step-index">{String(i+1).padStart(2,'0')}</span><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
+    <article key={i}><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
    {layout==='stack'&&topics.length>0&&<div className="bs-v5-prose-list">{topics.map((g,i)=><article key={i}><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>}
-   {dark&&topics.length>0&&<div className="bs-v5-dark-list">{topics.map((g,i)=><article key={i}><span>{String(i+1).padStart(2,'0')}</span><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>}
+   {dark&&topics.length>0&&<div className="bs-v5-dark-list">{topics.map((g,i)=><article key={i}><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>}
   </div>
  </section>;
 }
