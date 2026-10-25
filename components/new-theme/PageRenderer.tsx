@@ -11,6 +11,7 @@ import {IconCard} from './IconCard';
 import {FeatureFlexSection} from './FeatureFlexSection';
 import {VisualStorySection} from './VisualStorySection';
 import {PageHeader} from './PageHeader';
+import {FinalCTA} from './FinalCTA';
 import {SectionMedia} from './SectionMedia';
 
 type Group={heading:string|null;paragraphs:string[]};
@@ -94,7 +95,6 @@ function DenseFaq({section}:{section:SectionData}){
  </div></section>;
 }
 
-function DarkCta({section}:{section:SectionData}){return <section className="bs-cta-wrap" id={section.id} data-view-transition={section.viewTransition||'section'}><div className="bs-shell"><div className="bs-dark-cta"><div className="bs-cta-decoration"/><SectionMedia media={section.media}/><div><span className="bs-eyebrow">YOUR NEXT MOVE</span><h2>{section.title}</h2><p>{section.subtitle}</p></div>{section.cta&&<Button item={section.cta}/>}</div></div></section>}
 function CtaRow({section}:{section:SectionData}){return <section className="bs-cta-row" id={section.id} aria-label="Next actions"><div className="bs-shell bs-cta-row-content"><span>Ready to connect your technology?</span><div>{(section.ctas||[]).map((item,i)=><Button item={item} key={i}/>)}</div></div></section>}
 function Faq({section}:{section:SectionData}){const items=(section.items||[]).filter((x):x is FaqItem=>typeof x!=='string'&&'q'in x);
  return <section className="bs-section bs-faq-section" id={section.id} data-view-transition={section.viewTransition||'section'}><div className="bs-shell bs-faq-grid"><div className="bs-faq-aside"><span className="bs-eyebrow">HAVE QUESTIONS?</span><h2>Clear answers.<br/><em>Better decisions.</em></h2><p>Browse the complete set of common questions about trading technology infrastructure.</p><span className="bs-question-count">{items.length} questions answered</span><SectionMedia media={section.media}/></div><div className="bs-faq-list bs-clean-accordion">{items.map((item,i)=><details key={`${item.q}-${i}`} name="ftt-faq-general"><summary><span>{item.q}</span><span className="bs-faq-plus" aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div></div></section>;
@@ -227,7 +227,6 @@ function Section({section,index,pageTitle,pageId}:{section:SectionData;index:num
  if(section.layout==='mediaBand')return <V5MediaBand section={section} title={pageTitle}/>;
  if(section.layout==='gallery3')return <V5Gallery section={section}/>;
  if(section.layout==='faqAccordion')return <DenseFaq section={section}/>;
- if(section.layout==='ctaBand')return <DarkCta section={section}/>;
  return <V5SectionContent section={section} index={index} pageId={pageId}/>;
 }
 function Notes({notes}:{notes?:string[]}){if(!notes?.length)return null;return <aside className="bs-notes"><div className="bs-shell"><details><summary>Additional information and risk disclosure</summary>{notes.map((note,i)=><p key={i}>{note}</p>)}</details></div></aside>}
@@ -237,13 +236,14 @@ export function PageRenderer({page}:{page:PageData}){
  // Image-backed promotional title bands are exclusive to the homepage.
  // Interior routes retain PageHeader with their own H1, breadcrumbs and introduction.
  const isHome=page.slug==='/';
- const visibleSections=isHome?page.sections:page.sections.filter(section=>section.layout!=='mediaBand');
+ const visibleSections=page.sections.filter(section=>section.layout!=='ctaBand'&&(isHome||section.layout!=='mediaBand'));
  return <main id="main-content" className="bs-main bs-v4-dense bs-v5 bs-clean-page">
   {top?.variant==='homeSlider'&&top.slides?.length ? <HomeSlider slides={top.slides} intervalMs={top.intervalMs} autoplay={top.autoplay}/> : <PageHeader page={page}/>}
   {visibleSections.map((section,index)=><Fragment key={section.id}>
-   {section.layout==='ctaBand'&&<V5Guide page={page}/>}
    <Section section={section} index={index} pageTitle={pageTitle} pageId={page.id}/>
   </Fragment>)}
+  <V5Guide page={page}/>
   <Notes notes={page.documentFooterNotes}/>
+  <FinalCTA home={isHome}/>
  </main>;
 }
