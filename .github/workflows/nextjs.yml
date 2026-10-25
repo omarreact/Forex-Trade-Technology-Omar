@@ -37,7 +37,7 @@ jobs:
         run: npm run build
       - name: Stamp built commit for deployment verification
         run: |
-          node -e 'const fs=require("fs");fs.writeFileSync("out/release.json",JSON.stringify({branch:"main",commit:process.env.GITHUB_SHA,builtAt:new Date().toISOString(),provider:"github-pages"})+"\\n")'
+          node -e 'const fs=require("fs");fs.writeFileSync("out/release.json",JSON.stringify({branch:"main",commit:process.env.GITHUB_SHA,builtAt:new Date().toISOString(),provider:"github-pages"}))'
       - name: Disable Jekyll processing
         run: touch out/.nojekyll
       - name: Configure GitHub Pages
