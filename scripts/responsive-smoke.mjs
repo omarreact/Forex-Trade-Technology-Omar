@@ -68,6 +68,7 @@ try {
       sliderHeight:slider?.getBoundingClientRect().height??null,
       slideOverflow:overflowY,
       submenuAccessible:!!document.querySelector('.bs-menu-trigger[aria-expanded]'),
+      promotionalImageBands:document.querySelectorAll('.bs-v5-media-title-band').length,
       bodyHeight:document.body.scrollHeight
      };
     });
@@ -78,6 +79,8 @@ try {
     if(metrics.h1Count!==1)problems.push(`H1 count ${metrics.h1Count}`);
     if(metrics.pauseButtons)problems.push(`${metrics.pauseButtons} pause/resume buttons`);
     if(metrics.numberBoxes)problems.push(`${metrics.numberBoxes} decorative counters`);
+    if(route!=='/'&&metrics.promotionalImageBands!==0)problems.push(`unexpected promotional title image bands: ${metrics.promotionalImageBands}`);
+    if(route==='/'&&metrics.promotionalImageBands<1)problems.push('homepage promotional image band missing');
     if(metrics.slideOverflow==='auto'||metrics.slideOverflow==='scroll')problems.push('nested slider scrolling');
     if(route==='/'&&metrics.sliderHeight!==null&&Math.abs(metrics.sliderHeight-viewport.height*.85)>3)problems.push(`hero is ${metrics.sliderHeight}px, expected ${viewport.height*.85}px`);
     if(pageErrors.length)problems.push(`JS: ${pageErrors.slice(0,2).join('; ')}`);
