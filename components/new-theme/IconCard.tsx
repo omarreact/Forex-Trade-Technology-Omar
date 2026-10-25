@@ -2,7 +2,7 @@ import type {ReactNode} from 'react';
 import {Icon} from './Icon';
 
 type IconCardProps={
-  title:string;
+  title?:string;
   index:number;
   icon:string;
   children:ReactNode;
@@ -21,7 +21,7 @@ export function IconCard({title,index,icon,children,className=''}:IconCardProps)
    <span className="bs-icon-card-badge" aria-hidden="true"><Icon name={icon} size={22}/></span>
    <span className="bs-icon-card-number">{String(index+1).padStart(2,'0')}</span>
   </div>
-  <h3>{title}</h3>
+  {title&&<h3>{title}</h3>}
   <div className="bs-icon-card-copy">{children}</div>
  </article>;
 }
