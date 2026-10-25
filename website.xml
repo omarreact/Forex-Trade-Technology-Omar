@@ -2861,7 +2861,7 @@ export function ContactForm(){
    const title='Public website enquiry: '+(field('interest')||'General');
    const text=['## Topic',field('interest')||'General','','## Business stage',
     field('stage')||'Not specified','','## Message',field('message'),
-    '','---','Public request originating on the GitHub Pages static preview.'].join('\\n');
+    '','---','Public request originating on the GitHub Pages static preview.'].join('\n');
    setIssueDraft(issueBase+'?'+new URLSearchParams({title,body:text}).toString());
   }
   try{
@@ -2884,13 +2884,11 @@ export function ContactForm(){
   <form className="bs-contact-form" onSubmit={send}>
    <input type="text" name="website" autoComplete="off" tabIndex={-1} className="bs-honeypot" aria-hidden="true"/>
    <div className="bs-form-fields">
-    <>
     <label><span>Name *</span><input autoComplete="name" type="text" name="name" placeholder="Your full name" required minLength={2} maxLength={100}/></label>
     <label><span>Business Email *</span><input autoComplete="email" type="email" name="email" placeholder="you@company.com" required maxLength={150}/></label>
     <label><span>Company</span><input autoComplete="organization" type="text" name="company" placeholder="Company name" maxLength={150}/></label>
     <label><span>Country</span><input autoComplete="country-name" type="text" name="country" placeholder="Country" maxLength={100}/></label>
     <label><span>Phone / WhatsApp</span><input autoComplete="tel" type="tel" name="contact" placeholder="Country code and number" maxLength={100}/></label>
-    </>
     <label><span>What are you interested in?</span><select name="interest" defaultValue=""><option value="">Select a solution</option>{interests.map(option=><option key={option} value={option}>{option}</option>)}</select></label>
     <label className="wide"><span>Where is your business right now?</span><select name="stage" defaultValue=""><option value="">Select your current stage</option>{stages.map(option=><option key={option} value={option}>{option}</option>)}</select></label>
     <label className="wide"><span>Message *</span><textarea name="message" minLength={10} maxLength={4000} rows={6} required placeholder="Share your business model, target markets, current platform, providers you've already chosen, or the problem you're trying to solve."/></label>
