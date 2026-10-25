@@ -3,6 +3,7 @@ import {siteConfig,themeConfig,absoluteUrl} from '@/lib/site-data';
 import {SiteHeader} from '@/components/new-theme/SiteHeader';
 import {SiteFooter} from '@/components/new-theme/SiteFooter';
 import {ScrollToTop} from '@/components/new-theme/ScrollToTop';
+import {ReviewFeedback} from '@/components/new-theme/ReviewFeedback';
 import './new-theme.css';
 import './trust-carousel.css';
 import './icon-box-carousel.css';
@@ -15,6 +16,7 @@ import './faq-polish.css';
 import './global-cta-footer.css';
 import './component-system.css';
 import './trading-stack-flow.css';
+import './review-feedback.css';
 
 export const metadata:Metadata={
  metadataBase:new URL(absoluteUrl('/')),
@@ -25,5 +27,5 @@ export const metadata:Metadata={
 };
 export const viewport:Viewport={width:'device-width',initialScale:1};
 export default function RootLayout({children}:{children:React.ReactNode}){
- return <html lang={siteConfig.site.locale}><body style={themeConfig.cssVariables as unknown as React.CSSProperties}><a href="#main-content" className="bs-skip-link">Skip to main content</a><SiteHeader/>{children}<SiteFooter/><ScrollToTop/></body></html>;
+ return <html lang={siteConfig.site.locale}><body style={themeConfig.cssVariables as unknown as React.CSSProperties}><a href="#main-content" className="bs-skip-link">Skip to main content</a><SiteHeader/>{children}<SiteFooter/><ScrollToTop/><ReviewFeedback/></body></html>;
 }
