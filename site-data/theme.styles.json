@@ -110,7 +110,8 @@
       "mobileTextWidth": "100%",
       "desktopContentHeight": "70%",
       "verticalAlignment": "center",
-      "contentDistribution": "space-evenly"
+      "contentDistribution": "space-evenly",
+      "horizontalAlignment": "left"
     },
     "pageHeader": {
       "className": "bs-page-header",
