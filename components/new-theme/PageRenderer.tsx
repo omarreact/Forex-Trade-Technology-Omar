@@ -234,17 +234,15 @@ function Notes({notes}:{notes?:string[]}){if(!notes?.length)return null;return <
 export function PageRenderer({page}:{page:PageData}){
  const top=page.pageTop;
  const pageTitle=page.slug==='/'?'Forex Trade Technology':top?.title||page.hero.title;
- const hasImageBand=page.sections.some(section=>section.layout==='mediaBand');
- const preferredImage=top?.backgroundImageKey||page.hero.imageKey;
- const mediaKey=getImage(preferredImage)?preferredImage:'world_map';
- const insertedBand:SectionData={id:'media-page-title',type:'mediaBand',layout:'mediaBand',media:{layout:'mediaBand',imageKey:mediaKey}};
- const insertAfter=page.id==='faq'?0:1;
+ // Image-backed promotional title bands are exclusive to the homepage.
+ // Interior routes retain PageHeader with their own H1, breadcrumbs and introduction.
+ const isHome=page.slug==='/';
+ const visibleSections=isHome?page.sections:page.sections.filter(section=>section.layout!=='mediaBand');
  return <main id="main-content" className="bs-main bs-v4-dense bs-v5 bs-clean-page">
   {top?.variant==='homeSlider'&&top.slides?.length ? <HomeSlider slides={top.slides} intervalMs={top.intervalMs} autoplay={top.autoplay}/> : <PageHeader page={page}/>}
-  {page.sections.map((section,index)=><Fragment key={section.id}>
+  {visibleSections.map((section,index)=><Fragment key={section.id}>
    {section.layout==='ctaBand'&&<V5Guide page={page}/>}
    <Section section={section} index={index} pageTitle={pageTitle} pageId={page.id}/>
-   {!hasImageBand&&index===insertAfter&&<V5MediaBand section={insertedBand} title={pageTitle}/>}
   </Fragment>)}
   <Notes notes={page.documentFooterNotes}/>
  </main>;
