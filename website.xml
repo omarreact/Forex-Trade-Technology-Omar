@@ -2797,15 +2797,7 @@ export function ContactForm(){
   event.preventDefault();setPending(true);setResult(null);
   const form=event.currentTarget;const body=new FormData(form);
   if(process.env.NEXT_PUBLIC_STATIC_EXPORT==='true'){
-   // Pages cannot send through the Vercel API. Open an unsent email draft.
-   const field=(name:string)=>String(body.get(name)||'').trim();
-   const subject='Forex Trade Technology — Consultation Request';
-   const message=['Name: '+field('name'),'Email: '+field('email'),
-     'Company: '+field('company'),'Country: '+field('country'),
-     'Phone / WhatsApp: '+field('contact'),'Interest: '+field('interest'),
-     'Stage: '+field('stage'),'','Project description:',field('message')].join('\n');
-   window.location.href=`mailto:${siteConfig.site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-   setResult({ok:true,message:'An email draft should open. Nothing has been submitted yet; please send it from your email app.'});
+   setResult({ok:false,message:'This is the GitHub Pages preview, so no message was submitted. Please use the live contact form on forextrade.pincodeit.com.'});
    setPending(false);
    return;
   }
@@ -2814,7 +2806,7 @@ export function ContactForm(){
    const data=await response.json();
    setResult({ok:response.ok,message:data.message||(response.ok?'Message sent.':'Your request could not be sent.')});
    if(response.ok)form.reset();
-  }catch{setResult({ok:false,message:`Unable to submit right now. Please email ${siteConfig.site.email}.`});}
+  }catch{setResult({ok:false,message:'Unable to submit your request. Please try again later.'});}
   finally{setPending(false);}
  }
  return <div className="bs-contact-grid"><div className="bs-contact-intro">
@@ -2822,7 +2814,7 @@ export function ContactForm(){
    <h2>Let&apos;s build something <em>reliable.</em></h2>
    <p>Planning a launch, fixing your existing setup, or deciding which technology you need? Tell us about your business and we&apos;ll arrange a useful technical consultation.</p>
    <p>No sales script and no obligation. Fields marked with an asterisk are required.</p>
-   <a href={`mailto:${siteConfig.site.email}`}>{siteConfig.site.email}<Icon name="arrowUpRight" size={17}/></a>
+   {siteConfig.site.email?<a href={`mailto:${siteConfig.site.email}`}>{siteConfig.site.email}<Icon name="arrowUpRight" size={17}/></a>:<a href={`${siteConfig.site.url}/contact`}>Open live contact form<Icon name="arrowUpRight" size={17}/></a>}
   </div>
   <form className="bs-contact-form" onSubmit={send}>
    <input type="text" name="website" autoComplete="off" tabIndex={-1} className="bs-honeypot" aria-hidden="true"/>
@@ -2837,7 +2829,7 @@ export function ContactForm(){
     <label className="wide"><span>Message *</span><textarea name="message" minLength={10} maxLength={4000} rows={6} required placeholder="Share your business model, target markets, current platform, providers you've already chosen, or the problem you're trying to solve."/></label>
    </div>
    <div className="bs-form-footer"><span>We&apos;ll use these details only to respond to your enquiry. We do not provide brokerage or investment services.</span><button className="bs-btn bs-btn-primary" type="submit" disabled={pending}>{pending?'Sending…':'Request a Consultation'}<Icon name="arrowUpRight" size={17}/></button></div>
-   {result&&<p role="status" className={`bs-form-status ${result.ok?'success':'error'}`}>{result.message}</p>}
+   {result&&<p role="status" className={`bs-form-status ${result.ok?'success':'error'}`}>{result.message} {!result.ok&&process.env.NEXT_PUBLIC_STATIC_EXPORT==='true'&&<a href={`${siteConfig.site.url}/contact`}>Open the production contact form</a>}</p>}
   </form>
  </div>;
 }
