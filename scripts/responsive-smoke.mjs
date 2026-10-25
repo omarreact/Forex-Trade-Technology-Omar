@@ -82,6 +82,32 @@ try {
       tickerGroups:ticker?.querySelectorAll('.bs-trust-carousel-group').length??0,
       tickerHiddenGroups:ticker?.querySelectorAll('.bs-trust-carousel-group[aria-hidden="true"]').length??0,
       tickerAnimation:ticker?.querySelector('.bs-trust-carousel-track')?getComputedStyle(ticker.querySelector('.bs-trust-carousel-track')).animationName:'',
+      sharedHeadings:document.querySelectorAll('.bs-ui-heading').length,
+      sharedCards:document.querySelectorAll('.bs-ui-card').length,
+      sectionHeadingMetrics:(()=>{
+       const element=document.querySelector('.bs-v5-section-heading .bs-ui-title,.bs-feature-flex-heading .bs-ui-title,.bs-audience-title-block .bs-ui-title');
+       const lead=document.querySelector('.bs-v5-section-heading .bs-ui-lead,.bs-feature-flex-heading .bs-ui-lead');
+       const kicker=document.querySelector('.bs-v5-section-heading .bs-ui-kicker,.bs-feature-flex-heading .bs-ui-kicker');
+       if(!element)return null;
+       return {font:getComputedStyle(element).fontSize,color:getComputedStyle(element).color,
+        leadFont:lead?getComputedStyle(lead).fontSize:null,leadColor:lead?getComputedStyle(lead).color:null,
+        kickerFont:kicker?getComputedStyle(kicker).fontSize:null,kickerColor:kicker?getComputedStyle(kicker).color:null};
+      })(),
+      cardMetrics:(()=>{
+       const card=document.querySelector('.bs-ui-card');
+       if(!card)return null;
+       const badge=card.querySelector('.bs-icon-card-badge');
+       const title=card.querySelector('.bs-ui-card-title');
+       const body=card.querySelector('.bs-ui-card-copy p');
+       return {badgeWidth:badge?.getBoundingClientRect().width??null,badgeBackground:badge?getComputedStyle(badge).backgroundColor:null,
+         titleFont:title?getComputedStyle(title).fontSize:null,bodyFont:body?getComputedStyle(body).fontSize:null};
+      })(),
+      heroCopyWidth:(()=>{
+       const inner=document.querySelector('.bs-slide.is-active .bs-slide-content');
+       const shell=inner?.closest('.bs-slide-copy');
+       if(!inner||!shell)return null;
+       return inner.getBoundingClientRect().width/shell.getBoundingClientRect().width;
+      })(),
       submenuAccessible:!!document.querySelector('.bs-menu-trigger[aria-expanded]'),
       promotionalImageBands:document.querySelectorAll('.bs-v5-media-title-band').length,
       finalCTAs:document.querySelectorAll('main .bs-global-cta').length,
@@ -100,6 +126,23 @@ try {
     if(metrics.scrollWidth>metrics.width+2)problems.push(`horizontal overflow ${metrics.scrollWidth}px vs ${metrics.width}px`);
     if(metrics.mainScrollWidth>metrics.width+2)problems.push(`main overflow ${metrics.mainScrollWidth}px vs ${metrics.width}px`);
     if(metrics.h1Count!==1)problems.push(`H1 count ${metrics.h1Count}`);
+    if(metrics.sharedHeadings===0)problems.push('no shared heading component rendered');
+    if(metrics.cardMetrics){
+     if(metrics.cardMetrics.badgeWidth!==null&&Math.abs(metrics.cardMetrics.badgeWidth-46)>1)problems.push(`badge width ${metrics.cardMetrics.badgeWidth} instead of 46px`);
+     if(metrics.cardMetrics.badgeBackground!=='rgb(216, 233, 162)')problems.push(`badge background ${metrics.cardMetrics.badgeBackground} instead of lime`);
+     if(metrics.cardMetrics.bodyFont&&Math.abs(parseFloat(metrics.cardMetrics.bodyFont)-14)>.2)problems.push(`card body ${metrics.cardMetrics.bodyFont} instead of 14px`);
+     if(metrics.cardMetrics.titleFont&&viewport.width>=1280&&Math.abs(parseFloat(metrics.cardMetrics.titleFont)-23)>.2)problems.push(`card title ${metrics.cardMetrics.titleFont} instead of 23px`);
+    }
+    if(metrics.sectionHeadingMetrics&&viewport.width>=1280){
+     if(Math.abs(parseFloat(metrics.sectionHeadingMetrics.font)-46)>.2)problems.push(`section H2 ${metrics.sectionHeadingMetrics.font} instead of 46px`);
+     if(metrics.sectionHeadingMetrics.color!=='rgb(22, 24, 22)'&&route!=='/')problems.push(`section H2 color ${metrics.sectionHeadingMetrics.color}`);
+     if(metrics.sectionHeadingMetrics.leadFont&&Math.abs(parseFloat(metrics.sectionHeadingMetrics.leadFont)-15)>.2)problems.push(`section subtitle ${metrics.sectionHeadingMetrics.leadFont} instead of 15px`);
+     if(metrics.sectionHeadingMetrics.kickerFont&&Math.abs(parseFloat(metrics.sectionHeadingMetrics.kickerFont)-11)>.2)problems.push(`section kicker ${metrics.sectionHeadingMetrics.kickerFont} instead of 11px`);
+    }
+    if(route==='/'&&metrics.heroCopyWidth!==null){
+     const expected=viewport.width>=1024?.60:viewport.width>=768?.78:1;
+     if(Math.abs(metrics.heroCopyWidth-expected)>.025)problems.push(`hero copy uses ${Math.round(metrics.heroCopyWidth*100)}% instead of ${Math.round(expected*100)}%`);
+    }
     if(metrics.pauseButtons)problems.push(`${metrics.pauseButtons} pause/resume buttons`);
     if(metrics.numberBoxes)problems.push(`${metrics.numberBoxes} decorative counters`);
     if(route==='/'){
