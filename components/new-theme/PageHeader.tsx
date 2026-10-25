@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import {canonicalHref,getImage,type PageData} from '@/lib/site-data';
+import {SectionHeading} from './SectionHeading';
 export function PageHeader({page}:{page:PageData}){
  const top=page.pageTop,image=getImage(top?.backgroundImageKey||page.hero.imageKey);
  // Some v3 JSON subtitles contain source-document breadcrumb labels; never present those as marketing copy.
@@ -12,9 +13,16 @@ export function PageHeader({page}:{page:PageData}){
   <div className="bs-page-header-overlay"/>
   <div className="bs-shell bs-page-header-content">
    <nav className="bs-breadcrumb" aria-label="Breadcrumb">{(top?.breadcrumbs||[{label:'Home',href:'/'},{label:top?.title||page.hero.title}]).map((crumb,i,arr)=><span key={`${crumb.label}-${i}`} className="bs-crumb">{i>0&&<span aria-hidden="true" className="bs-crumb-slash">/</span>}{crumb.href&&i<arr.length-1?<Link href={canonicalHref(crumb.href)}>{crumb.label}</Link>:<span aria-current={i===arr.length-1?'page':undefined}>{crumb.label}</span>}</span>)}</nav>
-   <span className="bs-hero-kicker">{top?.kicker||page.hero.kicker||'FOREX TRADE TECHNOLOGY'}</span>
-   <h1 id="bs-page-heading" className="bs-page-title">{top?.title||page.hero.title}</h1>
-   {subtitle&&<p className="bs-page-subtitle">{subtitle}</p>}
+   <SectionHeading
+    as="div" level="h1" id="bs-page-heading"
+    kicker={top?.kicker||page.hero.kicker||'FOREX TRADE TECHNOLOGY'}
+    title={top?.title||page.hero.title}
+    subtitle={subtitle}
+    className="bs-page-heading"
+    kickerClassName="bs-hero-kicker"
+    titleClassName="bs-page-title"
+    subtitleClassName="bs-page-subtitle"
+   />
   </div>
  </section>;
 }
