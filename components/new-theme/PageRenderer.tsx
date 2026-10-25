@@ -165,7 +165,7 @@ function V5MediaBand({section,title}:{section:SectionData;title:string}){
 function V5Gallery({section}:{section:SectionData}){
  const keys=section.media?.imageKeys||[];
  return <section id={section.id} className="bs-v5-section bs-v5-gallery"><div className="bs-shell">
-  <header className="bs-v5-section-heading"><span>TECHNOLOGY IN PRACTICE</span><h2>{section.title}</h2></header>
+  <header className="bs-v5-section-heading"><span>TECHNOLOGY IN PRACTICE</span><h2>{section.title==='Who We Work With'?'Technology Behind the Brokerage':section.title}</h2></header>
   <div className="bs-v5-gallery-grid">{keys.map(key=>{const img=getImage(key);return img?<figure key={key}><div className="bs-v5-gallery-photo"><Image src={img.url} alt={img.alt} fill unoptimized loading="lazy" sizes="(max-width:700px) 95vw, 33vw"/></div><figcaption>{img.alt}</figcaption></figure>:null})}</div>
  </div></section>;
 }
