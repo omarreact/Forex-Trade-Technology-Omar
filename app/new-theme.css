@@ -75,8 +75,6 @@
 .bs-slide-copy h1,.bs-slide-copy h2{max-width:770px;font-size:clamp(42px,5.6vw,78px);line-height:1.11;color:#fff;margin:0 0 22px;letter-spacing:-.057em}
 .bs-slide-copy p{max-width:615px;font-size:clamp(16px,1.8vw,21px);line-height:1.65;margin:0 0 32px;color:#e2e9df}
 .bs-slide-controls{position:absolute;z-index:5;bottom:34px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:22px}
-.bs-slide-arrow{width:46px;height:46px;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(17,23,17,.54);color:#fff;display:grid;place-items:center;transition:background .2s}
-.bs-slide-arrow:hover{background:#405034}
 .bs-slide-dots{display:flex;gap:11px;align-items:center}
 .bs-slide-dots button{padding:0;width:10px;height:10px;border:0;border-radius:99px;background:rgba(255,255,255,.47);transition:width .25s,background .25s}
 .bs-slide-dots button.is-active{width:38px;background:var(--bs-lime)}
@@ -126,7 +124,7 @@
  .bs-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.bs-gallery .bs-section-photo{height:220px}
  .bs-page-header{height:300px;min-height:300px}.bs-page-title{font-size:clamp(28px,6vw,40px)}
 }
-@media (max-width:480px){.bs-shell{width:calc(100% - 38px)}.bs-slide-copy h1,.bs-slide-copy h2{font-size:34px}.bs-slide-controls{bottom:24px}.bs-slide-arrow{width:40px;height:40px}.bs-slide-dots{gap:7px}.bs-slide-dots button.is-active{width:25px}.bs-page-header-content{padding-block:15px}.bs-page-header .bs-breadcrumb{font-size:10px}.bs-page-title{font-size:clamp(26px,7.6vw,35px)}.bs-page-subtitle{-webkit-line-clamp:2}.bs-gallery{gap:9px}.bs-gallery .bs-section-photo{height:150px}}
+@media (max-width:480px){.bs-shell{width:calc(100% - 38px)}.bs-slide-copy h1,.bs-slide-copy h2{font-size:34px}.bs-slide-controls{bottom:24px}.bs-slide-dots{gap:7px}.bs-slide-dots button.is-active{width:25px}.bs-page-header-content{padding-block:15px}.bs-page-header .bs-breadcrumb{font-size:10px}.bs-page-title{font-size:clamp(26px,7.6vw,35px)}.bs-page-subtitle{-webkit-line-clamp:2}.bs-gallery{gap:9px}.bs-gallery .bs-section-photo{height:150px}}
 @media (prefers-reduced-motion:reduce){.bs-slide{transition:none}.bs-section-photo img{transition:none}}
 
 
