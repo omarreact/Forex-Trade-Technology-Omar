@@ -33,7 +33,7 @@ export function VisualStorySection({section,pageId,index,dark=false}:Props){
    else leads.push(block.text);
   }
  }
- const numberedList=leads.length>0&&leads.every(p=>/^\\*\\s/.test(p.trim()));
+ const numberedList=leads.length>0&&leads.every(p=>/^\*\s/.test(p.trim()));
  const reverse=index%2===0;
  return <section id={section.id} className={`bs-v5-section bs-story-section ${dark?'bs-story-dark':index%2?'bs-story-tint':'bs-story-light'} ${reverse?'bs-story-reverse':''}`} aria-labelledby={`${section.id}-title`}>
   <div className="bs-shell bs-story-shell">
@@ -41,7 +41,7 @@ export function VisualStorySection({section,pageId,index,dark=false}:Props){
     <span className="bs-story-kicker">FOREX TRADE TECHNOLOGY</span>
     <h2 id={`${section.id}-title`}>{section.title}</h2>
     {numberedList
-     ? <ul className="bs-story-checklist">{leads.map((p,i)=><li key={i}><Icon name="check" size={18}/><span>{p.trim().replace(/^\\*\\s*/, '')}</span></li>)}</ul>
+     ? <ul className="bs-story-checklist">{leads.map((p,i)=><li key={i}><Icon name="check" size={18}/><span>{p.trim().replace(/^\*\s*/, '')}</span></li>)}</ul>
      : <div className="bs-story-prose">{leads.map((p,i)=><p key={i}>{p}</p>)}</div>}
     {groupItems.length>0&&<div className="bs-story-details">{groupItems.map((g,i)=>
      <article key={g.title}><span className="bs-story-detail-icon"><Icon name={info.icons[i%3]} size={20}/></span>
