@@ -19,7 +19,6 @@
  background:#d8e9a2;color:#141613;
  box-shadow:0 6px 17px rgba(146,172,65,.14);
 }
-.bs-icon-card-number{font-size:12px;letter-spacing:.1em;font-weight:800;color:#69735e}
 .bs-icon-card h3{position:relative;z-index:1}
 .bs-icon-card-copy{max-width:100%;position:relative;z-index:1}
 /* Multi-card audience carousel */
@@ -88,7 +87,6 @@
  cursor:pointer;transition:width .25s,background .25s;
 }
 .bs-audience-dot.is-active{width:29px;background:#586f22}
-.bs-audience-status{text-align:center;color:#7c886e;font-size:11px;margin:9px 0 0}
 .bs-audience-screen-reader-list{
  position:absolute!important;width:1px!important;height:1px!important;
  padding:0!important;margin:-1px!important;overflow:hidden!important;
