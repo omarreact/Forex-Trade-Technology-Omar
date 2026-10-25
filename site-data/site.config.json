@@ -240,6 +240,13 @@
     "layoutDensity": "compact",
     "forbidLonelySideImages": true,
     "noRepeatSectionDesigns": true,
-    "maxOncePerSectionLayout": true
+    "maxOncePerSectionLayout": true,
+    "reviewFeedback": {
+      "enabled": true,
+      "position": "right-middle",
+      "buttonLabel": "Suggest a change",
+      "delivery": "api-contact-with-email-draft-fallback",
+      "recipient": "business@forextradetechnology.com"
+    }
   }
 }
