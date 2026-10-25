@@ -8,6 +8,7 @@ import {HomeSlider} from './HomeSlider';
 import {TrustCarousel} from './TrustCarousel';
 import {AudienceCarousel} from './AudienceCarousel';
 import {IconCard} from './IconCard';
+import {SectionHeading} from './SectionHeading';
 import {FeatureFlexSection} from './FeatureFlexSection';
 import {VisualStorySection} from './VisualStorySection';
 import {PageHeader} from './PageHeader';
@@ -37,7 +38,7 @@ function Trust({section}:{section:SectionData}){
  return <TrustCarousel items={items}/>;
 }
 function TextParagraphs({paragraphs}:{paragraphs:string[]}){return <>{paragraphs.map((p,i)=><p key={i}>{p}</p>)}</>}
-function GroupCard({group,index}:{group:Group;index:number}){return <IconCard className="bs-editorial-card" title={group.heading||''} icon={['layers','server','shield','link','users','payments'][index%6]}><TextParagraphs paragraphs={group.paragraphs}/></IconCard>}
+function GroupCard({group,index}:{group:Group;index:number}){return <IconCard className="bs-editorial-card" title={group.heading||''} icon={['layers','server','shield','link','users','payments'][index%6]} paragraphs={group.paragraphs}/>}
 function EditorialSection({section,index,pageImages}:{section:SectionData;index:number;pageImages?:string[]}){
  const grouped=regroup(section.blocks||[]),intro=grouped.filter(g=>!g.heading),topics=grouped.filter(g=>g.heading);
  const isFaq=/frequently asked|^faq|questions/i.test(section.title||'')||topics.filter(g=>g.heading?.includes('?')).length>=2;
@@ -45,10 +46,10 @@ function EditorialSection({section,index,pageImages}:{section:SectionData;index:
  const variant=isFaq?'faq':isTimeline?'timeline':topics.length>=3?['cards','feature','bands','panel'][index%4]:topics.length?'split':'essay';
  // Contact form is created as a real form, not displayed as inert paragraph fields.
  if(section.title==='Request a Consultation'&&section.blocks?.some(b=>/Business Email\*/.test(b.text)))
-  return <section className="bs-section bs-contact-section" id={section.id}><div className="bs-shell"><header className="bs-content-heading"><span className="bs-eyebrow">START A CONVERSATION</span><h2>{section.title}</h2></header><ContactForm/></div></section>;
+  return <section className="bs-section bs-contact-section" id={section.id}><div className="bs-shell"><SectionHeading className="bs-content-heading" kicker="START A CONVERSATION" title={section.title}/><ContactForm/></div></section>;
  return <section className={`bs-section bs-full-section bs-layout-${variant} bs-media-${section.media?.layout||'none'} ${index%2?'bs-section-tint':''}`} id={section.id} data-view-transition={section.viewTransition||'section'}>
   <div className="bs-shell">
-   <header className="bs-content-heading"><span className="bs-eyebrow">{['BROKERAGE SOLUTIONS','WHAT WE DELIVER','TECHNOLOGY EXPLAINED','OUR APPROACH','PRACTICAL DETAILS'][index%5]}</span><h2>{section.title}</h2></header>
+   <SectionHeading className="bs-content-heading" kicker={['BROKERAGE SOLUTIONS','WHAT WE DELIVER','TECHNOLOGY EXPLAINED','OUR APPROACH','PRACTICAL DETAILS'][index%5]} title={section.title}/>
    <SectionMedia media={section.media} pageImages={pageImages}/>
    {intro.length>0&&<div className="bs-content-intro">{intro.map((g,i)=><TextParagraphs key={i} paragraphs={g.paragraphs}/>)}</div>}
    {variant==='faq'&&<div className="bs-editorial-faq">{topics.map((g,i)=><details key={i}><summary>{g.heading}<span aria-hidden="true">+</span></summary><div className="bs-faq-answer"><TextParagraphs paragraphs={g.paragraphs}/></div></details>)}</div>}
@@ -71,10 +72,10 @@ function DenseEditorialSection({section,index}:{section:SectionData;index:number
   return <section id={section.id} className="bs-section bs-dense-section bs-dense-contact"><div className="bs-shell"><h2>{section.title}</h2><ContactForm/></div></section>;
  return <section id={section.id} className={'bs-section bs-dense-section '+(index%2?'bs-dense-tint':'')} data-view-transition={section.viewTransition||'section'}>
   <div className="bs-shell">
-   <header className="bs-dense-heading"><span className="bs-dense-kicker">FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>
+   <SectionHeading className="bs-dense-heading" title={section.title}/>
    {intro.length>0&&<div className="bs-dense-intro">{intro.map((g,i)=><TextParagraphs key={i} paragraphs={g.paragraphs}/>)}</div>}
    {faq?<div className="bs-dense-accordion">{topics.map((g,i)=><details key={i}><summary><span>{g.heading}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer"><TextParagraphs paragraphs={g.paragraphs}/></div></details>)}</div>
-    :card?<div className={'bs-dense-cards '+col}>{topics.map((g,i)=><IconCard className="bs-dense-card" title={g.heading||''} icon={['server','shield','link','users','layers','payments'][i%6]} key={i}><TextParagraphs paragraphs={g.paragraphs}/></IconCard>)}</div>
+    :card?<div className={'bs-dense-cards '+col}>{topics.map((g,i)=><IconCard className="bs-dense-card" title={g.heading||''} icon={['server','shield','link','users','layers','payments'][i%6]} paragraphs={g.paragraphs} key={i}/>)}</div>
     :topics.length>0?<div className="bs-dense-prose">{topics.map((g,i)=><div key={i} className="bs-dense-prose-group"><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div>)}</div>:null}
   </div>
  </section>;
@@ -90,7 +91,7 @@ function DenseMediaBand({section}:{section:SectionData}){
 function DenseFaq({section}:{section:SectionData}){
  const items=(section.items||[]).filter((x):x is FaqItem=>typeof x!=='string'&&'q'in x);
  return <section className="bs-section bs-dense-section bs-dense-faq-page bs-faq-polished" id={section.id} aria-labelledby="faq-questions-heading"><div className="bs-shell">
-  <header className="bs-dense-heading bs-faq-heading"><span className="bs-dense-kicker">SUPPORT &amp; GUIDANCE</span><h2 id="faq-questions-heading">Frequently Asked Questions</h2><p className="bs-faq-count"><strong>{items.length}</strong><span>questions answered</span></p></header>
+  <SectionHeading className="bs-dense-heading bs-faq-heading" kicker="SUPPORT & GUIDANCE" title="Frequently Asked Questions" id="faq-questions-heading"><p className="bs-faq-count"><strong>{items.length}</strong><span>questions answered</span></p></SectionHeading>
   <div className="bs-dense-accordion bs-clean-accordion bs-faq-questions">{items.map((item,i)=><details key={i} name="ftt-faq"><summary><span className="bs-faq-question">{item.q}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer bs-faq-answer"><p>{item.a}</p></div></details>)}</div>
  </div></section>;
 }
@@ -124,14 +125,14 @@ function V5SectionContent({section,index,pageId}:{section:SectionData;index:numb
  const leadContent=(layout.startsWith('cardGrid')||layout==='timeline')&&topics.length===0&&leads.length>1?[]:leads;
  return <section id={section.id} className={'bs-v5-section bs-v5-layout-'+layout+(dark?' bs-v5-dark':'')+(index%2&&!dark?' bs-v5-soft':'')} data-view-transition={section.viewTransition||'section'}>
   <div className="bs-shell">
-   <header className="bs-v5-section-heading"><span>FOREX TRADE TECHNOLOGY</span><h2>{section.title}</h2></header>
+   <SectionHeading className="bs-v5-section-heading" title={section.title}/>
    {leadContent.length>0&&<div className="bs-v5-intro">{leadContent.map((p,i)=><p key={i}>{p}</p>)}</div>}
    {layout.startsWith('cardGrid')&&cards.length>0&&<div className={'bs-v5-grid '+(layout==='cardGrid2'?'bs-v5-grid-two':'bs-v5-grid-three')}>{cards.map((c,i)=>
-    <IconCard className="bs-v5-card" key={i} title={c.title} icon={['layers','server','shield','link','users','payments'][i%6]}><TextParagraphs paragraphs={c.paragraphs}/></IconCard>)}</div>}
+    <IconCard className="bs-v5-card" key={i} title={c.title} icon={['layers','server','shield','link','users','payments'][i%6]} paragraphs={c.paragraphs}/>)}</div>}
    {layout==='timeline'&&<div className="bs-v5-steps">{(topics.length?topics:leads.length>=2?leads.map((p,i)=>({heading:'Step '+(i+1),paragraphs:[p]})):[]).map((g,i)=>
-    <article key={i}><div><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></div></article>)}</div>}
+    <IconCard key={i} className="bs-v5-card bs-step-card" title={g.heading||''} icon={['check','settings','server','link','shield'][i%5]} paragraphs={g.paragraphs}/>)}</div>}
    {layout==='stack'&&topics.length>0&&<div className="bs-v5-prose-list">{topics.map((g,i)=><article key={i}><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>}
-   {dark&&topics.length>0&&<div className="bs-v5-dark-list">{topics.map((g,i)=><article key={i}><h3>{g.heading}</h3><TextParagraphs paragraphs={g.paragraphs}/></article>)}</div>}
+   {dark&&topics.length>0&&<div className="bs-v5-dark-list">{topics.map((g,i)=><IconCard key={i} className="bs-v5-card bs-dark-feature-card" title={g.heading||''} icon={['server','layers','link','shield','support'][i%5]} paragraphs={g.paragraphs}/>)}</div>}
   </div>
  </section>;
 }
@@ -165,7 +166,7 @@ function V5MediaBand({section,title}:{section:SectionData;title:string}){
 function V5Gallery({section}:{section:SectionData}){
  const keys=section.media?.imageKeys||[];
  return <section id={section.id} className="bs-v5-section bs-v5-gallery"><div className="bs-shell">
-  <header className="bs-v5-section-heading"><span>TECHNOLOGY IN PRACTICE</span><h2>{section.title==='Who We Work With'?'Technology Behind the Brokerage':section.title}</h2></header>
+  <SectionHeading className="bs-v5-section-heading" kicker="TECHNOLOGY IN PRACTICE" title={section.title==='Who We Work With'?'Technology Behind the Brokerage':section.title}/>
   <div className="bs-v5-gallery-grid">{keys.map(key=>{const img=getImage(key);return img?<figure key={key}><div className="bs-v5-gallery-photo"><Image src={img.url} alt={img.alt} fill unoptimized loading="lazy" sizes="(max-width:700px) 95vw, 33vw"/></div><figcaption>{img.alt}</figcaption></figure>:null})}</div>
  </div></section>;
 }
@@ -189,7 +190,7 @@ function getSupplementalContent(page:PageData){
 function V5Guide({page}:{page:PageData}){
  const groups=getSupplementalContent(page);if(!groups.length)return null;
  return <section className="bs-v5-guide bs-v5-section" id="complete-technical-guide" aria-labelledby="complete-guide-title"><div className="bs-shell">
-  <div className="bs-v5-guide-head"><span className="bs-v5-guide-kicker">IN-DEPTH TECHNICAL GUIDE</span><h2 id="complete-guide-title">Further details and frequently asked questions</h2><p>Complete supporting explanations, implementation considerations and FAQs from our original service guide.</p></div>
+  <SectionHeading className="bs-v5-guide-head" kicker="IN-DEPTH TECHNICAL GUIDE" title="Further details and frequently asked questions" id="complete-guide-title" subtitle="Complete supporting explanations, implementation considerations and FAQs from our original service guide."/>
   <div className="bs-v5-guide-grid bs-clean-accordion">{groups.map((group,i)=><details key={i} className="bs-v5-guide-item" name="ftt-guide"><summary><span>{group.title}</span><Icon name="chevronDown" size={20}/></summary><V5EditableBlocks blocks={group.blocks}/></details>)}</div>
  </div></section>;
 }
