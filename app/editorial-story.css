@@ -207,3 +207,10 @@
 @media(prefers-reduced-motion:reduce){
  .bs-v5 .bs-v5-guide-item{transition:none}
 }
+
+
+/* Keep source photos above the section background, below the readable overlays. */
+.bs-v5 .bs-story-visual .bs-story-photo{z-index:0}
+.bs-v5 .bs-story-visual .bs-story-gradient{z-index:1}
+.bs-v5 .bs-story-visual .bs-story-diagram{z-index:2}
+.bs-main section[id]{scroll-margin-top:calc(var(--bs-header-height) + 18px)}
