@@ -46,7 +46,7 @@
     "typography": {
       "h1": "clamp(40px, 5.5vw, 72px)",
       "h1Inner": "clamp(32px, 4vw, 48px)",
-      "h2": "clamp(28px, 3.5vw, 44px)",
+      "h2": "clamp(30px, calc(21.2px + 1.72vw), 46px)",
       "h3": "22px",
       "body": "17px",
       "kicker": "12px"
