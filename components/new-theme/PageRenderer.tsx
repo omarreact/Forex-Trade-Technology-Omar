@@ -14,6 +14,7 @@ import {VisualStorySection} from './VisualStorySection';
 import {PageHeader} from './PageHeader';
 import {FinalCTA} from './FinalCTA';
 import {SectionMedia} from './SectionMedia';
+import {TradingStackFlow} from './TradingStackFlow';
 
 type Group={heading:string|null;paragraphs:string[]};
 function regroup(blocks:ContentBlock[]):Group[]{
@@ -197,6 +198,7 @@ function V5Guide({page}:{page:PageData}){
 }
 
 function Section({section,index,pageTitle,pageId}:{section:SectionData;index:number;pageTitle:string;pageId:string}){
+ if(pageId==='home'&&section.title==='How Your Trading Stack Connects')return <TradingStackFlow section={section}/>;
  if(section.title==='Platform & Infrastructure Under One Roof'||section.title==='Why Brokers Work With Us'){
   const topics=regroup(section.blocks||[]);
   const icons=section.title==='Why Brokers Work With Us'
