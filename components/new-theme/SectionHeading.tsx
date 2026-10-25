@@ -1,7 +1,7 @@
 import type {ReactNode} from 'react';
 
 type Props={
- title:string;
+ title?:string;
  kicker?:string;
  subtitle?:string;
  children?:ReactNode;
