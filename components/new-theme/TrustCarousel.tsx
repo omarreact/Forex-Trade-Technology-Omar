@@ -5,31 +5,26 @@ import {Icon} from './Icon';
 type TrustCarouselProps={items:string[]};
 
 /**
- * Seamless, reusable homepage capability ticker.
- * The second group is visually identical to the first and hidden from screen readers.
+ * Edge-to-edge looping capabilities ticker. Six equal groups make the
+ * one-group translation seamless even across ultrawide viewports.
+ * Repeated items are hidden from assistive technology.
  */
 export function TrustCarousel({items}:TrustCarouselProps){
- if(items.length===0)return null;
- const capabilities=(duplicate:boolean)=>(
-  <div className="bs-trust-carousel-group" aria-hidden={duplicate ? true : undefined}>
-   {items.map((item,index)=>(
-    <span className="bs-trust-carousel-item" key={`${index}-${item}`}>
-     <Icon name="check" size={18}/>
-     <span>{item}</span>
-    </span>
-   ))}
-  </div>
- );
+ if(!items.length)return null;
  return <section className="bs-trust bs-trust-carousel" aria-label="Technology that connects">
-  <div className="bs-shell bs-trust-carousel-inner">
-   <span className="bs-trust-carousel-label">TECHNOLOGY THAT<br/>CONNECTS</span>
-   <div className="bs-trust-carousel-window" aria-live="off">
-    <div className="bs-trust-carousel-track">
-     {capabilities(false)}
-     {capabilities(true)}
-    </div>
+  <div className="bs-trust-carousel-window" aria-live="off">
+   <div className="bs-trust-carousel-track">
+    {Array.from({length:6},(_,copy)=>
+     <div className="bs-trust-carousel-group" key={copy} aria-hidden={copy>0}>
+      {items.map((item,index)=>
+       <span className="bs-trust-carousel-item" key={`${index}-${item}`}>
+        <Icon name="check" size={18}/>
+        <span>{item}</span>
+       </span>
+      )}
+     </div>
+    )}
    </div>
-
   </div>
  </section>;
 }
