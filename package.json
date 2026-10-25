@@ -2,13 +2,16 @@
   "name": "forex-trade-technology-lime",
   "version": "1.0.0",
   "private": true,
-  "engines": { "node": ">=20.9.0" },
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "npm run validate:data && next build",
     "start": "next start",
     "validate:data": "node scripts/validate-data.mjs",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export:xml": "node scripts/export-website-xml.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.553.0",
