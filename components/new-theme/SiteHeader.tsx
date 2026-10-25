@@ -11,6 +11,10 @@ export function SiteHeader(){
  const headerRef=useRef<HTMLElement>(null);
  const dropdownRef=useRef<HTMLDivElement>(null);
  const pathname=usePathname();
+ const isCurrent=(href:string)=>{
+  const normalize=(value:string)=>value.replace(/\/+$/,'')||'/';
+  return normalize(pathname)===normalize(canonicalHref(href));
+ };
 
  useEffect(()=>{setMenu(false);setSubmenu(false)},[pathname]);
  useEffect(()=>{
@@ -38,11 +42,11 @@ export function SiteHeader(){
     <nav id="bs-primary-nav" aria-label="Main navigation" className={`bs-inline-nav ${menu?'is-open':''}`}>
      {siteConfig.navigation.primary.map(nav=>('children' in nav && Array.isArray(nav.children))?
         <div className="bs-nav-dropdown" key={nav.id} ref={dropdownRef}>
-         <button className="bs-nav-link bs-menu-trigger" aria-expanded={submenu} aria-haspopup="true" aria-controls="bs-solutions" type="button" onClick={()=>setSubmenu(v=>!v)}>
+         <button className={`bs-nav-link bs-menu-trigger ${nav.children.some(child=>isCurrent(child.href))?'active':''}`} aria-expanded={submenu} aria-haspopup="true" aria-controls="bs-solutions" type="button" onClick={()=>setSubmenu(v=>!v)}>
           {nav.label}<Icon name="chevronDown" size={14}/>
          </button>
          <div id="bs-solutions" className={`bs-submenu ${submenu?'is-open':''}`} aria-hidden={!submenu}>
-          {nav.children.map(child=><Link tabIndex={submenu?0:-1} key={child.id} href={canonicalHref(child.href)} className={pathname.replace(/\/$/,'')===canonicalHref(child.href).replace(/\/$/,'')?'active':''}>{child.label}<Icon name="arrowUpRight" size={16}/></Link>)}
+          {nav.children.map(child=><Link tabIndex={submenu?0:-1} key={child.id} href={canonicalHref(child.href)} aria-current={isCurrent(child.href)?'page':undefined} className={isCurrent(child.href)?'active':''}>{child.label}<Icon name="arrowUpRight" size={16}/></Link>)}
          </div>
         </div>
       :<Link href={canonicalHref(('href' in nav && typeof nav.href==='string')?nav.href:'/')} key={nav.id} className={`bs-nav-link ${pathname.replace(/\/$/,'')===canonicalHref(('href' in nav && typeof nav.href==='string')?nav.href:'/').replace(/\/$/,'')?'active':''}`}>{nav.label}</Link>)}
