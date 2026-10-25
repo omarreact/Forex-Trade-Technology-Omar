@@ -88,9 +88,9 @@ function DenseMediaBand({section}:{section:SectionData}){
 }
 function DenseFaq({section}:{section:SectionData}){
  const items=(section.items||[]).filter((x):x is FaqItem=>typeof x!=='string'&&'q'in x);
- return <section className="bs-section bs-dense-section bs-dense-faq-page" id={section.id}><div className="bs-shell">
-  <header className="bs-dense-heading"><span className="bs-dense-kicker">SUPPORT & GUIDANCE</span><h2>Frequently Asked Questions</h2><p>{items.length} questions answered</p></header>
-  <div className="bs-dense-accordion bs-clean-accordion">{items.map((item,i)=><details key={i} name="ftt-faq"><summary><span>{item.q}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer"><p>{item.a}</p></div></details>)}</div>
+ return <section className="bs-section bs-dense-section bs-dense-faq-page bs-faq-polished" id={section.id} aria-labelledby="faq-questions-heading"><div className="bs-shell">
+  <header className="bs-dense-heading bs-faq-heading"><span className="bs-dense-kicker">SUPPORT &amp; GUIDANCE</span><h2 id="faq-questions-heading">Frequently Asked Questions</h2><p className="bs-faq-count"><strong>{items.length}</strong><span>questions answered</span></p></header>
+  <div className="bs-dense-accordion bs-clean-accordion bs-faq-questions">{items.map((item,i)=><details key={i} name="ftt-faq"><summary><span className="bs-faq-question">{item.q}</span><Icon name="chevronDown" size={19}/></summary><div className="bs-dense-answer bs-faq-answer"><p>{item.a}</p></div></details>)}</div>
  </div></section>;
 }
 
