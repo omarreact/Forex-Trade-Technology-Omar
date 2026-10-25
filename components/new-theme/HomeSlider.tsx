@@ -29,10 +29,13 @@ export function HomeSlider({slides,intervalMs=6000,autoplay=true}:{slides:SlideD
     aria-hidden={!active} inert={!active}>
     {image&&<Image src={image.url} alt={image.alt} fill priority={i===0} unoptimized sizes="100vw" className="bs-slide-photo"/>}
     <div className="bs-slide-shade"/>
-    <div className="bs-shell bs-slide-copy"><span className="bs-slide-kicker">{slide.kicker||'FOREX TRADE TECHNOLOGY'}</span>
-     {i===0?<h1>{slide.title}</h1>:<h2>{slide.title}</h2>}
-     {slide.subtitle&&<p>{slide.subtitle}</p>}
-     {slide.cta&&<Link href={canonicalHref(slide.cta.href)} className="bs-btn bs-btn-primary">{slide.cta.label}<Icon name="arrowUpRight" size={17}/></Link>}
+    <div className="bs-shell bs-slide-copy">
+     <div className="bs-slide-content">
+      <span className="bs-slide-kicker">{slide.kicker||'FOREX TRADE TECHNOLOGY'}</span>
+      {i===0?<h1>{slide.title}</h1>:<h2>{slide.title}</h2>}
+      {slide.subtitle&&<p>{slide.subtitle}</p>}
+      {slide.cta&&<Link href={canonicalHref(slide.cta.href)} className="bs-btn bs-btn-primary">{slide.cta.label}<Icon name="arrowUpRight" size={17}/></Link>}
+     </div>
     </div>
    </div>;
   })}
