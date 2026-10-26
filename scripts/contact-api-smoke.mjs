@@ -1,6 +1,6 @@
 /**
  * Safe contract tests. Never supplies Resend credentials or sends email.
- * Run against a local CI server with no CONTACT_*/RESEND_ env vars.
+ * Run against a local CI server with no CONTACT and RESEND environment variables.
  */
 const base=(process.env.CONTACT_SMOKE_URL || 'http://127.0.0.1:3000').replace(/\/$/,'');
 const endpoint=base+'/api/contact';
