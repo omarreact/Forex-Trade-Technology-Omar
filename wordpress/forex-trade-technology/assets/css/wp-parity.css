@@ -29,3 +29,8 @@ body.wp-theme-forex-trade-technology{margin:0}
 .bs-audience-slide{flex:0 0 auto}
 .bs-story-diagram{position:relative}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bs-trust-carousel-track{animation:none!important}}
+
+/* Interior CTA ornaments intentionally extend beyond panel edges in Next.js;
+   WordPress must clip this decoration at the CTA panel boundary rather than
+   growing the document's horizontal scroll area by 38px. */
+.bs-global-cta-panel{overflow:hidden}
