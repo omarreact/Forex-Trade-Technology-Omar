@@ -2,26 +2,32 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "forex-trade-technology/trading-stack-flow",
-  "version": "0.1.0",
   "title": "Trading Stack Flow",
-  "category": "design",
-  "icon": "layout",
-  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
+  "category": "forex-trade-technology",
   "textdomain": "forex-trade-technology",
   "attributes": {
-    "section": {
-      "type": "object",
-      "default": {}
+    "heading": {
+      "type": "string",
+      "default": "How Your Trading Stack Connects"
     },
-    "visual": {
-      "type": "object",
-      "default": {}
+    "paragraphs": {
+      "type": "array",
+      "default": []
+    },
+    "steps": {
+      "type": "array",
+      "default": []
     }
   },
   "supports": {
     "html": false,
-    "anchor": false,
-    "customClassName": true,
-    "multiple": true
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
   }
 }

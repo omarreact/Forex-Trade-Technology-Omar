@@ -1,0 +1,79 @@
+name: XML-native WordPress theme distribution and staging QA
+on:
+  pull_request:
+    branches: [main]
+    paths: ['wordpress/**','scripts/build-xml.py','scripts/theme-base.py','scripts/test-php.php','scripts/validate-package.py','scripts/wordpress-xml-smoke.mjs','.github/workflows/wordpress-xml-native.yml']
+  push:
+    branches: [main]
+    paths: ['wordpress/**','scripts/build-xml.py','scripts/theme-base.py','scripts/test-php.php','scripts/validate-package.py','scripts/wordpress-xml-smoke.mjs','.github/workflows/wordpress-xml-native.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  xml-theme-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+      - name: Verify XML, Gutenberg comment pairing, PHP and JS syntax
+        run: |
+          python3 scripts/validate-package.py
+          php scripts/test-php.php
+      - name: Package installable ZIPs
+        run: |
+          mkdir -p artifacts
+          cd wordpress
+          zip -qr ../artifacts/forex-trade-technology-theme-xml.zip forex-trade-technology
+          zip -qr ../artifacts/forex-trade-technology-contact-xml.zip forex-trade-technology-contact
+          unzip -t ../artifacts/forex-trade-technology-theme-xml.zip | tail -1
+          unzip -t ../artifacts/forex-trade-technology-contact-xml.zip | tail -1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forex-xml-native-installable-zips
+          path: artifacts/*.zip
+  xml-staging:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install wp-env and Chromium
+        run: |
+          npm install -g @wordpress/env@10.39.0
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start WordPress
+        working-directory: wordpress
+        run: wp-env start
+      - name: Activate packages and import XML pages
+        working-directory: wordpress
+        run: |
+          wp-env run cli wp theme activate forex-trade-technology
+          wp-env run cli wp plugin activate forex-trade-technology-contact
+          wp-env run cli wp ftt import
+          wp-env run cli wp rewrite structure '/%postname%/' --hard
+          wp-env run cli wp option get page_on_front
+      - name: Check all 13 routes at six widths and Gutenberg editor
+        run: node scripts/wordpress-xml-smoke.mjs
+      - name: Archive browser evidence and parity report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forex-xml-wordpress-browser-evidence
+          path: artifacts/xml-wordpress/
+          if-no-files-found: warn
+      - name: Docker logs on failure (dynamic container names)
+        if: failure()
+        run: |
+          docker ps -a || true
+          for container in $(docker ps -a --format '{{.ID}}'); do
+            docker logs --tail 35 "$container" 2>&1 || true
+          done

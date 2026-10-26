@@ -1,8 +1,9 @@
 <?php
 /**
- * Title: Forex Trade Technology — Trust Icons
+ * Title: iconRow — Forex Trade Technology
  * Slug: forex-trade-technology/icon-row
- * Categories: featured, text
+ * Categories: forex-trade-technology
+ * Inserter: yes
  */
 ?>
-<!-- wp:forex-trade-technology/section {"section":{"id":"ftt-iconrow","layout":"iconRow","title":"Trust Icons","blocks":[{"type":"h3","text":"Edit this feature title"},{"type":"p","text":"Use block settings to replace the content, add details and configure the section."}]},"pageId":"home","index":0,"pageTitle":"Forex Trade Technology"} /-->
+<!-- wp:forex-trade-technology/trust-carousel {"items":["MT4 & MT5 Platforms","Bridge, Gateway & FIX Connectivity","CRM, KYC & Payment Integrations","Hosting, Monitoring & Backups","Ongoing Technical Support"],"autoplay":true} /-->

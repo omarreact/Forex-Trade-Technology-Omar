@@ -2,16 +2,13 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "forex-trade-technology/audience-carousel",
-  "version": "0.1.0",
   "title": "Audience Carousel",
-  "category": "design",
-  "icon": "layout",
-  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
+  "category": "forex-trade-technology",
   "textdomain": "forex-trade-technology",
   "attributes": {
-    "title": {
+    "heading": {
       "type": "string",
-      "default": ""
+      "default": "Who We Work With"
     },
     "items": {
       "type": "array",
@@ -20,8 +17,13 @@
   },
   "supports": {
     "html": false,
-    "anchor": false,
-    "customClassName": true,
-    "multiple": true
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
   }
 }

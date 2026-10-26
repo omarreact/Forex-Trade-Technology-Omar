@@ -2,22 +2,36 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "forex-trade-technology/contact-form",
-  "version": "0.1.0",
   "title": "Contact Form",
-  "category": "design",
-  "icon": "layout",
-  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
+  "category": "forex-trade-technology",
   "textdomain": "forex-trade-technology",
   "attributes": {
-    "copy": {
+    "heading": {
+      "type": "string",
+      "default": "Let\u2019s build something reliable."
+    },
+    "intro": {
+      "type": "string",
+      "default": "Tell us what your business needs."
+    },
+    "labels": {
       "type": "object",
       "default": {}
+    },
+    "submitLabel": {
+      "type": "string",
+      "default": "Request a Consultation"
     }
   },
   "supports": {
     "html": false,
-    "anchor": false,
-    "customClassName": true,
-    "multiple": true
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
   }
 }
