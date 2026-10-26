@@ -26,12 +26,13 @@ function ftt_h(string $text, int $level=2, string $class='', string $id=''): str
     $level=max(1,min(6,$level));
     return '<h'.$level.($class?' class="'.esc_attr($class).'"':'').($id?' id="'.esc_attr($id).'"':'').'>'.esc_html($text).'</h'.$level.'>';
 }
-function ftt_heading(string $title='', string $kicker='', string $subtitle='', string $class='bs-v5-section-heading',string $id=''): string {
+function ftt_heading(string $title='', string $kicker='FOREX TRADE TECHNOLOGY', string $subtitle='', string $class='bs-v5-section-heading',string $id=''): string {
+    // The exact semantic classes used by Next blocks/shared/SectionHeading.tsx.
     if (!$title && !$subtitle && !$kicker) return '';
-    return '<div class="bs-section-heading '.esc_attr($class).'">'
-    .($kicker?'<span class="bs-section-kicker">'.esc_html($kicker).'</span>':'')
-    .($title?ftt_h($title,2,'bs-section-title',$id):'')
-    .($subtitle?'<p class="bs-section-subtitle">'.esc_html($subtitle).'</p>':'').'</div>';
+    return '<header class="bs-ui-heading '.esc_attr($class).'">'
+    .($kicker?'<span class="bs-ui-kicker">'.esc_html($kicker).'</span>':'')
+    .($title?ftt_h($title,2,'bs-ui-title',$id):'')
+    .($subtitle?'<p class="bs-ui-lead">'.esc_html($subtitle).'</p>':'').'</header>';
 }
 function ftt_header(): string {
     $config=ftt_config();
@@ -132,8 +133,8 @@ function ftt_page_hero(array $page):string{
         $html.='</span>';
     }
     $html.='</nav><div class="bs-section-heading bs-page-heading"><span class="bs-section-kicker bs-hero-kicker">'.esc_html($top['kicker']??'FOREX TRADE TECHNOLOGY').'</span>'
-        .ftt_h((string)($top['title']??$hero['title']??''),1,'bs-page-title','bs-page-heading')
-        .($subtitle?'<p class="bs-section-subtitle bs-page-subtitle">'.esc_html($subtitle).'</p>':'').'</div></div></section>';
+        .ftt_h((string)($top['title']??$hero['title']??''),1,'bs-ui-title bs-page-title','bs-page-heading')
+        .($subtitle?'<p class="bs-ui-lead bs-page-subtitle">'.esc_html($subtitle).'</p>':'').'</div></div></section>';
     return $html;
 }
 function ftt_document_notes(array $notes):string {
@@ -164,16 +165,36 @@ function ftt_card(array $a):string{
 }
 function ftt_audience_carousel(string $title,array $items):string{
     if(!$items)return '';
-    $html='<section class="bs-v5-section bs-audience-carousel-section" aria-label="'.esc_attr($title).'"><div class="bs-shell"><div class="bs-audience-carousel-heading">'
-       .ftt_heading($title,'FOREX TRADE TECHNOLOGY','','bs-audience-title-block')
-       .'<div class="bs-audience-controls"><button type="button" class="bs-audience-arrow" aria-label="Previous audience">‹</button><button type="button" class="bs-audience-arrow" aria-label="Next audience">›</button></div></div><div class="bs-audience-viewport"><div class="bs-audience-track">';
-    for($copy=0;$copy<3;$copy++)foreach($items as $item) $html.='<div class="bs-audience-slide">'.ftt_card(['className'=>'bs-audience-card','icon'=>$item['icon']??'users','title'=>$item['title']??'','description'=>$item['description']??'']).'</div>';
-    return $html.'</div></div></div></section>';
+    $html='<section class="bs-v5-section bs-audience-carousel-section" aria-label="'.esc_attr($title).'"><div class="bs-shell">'
+       .'<div class="bs-audience-carousel-heading">'.ftt_heading($title,'FOREX TRADE TECHNOLOGY','','bs-audience-title-block')
+       .'<div class="bs-audience-controls"><button type="button" class="bs-audience-arrow" aria-label="Previous audience">‹</button><button type="button" class="bs-audience-arrow" aria-label="Next audience">›</button></div></div>'
+       .'<div class="bs-audience-viewport"><div class="bs-audience-track" aria-hidden="true">';
+    for($copy=0;$copy<3;$copy++)foreach($items as $item) $html.='<div class="bs-audience-slide">'.ftt_card(['className'=>'bs-audience-icon-card','icon'=>$item['icon']??'users','title'=>$item['title']??'','description'=>$item['description']??'']).'</div>';
+    $html.='</div></div><div class="bs-audience-pagination" aria-label="Choose audience slide">';
+    foreach($items as $i=>$item)$html.='<button type="button" class="bs-audience-dot'.($i===0?' is-active':'').'" aria-label="Show '.esc_attr($item['title']??'Audience').'"'.($i===0?' aria-current="true"':'').'></button>';
+    $html.='</div><ul class="bs-audience-screen-reader-list">';
+    foreach($items as $item)$html.='<li><strong>'.esc_html($item['title']??'').':</strong> '.esc_html($item['description']??'').'</li>';
+    return $html.'</ul></div></section>';
 }
 function ftt_stack_flow(array $section,array $visual):string{
-    $html='<section class="bs-v5-section bs-stack-flow-section" id="'.esc_attr($section['id']??'trading-stack').'" aria-label="'.esc_attr($visual['ariaLabel']??'Trading stack').'"><div class="bs-shell">'
-      .ftt_heading((string)($section['title']??''),(string)($visual['kicker']??''),(string)($visual['subtitleFallback']??''));
-    $html.='<div class="bs-stack-flow-track">';
-    foreach($visual['connections']??[] as $i=>$item)$html.='<div class="bs-stack-flow-node"><span class="bs-stack-flow-node-icon">'.ftt_icon($item['icon']??'check').'</span><strong>'.esc_html($item['label']??'').'</strong><span>'.esc_html($item['sub']??'').'</span></div>';
-    return $html.'</div><p class="bs-stack-flow-caption">'.esc_html($visual['caption']??'').'</p></div></section>';
+    $copy=array_values(array_map(fn($b)=>(string)$b['text'],array_filter($section['blocks']??[],fn($b)=>($b['type']??'')==='p')));
+    $id=$section['id']??'trading-stack';
+    $html='<section id="'.esc_attr($id).'" class="bs-stack-flow-section bs-v5-section" aria-labelledby="bs-stack-flow-heading"><div class="bs-shell">'
+      .ftt_heading((string)($section['title']??''),'FOREX TRADE TECHNOLOGY',$copy[0]??($visual['subtitleFallback']??''),'','bs-stack-flow-heading');
+    $html.='<div class="bs-stack-flow-panel"><div class="bs-stack-flow-panel-top"><span>'.esc_html($visual['kicker']??'').'</span><span class="bs-stack-flow-emphasis">'.ftt_icon('check').' '.esc_html($visual['status']??'').'</span></div>'
+       .'<ol class="bs-stack-flow-steps" aria-label="'.esc_attr($visual['ariaLabel']??'Trading connections').'">';
+    $steps=$visual['connections']??[];
+    foreach($steps as $i=>$item){
+        $html.='<li class="bs-stack-flow-item"><div class="bs-stack-flow-node"><span class="bs-stack-flow-node-icon">'.ftt_icon($item['icon']??'check').'</span>'
+          .'<strong>'.esc_html($item['label']??'').'</strong><span>'.esc_html($item['sub']??'').'</span></div>';
+        if($i<count($steps)-1)$html.='<span class="bs-stack-flow-arrow" aria-hidden="true">→</span>';
+        $html.='</li>';
+    }
+    $html.='</ol><p class="bs-stack-flow-caption">'.esc_html($visual['caption']??'').'</p></div>';
+    if(count($copy)>1){
+        $html.='<div class="bs-stack-flow-explanation"><div class="bs-stack-flow-prose"><p>'.esc_html($copy[1]).'</p></div>';
+        if(isset($copy[2]))$html.='<aside class="bs-stack-flow-conclusion">'.ftt_icon('shield').'<p>'.esc_html($copy[2]).'</p></aside>';
+        $html.='</div>';
+    }
+    return $html.'</div></section>';
 }
