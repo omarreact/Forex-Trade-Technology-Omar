@@ -1,0 +1,113 @@
+/* Shared icon-box system for editorial, dense and v5 service cards. */
+.bs-icon-card{position:relative;isolation:isolate;overflow:hidden}
+.bs-icon-card > :not(.bs-icon-card-watermark){position:relative;z-index:1}
+.bs-icon-card-watermark{
+ position:absolute;right:-18px;bottom:-23px;z-index:0;
+ display:block;line-height:0;color:#d8e9a2;opacity:.32;
+ pointer-events:none;transform:rotate(-12deg);
+ transition:opacity .25s ease,transform .35s ease;
+}
+.bs-icon-card-watermark svg{width:clamp(94px,10vw,146px);height:auto;stroke-width:1.35}
+.bs-icon-card:hover .bs-icon-card-watermark{opacity:.49;transform:rotate(-7deg) translate(-6px,-5px)}
+.bs-icon-card-header{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:12px;margin-bottom:clamp(18px,2vw,26px);
+}
+.bs-icon-card-badge{
+ display:grid;place-items:center;flex:0 0 46px;
+ width:46px;height:46px;border-radius:13px;
+ background:#d8e9a2;color:#141613;
+ box-shadow:0 6px 17px rgba(146,172,65,.14);
+}
+.bs-icon-card h3{position:relative;z-index:1}
+.bs-icon-card-copy{max-width:100%;position:relative;z-index:1}
+/* Multi-card audience carousel */
+.bs-v5 .bs-audience-carousel-section{
+ background:#f4f6ef;
+ padding-block:clamp(54px,5.8vw,86px);
+ overflow:hidden;
+}
+.bs-audience-carousel-heading{
+ display:flex;justify-content:space-between;align-items:flex-end;
+ gap:26px;margin-bottom:29px;
+}
+.bs-audience-kicker{
+ color:#617c2b;font-size:11px;letter-spacing:.13em;
+ font-weight:800;display:block;margin-bottom:11px;
+}
+.bs-audience-carousel-heading h2{
+ margin:0;font-size:clamp(32px,4.1vw,56px);
+ letter-spacing:-.052em;line-height:1.09;font-weight:750;
+}
+.bs-audience-controls{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.bs-audience-arrow{
+ width:43px;height:43px;border-radius:50%;
+ display:grid;place-items:center;background:#fff;
+ color:#141613;border:1px solid #d2ddc2;
+ cursor:pointer;transition:background .2s,border-color .2s,transform .2s;
+}
+.bs-audience-arrow:hover{background:#d8e9a2;border-color:#a5c05b;transform:translateY(-2px)}
+.bs-audience-arrow:focus-visible,
+.bs-audience-dot:focus-visible{outline:3px solid #141613;outline-offset:3px}
+.bs-audience-viewport{width:100%;overflow:hidden}
+.bs-audience-track{
+ --audience-gap:18px;
+ display:flex;align-items:stretch;gap:var(--audience-gap);
+ width:100%;min-width:0;
+}
+.bs-audience-slide{
+ flex:0 0 calc((100% - 2 * var(--audience-gap)) / 3);
+ min-width:0;display:flex;
+}
+.bs-audience-icon-card{
+ display:flex;flex-direction:column;width:100%;
+ min-height:334px;padding:clamp(22px,2.4vw,32px);
+ border:1px solid #dce5ce;border-radius:21px;
+ background:linear-gradient(145deg,#fff 0%,#f8fbf2 100%);
+ box-shadow:0 8px 24px rgba(29,48,17,.04);
+ transition:border-color .25s,box-shadow .25s;
+}
+.bs-audience-icon-card:hover{
+ border-color:#b7cf81;box-shadow:0 14px 36px rgba(29,48,17,.085);
+}
+.bs-audience-icon-card h3{
+ font-size:clamp(21px,2.25vw,29px);line-height:1.2;
+ letter-spacing:-.035em;margin:0 0 13px;color:#141613;
+}
+.bs-audience-icon-card p{
+ font-size:15px;line-height:1.75;color:#55634f;margin:0;
+}
+.bs-audience-pagination{
+ display:flex;justify-content:center;align-items:center;
+ gap:9px;margin-top:22px;
+}
+.bs-audience-dot{
+ display:block;width:10px;height:10px;border:0;
+ border-radius:999px;background:#c9d2bc;padding:0;
+ cursor:pointer;transition:width .25s,background .25s;
+}
+.bs-audience-dot.is-active{width:29px;background:#586f22}
+.bs-audience-screen-reader-list{
+ position:absolute!important;width:1px!important;height:1px!important;
+ padding:0!important;margin:-1px!important;overflow:hidden!important;
+ clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;
+}
+@media(max-width:1020px){
+ .bs-audience-slide{flex-basis:calc((100% - var(--audience-gap)) / 2)}
+ .bs-audience-icon-card{min-height:322px}
+}
+@media(max-width:640px){
+ .bs-audience-carousel-heading{align-items:flex-start;gap:18px;flex-wrap:wrap}
+ .bs-audience-carousel-heading h2{font-size:clamp(30px,8vw,40px)}
+ .bs-audience-controls{margin-left:auto}
+ .bs-audience-track{--audience-gap:14px}
+ .bs-audience-slide{flex-basis:100%}
+ .bs-audience-icon-card{min-height:300px;padding:25px 23px}
+ .bs-audience-icon-card p{font-size:14px;line-height:1.7}
+ .bs-icon-card-watermark svg{width:106px}
+}
+@media(prefers-reduced-motion:reduce){
+ .bs-audience-track,.bs-icon-card-watermark,.bs-audience-arrow,.bs-audience-icon-card{
+  transition:none!important;animation:none!important;
+ }
+}

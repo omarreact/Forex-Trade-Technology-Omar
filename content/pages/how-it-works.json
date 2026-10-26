@@ -1,0 +1,839 @@
+{
+  "id": "how-it-works",
+  "slug": "/how-it-works",
+  "seo": {
+    "title": "How Forex Brokerage Technology Setup Works | Step-by-Step Process",
+    "description": "See how the forex broker setup process works, from first consultation and solution design to integration, testing, go-live and long-term technical support.",
+    "primaryKeyword": "forex broker setup process",
+    "secondaryKeywords": "how to start a forex broker, forex broker launch process, MT5 broker setup process, forex brokerage technology setup",
+    "canonicalPath": "/how-it-works"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "How Forex Brokerage Technology Setup Works",
+    "subtitle": "Breadcrumb: Home > How It Works",
+    "leadParagraphs": [
+      "Breadcrumb: Home > How It Works",
+      "Label: Our Delivery Process",
+      "Building the technology behind a brokerage involves a lot of moving parts, and many founders start without a clear idea of what happens when. That uncertainty is usually where budgets stretch and deadlines slip.",
+      "So here's our forex broker setup process laid out openly. Four stages, what happens inside each one, what we'll need from you along the way and what tends to slow projects down. Whether you need a full stack or a single piece of it, the same approach applies."
+    ],
+    "imageKey": "howItWorks",
+    "ctas": [
+      {
+        "label": "Request a Consultation",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "The Four Stages at a Glance",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "01 Consultation → 02 Solution Design → 03 Integration → 04 Launch & Support"
+        },
+        {
+          "type": "p",
+          "text": "Each stage ends with something concrete you can review before we move forward. Nothing gets built on assumptions, and you won't be asked to approve work you haven't seen."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Stage 01: Consultation",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This is where we get to know your business properly. It usually starts with a call, followed by a short questionnaire and, for larger projects, a few working sessions with your team."
+        },
+        {
+          "type": "h3",
+          "text": "What We Cover"
+        },
+        {
+          "type": "p",
+          "text": "* Your business model, whether that's a broker, a prop firm or a hybrid"
+        },
+        {
+          "type": "p",
+          "text": "* Target countries and the clients you expect to serve"
+        },
+        {
+          "type": "p",
+          "text": "* Execution approach and how you plan to handle order flow"
+        },
+        {
+          "type": "p",
+          "text": "* Platform preference, if you have one, or whether you'd like guidance"
+        },
+        {
+          "type": "p",
+          "text": "* Providers already signed or under discussion for liquidity, payments and verification"
+        },
+        {
+          "type": "p",
+          "text": "* Your timeline, including any regulatory milestones the launch depends on"
+        },
+        {
+          "type": "p",
+          "text": "* Budget range, so recommendations stay realistic"
+        },
+        {
+          "type": "h3",
+          "text": "What You Get"
+        },
+        {
+          "type": "p",
+          "text": "A clear summary of your requirements, written back to you so we can both confirm we've understood the business correctly. If something you want isn't technically sensible, this is where we'll say so."
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "media-prop_desk",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "prop_desk",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Stage 03: Integration",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "This is the build. Servers go up, platforms are configured and systems get connected to each other."
+        },
+        {
+          "type": "h3",
+          "text": "Infrastructure and Platform"
+        },
+        {
+          "type": "p",
+          "text": "Hosting environments are provisioned and secured. The trading platform is installed or set up under your chosen arrangement, with groups, symbols, account types and trading conditions configured to your specification."
+        },
+        {
+          "type": "h3",
+          "text": "Connectivity"
+        },
+        {
+          "type": "p",
+          "text": "Liquidity connections are established in a staging environment first, symbols are mapped and routing rules applied."
+        },
+        {
+          "type": "h3",
+          "text": "Operational Systems"
+        },
+        {
+          "type": "p",
+          "text": "Your CRM, verification provider, payment providers, website registration and any mobile app are connected to the platform and to each other."
+        },
+        {
+          "type": "h3",
+          "text": "Third-Party Coordination"
+        },
+        {
+          "type": "p",
+          "text": "Liquidity providers, payment companies and verification services each need credentials issued, test environments opened and sometimes certification completed. We handle the technical back-and-forth so you aren't stuck relaying messages between engineers."
+        },
+        {
+          "type": "h3",
+          "text": "Testing and Acceptance"
+        },
+        {
+          "type": "p",
+          "text": "Before anything goes live, we test the whole chain with realistic scenarios. Pricing accuracy, order execution, rejections, margin events, swaps, onboarding, deposits, withdrawals, partner commissions and reporting. Then your own team runs through their daily tasks in the test environment and signs off when satisfied. Anything that fails gets fixed and checked again."
+        },
+        {
+          "type": "h3",
+          "text": "What You Get"
+        },
+        {
+          "type": "p",
+          "text": "A fully working, tested environment and written confirmation of what was tested and passed."
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Stage 04: Launch & Support",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Go-Live"
+        },
+        {
+          "type": "p",
+          "text": "We agree on a launch date and time, usually a quieter market period. Production credentials are switched on, monitoring is active, and our engineers are watching closely as the first real clients arrive."
+        },
+        {
+          "type": "h3",
+          "text": "Early Stabilisation"
+        },
+        {
+          "type": "p",
+          "text": "The opening weeks often reveal small things no test could predict, like a payment method behaving oddly in one country or a symbol setting that needs adjusting once real volume appears. We stay close during this period and fix issues quickly."
+        },
+        {
+          "type": "h3",
+          "text": "Ongoing Support"
+        },
+        {
+          "type": "p",
+          "text": "After stabilisation, you move onto a support arrangement covering monitoring, maintenance, configuration changes, updates and help when your team needs it. As your business grows, we add providers, markets, features and capacity."
+        },
+        {
+          "type": "h3",
+          "text": "What You Get"
+        },
+        {
+          "type": "p",
+          "text": "A live brokerage, documentation describing your setup, and a team that already understands your environment when you need changes later."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "What We'll Need From You",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Projects run smoothly when a few things are in place on your side:"
+        },
+        {
+          "type": "p",
+          "text": "* A main contact who can make decisions or get them made quickly"
+        },
+        {
+          "type": "p",
+          "text": "* Signed agreements with liquidity, payment and verification providers, or progress toward them"
+        },
+        {
+          "type": "p",
+          "text": "* Branding assets such as logos, colours and fonts"
+        },
+        {
+          "type": "p",
+          "text": "* Your onboarding, withdrawal and risk policies, even in draft"
+        },
+        {
+          "type": "p",
+          "text": "* Time from your team for testing before launch"
+        },
+        {
+          "type": "p",
+          "text": "* Clarity on your regulatory position and any conditions attached to it"
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 94,
+  "wordCountApprox": 1496,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > How It Works",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Our Delivery Process",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Building the technology behind a brokerage involves a lot of moving parts, and many founders start without a clear idea of what happens when. That uncertainty is usually where budgets stretch and deadlines slip.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "So here's our forex broker setup process laid out openly. Four stages, what happens inside each one, what we'll need from you along the way and what tends to slow projects down. Whether you need a full stack or a single piece of it, the same approach applies.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "The Four Stages at a Glance"
+    },
+    {
+      "type": "p",
+      "text": "01 Consultation → 02 Solution Design → 03 Integration → 04 Launch & Support",
+      "parentH2": "The Four Stages at a Glance",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Each stage ends with something concrete you can review before we move forward. Nothing gets built on assumptions, and you won't be asked to approve work you haven't seen.",
+      "parentH2": "The Four Stages at a Glance",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Stage 01: Consultation"
+    },
+    {
+      "type": "p",
+      "text": "This is where we get to know your business properly. It usually starts with a call, followed by a short questionnaire and, for larger projects, a few working sessions with your team.",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "What We Cover",
+      "parentH2": "Stage 01: Consultation"
+    },
+    {
+      "type": "p",
+      "text": "* Your business model, whether that's a broker, a prop firm or a hybrid",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": "What We Cover"
+    },
+    {
+      "type": "p",
+      "text": "* Target countries and the clients you expect to serve",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": "What We Cover"
+    },
+    {
+      "type": "p",
+      "text": "* Execution approach and how you plan to handle order flow",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": "What We Cover"
+    },
+    {
+      "type": "p",
+      "text": "* Platform preference, if you have one, or whether you'd like guidance",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": "What We Cover"
+    },
+    {
+      "type": "p",
+      "text": "* Providers already signed or under discussion for liquidity, payments and verification",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": "What We Cover"
+    },
+    {
+      "type": "p",
+      "text": "* Your timeline, including any regulatory milestones the launch depends on",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": "What We Cover"
+    },
+    {
+      "type": "p",
+      "text": "* Budget range, so recommendations stay realistic",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": "What We Cover"
+    },
+    {
+      "type": "h3",
+      "text": "What You Get",
+      "parentH2": "Stage 01: Consultation"
+    },
+    {
+      "type": "p",
+      "text": "A clear summary of your requirements, written back to you so we can both confirm we've understood the business correctly. If something you want isn't technically sensible, this is where we'll say so.",
+      "parentH2": "Stage 01: Consultation",
+      "parentH3": "What You Get"
+    },
+    {
+      "type": "h2",
+      "text": "Stage 02: Solution Design"
+    },
+    {
+      "type": "p",
+      "text": "With the requirements agreed, we design the stack. This stage is mostly thinking and planning, and it's the one that saves the most money later.",
+      "parentH2": "Stage 02: Solution Design",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "Architecture Decisions",
+      "parentH2": "Stage 02: Solution Design"
+    },
+    {
+      "type": "p",
+      "text": "Which trading platform and licence model fits, MT5 or MT4, white label, grey label or full server. Where servers will be hosted. How liquidity connects, whether through a bridge, gateway or direct FIX. Which CRM, payment and verification providers plug in, and how data moves between them.",
+      "parentH2": "Stage 02: Solution Design",
+      "parentH3": "Architecture Decisions"
+    },
+    {
+      "type": "h3",
+      "text": "Workflow Mapping",
+      "parentH2": "Stage 02: Solution Design"
+    },
+    {
+      "type": "p",
+      "text": "How a client signs up, gets verified, funds, receives a trading account and withdraws. How introducing brokers are tracked and paid. Who on your team approves what. Mapping these journeys early shows up conflicts before they become bugs.",
+      "parentH2": "Stage 02: Solution Design",
+      "parentH3": "Workflow Mapping"
+    },
+    {
+      "type": "h3",
+      "text": "Project Plan",
+      "parentH2": "Stage 02: Solution Design"
+    },
+    {
+      "type": "p",
+      "text": "A timeline with milestones, responsibilities on both sides, dependencies on third-party providers and a breakdown of costs.",
+      "parentH2": "Stage 02: Solution Design",
+      "parentH3": "Project Plan"
+    },
+    {
+      "type": "h3",
+      "text": "What You Get",
+      "parentH2": "Stage 02: Solution Design"
+    },
+    {
+      "type": "p",
+      "text": "A solution document covering architecture, workflows, integrations and schedule. You approve it, ask questions or request changes before any build work starts.",
+      "parentH2": "Stage 02: Solution Design",
+      "parentH3": "What You Get"
+    },
+    {
+      "type": "h2",
+      "text": "Stage 03: Integration"
+    },
+    {
+      "type": "p",
+      "text": "This is the build. Servers go up, platforms are configured and systems get connected to each other.",
+      "parentH2": "Stage 03: Integration",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "Infrastructure and Platform",
+      "parentH2": "Stage 03: Integration"
+    },
+    {
+      "type": "p",
+      "text": "Hosting environments are provisioned and secured. The trading platform is installed or set up under your chosen arrangement, with groups, symbols, account types and trading conditions configured to your specification.",
+      "parentH2": "Stage 03: Integration",
+      "parentH3": "Infrastructure and Platform"
+    },
+    {
+      "type": "h3",
+      "text": "Connectivity",
+      "parentH2": "Stage 03: Integration"
+    },
+    {
+      "type": "p",
+      "text": "Liquidity connections are established in a staging environment first, symbols are mapped and routing rules applied.",
+      "parentH2": "Stage 03: Integration",
+      "parentH3": "Connectivity"
+    },
+    {
+      "type": "h3",
+      "text": "Operational Systems",
+      "parentH2": "Stage 03: Integration"
+    },
+    {
+      "type": "p",
+      "text": "Your CRM, verification provider, payment providers, website registration and any mobile app are connected to the platform and to each other.",
+      "parentH2": "Stage 03: Integration",
+      "parentH3": "Operational Systems"
+    },
+    {
+      "type": "h3",
+      "text": "Third-Party Coordination",
+      "parentH2": "Stage 03: Integration"
+    },
+    {
+      "type": "p",
+      "text": "Liquidity providers, payment companies and verification services each need credentials issued, test environments opened and sometimes certification completed. We handle the technical back-and-forth so you aren't stuck relaying messages between engineers.",
+      "parentH2": "Stage 03: Integration",
+      "parentH3": "Third-Party Coordination"
+    },
+    {
+      "type": "h3",
+      "text": "Testing and Acceptance",
+      "parentH2": "Stage 03: Integration"
+    },
+    {
+      "type": "p",
+      "text": "Before anything goes live, we test the whole chain with realistic scenarios. Pricing accuracy, order execution, rejections, margin events, swaps, onboarding, deposits, withdrawals, partner commissions and reporting. Then your own team runs through their daily tasks in the test environment and signs off when satisfied. Anything that fails gets fixed and checked again.",
+      "parentH2": "Stage 03: Integration",
+      "parentH3": "Testing and Acceptance"
+    },
+    {
+      "type": "h3",
+      "text": "What You Get",
+      "parentH2": "Stage 03: Integration"
+    },
+    {
+      "type": "p",
+      "text": "A fully working, tested environment and written confirmation of what was tested and passed.",
+      "parentH2": "Stage 03: Integration",
+      "parentH3": "What You Get"
+    },
+    {
+      "type": "h2",
+      "text": "Stage 04: Launch & Support"
+    },
+    {
+      "type": "h3",
+      "text": "Go-Live",
+      "parentH2": "Stage 04: Launch & Support"
+    },
+    {
+      "type": "p",
+      "text": "We agree on a launch date and time, usually a quieter market period. Production credentials are switched on, monitoring is active, and our engineers are watching closely as the first real clients arrive.",
+      "parentH2": "Stage 04: Launch & Support",
+      "parentH3": "Go-Live"
+    },
+    {
+      "type": "h3",
+      "text": "Early Stabilisation",
+      "parentH2": "Stage 04: Launch & Support"
+    },
+    {
+      "type": "p",
+      "text": "The opening weeks often reveal small things no test could predict, like a payment method behaving oddly in one country or a symbol setting that needs adjusting once real volume appears. We stay close during this period and fix issues quickly.",
+      "parentH2": "Stage 04: Launch & Support",
+      "parentH3": "Early Stabilisation"
+    },
+    {
+      "type": "h3",
+      "text": "Ongoing Support",
+      "parentH2": "Stage 04: Launch & Support"
+    },
+    {
+      "type": "p",
+      "text": "After stabilisation, you move onto a support arrangement covering monitoring, maintenance, configuration changes, updates and help when your team needs it. As your business grows, we add providers, markets, features and capacity.",
+      "parentH2": "Stage 04: Launch & Support",
+      "parentH3": "Ongoing Support"
+    },
+    {
+      "type": "h3",
+      "text": "What You Get",
+      "parentH2": "Stage 04: Launch & Support"
+    },
+    {
+      "type": "p",
+      "text": "A live brokerage, documentation describing your setup, and a team that already understands your environment when you need changes later.",
+      "parentH2": "Stage 04: Launch & Support",
+      "parentH3": "What You Get"
+    },
+    {
+      "type": "h2",
+      "text": "What We'll Need From You"
+    },
+    {
+      "type": "p",
+      "text": "Projects run smoothly when a few things are in place on your side:",
+      "parentH2": "What We'll Need From You",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* A main contact who can make decisions or get them made quickly",
+      "parentH2": "What We'll Need From You",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Signed agreements with liquidity, payment and verification providers, or progress toward them",
+      "parentH2": "What We'll Need From You",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Branding assets such as logos, colours and fonts",
+      "parentH2": "What We'll Need From You",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Your onboarding, withdrawal and risk policies, even in draft",
+      "parentH2": "What We'll Need From You",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Time from your team for testing before launch",
+      "parentH2": "What We'll Need From You",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Clarity on your regulatory position and any conditions attached to it",
+      "parentH2": "What We'll Need From You",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What Usually Causes Delays"
+    },
+    {
+      "type": "p",
+      "text": "Being upfront about this helps you plan.",
+      "parentH2": "What Usually Causes Delays",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "Provider Onboarding",
+      "parentH2": "What Usually Causes Delays"
+    },
+    {
+      "type": "p",
+      "text": "Payment companies and liquidity providers often run their own due diligence on your business. That can take longer than the technical work itself.",
+      "parentH2": "What Usually Causes Delays",
+      "parentH3": "Provider Onboarding"
+    },
+    {
+      "type": "h3",
+      "text": "Late Changes",
+      "parentH2": "What Usually Causes Delays"
+    },
+    {
+      "type": "p",
+      "text": "Switching platform, provider or business model mid-build means revisiting design and sometimes redoing integration work.",
+      "parentH2": "What Usually Causes Delays",
+      "parentH3": "Late Changes"
+    },
+    {
+      "type": "h3",
+      "text": "Regulatory Timing",
+      "parentH2": "What Usually Causes Delays"
+    },
+    {
+      "type": "p",
+      "text": "If launch depends on licence approval, the technology may be ready before you're legally able to go live. Planning for this is better than rushing at the end.",
+      "parentH2": "What Usually Causes Delays",
+      "parentH3": "Regulatory Timing"
+    },
+    {
+      "type": "h3",
+      "text": "Testing Squeezed for Time",
+      "parentH2": "What Usually Causes Delays"
+    },
+    {
+      "type": "p",
+      "text": "When go-live dates are fixed and earlier stages run late, testing is the first thing people want to cut. We'd strongly advise against it.",
+      "parentH2": "What Usually Causes Delays",
+      "parentH3": "Testing Squeezed for Time"
+    },
+    {
+      "type": "h2",
+      "text": "Who Handles What"
+    },
+    {
+      "type": "h3",
+      "text": "Our Role",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Technical consultation, solution design, infrastructure, platform configuration, connectivity, integrations, testing, launch support and ongoing maintenance.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Our Role"
+    },
+    {
+      "type": "h3",
+      "text": "Your Role",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Business decisions, company formation, licensing, compliance policies, commercial agreements with providers, banking, marketing and client service.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Your Role"
+    },
+    {
+      "type": "h3",
+      "text": "Third Parties",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Platform developers, liquidity providers, payment companies and verification services operate under their own terms and timelines. We coordinate the technical side with them, but their approvals and service levels are their own. We're not affiliated with or endorsed by the MT4 or MT5 platform developer unless clearly stated. Regulatory requirements vary by jurisdiction, so take qualified legal advice for your markets.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Third Parties"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "How long does the full forex broker setup process take?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "It depends on scope, platform choice and how quickly providers complete their own onboarding. A white label with standard integrations moves faster than a full deployment with several providers. You'll get a realistic estimate at the end of solution design.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How long does the full forex broker setup process take?"
+    },
+    {
+      "type": "h3",
+      "text": "Can we skip stages if we already have some systems?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. If you already run a platform or CRM, we focus on the pieces you need and connect them to what's already working.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can we skip stages if we already have some systems?"
+    },
+    {
+      "type": "h3",
+      "text": "Do I need my licence before starting?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Not necessarily. Many clients run the technology build in parallel with their licence application. Whether and which licence you need depends on your jurisdiction and business model.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do I need my licence before starting?"
+    },
+    {
+      "type": "h3",
+      "text": "What does the MT5 broker setup process involve specifically?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Choosing a licence arrangement, configuring server groups, symbols and trading conditions, connecting liquidity, linking your CRM and payment systems, and testing everything before launch. It forms one part of the wider integration stage.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What does the MT5 broker setup process involve specifically?"
+    },
+    {
+      "type": "h3",
+      "text": "Will we see progress during the build?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. Each stage ends with a deliverable for your review, and you'll have regular updates throughout integration.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Will we see progress during the build?"
+    },
+    {
+      "type": "h3",
+      "text": "What happens after launch?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "We monitor closely during early trading, resolve issues quickly and then move you onto ongoing support for maintenance, changes and growth.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What happens after launch?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you guarantee a launch date?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "We'll commit to our own milestones, but final dates also depend on third-party providers and regulatory timing that sit outside our control. Our forex broker setup process is built to surface those dependencies early so there are fewer surprises.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you guarantee a launch date?"
+    },
+    {
+      "type": "h2",
+      "text": "Start With a Conversation"
+    },
+    {
+      "type": "p",
+      "text": "Tell us what you're planning and where you are today. We'll walk you through how the process would apply to your brokerage, what decisions come first and roughly how long each stage should take.",
+      "parentH2": "Start With a Conversation",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "How Forex Brokerage Technology Setup Works",
+    "subtitle": "Breadcrumb: Home > How It Works",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "How It Works"
+      }
+    ],
+    "backgroundImageKey": "checklist",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "checklist",
+    "code_ops",
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "servers",
+    "world_map",
+    "data_center",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "timeline",
+    "cardGrid2",
+    "mediaBand",
+    "cardGrid3",
+    "stack",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

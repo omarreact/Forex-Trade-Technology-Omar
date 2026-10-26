@@ -1,0 +1,60 @@
+{
+  "version": "5.2-max-once-with-faq",
+  "theme": "broker-setup-lime-v3",
+  "note": "Distinct section layouts on each page, selected from v5; all original fullBlocks retained and remaining content rendered in the guide before the final CTA.",
+  "viewTransitions": true,
+  "scrollToTop": true,
+  "stats": {
+    "pages": 13,
+    "totalSourceWordsApprox": 19517,
+    "wordsByPage": {
+      "home": 1552,
+      "brokerage-setup": 1768,
+      "mt5-white-label": 1724,
+      "hosting": 1636,
+      "liquidity": 1743,
+      "crm": 1741,
+      "kyc-aml": 1598,
+      "payments": 1531,
+      "prop-firm": 1509,
+      "how-it-works": 1496,
+      "about": 979,
+      "faq": 1657,
+      "contact": 583
+    }
+  },
+  "routingFixes": {
+    "faq": "/faq",
+    "contact": "/contact",
+    "noTrailingSlash": true,
+    "avoidRedirectLoops": true
+  },
+  "layoutPolicy": {
+    "rules": [
+      "Never place a single decorative image alone on the right of a short text block with large empty space.",
+      "Prefer 2x2 or 3-column card grids for feature lists.",
+      "Use split 50/50 only when BOTH sides have substantial content (text min ~120 words OR multi-bullet list).",
+      "For process steps use numbered horizontal timeline or compact 3-col cards, not one big photo.",
+      "FAQ: full-width accordion, optional small illustration in sticky sidebar only if viewport > 1100px.",
+      "CTA bands: full-width dark/lime with optional background image at low opacity, text centered or left with button."
+    ],
+    "allowed": {
+      "cardGrid2": "2-column equal cards with optional top icon or small thumb (120px)",
+      "cardGrid3": "3-column equal cards",
+      "cardGrid4": "4-column on desktop, 2 on tablet",
+      "splitEqual": "50/50 text + image only if text is long; image object-fit cover, rounded-xl",
+      "splitContent": "60/40 text heavy + supporting visual",
+      "mediaBand": "Full-width image 280–360px height with caption overlay, between sections",
+      "iconRow": "Horizontal icons + labels, no large photo",
+      "timeline": "Horizontal or vertical numbered steps, compact",
+      "stack": "Text only, max-width 720px, no side image",
+      "ctaBand": "Full bleed dark or lime CTA",
+      "gallery3": "3 equal photos in a row with short captions"
+    },
+    "forbidden": [
+      "singleRightFloat",
+      "largeEmptyWhitespaceBesideOneImage",
+      "heroHeightOnInnerPages"
+    ]
+  }
+}

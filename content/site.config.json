@@ -1,0 +1,253 @@
+{
+  "site": {
+    "name": "Forex Trade Technology",
+    "tagline": "MT5 setup, hosting, liquidity, CRM & payment integrations for brokers and prop firms",
+    "url": "https://forextrade.pincodeit.com",
+    "email": "",
+    "locale": "en",
+    "copyright": "© 2026 Forex Trade Technology. All rights reserved. We provide technology and infrastructure services. We are not a broker and do not hold client funds."
+  },
+  "routing": {
+    "trailingSlash": false,
+    "canonicalPolicy": "no-trailing-slash",
+    "note": "Avoid redirect loops on /faq and /contact — use exact paths without trailing slash and do not chain rewrite+redirect for the same path.",
+    "paths": {
+      "home": "/",
+      "brokerage-setup": "/solutions/brokerage-setup",
+      "mt5-white-label": "/solutions/mt5-white-label",
+      "hosting": "/solutions/forex-broker-hosting",
+      "liquidity": "/solutions/forex-liquidity-connectivity",
+      "crm": "/products/forex-crm",
+      "kyc-aml": "/technology/kyc-aml-integration",
+      "payments": "/products/payment-gateway-integration",
+      "prop-firm": "/products/prop-firm-crm-api",
+      "how-it-works": "/how-it-works",
+      "about": "/about-us",
+      "faq": "/faq",
+      "contact": "/contact"
+    }
+  },
+  "navigation": {
+    "logo": {
+      "text": "FOREXTRADE TECHNOLOGY",
+      "dot": true,
+      "href": "/"
+    },
+    "primary": [
+      {
+        "label": "Home",
+        "href": "/",
+        "id": "home"
+      },
+      {
+        "label": "Solutions",
+        "id": "solutions",
+        "children": [
+          {
+            "label": "Brokerage Setup",
+            "href": "/solutions/brokerage-setup",
+            "id": "brokerage-setup"
+          },
+          {
+            "label": "MT5 White Label",
+            "href": "/solutions/mt5-white-label",
+            "id": "mt5-white-label"
+          },
+          {
+            "label": "Trading Server Hosting",
+            "href": "/solutions/forex-broker-hosting",
+            "id": "hosting"
+          },
+          {
+            "label": "Liquidity & Connectivity",
+            "href": "/solutions/forex-liquidity-connectivity",
+            "id": "liquidity"
+          },
+          {
+            "label": "Forex CRM",
+            "href": "/products/forex-crm",
+            "id": "crm"
+          },
+          {
+            "label": "KYC & AML",
+            "href": "/technology/kyc-aml-integration",
+            "id": "kyc-aml"
+          },
+          {
+            "label": "Payment Gateway",
+            "href": "/products/payment-gateway-integration",
+            "id": "payments"
+          },
+          {
+            "label": "Prop Firm Technology",
+            "href": "/products/prop-firm-crm-api",
+            "id": "prop-firm"
+          }
+        ]
+      },
+      {
+        "label": "How It Works",
+        "href": "/how-it-works",
+        "id": "how-it-works"
+      },
+      {
+        "label": "About",
+        "href": "/about-us",
+        "id": "about"
+      },
+      {
+        "label": "FAQ",
+        "href": "/faq",
+        "id": "faq"
+      }
+    ],
+    "cta": {
+      "label": "Contact Us",
+      "href": "/contact",
+      "icon": "arrow-up-right"
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "Forex Trade Technology",
+      "description": "MT5 setup, server hosting, liquidity connectivity, CRM and payment integrations for forex brokers and prop firms."
+    },
+    "columns": [
+      {
+        "heading": "Solutions",
+        "links": [
+          {
+            "label": "Brokerage Setup",
+            "href": "/solutions/brokerage-setup"
+          },
+          {
+            "label": "MT5 White Label",
+            "href": "/solutions/mt5-white-label"
+          },
+          {
+            "label": "Trading Server Hosting",
+            "href": "/solutions/forex-broker-hosting"
+          },
+          {
+            "label": "Liquidity & Connectivity",
+            "href": "/solutions/forex-liquidity-connectivity"
+          },
+          {
+            "label": "Forex CRM",
+            "href": "/products/forex-crm"
+          },
+          {
+            "label": "KYC & AML",
+            "href": "/technology/kyc-aml-integration"
+          },
+          {
+            "label": "Payment Gateway",
+            "href": "/products/payment-gateway-integration"
+          },
+          {
+            "label": "Prop Firm Technology",
+            "href": "/products/prop-firm-crm-api"
+          }
+        ]
+      },
+      {
+        "heading": "Company",
+        "links": [
+          {
+            "label": "About Us",
+            "href": "/about-us"
+          },
+          {
+            "label": "How It Works",
+            "href": "/how-it-works"
+          },
+          {
+            "label": "FAQ",
+            "href": "/faq"
+          },
+          {
+            "label": "Contact",
+            "href": "/contact"
+          }
+        ]
+      }
+    ],
+    "cta": {
+      "kicker": "YOUR NEXT MOVE",
+      "title": "Build Your Trading Infrastructure",
+      "description": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "action": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      }
+    }
+  },
+  "features": {
+    "homeHeroSlider": {
+      "enabled": true,
+      "fullWidth": true,
+      "autoplay": true,
+      "intervalMs": 6000,
+      "pauseOnHover": true,
+      "transition": "fade-cross",
+      "viewTransitionName": "home-slider"
+    },
+    "innerPageHeader": {
+      "enabled": true,
+      "height": "240px",
+      "showBreadcrumbs": true,
+      "showKicker": true,
+      "backgroundStyle": "dark-gradient-with-optional-image"
+    },
+    "scrollToTop": {
+      "enabled": true,
+      "threshold": 400,
+      "icon": "arrow-up",
+      "label": "Back to top",
+      "position": "bottom-right"
+    },
+    "viewTransitions": {
+      "enabled": true,
+      "docs": "https://nextjs.org/docs/app/guides/view-transitions",
+      "types": [
+        "page",
+        "section",
+        "hero",
+        "card",
+        "slider"
+      ],
+      "defaultTransition": "fade-slide"
+    },
+    "icons": {
+      "provider": "nexticons",
+      "url": "https://www.nexticons.com/",
+      "defaultSet": "outline"
+    },
+    "elements": {
+      "provider": "magnific",
+      "url": "https://www.magnific.com/"
+    },
+    "images": {
+      "providers": [
+        "pexels",
+        "unsplash"
+      ],
+      "pexels": "https://www.pexels.com/",
+      "unsplash": "https://unsplash.com/",
+      "policy": "Use only remote URLs from Pexels/Unsplash CDN. Never hotlink without params; prefer images.unsplash.com and images.pexels.com."
+    },
+    "layoutDensity": "compact",
+    "forbidLonelySideImages": true,
+    "noRepeatSectionDesigns": true,
+    "maxOncePerSectionLayout": true,
+    "reviewFeedback": {
+      "enabled": true,
+      "position": "right-middle",
+      "buttonLabel": "Suggest a change",
+      "delivery": "Vercel: Resend API; GitHub Pages: public GitHub issue draft requiring user confirmation",
+      "recipient": "",
+      "publicIssueUrl": "https://github.com/omarreact/Forex-Trade-Technology-Omar/issues/new"
+    }
+  }
+}
