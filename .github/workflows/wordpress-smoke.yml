@@ -45,4 +45,14 @@ jobs:
           if-no-files-found: warn
       - name: Docker diagnostic on failure
         if: failure()
-        run: docker ps -a && docker logs wordpress-wordpress-1 --tail 50 || true
+        run: |
+          # wp-env assigns project-specific Compose container names.
+          # Enumerate actual IDs rather than guessing a static name.
+          docker ps -a
+          docker ps -a --format '{{.ID}}' | while IFS= read -r id; do
+            [ -n "$id" ] || continue
+            echo "::group::Docker logs $id"
+            docker logs --tail 50 "$id" 2>&1 || true
+            echo "::endgroup::"
+          done
+          true

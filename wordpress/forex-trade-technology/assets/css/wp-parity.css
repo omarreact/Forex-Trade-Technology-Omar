@@ -33,4 +33,10 @@ body.wp-theme-forex-trade-technology{margin:0}
 /* Interior CTA ornaments intentionally extend beyond panel edges in Next.js;
    WordPress must clip this decoration at the CTA panel boundary rather than
    growing the document's horizontal scroll area by 38px. */
+/* The CTA ornament is absolutely positioned 38px past its panel edge.
+   Clip at the section boundary as well as the panel so WP block wrappers
+   cannot contribute the ornament's offscreen pixels to scrollWidth. */
 .bs-global-cta-panel{overflow:hidden}
+.bs-global-cta:not(.bs-global-cta-home){overflow-x:clip}
+.bs-global-cta:not(.bs-global-cta-home) .bs-global-cta-decoration{right:0}
+
