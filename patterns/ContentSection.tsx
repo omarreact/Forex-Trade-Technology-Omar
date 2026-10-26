@@ -4,11 +4,12 @@ import {SectionHeading} from '@/blocks/shared/SectionHeading';
 import {IconCard} from '@/blocks/icon-card';
 import {ContactForm} from '@/blocks/contact-form';
 import {VisualStorySection} from './VisualStory';
-export function V5SectionContent({section,index,pageId}:{section:SectionData;index:number;pageId:string}){
+export type ContentPatternKind='cardGrid2'|'cardGrid3'|'timeline'|'stack'|'darkBand'|'splitContent';
+export function V5SectionContent({section,index,pageId,mode}:{section:SectionData;index:number;pageId:string;mode:ContentPatternKind}){
  const groups=regroup(section.blocks||[]);
  const leads=groups.filter(x=>!x.heading).flatMap(x=>x.paragraphs);
  const topics=groups.filter(x=>x.heading);
- const layout=section.layout||'stack';
+ const layout=mode;
  const dark=layout==='darkBand';
  if(layout==='splitContent'&&section.title==='Request a Consultation')
   return <section className="bs-v5-section bs-v5-contact" id={section.id}><div className="bs-shell"><h2>{section.title}</h2><ContactForm/></div></section>;
@@ -36,4 +37,3 @@ export function V5SectionContent({section,index,pageId}:{section:SectionData;ind
   </div>
  </section>;
 }
-/** Split page titles into a white lead and mild lime emphasis without changing their text. */
