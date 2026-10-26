@@ -1,0 +1,30 @@
+name: WordPress migration canonical XML artifact
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/wordpress-xml-artifact.yml'
+      - 'website.xml'
+      - 'wordpress/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  canonical-xml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify 13-page source XML
+        run: |
+          python3 - <<'PY'
+          import xml.etree.ElementTree as ET
+          root=ET.parse('website.xml').getroot()
+          pages=root.find('pages')
+          assert pages is not None and len(pages.findall('page'))==13
+          print('Verified canonical website.xml:',len(pages.findall('page')),'pages')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forex-canonical-website-xml
+          path: website.xml
+          retention-days: 14
