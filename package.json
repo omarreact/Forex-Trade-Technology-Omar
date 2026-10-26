@@ -12,8 +12,9 @@
     "validate:data": "node scripts/validate-content.mjs",
     "lint": "next lint",
     "export:xml": "node scripts/export-website-xml.mjs",
-    "validate:content": "node scripts/validate-content.mjs",
-    "export:block-manifest": "node scripts/export-block-manifest.mjs"
+    "validate:content": "node scripts/validate-content.mjs && node scripts/test-section-contracts.mjs",
+    "export:block-manifest": "node scripts/export-block-manifest.mjs",
+    "test:contracts": "node scripts/test-section-contracts.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.553.0",
