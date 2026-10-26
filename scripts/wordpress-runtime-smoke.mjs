@@ -1,7 +1,7 @@
 import {chromium} from 'playwright';
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
-const base=(process.env.WP_URL||'http://127.0.0.1:8888').replace(/\/$/,'');
+const base=(process.env.WP_URL||'http://localhost:8888').replace(/\/$/,'');
 const paths=[
  '/','/solutions/brokerage-setup','/solutions/mt5-white-label',
  '/solutions/forex-broker-hosting','/solutions/forex-liquidity-connectivity',
