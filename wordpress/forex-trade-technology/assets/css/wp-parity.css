@@ -1,5 +1,6 @@
 /* WordPress canvas/markup compatibility with the Next.js CSS selectors. */
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;max-width:100%;overflow-x:clip}
+body,.wp-site-blocks{max-width:100%;overflow-x:clip}
 body.wp-theme-forex-trade-technology{margin:0}
 .bs-main,.wp-block-post-content,.entry-content,.is-root-container{max-width:none!important}
 .bs-main>.wp-block-post-content,.bs-main>.wp-block-post-content>.wp-block{max-width:none!important;margin-block-start:0}
