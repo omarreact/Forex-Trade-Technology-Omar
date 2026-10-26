@@ -60,10 +60,12 @@ try{
   if(Array.isArray(doc)&&doc[0]?.id){
    await page.goto(base+'/wp-admin/post.php?post='+doc[0].id+'&action=edit',{waitUntil:'domcontentloaded'});
    try {
-    await page.locator('.editor-styles-wrapper').waitFor({timeout:45000});
+    const iframe=page.frameLocator('iframe[name="editor-canvas"]').locator('.editor-styles-wrapper');
+    try{await iframe.waitFor({timeout:35000});}
+    catch(e){await page.locator('.editor-styles-wrapper').waitFor({timeout:10000});}
     await page.screenshot({path:'artifacts/wordpress/editor-faq-1440.png'});
     report.editor.push({page:'/faq',loaded:true});
-   }catch(e){report.errors.push({page:'editor',issue:'Gutenberg editor canvas did not appear',message:String(e)});}
+   }catch(e){await page.screenshot({path:'artifacts/wordpress/editor-failure.png',fullPage:true}).catch(()=>{});report.errors.push({page:'editor',issue:'Gutenberg editor canvas did not appear',url:page.url(),message:String(e),pageText:(await page.locator('body').innerText().catch(()=>'' )).slice(0,900)});}
   }else report.errors.push({page:'editor',issue:'Unable to resolve FAQ page through REST'});
  }else report.errors.push({page:'editor',issue:'REST page lookup failed '+list.status()});
  await context.close();

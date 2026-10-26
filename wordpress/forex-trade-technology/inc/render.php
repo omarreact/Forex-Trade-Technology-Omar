@@ -123,7 +123,14 @@ function ftt_page_hero(array $page):string{
     $top=$page['pageTop']??[];$hero=$page['hero']??[];
     $img=ftt_image((string)($top['backgroundImageKey']??$hero['imageKey']??''));
     $subtitle=trim((string)($top['subtitle']??''));
-    if(preg_match('/^(Breadcrumb|Label):/i',$subtitle))$subtitle=(string)($hero['leadParagraphs'][0]??$hero['subtitle']??'');
+    if(preg_match('/^(Breadcrumb|Label):/i',$subtitle)){
+        $subtitle='';
+        foreach($hero['leadParagraphs']??[] as $line){
+            $candidate=trim((string)$line);
+            if($candidate&&!preg_match('/^(Breadcrumb|Label):/i',$candidate)){$subtitle=$candidate;break;}
+        }
+        if(!$subtitle&&!preg_match('/^(Breadcrumb|Label):/i',(string)($hero['subtitle']??'')))$subtitle=(string)($hero['subtitle']??'');
+    }
     $html='<section class="bs-page-header" aria-labelledby="bs-page-heading" data-view-transition="hero">';
     if($img)$html.='<img class="bs-page-bg" src="'.esc_url($img['url']).'" alt="'.esc_attr($img['alt']??'').'">';
     $html.='<div class="bs-page-header-overlay"></div><div class="bs-shell bs-page-header-content"><nav class="bs-breadcrumb" aria-label="Breadcrumb">';
