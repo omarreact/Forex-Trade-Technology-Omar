@@ -1,0 +1,1 @@
+export {absoluteUrl} from '@/content';
