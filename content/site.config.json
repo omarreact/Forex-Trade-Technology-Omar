@@ -180,6 +180,27 @@
         "label": "Discuss Your Setup",
         "href": "/contact",
         "icon": "arrowUpRight"
+      },
+      "visual": {
+        "eyebrow": "CONNECTED BROKERAGE SYSTEMS",
+        "status": "Integrated stack",
+        "items": [
+          {
+            "icon": "server",
+            "title": "Trading platforms",
+            "caption": "MT5 configuration & hosting"
+          },
+          {
+            "icon": "link",
+            "title": "Liquidity & connectivity",
+            "caption": "Bridges, gateways & integrations"
+          },
+          {
+            "icon": "users",
+            "title": "Client operations",
+            "caption": "CRM, KYC & payments"
+          }
+        ]
       }
     }
   },
