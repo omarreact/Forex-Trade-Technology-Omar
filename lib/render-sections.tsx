@@ -40,7 +40,7 @@ function Section({section,index,pageTitle,pageId}:{section:SectionData;index:num
   const intro=topics.filter(group=>!group.heading).flatMap(group=>group.paragraphs);
   return <FeatureFlexSection
    id={section.id}
-   title={section.title}
+   title={section.title||''}
    items={items}
    intro={intro}
    variant={section.title==='Why Brokers Work With Us'?'benefits':'infrastructure'}
@@ -48,12 +48,12 @@ function Section({section,index,pageTitle,pageId}:{section:SectionData;index:num
  }
  if(override?.id==='audience-carousel'){
   const icons=['building','server','users','settings'];
-  const items=regroup(section.blocks).filter(group=>group.heading).map((group,i)=>({
+  const items=regroup(section.blocks||[]).filter(group=>group.heading).map((group,i)=>({
    title:group.heading||'',
    description:group.paragraphs.join(' '),
    icon:icons[i%icons.length]
   }));
-  return <AudienceCarousel title={section.title} items={items}/>;
+  return <AudienceCarousel title={section.title||''} items={items}/>;
  }
  if(override?.id==='contact')return <ContactSection section={section}/>;
  const target=layoutContract[section.layout];
