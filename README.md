@@ -32,6 +32,34 @@ The folders deliberately resemble a WordPress **Full Site Editing block theme**,
 
 **Do not migrate existing JSX into template PHP.** In WordPress, convert it to block markup for static patterns, implement interactive blocks with `block.json` and frontend scripts, and attach the same visual tokens to editor and frontend surfaces.
 
+## Phase B — contract freeze (v1)
+
+The **runtime remains Next.js 15 / React 19 on Vercel**. This phase freezes portable data interfaces without changing the HTML/CSS, frontend routes, or contact API. Any contract-breaking change must increment `contractVersion` in both registries and include a migration note.
+
+**Canonical definitions**
+
+- `content/schema/section.ts` — the finite `SectionLayout` union; `content/schema/page.ts` owns the `PageData`, SEO, pageTop, fullBlocks, section and notes types.
+- `content/schema/render-map.json` — typed layout key → module registry, overrides and home-only/suppressed-section rules. `lib/render-sections.tsx` remains the **only** React layout/override dispatcher and reads this registry.
+- `content/schema/block-attributes.json` — serializable attributes for the six interactive blocks. Corresponding React props live in `blocks/*/types.ts`, exported by each block's `index.ts`.
+- `content/form.config.json` — editable contact-form labels, intro, notices and select options; the `ContactForm` block receives this via `patterns/ContactSection.tsx`. Form transport stays server-side `app/api/contact/route.ts`.
+- `scripts/export-block-manifest.mjs` — emits versioned JSON in `artifacts/block-manifest.json`, suitable for future Gutenberg handoff (not a deployable theme).
+
+**Validation workflow**
+
+```bash
+npm install
+npm run validate:content
+npm run test:contracts
+npx tsc --noEmit
+npm run build
+npm run export:block-manifest
+npm run export:xml
+```
+
+Validation verifies the 13 page documents, canonical routes, section layouts and IDs, SEO and pageTop contracts, 5-slide hero, 42 FAQs, 87 sections, source-copy inventory and referenced media assets. Contract tests ensure the TypeScript layout enum matches the JSON registry, all mapped components exist and can be dispatched, overrides are registered, and every block has typed exported attributes. CI retains browser/responsive and production screenshot parity checks.
+
+When authoring a new layout: add it first to `sectionLayouts`, add its module to `render-map.json`, add its pattern/block component (including `types.ts` for interactive blocks), dispatch it only in `lib/render-sections.tsx`, then update page JSON and tests. Keep content and theme token data separate from component implementation. Do **not** introduce WordPress, PHP, or `block.json` into this Next.js runtime.
+
 ## Data and routing
 
 `content/pages/` contains 13 individual, complete page documents (including `fullBlocks`, SEO, IDs, sections and footer notes). `content/site.config.json` owns navigation, footer, canonical routes and features. `theme/theme.json` is the canonical token + image source, derived losslessly from the old `site-data/theme.styles.json`.
