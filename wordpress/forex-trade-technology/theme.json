@@ -182,8 +182,11 @@
     },
     {
       "name": "final-cta",
-      "title": "Final CTA",
-      "area": "uncategorized"
+      "title": "Final CTA"
+    },
+    {
+      "name": "final-cta-home",
+      "title": "Home Final CTA"
     }
   ],
   "customTemplates": [
