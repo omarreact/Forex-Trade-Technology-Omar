@@ -301,44 +301,44 @@
     },
     "images": {
       "slider_1": {
-        "url": "https://images.unsplash.com/photo-1744782211816-c5224434614f?auto=format&fit=crop&w=1920&q=78",
-        "alt": "Multi-screen financial trading desk displaying live candlestick charts",
+        "url": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1920&q=82",
+        "alt": "Financial trading charts and live global market information",
         "source": "unsplash",
-        "credit": "Jakub Żerdzicki",
-        "sourcePage": "https://unsplash.com/photos/VM_6EtTAfDQ",
-        "position": "64% center"
+        "credit": "Unsplash contributor",
+        "sourcePage": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3",
+        "position": "68% center"
       },
       "slider_2": {
-        "url": "https://images.unsplash.com/photo-1781246212288-7fa538344718?auto=format&fit=crop&w=1920&q=78",
-        "alt": "Brokerage setup planning team collaborating around laptops",
+        "url": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1920&q=82",
+        "alt": "Financial technology team planning a brokerage launch",
         "source": "unsplash",
-        "credit": "Ngital",
-        "sourcePage": "https://unsplash.com/photos/RdEFWm0N84o",
-        "position": "62% center"
+        "credit": "Unsplash contributor",
+        "sourcePage": "https://images.unsplash.com/photo-1521737711867-e3b97375f902",
+        "position": "60% center"
       },
       "slider_3": {
-        "url": "https://images.unsplash.com/photo-1775519520461-6b6e068d9250?auto=format&fit=crop&w=1920&q=78",
-        "alt": "Industrial server infrastructure racks with cables and network equipment",
+        "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=82",
+        "alt": "Modern server room and secure hosting infrastructure",
         "source": "unsplash",
-        "credit": "Eric Stoynov",
-        "sourcePage": "https://unsplash.com/photos/k27hkqXuveo",
-        "position": "73% center"
+        "credit": "Unsplash contributor",
+        "sourcePage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31",
+        "position": "70% center"
       },
       "slider_4": {
-        "url": "https://images.unsplash.com/photo-1770681381576-f1fdceb2ea01?auto=format&fit=crop&w=1920&q=78",
-        "alt": "Business reporting and CRM analytics dashboard displayed on a laptop",
+        "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=82",
+        "alt": "Analytics and customer relationship management dashboard",
         "source": "unsplash",
-        "credit": "nicoll camacho",
-        "sourcePage": "https://unsplash.com/photos/adFE-OdO7RA",
+        "credit": "Unsplash contributor",
+        "sourcePage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
         "position": "65% center"
       },
       "slider_5": {
-        "url": "https://images.unsplash.com/photo-1691435828932-911a7801adfb?auto=format&fit=crop&w=1920&q=78",
-        "alt": "Fiber and ethernet cables attached to trading infrastructure network switches",
+        "url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=82",
+        "alt": "Global connected network representing liquidity routing and FIX connectivity",
         "source": "unsplash",
-        "credit": "Albert Stoynov",
-        "sourcePage": "https://unsplash.com/photos/dyUp7WPu5q4",
-        "position": "70% center"
+        "credit": "Unsplash contributor",
+        "sourcePage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+        "position": "65% center"
       },
       "trading_desk": {
         "url": "https://images.pexels.com/photos/6802049/pexels-photo-6802049.jpeg?auto=compress&cs=tinysrgb&w=1400",
