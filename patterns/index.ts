@@ -13,3 +13,4 @@ export * from './MediaBand';
 export * from './Gallery3';
 export * from './V5Guide';
 export * from './DocumentNotes';
+export * from './ContactSection';

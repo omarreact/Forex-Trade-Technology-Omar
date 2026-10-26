@@ -15,6 +15,7 @@ import {TimelineSteps} from '@/patterns/TimelineSteps';
 import {StackProse} from '@/patterns/StackProse';
 import {DarkBand} from '@/patterns/DarkBand';
 import {SplitContent} from '@/patterns/SplitContent';
+import {ContactSection} from '@/patterns/ContactSection';
 function Section({section,index,pageTitle,pageId}:{section:SectionData;index:number;pageTitle:string;pageId:string}){
  if(pageId==='home'&&section.title==='How Your Trading Stack Connects')return <TradingStackFlow section={section} visual={visualLabels.tradingStackFlow}/>;
  if(section.title==='Platform & Infrastructure Under One Roof'||section.title==='Why Brokers Work With Us'){
@@ -45,6 +46,7 @@ function Section({section,index,pageTitle,pageId}:{section:SectionData;index:num
   }));
   return <AudienceCarousel title={section.title} items={items}/>;
  }
+ if(section.layout==='splitContent'&&section.title==='Request a Consultation')return <ContactSection section={section}/>;
  if(section.layout==='iconRow')return <TrustStrip section={section}/>;
  if(section.layout==='mediaBand')return <MediaBand section={section} title={pageTitle}/>;
  if(section.layout==='gallery3')return <Gallery3 section={section}/>;

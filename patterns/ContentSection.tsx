@@ -2,7 +2,6 @@ import type {SectionData} from '@/content/schema/page';
 import {regroup,TextParagraphs} from './section-helpers';
 import {SectionHeading} from '@/blocks/shared/SectionHeading';
 import {IconCard} from '@/blocks/icon-card';
-import {ContactForm} from '@/blocks/contact-form';
 import {VisualStorySection} from './VisualStory';
 export type ContentPatternKind='cardGrid2'|'cardGrid3'|'timeline'|'stack'|'darkBand'|'splitContent';
 export function V5SectionContent({section,index,pageId,mode}:{section:SectionData;index:number;pageId:string;mode:ContentPatternKind}){
@@ -11,8 +10,6 @@ export function V5SectionContent({section,index,pageId,mode}:{section:SectionDat
  const topics=groups.filter(x=>x.heading);
  const layout:string=mode;
  const dark=layout==='darkBand';
- if(layout==='splitContent'&&section.title==='Request a Consultation')
-  return <section className="bs-v5-section bs-v5-contact" id={section.id}><div className="bs-shell"><h2>{section.title}</h2><ContactForm/></div></section>;
  // Prose-only and text-only bands should never leave half the desktop canvas empty.
  // Use alternating editorial content and relevant, content-derived visual diagrams.
  if(layout==='stack'||(layout==='darkBand'&&topics.length===0)||(layout==='timeline'&&topics.length===0)){
