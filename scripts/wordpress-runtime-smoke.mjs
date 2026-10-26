@@ -12,7 +12,18 @@ const paths=[
 const inspect=['/','/solutions/brokerage-setup','/faq','/contact'];
 const sizes=[320,768,1440];
 await fs.mkdir('artifacts/wordpress',{recursive:true});
-const report={base,routes:[],editor:[],screenshots:[],errors:[]};
+const report={base,routes:[],editor:[],screenshots:[],api:[],errors:[]};
+async function checkContact(label,fields,expected){
+ const body=new FormData();
+ for(const [key,value] of Object.entries(fields))body.set(key,value);
+ const response=await fetch(base+'/wp-json/ftt/v1/contact',{method:'POST',body});
+ const result=await response.json();
+ report.api.push({label,status:response.status,expected,message:result.message||''});
+ if(response.status!==expected)report.errors.push({page:'contact-api',label,expected,actual:response.status,message:result.message});
+}
+await checkContact('invalid fields',{name:'',email:'invalid',message:'short'},400);
+await checkContact('honeypot',{name:'Automated',email:'qa@example.test',message:'Synthetic contact API smoke test',website:'filled'},200);
+await checkContact('unconfigured delivery',{name:'Automated QA',email:'qa@example.test',message:'Synthetic staging test, must not send email.'},503);
 const browser=await chromium.launch({headless:true});
 try{
  for(const width of sizes){
