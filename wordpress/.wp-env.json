@@ -1,0 +1,11 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/wp-env.json",
+  "themes": [
+    "./forex-trade-technology"
+  ],
+  "plugins": [
+    "./forex-trade-technology-contact"
+  ],
+  "port": 8888,
+  "testsPort": 8889
+}

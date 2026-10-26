@@ -1,0 +1,48 @@
+name: WordPress Phase C end-to-end staging smoke
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'wordpress/**'
+      - 'scripts/wordpress-runtime-smoke.mjs'
+      - '.github/workflows/wordpress-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  wordpress-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install WordPress environment and Chromium
+        run: |
+          npm install -g @wordpress/env@10.39.0
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start isolated WordPress and MariaDB
+        working-directory: wordpress
+        run: wp-env start
+      - name: Activate theme, plugin, and import pages
+        working-directory: wordpress
+        run: |
+          wp-env run cli wp theme activate forex-trade-technology
+          wp-env run cli wp plugin activate forex-trade-technology-contact
+          wp-env run cli wp ftt import
+          wp-env run cli wp rewrite structure '/%postname%/' --hard
+          wp-env run cli wp option get page_on_front
+      - name: Check 13 routes, all key blocks, and Gutenberg canvas
+        run: node scripts/wordpress-runtime-smoke.mjs
+      - name: Upload WordPress browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wordpress-staging-e2e-screenshots
+          path: artifacts/wordpress/
+          if-no-files-found: warn
+      - name: Docker diagnostic on failure
+        if: failure()
+        run: docker ps -a && docker logs wordpress-wordpress-1 --tail 50 || true
