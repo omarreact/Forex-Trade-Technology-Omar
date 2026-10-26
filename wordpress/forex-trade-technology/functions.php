@@ -8,6 +8,8 @@ defined('ABSPATH') || exit;
 define('FTT_THEME_VERSION', '0.1.0');
 require_once __DIR__ . '/inc/content.php';
 require_once __DIR__ . '/inc/render.php';
+require_once __DIR__ . '/inc/render-sections.php';
+require_once __DIR__ . '/inc/form.php';
 require_once __DIR__ . '/inc/import.php';
 
 add_action('after_setup_theme', function (): void {
