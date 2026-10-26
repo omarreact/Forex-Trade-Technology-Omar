@@ -107,8 +107,17 @@
     },
     "contact-form": {
       "component": "blocks/contact-form/ContactForm.tsx",
-      "attributes": {},
-      "notes": "Presentation currently has no external block attributes; form transport stays Next API. Phase B may move labels/options to content contract."
+      "attributes": {
+        "copy": {
+          "type": "object",
+          "required": true,
+          "description": "All labels, options, notices, and copy; supplied by content/form.config.json"
+        },
+        "email": {
+          "type": "string",
+          "description": "Optional public contact email"
+        }
+      }
     }
   }
 }

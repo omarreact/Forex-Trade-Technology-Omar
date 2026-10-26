@@ -1,12 +1,10 @@
 'use client';
 import {useState,type FormEvent} from 'react';
 import {Icon} from '@/blocks/shared/Icon';
-import {siteConfig} from '@/lib/site-data';
-const interests=['MT5 White Label','MT5 Grey Label','MT4 White Label','CRM','Website','Liquidity','Hosting','Turnkey','API','Other'];
-const stages=['Planning','Preparing to Launch','Existing Broker','Scaling'];
 const staticPreview=process.env.NEXT_PUBLIC_STATIC_EXPORT==='true';
 const issueBase='https://github.com/omarreact/Forex-Trade-Technology-Omar/issues/new';
-export function ContactForm(){
+import type {ContactFormAttributes} from './types';
+export function ContactForm({copy,email}:ContactFormAttributes){
  const [pending,setPending]=useState(false);
  const [result,setResult]=useState<{ok:boolean;message:string}|null>(null);
  const [issueDraft,setIssueDraft]=useState('');
@@ -30,27 +28,27 @@ export function ContactForm(){
   finally{setPending(false);}
  }
  return <div className="bs-contact-grid"><div className="bs-contact-intro">
-   <span className="bs-eyebrow">REQUEST A CONSULTATION</span>
-   <h2>Let&apos;s build something <em>reliable.</em></h2>
-   <p>Planning a launch, fixing your existing setup, or deciding which technology you need? Tell us about your business and we&apos;ll arrange a useful technical consultation.</p>
-   <p>{staticPreview?'This static preview submits privately through the Vercel mail API when available. Otherwise, you may create a public GitHub issue without including your name, email, or phone.':'No sales script and no obligation. Fields marked with an asterisk are required.'}</p>
-   {staticPreview?<a href={issueBase} target="_blank" rel="noopener noreferrer">Open GitHub Issues<Icon name="arrowUpRight" size={17}/></a>
-     :siteConfig.site.email?<a href={`mailto:${siteConfig.site.email}`}>{siteConfig.site.email}<Icon name="arrowUpRight" size={17}/></a>
+   <span className="bs-eyebrow">{copy.eyebrow}</span>
+   <h2>{copy.headingBefore} <em>{copy.headingEmphasis}</em></h2>
+   <p>{copy.intro}</p>
+   <p>{staticPreview?copy.previewNotice:copy.publicNotice}</p>
+   {staticPreview?<a href={issueBase} target="_blank" rel="noopener noreferrer">{copy.previewLinkText}<Icon name="arrowUpRight" size={17}/></a>
+     :email?<a href={`mailto:${email}`}>{email}<Icon name="arrowUpRight" size={17}/></a>
      :null}
   </div>
   <form className="bs-contact-form" onSubmit={send}>
    <input type="text" name="website" autoComplete="off" tabIndex={-1} className="bs-honeypot" aria-hidden="true"/>
    <div className="bs-form-fields">
-    <label><span>Name *</span><input autoComplete="name" type="text" name="name" placeholder="Your full name" required minLength={2} maxLength={100}/></label>
-    <label><span>Business Email *</span><input autoComplete="email" type="email" name="email" placeholder="you@company.com" required maxLength={150}/></label>
-    <label><span>Company</span><input autoComplete="organization" type="text" name="company" placeholder="Company name" maxLength={150}/></label>
-    <label><span>Country</span><input autoComplete="country-name" type="text" name="country" placeholder="Country" maxLength={100}/></label>
-    <label><span>Phone / WhatsApp</span><input autoComplete="tel" type="tel" name="contact" placeholder="Country code and number" maxLength={100}/></label>
-    <label><span>What are you interested in?</span><select name="interest" defaultValue=""><option value="">Select a solution</option>{interests.map(option=><option key={option} value={option}>{option}</option>)}</select></label>
-    <label className="wide"><span>Where is your business right now?</span><select name="stage" defaultValue=""><option value="">Select your current stage</option>{stages.map(option=><option key={option} value={option}>{option}</option>)}</select></label>
-    <label className="wide"><span>Message *</span><textarea name="message" minLength={10} maxLength={4000} rows={6} required placeholder="Share your business model, target markets, current platform, providers you've already chosen, or the problem you're trying to solve."/></label>
+    <label><span>{copy.fields.name.label}</span><input autoComplete="name" type="text" name="name" placeholder={copy.fields.name.placeholder} required minLength={2} maxLength={100}/></label>
+    <label><span>{copy.fields.email.label}</span><input autoComplete="email" type="email" name="email" placeholder={copy.fields.email.placeholder} required maxLength={150}/></label>
+    <label><span>{copy.fields.company.label}</span><input autoComplete="organization" type="text" name="company" placeholder={copy.fields.company.placeholder} maxLength={150}/></label>
+    <label><span>{copy.fields.country.label}</span><input autoComplete="country-name" type="text" name="country" placeholder={copy.fields.country.placeholder} maxLength={100}/></label>
+    <label><span>{copy.fields.contact.label}</span><input autoComplete="tel" type="tel" name="contact" placeholder={copy.fields.contact.placeholder} maxLength={100}/></label>
+    <label><span>{copy.fields.interest.label}</span><select name="interest" defaultValue=""><option value="">{copy.fields.interest.placeholder}</option>{copy.fields.interest.options.map(option=><option key={option} value={option}>{option}</option>)}</select></label>
+    <label className="wide"><span>{copy.fields.stage.label}</span><select name="stage" defaultValue=""><option value="">{copy.fields.stage.placeholder}</option>{copy.fields.stage.options.map(option=><option key={option} value={option}>{option}</option>)}</select></label>
+    <label className="wide"><span>{copy.fields.message.label}</span><textarea name="message" minLength={10} maxLength={4000} rows={6} required placeholder={copy.fields.message.placeholder}/></label>
    </div>
-   <div className="bs-form-footer"><span>{staticPreview?'Private delivery requires Vercel and Resend. Fallback GitHub issues are public and require your confirmation.':'We will use these details only to respond to your enquiry. We do not provide brokerage or investment services.'}</span><button className="bs-btn bs-btn-primary" type="submit" disabled={pending}>{pending?'Sending…':'Request a Consultation'}<Icon name="arrowUpRight" size={17}/></button></div>
+   <div className="bs-form-footer"><span>{staticPreview?copy.previewFooter:copy.footer}</span><button className="bs-btn bs-btn-primary" type="submit" disabled={pending}>{pending?copy.submitting:copy.submit}<Icon name="arrowUpRight" size={17}/></button></div>
    {result&&<p role="status" className={`bs-form-status ${result.ok?'success':'error'}`}>{result.message} {!result.ok&&staticPreview&&issueDraft&&<a target="_blank" rel="noopener noreferrer" href={issueDraft}>Review public GitHub issue draft (excludes personal information)</a>}</p>}
   </form>
  </div>;

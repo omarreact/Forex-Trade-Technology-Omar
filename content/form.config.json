@@ -1,0 +1,65 @@
+{
+  "eyebrow": "REQUEST A CONSULTATION",
+  "headingBefore": "Let's build something",
+  "headingEmphasis": "reliable.",
+  "intro": "Planning a launch, fixing your existing setup, or deciding which technology you need? Tell us about your business and we'll arrange a useful technical consultation.",
+  "publicNotice": "No sales script and no obligation. Fields marked with an asterisk are required.",
+  "previewNotice": "This static preview submits privately through the Vercel mail API when available. Otherwise, you may create a public GitHub issue without including your name, email, or phone.",
+  "previewLinkText": "Open GitHub Issues",
+  "fields": {
+    "name": {
+      "label": "Name *",
+      "placeholder": "Your full name"
+    },
+    "email": {
+      "label": "Business Email *",
+      "placeholder": "you@company.com"
+    },
+    "company": {
+      "label": "Company",
+      "placeholder": "Company name"
+    },
+    "country": {
+      "label": "Country",
+      "placeholder": "Country"
+    },
+    "contact": {
+      "label": "Phone / WhatsApp",
+      "placeholder": "Country code and number"
+    },
+    "interest": {
+      "label": "What are you interested in?",
+      "placeholder": "Select a solution",
+      "options": [
+        "MT5 White Label",
+        "MT5 Grey Label",
+        "MT4 White Label",
+        "CRM",
+        "Website",
+        "Liquidity",
+        "Hosting",
+        "Turnkey",
+        "API",
+        "Other"
+      ]
+    },
+    "stage": {
+      "label": "Where is your business right now?",
+      "placeholder": "Select your current stage",
+      "options": [
+        "Planning",
+        "Preparing to Launch",
+        "Existing Broker",
+        "Scaling"
+      ]
+    },
+    "message": {
+      "label": "Message *",
+      "placeholder": "Share your business model, target markets, current platform, providers you've already chosen, or the problem you're trying to solve."
+    }
+  },
+  "footer": "We will use these details only to respond to your enquiry. We do not provide brokerage or investment services.",
+  "previewFooter": "Private delivery requires Vercel and Resend. Fallback GitHub issues are public and require your confirmation.",
+  "submit": "Request a Consultation",
+  "submitting": "Sending…"
+}
