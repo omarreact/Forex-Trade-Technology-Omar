@@ -14,8 +14,8 @@
   const SSR=wp.serverSideRender && (wp.serverSideRender.default || wp.serverSideRender);
   const ns='forex-trade-technology/';
   const descriptions={
-    'site-header':['Site Header',{}],'site-footer':['Site Footer',{}],
-    'final-cta':['Final CTA',{home:{type:'boolean',default:false}}],
+    'site-header':['Site Header',{navigation:{type:'object'}}],'site-footer':['Site Footer',{footer:{type:'object'},copyright:{type:'string'}}],
+    'final-cta':['Final CTA',{home:{type:'boolean',default:false},copy:{type:'object'}}],
     'home-slider':['Home Slider',{slides:{type:'array',default:[]},intervalMs:{type:'number',default:6000},autoplay:{type:'boolean',default:true}}],
     'page-hero':['Interior Page Hero',{page:{type:'object',default:{}}}],
     'guide':['Technical Guide',{pageId:{type:'string',default:''}}],
@@ -79,7 +79,33 @@
       h(TextControl,{key:'hero-title',label:'Page heading',value:a.page?.pageTop?.title||'',onChange:v=>update(props,'page',{pageTop:{...(a.page?.pageTop||{}),title:v}})}),
       h(TextareaControl,{key:'hero-subtitle',label:'Subtitle',value:a.page?.pageTop?.subtitle||'',onChange:v=>update(props,'page',{pageTop:{...(a.page?.pageTop||{}),subtitle:v}})})
     ];
-    if(slug==='final-cta')return [h(ToggleControl,{key:'home',label:'Home CTA with stack visual',checked:!!a.home,onChange:v=>props.setAttributes({home:v})})];
+    if(slug==='final-cta'){
+      const copy=a.copy||window.fttEditorConfig?.footer?.cta||{};
+      return [
+        h(ToggleControl,{key:'home',label:'Home CTA with stack visual',checked:!!a.home,onChange:v=>props.setAttributes({home:v})}),
+        ...['kicker','title','description'].map(key=>h(key==='description'?TextareaControl:TextControl,{key,label:'CTA '+key,value:copy[key]||'',onChange:v=>props.setAttributes({copy:{...copy,[key]:v}})})),
+        ...['label','href'].map(key=>h(TextControl,{key:'action-'+key,label:'Button '+key,value:copy.action?.[key]||'',onChange:v=>props.setAttributes({copy:{...copy,action:{...(copy.action||{}),[key]:v}}})}))
+      ];
+    }
+    if(slug==='site-header'){
+      const navigation=a.navigation||window.fttEditorConfig?.navigation||{primary:[]};
+      return (navigation.primary||[]).flatMap((item,i)=>[
+        h(TextControl,{key:'nav-label-'+i,label:'Navigation '+(i+1)+' label',value:item.label||'',onChange:v=>{const primary=[...navigation.primary];primary[i]={...item,label:v};props.setAttributes({navigation:{...navigation,primary}});}}),
+        ...((item.children||[]).flatMap((child,j)=>[
+          h(TextControl,{key:'child-label-'+i+'-'+j,label:'Submenu '+(i+1)+'.'+(j+1)+' text',value:child.label||'',onChange:v=>{const primary=[...navigation.primary];const children=[...item.children];children[j]={...child,label:v};primary[i]={...item,children};props.setAttributes({navigation:{...navigation,primary}});}}),
+          h(TextControl,{key:'child-link-'+i+'-'+j,label:'Submenu '+(i+1)+'.'+(j+1)+' href',value:child.href||'',onChange:v=>{const primary=[...navigation.primary];const children=[...item.children];children[j]={...child,href:v};primary[i]={...item,children};props.setAttributes({navigation:{...navigation,primary}});}})
+        ])),
+        !item.children?h(TextControl,{key:'nav-href-'+i,label:'Navigation href',value:item.href||'',onChange:v=>{const primary=[...navigation.primary];primary[i]={...item,href:v};props.setAttributes({navigation:{...navigation,primary}});}}):null
+      ]);
+    }
+    if(slug==='site-footer'){
+      const footer=a.footer||window.fttEditorConfig?.footer||{};
+      return [
+        h(TextareaControl,{key:'footer-desc',label:'Footer about text',value:footer.brand?.description||'',onChange:v=>props.setAttributes({footer:{...footer,brand:{...(footer.brand||{}),description:v}}})}),
+        h(TextareaControl,{key:'copyright',label:'Copyright notice',value:a.copyright??window.fttEditorConfig?.copyright??'',onChange:v=>props.setAttributes({copyright:v})}),
+        ...((footer.columns||[]).map((col,i)=>h(TextControl,{key:'column-'+i,label:'Footer column '+(i+1)+' title',value:col.heading||'',onChange:v=>{const columns=[...footer.columns];columns[i]={...col,heading:v};props.setAttributes({footer:{...footer,columns}});}})))
+      ];
+    }
     if(slug==='trust-carousel')return [
       h(TextareaControl,{key:'items',label:'Trust labels (one per line)',value:(a.items||[]).join('\n'),onChange:v=>props.setAttributes({items:v.split('\n').map(x=>x.trim()).filter(Boolean)})})
     ];

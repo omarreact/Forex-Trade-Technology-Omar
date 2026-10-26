@@ -41,6 +41,12 @@ add_action('enqueue_block_editor_assets', function (): void {
         FTT_THEME_VERSION,
         true
     );
+    $public=ftt_config();
+    wp_localize_script('ftt-block-editor','fttEditorConfig',[
+        'navigation'=>$public['navigation']??[],
+        'footer'=>$public['footer']??[],
+        'copyright'=>$public['site']['copyright']??''
+    ]);
 });
 add_action('init', function (): void {
     foreach (glob(__DIR__ . '/blocks/*/block.json') ?: [] as $block) {

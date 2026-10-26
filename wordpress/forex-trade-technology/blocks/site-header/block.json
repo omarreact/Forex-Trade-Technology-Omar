@@ -8,7 +8,11 @@
   "icon": "layout",
   "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
   "textdomain": "forex-trade-technology",
-  "attributes": {},
+  "attributes": {
+    "navigation": {
+      "type": "object"
+    }
+  },
   "supports": {
     "html": false,
     "anchor": false,

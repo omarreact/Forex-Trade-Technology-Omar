@@ -6,9 +6,9 @@ defined('ABSPATH') || exit;
 function ftt_render_dynamic_block(array $attributes, string $content, WP_Block $block): string {
     $name = str_replace('forex-trade-technology/', '', $block->name);
     switch ($name) {
-        case 'site-header': return ftt_header();
-        case 'site-footer': return ftt_footer();
-        case 'final-cta': return ftt_final_cta(!empty($attributes['home']));
+        case 'site-header': return ftt_header($attributes);
+        case 'site-footer': return ftt_footer($attributes);
+        case 'final-cta': return ftt_final_cta(!empty($attributes['home']),$attributes);
         case 'home-slider': return ftt_home_slider($attributes['slides']??[], $attributes);
         case 'page-hero': return ftt_page_hero($attributes['page']??[]);
         case 'guide': return ftt_guide((string)($attributes['pageId']??''));
@@ -34,8 +34,9 @@ function ftt_heading(string $title='', string $kicker='FOREX TRADE TECHNOLOGY', 
     .($title?ftt_h($title,2,'bs-ui-title',$id):'')
     .($subtitle?'<p class="bs-ui-lead">'.esc_html($subtitle).'</p>':'').'</header>';
 }
-function ftt_header(): string {
+function ftt_header(array $attributes=[]): string {
     $config=ftt_config();
+    if(isset($attributes['navigation'])&&is_array($attributes['navigation']))$config['navigation']=$attributes['navigation'];
     $current=(string)parse_url((string)($_SERVER['REQUEST_URI']??'/'), PHP_URL_PATH);
     $html='<header class="bs-site-header bs-clean-header"><div class="bs-shell bs-header-inner">'
     .'<a href="'.esc_url(home_url('/')).'" class="bs-brand" aria-label="Forex Trade Technology — Home">'
@@ -63,8 +64,10 @@ function ftt_header(): string {
     $html.='<a class="bs-btn bs-btn-primary bs-header-cta" href="'.esc_url(ftt_url($cta['href'])).'">'.esc_html($cta['label']).ftt_icon('arrowUpRight').'</a>';
     return $html.'</nav></div></header>';
 }
-function ftt_footer(): string {
-    $config=ftt_config();$footer=$config['footer']??[];
+function ftt_footer(array $attributes=[]): string {
+    $config=ftt_config();
+    if(isset($attributes['footer'])&&is_array($attributes['footer']))$config['footer']=$attributes['footer'];
+    if(isset($attributes['copyright']))$config['site']['copyright']=$attributes['copyright'];$footer=$config['footer']??[];
     $html='<footer class="bs-footer"><div class="bs-shell bs-footer-main"><div class="bs-footer-about">'
     .'<a href="'.esc_url(home_url('/')).'" class="bs-footer-logo">Forex Trade <strong>Technology<span>.</span></strong></a>'
     .'<p>'.esc_html($footer['brand']['description']??'').'</p>';
@@ -80,8 +83,8 @@ function ftt_footer(): string {
     return $html.'</div><div class="bs-shell bs-footer-bottom"><span>'.esc_html($config['site']['copyright']??'').'</span>'
         .'<a href="'.esc_url(ftt_url('/contact')).'">Talk to our team '.ftt_icon('arrowUpRight').'</a></div></footer>';
 }
-function ftt_final_cta(bool $home=false): string {
-    $data=ftt_config()['footer']['cta']??[];
+function ftt_final_cta(bool $home=false,array $attributes=[]): string {
+    $data=$attributes['copy']??ftt_config()['footer']['cta']??[];
     $cls='bs-cta-wrap bs-global-cta'.($home?' bs-global-cta-home':'');
     $html='<section class="'.esc_attr($cls).'" aria-labelledby="bs-final-cta-title"><div class="bs-shell"><div class="bs-global-cta-panel">'
     .'<div class="bs-global-cta-content"><span class="bs-global-cta-eyebrow"><span class="bs-global-cta-pulse" aria-hidden="true"></span>'.esc_html($data['kicker']??'').'</span>'

@@ -12,6 +12,9 @@
     "home": {
       "type": "boolean",
       "default": false
+    },
+    "copy": {
+      "type": "object"
     }
   },
   "supports": {
