@@ -1,9 +1,8 @@
 <?php
 /**
- * Title: Dark Content Band
+ * Title: Forex Trade Technology — Dark Feature Band
  * Slug: forex-trade-technology/dark-band
- * Categories: text
+ * Categories: featured, text
  */
 ?>
-<!-- wp:group {"align":"full","className":"ftt-section ftt-dark","backgroundColor":"dark","textColor":"white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull ftt-section ftt-dark has-white-color has-dark-background-color has-text-color has-background"><!-- wp:heading {"level":2} --><h2>Technology that scales with your business</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Adapt infrastructure as client volume and operational needs grow.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
+<!-- wp:forex-trade-technology/section {"section":{"id":"ftt-darkband","layout":"darkBand","title":"Dark Feature Band","blocks":[{"type":"h3","text":"Edit this feature title"},{"type":"p","text":"Use block settings to replace the content, add details and configure the section."}]},"pageId":"home","index":0,"pageTitle":"Forex Trade Technology"} /-->

@@ -1,86 +1,110 @@
 <?php
-/** Explicit, repeatable import. Never runs on public theme activation. */
+declare(strict_types=1);
 defined('ABSPATH') || exit;
-function ftt_import_pages($dry_run=false) {
-    if(!current_user_can('manage_options') && !(defined('WP_CLI')&&WP_CLI))return new WP_Error('ftt_forbidden','Administrators only');
-    $directory=get_stylesheet_directory().'/source/content/pages/';
-    $map=ftt_source('content/site.config.json');
-    $routing=$map['routing']['paths']??array();
-    $result=array('created'=>array(),'updated'=>array(),'skipped'=>array());
-    $paths=array();
-    foreach(glob($directory.'*.json') as $file) {
-        $page=json_decode((string)file_get_contents($file),true);
-        if(is_array($page)&&isset($page['slug'],$page['id']))$paths[]=$page;
+/**
+ * Deliberately opt-in importer. Runs only from Appearance -> Import Forex Content
+ * or "wp ftt import". Existing non-FTT pages are not overwritten.
+ */
+function ftt_import_source_pages(bool $dryRun = false):array {
+    if (!current_user_can('edit_theme_options')) return ['error'=>'Administrator permission required'];
+    $result=['created'=>[],'updated'=>[],'skipped'=>[],'parents'=>[],'errors'=>[]];
+    $files=glob(get_theme_file_path('data/pages/*.json'))?:[];
+    $pages=[];foreach($files as $file){$data=json_decode((string)file_get_contents($file),true);if(is_array($data)&&!empty($data['id']))$pages[$data['id']]=$data;}
+    if(count($pages)!==13)return ['error'=>'Expected 13 content page documents, got '.count($pages)];
+    foreach(['solutions','products','technology'] as $parentSlug){
+        $existing=get_page_by_path($parentSlug, OBJECT, 'page');
+        if (!$existing && !$dryRun){
+            $id=wp_insert_post(['post_type'=>'page','post_title'=>ucfirst($parentSlug),'post_name'=>$parentSlug,'post_status'=>'publish','post_content'=>'<!-- wp:paragraph --><p>Explore Forex Trade Technology solutions.</p><!-- /wp:paragraph -->'],true);
+            if(is_wp_error($id)){$result['errors'][]=$id->get_error_message();continue;}
+            update_post_meta($id,'_ftt_route_parent',1);
+            $result['parents'][]=$parentSlug;
+        }
     }
-    usort($paths,function($a,$b){return substr_count($a['slug'],'/')<=>substr_count($b['slug'],'/');});
-    foreach($paths as $source) {
-        $target=trim((string)$source['slug'],'/');
-        $segments=$target===''?array():explode('/',$target);
-        $slug=$segments?array_pop($segments):'front-page';
-        $parent=0;
-        $parent_path='';
-        foreach($segments as $segment){
-            $parent_path.=($parent_path?'/':'').$segment;
-            $existing=get_page_by_path($parent_path,OBJECT,'page');
-            if(!$existing&&!$dry_run){
-                $id=wp_insert_post(array('post_type'=>'page','post_status'=>'publish','post_name'=>$segment,'post_title'=>ucwords(str_replace('-',' ',$segment)),'post_parent'=>$parent));
-                if(is_wp_error($id))return $id;
-                $parent=(int)$id;
-            }elseif($existing)$parent=(int)$existing->ID;
+    foreach($pages as $id=>$page){
+        $sourcePath=$page['slug'];
+        $segments=array_values(array_filter(explode('/',$sourcePath)));
+        $leaf=$segments?$segments[count($segments)-1]:'home';
+        $parent= count($segments)>1 ? get_page_by_path($segments[0], OBJECT, 'page') : null;
+        $parentId=$parent?$parent->ID:0;
+        $path=ltrim($sourcePath,'/');
+        $existing=$sourcePath==='/' ? get_page_by_path('home',OBJECT,'page') : get_page_by_path($path,OBJECT,'page');
+        if($existing&&!get_post_meta($existing->ID,'_ftt_import_managed',true)){
+            $result['skipped'][]=$id.' (existing page not managed by FTT)';
+            continue;
         }
-        $existing=get_page_by_path($target ?: 'front-page',OBJECT,'page');
-        $post_content='';
-        $top=$source['pageTop']??array();
-        if(($top['variant']??'')==='homeSlider'){
-            $post_content.=serialize_block(array('blockName'=>'forex-trade-technology/home-slider','attrs'=>array('slides'=>$top['slides']??array(),'autoplay'=>$top['autoplay']??true,'intervalMs'=>$top['intervalMs']??6000),'innerBlocks'=>array(),'innerHTML'=>'','innerContent'=>array()));
-        }else{
-            $heading=$top['title']??$source['hero']['title']??'';
-            $post_content.=serialize_block(array('blockName'=>'core/group','attrs'=>array('className'=>'ftt-hero','layout'=>array('type'=>'constrained')),'innerBlocks'=>array(
-                array('blockName'=>'core/heading','attrs'=>array('level'=>1),'innerBlocks'=>array(),'innerHTML'=>'<h1>'.esc_html($heading).'</h1>','innerContent'=>array('<h1>'.esc_html($heading).'</h1>'))
-            ),'innerHTML'=>'','innerContent'=>array(null)));
+        $blocks=[];
+        $top=$page['pageTop']??[];
+        $blocks[]=($id==='home'&&($top['variant']??'')==='homeSlider')
+            ?ftt_block_comment('home-slider',['slides'=>$top['slides']??[], 'autoplay'=>!empty($top['autoplay']), 'intervalMs'=>$top['intervalMs']??6000])
+            :ftt_block_comment('page-hero',['page'=>['hero'=>$page['hero']??[],'pageTop'=>$top]]);
+        $idx=0;
+        foreach($page['sections'] as $section){
+            $layout=$section['layout']??'stack';$title=$section['title']??'';
+            if($layout==='ctaBand'||($layout==='mediaBand'&&$id!=='home'))continue;
+            if($layout==='iconRow')$blocks[]=ftt_block_comment('trust-carousel',['items'=>$section['items']??[]]);
+            elseif($id==='home'&&$title==='How Your Trading Stack Connects')
+                $blocks[]=ftt_block_comment('trading-stack-flow',['section'=>$section,'visual'=>ftt_data('visual-labels.json')['tradingStackFlow']??[]]);
+            elseif($title==='Who We Work With'&&count(array_filter($section['blocks']??[],fn($b)=>($b['type']??'')==='h3')))
+                $blocks[]=ftt_block_comment('audience-carousel',['title'=>$title,'items'=>ftt_groups_as_items($section['blocks']??[],['building','server','users','settings'])]);
+            elseif($layout==='splitContent'&&$title==='Request a Consultation')
+                $blocks[]=ftt_block_comment('contact-form',['copy'=>ftt_data('form.config.json')]);
+            else $blocks[]=ftt_block_comment('section',['section'=>$section,'pageId'=>$id,'index'=>$idx,'pageTitle'=>$id==='home'?'Forex Trade Technology':($top['title']??$page['hero']['title']??'')]);
+            $idx++;
         }
-        foreach((array)($source['sections']??array()) as $section){
-            $layout=$section['layout']??'stack';
-            if($layout==='ctaBand'||($layout==='mediaBand'&&$source['id']!=='home'))continue;
-            $name='forex-trade-technology/section';$attrs=array('section'=>$section);
-            if($source['id']==='home'&&($section['title']??'')==='How Your Trading Stack Connects'){$name='forex-trade-technology/trading-stack-flow';$attrs['visual']=array();}
-            if($source['id']==='contact'&&$layout==='splitContent'&&($section['title']??'')==='Request a Consultation'){$name='forex-trade-technology/contact-form';$attrs=array();}
-            if($layout==='iconRow'){$name='forex-trade-technology/trust-carousel';$attrs=array('items'=>$section['items']??array());}
-            $post_content.=serialize_block(array('blockName'=>$name,'attrs'=>$attrs,'innerBlocks'=>array(),'innerHTML'=>'','innerContent'=>array()));
-        }
-        $post=array('post_type'=>'page','post_status'=>'publish','post_name'=>$slug,'post_title'=>$top['title']??$source['hero']['title']??ucwords($slug),'post_excerpt'=>$source['seo']['description']??'','post_content'=>$post_content,'post_parent'=>$parent);
-        if($dry_run){$result['skipped'][]=$source['slug'];continue;}
-        if($existing){$post['ID']=$existing->ID;$id=wp_update_post($post,true);$bucket='updated';}
-        else {$id=wp_insert_post($post,true);$bucket='created';}
-        if(is_wp_error($id))return $id;
-        update_post_meta($id,'_ftt_page_id',sanitize_key($source['id']));
-        update_post_meta($id,'_ftt_seo_title',sanitize_text_field($source['seo']['title']??''));
-        update_post_meta($id,'_ftt_canonical_path',sanitize_text_field($source['seo']['canonicalPath']??''));
-        $result[$bucket][]=$source['slug'];
-        if($source['id']==='home'){
+        $blocks[]=ftt_block_comment('guide',['pageId'=>$id]);
+        if(!empty($page['documentFooterNotes']))$blocks[]=ftt_block_comment('document-notes',['notes'=>$page['documentFooterNotes']]);
+        // Final CTA is in a shared template part; never duplicate JSON ctaBand here.
+        $record=[
+            'post_type'=>'page','post_status'=>'publish',
+            'post_title'=>($top['title']??$page['hero']['title']??$id),
+            'post_name'=>$leaf,'post_parent'=>$parentId,
+            'post_content'=>implode("\n",$blocks),
+        ];
+        if($dryRun){$result[$existing?'updated':'created'][]=$id;continue;}
+        if($existing)$record['ID']=$existing->ID;
+        $postId=wp_insert_post(wp_slash($record),true);
+        if(is_wp_error($postId)){$result['errors'][]=$id.': '.$postId->get_error_message();continue;}
+        update_post_meta($postId,'_ftt_import_managed',1);
+        update_post_meta($postId,'_ftt_source_id',$id);
+        update_post_meta($postId,'_ftt_source_path',$sourcePath);
+        update_post_meta($postId,'_ftt_seo',$page['seo']??[]);
+        $result[$existing?'updated':'created'][]=$id;
+        if($id==='home'){
             update_option('show_on_front','page');
-            update_option('page_on_front',$id);
+            update_option('page_on_front',$postId);
         }
     }
+    if(!$dryRun)flush_rewrite_rules();
     return $result;
 }
-if(defined('WP_CLI')&&WP_CLI){
-    WP_CLI::add_command('ftt import',function($args,$assoc){
-        $result=ftt_import_pages(isset($assoc['dry-run']));
-        if(is_wp_error($result))WP_CLI::error($result->get_error_message());
-        WP_CLI::success(wp_json_encode($result,JSON_PRETTY_PRINT));
-    });
-}
-add_action('admin_menu',function(){
-    add_management_page('Import Forex Trade Technology','Import FTT pages','manage_options','ftt-import',function(){
-        if(!current_user_can('manage_options'))return;
-        if(isset($_POST['ftt_import'])&&check_admin_referer('ftt_import')){
-            $result=ftt_import_pages(false);
-            echo '<div class="notice notice-info"><p>'.esc_html(is_wp_error($result)?$result->get_error_message():wp_json_encode($result)).'</p></div>';
-        }
-        echo '<div class="wrap"><h1>Import 13 Forex Trade Technology pages</h1><p>Creates or updates the pages from the bundled read-only JSON source. Back up existing pages before importing again.</p><form method="post">';
-        wp_nonce_field('ftt_import');
-        submit_button('Import / update pages','primary','ftt_import');
+add_action('admin_menu', function ():void{
+    add_theme_page('Import Forex Content','Import Forex Content','edit_theme_options','ftt-import',function():void{
+        if(!current_user_can('edit_theme_options'))wp_die('Not allowed');
+        echo '<div class="wrap"><h1>Forex Trade Technology — content importer</h1>';
+        echo '<p>Imports 13 content pages and creates route parents (/solutions, /products, /technology). It preserves manually authored pages and overwrites only pages previously marked as FTT-managed. Back up the WordPress database first.</p>';
+        $result=get_transient('ftt_last_import_'.get_current_user_id());
+        if($result){echo '<pre>'.esc_html((string)wp_json_encode($result,JSON_PRETTY_PRINT)).'</pre>';delete_transient('ftt_last_import_'.get_current_user_id());}
+        echo '<form method="post" action="'.esc_url(admin_url('admin-post.php')).'"><input type="hidden" name="action" value="ftt_import_pages">';
+        wp_nonce_field('ftt_import_pages');
+        echo '<p><label><input name="dry_run" type="checkbox" value="1" checked> Preview changes only (dry run)</label></p>';
+        submit_button('Run importer');
         echo '</form></div>';
     });
 });
+add_action('admin_post_ftt_import_pages',function():void {
+    if(!current_user_can('edit_theme_options'))wp_die('Not allowed',403);
+    check_admin_referer('ftt_import_pages');
+    $result=ftt_import_source_pages(isset($_POST['dry_run']));
+    set_transient('ftt_last_import_'.get_current_user_id(),$result,120);
+    wp_safe_redirect(admin_url('themes.php?page=ftt-import'));exit;
+});
+if(defined('WP_CLI')&&WP_CLI){
+    WP_CLI::add_command('ftt import', function(array $args,array $assoc):void{
+        $admin=get_users(['role'=>'administrator','number'=>1]);
+        if($admin)wp_set_current_user($admin[0]->ID);
+        $result=ftt_import_source_pages(isset($assoc['dry-run']));
+        WP_CLI::log(wp_json_encode($result,JSON_PRETTY_PRINT));
+        if(!empty($result['error'])||!empty($result['errors']))WP_CLI::error('Import incomplete.');
+        WP_CLI::success('Source import finished.');
+    });
+}

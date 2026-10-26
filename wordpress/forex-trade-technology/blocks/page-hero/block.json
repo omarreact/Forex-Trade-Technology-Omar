@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "forex-trade-technology/page-hero",
+  "version": "0.1.0",
+  "title": "Interior Page Hero",
+  "category": "design",
+  "icon": "layout",
+  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
+  "textdomain": "forex-trade-technology",
+  "attributes": {
+    "page": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": false,
+    "customClassName": true,
+    "multiple": true
+  }
+}

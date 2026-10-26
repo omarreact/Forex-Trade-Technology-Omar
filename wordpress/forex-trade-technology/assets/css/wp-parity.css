@@ -1,0 +1,42 @@
+/* WordPress canvas/markup compatibility with the Next.js CSS selectors. */
+html{scroll-behavior:smooth;max-width:100%;overflow-x:clip}
+body,.wp-site-blocks{max-width:100%;overflow-x:clip}
+body.wp-theme-forex-trade-technology{margin:0}
+.bs-main,.wp-block-post-content,.entry-content,.is-root-container{max-width:none!important}
+.bs-main>.wp-block-post-content,.bs-main>.wp-block-post-content>.wp-block{max-width:none!important;margin-block-start:0}
+.bs-main .wp-block-post-content>*,.bs-main>.wp-block-post-content>*{margin-block-start:0;margin-block-end:0}
+.bs-home-slider,.bs-page-header,.bs-story-visual,.bs-v5-media,.bs-v5-gallery-photo{position:relative;overflow:hidden}
+.bs-slide{position:absolute;inset:0}
+.bs-slide-photo,.bs-page-bg,.bs-story-photo,.bs-v5-media-photo,.bs-v5-gallery-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bs-story-photo{z-index:0}
+.bs-home-slider .bs-slide{width:100%;height:100%}
+.bs-home-slider .bs-slide:first-child{position:absolute}
+.bs-brand .bs-logo-text,.bs-footer a,.bs-nav-link{text-decoration:none}
+.ftt-glyph{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;vertical-align:middle}
+.ftt-glyph svg{display:block;width:1.2em;height:1.2em}
+.bs-icon-card-watermark .ftt-glyph svg{width:146px;height:146px;stroke-width:1.35}
+.bs-icon-card-badge .ftt-glyph svg{width:22px;height:22px}
+.bs-mobile-menu-toggle,.bs-menu-trigger{cursor:pointer}
+.bs-scroll-top{display:none;position:fixed;right:24px;bottom:24px;width:48px;height:48px;border:0;border-radius:99px;background:#d8e9a2;color:#171a14;font-size:24px;z-index:90;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.bs-scroll-top.visible{display:flex;align-items:center;justify-content:center}
+.bs-form-status[hidden]{display:none}
+.bs-contact-form .bs-form-status{margin:16px 0 0}
+.bs-contact-form .bs-form-status.success{color:#2f6127}
+.bs-contact-form .bs-form-status.error{color:#a12929}
+.ftt-contact-section{padding:clamp(48px,5.5vw,72px) 0}
+.ftt-header-part,.ftt-footer-part,.ftt-shared-final-cta{margin:0!important}
+.bs-audience-track{will-change:transform}
+.bs-audience-slide{flex:0 0 auto}
+.bs-story-diagram{position:relative}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bs-trust-carousel-track{animation:none!important}}
+
+/* Interior CTA ornaments intentionally extend beyond panel edges in Next.js;
+   WordPress must clip this decoration at the CTA panel boundary rather than
+   growing the document's horizontal scroll area by 38px. */
+/* The CTA ornament is absolutely positioned 38px past its panel edge.
+   Clip at the section boundary as well as the panel so WP block wrappers
+   cannot contribute the ornament's offscreen pixels to scrollWidth. */
+.bs-global-cta-panel{overflow:hidden}
+.bs-global-cta:not(.bs-global-cta-home){overflow-x:clip}
+.bs-global-cta:not(.bs-global-cta-home) .bs-global-cta-decoration{right:0}
+

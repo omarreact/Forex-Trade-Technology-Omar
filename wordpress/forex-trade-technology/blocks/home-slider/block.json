@@ -2,38 +2,30 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "forex-trade-technology/home-slider",
+  "version": "0.1.0",
   "title": "Home Slider",
   "category": "design",
   "icon": "layout",
-  "description": "Editable Forex Trade Technology section, rendered from migrated content attributes.",
+  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
   "textdomain": "forex-trade-technology",
   "attributes": {
     "slides": {
       "type": "array",
       "default": []
     },
-    "autoplay": {
-      "type": "boolean",
-      "default": true
-    },
     "intervalMs": {
       "type": "number",
       "default": 6000
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": true
     }
   },
   "supports": {
     "html": false,
-    "align": [
-      "wide",
-      "full"
-    ],
-    "color": {
-      "background": true,
-      "text": true
-    },
-    "spacing": {
-      "margin": true,
-      "padding": true
-    }
+    "anchor": false,
+    "customClassName": true,
+    "multiple": true
   }
 }

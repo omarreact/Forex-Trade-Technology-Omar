@@ -2,10 +2,11 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "forex-trade-technology/trading-stack-flow",
+  "version": "0.1.0",
   "title": "Trading Stack Flow",
   "category": "design",
   "icon": "layout",
-  "description": "Editable Forex Trade Technology section, rendered from migrated content attributes.",
+  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
   "textdomain": "forex-trade-technology",
   "attributes": {
     "section": {
@@ -19,17 +20,8 @@
   },
   "supports": {
     "html": false,
-    "align": [
-      "wide",
-      "full"
-    ],
-    "color": {
-      "background": true,
-      "text": true
-    },
-    "spacing": {
-      "margin": true,
-      "padding": true
-    }
+    "anchor": false,
+    "customClassName": true,
+    "multiple": true
   }
 }

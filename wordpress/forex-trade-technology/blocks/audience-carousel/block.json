@@ -2,17 +2,14 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "forex-trade-technology/audience-carousel",
+  "version": "0.1.0",
   "title": "Audience Carousel",
   "category": "design",
   "icon": "layout",
-  "description": "Editable Forex Trade Technology section, rendered from migrated content attributes.",
+  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
   "textdomain": "forex-trade-technology",
   "attributes": {
     "title": {
-      "type": "string",
-      "default": ""
-    },
-    "kicker": {
       "type": "string",
       "default": ""
     },
@@ -23,17 +20,8 @@
   },
   "supports": {
     "html": false,
-    "align": [
-      "wide",
-      "full"
-    ],
-    "color": {
-      "background": true,
-      "text": true
-    },
-    "spacing": {
-      "margin": true,
-      "padding": true
-    }
+    "anchor": false,
+    "customClassName": true,
+    "multiple": true
   }
 }

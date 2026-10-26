@@ -1,3 +1,17 @@
-@import url('../../source/theme/styles/index.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
-body{font-family:Inter,system-ui,sans-serif;margin:0;color:#161816}h1,h2,h3{font-family:Manrope,Inter,system-ui,sans-serif}.bs-header-inner{max-width:1210px;margin:auto;padding:16px}.bs-site-main{min-height:50vh}.bs-footer{background:#10130f;color:#fff;padding:55px max(20px,5vw)}.bs-global-cta-panel{background:#e8f1d8;padding:clamp(30px,4vw,60px);border-radius:18px}.ftt-section{padding:clamp(48px,5.5vw,72px) max(16px,5vw)}.ftt-section-inner{max-width:1210px;margin:auto}.ftt-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px}.ftt-card{border:1px solid #dedfd8;border-radius:12px;padding:24px;background:#fff}.ftt-hero{min-height:240px;background:#141613;color:#fff;display:grid;place-items:center;padding:32px}.ftt-hero--home{min-height:480px}.ftt-hero h1{color:#fff}.ftt-kicker{color:#63842f;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.13em}.ftt-dark{background:#141613;color:#fff}.ftt-dark h2{color:#fff}.ftt-faq details{border-bottom:1px solid #dedfd8;padding:18px 0}.ftt-faq summary{cursor:pointer;font-weight:700}.ftt-media img{width:100%;height:auto;object-fit:cover}.ftt-contact input,.ftt-contact textarea,.ftt-contact select{box-sizing:border-box;width:100%;padding:12px;margin:4px 0 16px;border:1px solid #aaa;border-radius:6px}.ftt-contact button{padding:12px 22px;border:0;background:#1b281c;color:white;border-radius:5px}.ftt-trust{display:flex;gap:22px;flex-wrap:wrap}.ftt-slider{position:relative}.ftt-slide[hidden]{display:none}.ftt-slide{min-height:480px;background:#141613;color:white;padding:90px max(20px,7vw);background-size:cover;background-position:center}.ftt-slide h1,.ftt-slide h2{color:white}.ftt-slider-controls button{margin:5px;border:0;border-radius:50%;width:34px;height:34px;cursor:pointer}.ftt-qa-warning{background:#fff3cd;color:#664d03;padding:12px;border-radius:8px}@media(max-width:768px){.ftt-section{padding:40px 16px}.ftt-slide{padding:80px 20px;min-height:420px}}
+@import "./base.css";
+@import "./blocks/trust-carousel.css";
+@import "./blocks/icon-box-carousel.css";
+@import "./flex-layout.css";
+@import "./media-title-bands.css";
+@import "./editorial-story.css";
+@import "./clean-reference.css";
+@import "./responsive-polish.css";
+@import "./faq-polish.css";
+@import "./global-cta-footer.css";
+@import "./component-system.css";
+@import "./blocks/trading-stack-flow.css";
+@import "./review-feedback.css";
+@import './layout.css';
+@import './header-footer.css';
+@import './sections.css';
+@import './utilities.css';
