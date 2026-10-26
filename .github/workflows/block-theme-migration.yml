@@ -51,6 +51,8 @@ jobs:
           done
           cat /tmp/ftt-responsive-server.log
           exit 1
+      - name: Test contact API contract without provider secrets
+        run: node scripts/contact-api-smoke.mjs
       - name: Test all 13 routes at multiple viewports
         run: node scripts/responsive-smoke.mjs
       - name: Upload viewport evidence
