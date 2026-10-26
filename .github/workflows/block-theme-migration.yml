@@ -24,3 +24,42 @@ jobs:
         run: npm run build
       - name: Block manifest
         run: npm run export:block-manifest
+      - name: Portable XML export
+        run: npm run export:xml
+
+  responsive-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies and browser runner
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Build Next.js
+        run: npm run build
+      - name: Start server
+        run: |
+          npm run start -- -p 3000 > /tmp/ftt-responsive-server.log 2>&1 &
+          for i in $(seq 1 50); do
+            if curl --fail --silent http://127.0.0.1:3000/ > /dev/null; then exit 0; fi
+            sleep 2
+          done
+          cat /tmp/ftt-responsive-server.log
+          exit 1
+      - name: Test all 13 routes at multiple viewports
+        run: node scripts/responsive-smoke.mjs
+      - name: Upload viewport evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: block-theme-responsive-evidence
+          path: artifacts/responsive/
+          if-no-files-found: ignore
+      - name: Show server logs on failure
+        if: failure()
+        run: cat /tmp/ftt-responsive-server.log || true
