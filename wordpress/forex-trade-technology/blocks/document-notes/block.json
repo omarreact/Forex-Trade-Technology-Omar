@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "forex-trade-technology/document-notes",
+  "version": "0.1.0",
+  "title": "Document Notes",
+  "category": "design",
+  "icon": "layout",
+  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
+  "textdomain": "forex-trade-technology",
+  "attributes": {
+    "notes": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": false,
+    "customClassName": true,
+    "multiple": true
+  }
+}
