@@ -1,0 +1,789 @@
+{
+  "id": "prop-firm",
+  "slug": "/products/prop-firm-crm-api",
+  "seo": {
+    "title": "Prop Firm CRM & API | Prop Trading Management Software",
+    "description": "Prop firm CRM and API technology for challenge sales, trader accounts, rule enforcement, risk dashboards and payout reviews, connected to your trading platform.",
+    "primaryKeyword": "prop firm CRM",
+    "secondaryKeywords": "prop firm CRM software, prop firm API, prop trading CRM, prop firm management software",
+    "canonicalPath": "/products/prop-firm-crm-api"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Prop Firm CRM API & Trading Technology",
+    "subtitle": "Breadcrumb: Home > Products > Prop Firm CRM API",
+    "leadParagraphs": [
+      "Breadcrumb: Home > Products > Prop Firm CRM API",
+      "Label: Prop Trading Operations",
+      "Running a prop firm means watching thousands of evaluation accounts at once, each with its own target, drawdown limit and deadline. A trader breaches a rule at 3am and the account needs closing. Another passes and expects their funded account by morning. Someone requests a payout, and your team has to confirm the trading behind it was genuine.",
+      "Doing that by hand doesn't scale past a few hundred traders. Our prop firm CRM and API tools automate the routine parts, from selling challenges and creating accounts to enforcing rules, tracking performance and preparing payouts for review."
+    ],
+    "imageKey": "propFirm",
+    "ctas": [
+      {
+        "label": "Request a Consultation",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "What Makes Prop Firm Operations Different",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A brokerage cares about deposits, trading activity and client retention. A prop firm's concerns sit somewhere else entirely. You're selling evaluations, measuring traders against strict rules, deciding who progresses, and paying out a share of profits to the ones who succeed."
+        },
+        {
+          "type": "p",
+          "text": "Standard broker CRMs weren't built for that cycle. They don't know what a daily loss limit is, can't move a trader from phase one to phase two, and won't tell you that three accounts are copying each other's trades. Prop firms need tooling designed around evaluation logic, and that's what this is."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Who It's For",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* New prop firms planning their first challenge programme"
+        },
+        {
+          "type": "p",
+          "text": "* Growing firms whose manual checks are starting to miss breaches or delay funded accounts"
+        },
+        {
+          "type": "p",
+          "text": "* Brokers adding a prop trading division alongside their regular business"
+        },
+        {
+          "type": "p",
+          "text": "* Firms moving to a new trading platform and needing their rules rebuilt properly"
+        },
+        {
+          "type": "p",
+          "text": "* Operators wanting to offer several challenge types, sizes and pricing tiers"
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "section-3",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "What's Included",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Challenge and Evaluation Setup"
+        },
+        {
+          "type": "p",
+          "text": "Single-phase, two-phase, instant funding or custom models. You define account sizes, profit targets, minimum trading days, time limits, leverage and pricing for each, and the system handles the rest."
+        },
+        {
+          "type": "h3",
+          "text": "Checkout and Account Creation"
+        },
+        {
+          "type": "p",
+          "text": "Traders choose a challenge on your website, pay through your integrated payment provider and receive their trading account automatically. No one on your team has to create logins manually."
+        },
+        {
+          "type": "h3",
+          "text": "Trader Accounts and Progression"
+        },
+        {
+          "type": "p",
+          "text": "Each trader's journey is tracked from purchase through each phase to funded status. Passing a phase can trigger the next account automatically or send it for review first, whichever your process requires."
+        },
+        {
+          "type": "h3",
+          "text": "Rule Configuration"
+        },
+        {
+          "type": "p",
+          "text": "Daily loss limits, maximum drawdown (static or trailing), profit targets, consistency rules, minimum days, news trading restrictions, weekend holding, lot size caps and more. Rules can differ between challenge types and phases."
+        },
+        {
+          "type": "h3",
+          "text": "Real-Time Rule Monitoring"
+        },
+        {
+          "type": "p",
+          "text": "The system checks trading activity against each account's rules as it happens. When a breach occurs, the account can be disabled automatically and the trader notified with the reason, so there's no argument about what happened or when."
+        },
+        {
+          "type": "h3",
+          "text": "Risk Monitoring"
+        },
+        {
+          "type": "p",
+          "text": "Dashboards flag patterns worth a closer look, such as identical trades across linked accounts, suspected copy trading, hedging between accounts, latency arbitrage behaviour or unusual concentration in a single instrument."
+        },
+        {
+          "type": "h3",
+          "text": "Performance Dashboards"
+        },
+        {
+          "type": "p",
+          "text": "Traders see their progress against targets and limits in a clear dashboard, which cuts down support questions. Your team sees firm-wide views of active challenges, pass rates, breach reasons and revenue."
+        },
+        {
+          "type": "h3",
+          "text": "Payout Review Workflow"
+        },
+        {
+          "type": "p",
+          "text": "Payout requests from funded traders arrive in a review queue with trading history, rule compliance and risk flags attached. Your team approves or queries each request, and approved payouts go out through your payment provider with a full record kept."
+        },
+        {
+          "type": "h3",
+          "text": "CRM and Admin Panel"
+        },
+        {
+          "type": "p",
+          "text": "Trader profiles, KYC status, purchase history, account history, support notes and communication logs in one place, with role-based access for support, risk and finance staff."
+        },
+        {
+          "type": "h3",
+          "text": "API Access"
+        },
+        {
+          "type": "p",
+          "text": "A documented API lets your website, affiliate system, payment providers, KYC service and trading platform exchange data with the CRM. Useful if you want a custom front end or need to plug in tools you already use."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "media-collaboration",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "collaboration",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-5",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "How Everything Connects",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Trader → Your Website & Checkout → Payment Provider → Prop Firm CRM → Automatic Account Creation on Trading Platform"
+        },
+        {
+          "type": "p",
+          "text": "Trading Platform → Live Trading Data → Rule Engine & Risk Monitoring → Breach / Pass / Progression Actions"
+        },
+        {
+          "type": "p",
+          "text": "Funded Trader → Payout Request → Review Queue → Payment Provider → Record in CRM"
+        },
+        {
+          "type": "p",
+          "text": "A trader buys a challenge on your site, pays and gets an account straight away. As they trade, data streams back to the rule engine, which enforces limits and moves accounts between phases. Funded traders request payouts, your team reviews them, and approved payments go out with everything logged."
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Benefits for Your Firm",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Consistent Rule Enforcement"
+        },
+        {
+          "type": "p",
+          "text": "Every trader is measured the same way, every time, with timestamps to back it up."
+        },
+        {
+          "type": "h3",
+          "text": "Faster Progression"
+        },
+        {
+          "type": "p",
+          "text": "Traders who pass move forward quickly, which keeps them happy and talking positively about your firm."
+        },
+        {
+          "type": "h3",
+          "text": "Earlier Warning on Abuse"
+        },
+        {
+          "type": "p",
+          "text": "Risk flags surface suspicious behaviour before it turns into a costly payout."
+        },
+        {
+          "type": "h3",
+          "text": "A Smaller Support Load"
+        },
+        {
+          "type": "p",
+          "text": "Clear dashboards and automatic notifications answer most of the questions traders would otherwise email about."
+        },
+        {
+          "type": "h3",
+          "text": "Ready to Scale"
+        },
+        {
+          "type": "p",
+          "text": "Whether you run five hundred accounts or fifty thousand, the same automation handles the volume without hiring an army."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 85,
+  "wordCountApprox": 1509,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > Products > Prop Firm CRM API",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Prop Trading Operations",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Running a prop firm means watching thousands of evaluation accounts at once, each with its own target, drawdown limit and deadline. A trader breaches a rule at 3am and the account needs closing. Another passes and expects their funded account by morning. Someone requests a payout, and your team has to confirm the trading behind it was genuine.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Doing that by hand doesn't scale past a few hundred traders. Our prop firm CRM and API tools automate the routine parts, from selling challenges and creating accounts to enforcing rules, tracking performance and preparing payouts for review.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What Makes Prop Firm Operations Different"
+    },
+    {
+      "type": "p",
+      "text": "A brokerage cares about deposits, trading activity and client retention. A prop firm's concerns sit somewhere else entirely. You're selling evaluations, measuring traders against strict rules, deciding who progresses, and paying out a share of profits to the ones who succeed.",
+      "parentH2": "What Makes Prop Firm Operations Different",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Standard broker CRMs weren't built for that cycle. They don't know what a daily loss limit is, can't move a trader from phase one to phase two, and won't tell you that three accounts are copying each other's trades. Prop firms need tooling designed around evaluation logic, and that's what this is.",
+      "parentH2": "What Makes Prop Firm Operations Different",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who It's For"
+    },
+    {
+      "type": "p",
+      "text": "* New prop firms planning their first challenge programme",
+      "parentH2": "Who It's For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Growing firms whose manual checks are starting to miss breaches or delay funded accounts",
+      "parentH2": "Who It's For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Brokers adding a prop trading division alongside their regular business",
+      "parentH2": "Who It's For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Firms moving to a new trading platform and needing their rules rebuilt properly",
+      "parentH2": "Who It's For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Operators wanting to offer several challenge types, sizes and pricing tiers",
+      "parentH2": "Who It's For",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What's Included"
+    },
+    {
+      "type": "h3",
+      "text": "Challenge and Evaluation Setup",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Single-phase, two-phase, instant funding or custom models. You define account sizes, profit targets, minimum trading days, time limits, leverage and pricing for each, and the system handles the rest.",
+      "parentH2": "What's Included",
+      "parentH3": "Challenge and Evaluation Setup"
+    },
+    {
+      "type": "h3",
+      "text": "Checkout and Account Creation",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Traders choose a challenge on your website, pay through your integrated payment provider and receive their trading account automatically. No one on your team has to create logins manually.",
+      "parentH2": "What's Included",
+      "parentH3": "Checkout and Account Creation"
+    },
+    {
+      "type": "h3",
+      "text": "Trader Accounts and Progression",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Each trader's journey is tracked from purchase through each phase to funded status. Passing a phase can trigger the next account automatically or send it for review first, whichever your process requires.",
+      "parentH2": "What's Included",
+      "parentH3": "Trader Accounts and Progression"
+    },
+    {
+      "type": "h3",
+      "text": "Rule Configuration",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Daily loss limits, maximum drawdown (static or trailing), profit targets, consistency rules, minimum days, news trading restrictions, weekend holding, lot size caps and more. Rules can differ between challenge types and phases.",
+      "parentH2": "What's Included",
+      "parentH3": "Rule Configuration"
+    },
+    {
+      "type": "h3",
+      "text": "Real-Time Rule Monitoring",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "The system checks trading activity against each account's rules as it happens. When a breach occurs, the account can be disabled automatically and the trader notified with the reason, so there's no argument about what happened or when.",
+      "parentH2": "What's Included",
+      "parentH3": "Real-Time Rule Monitoring"
+    },
+    {
+      "type": "h3",
+      "text": "Risk Monitoring",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Dashboards flag patterns worth a closer look, such as identical trades across linked accounts, suspected copy trading, hedging between accounts, latency arbitrage behaviour or unusual concentration in a single instrument.",
+      "parentH2": "What's Included",
+      "parentH3": "Risk Monitoring"
+    },
+    {
+      "type": "h3",
+      "text": "Performance Dashboards",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Traders see their progress against targets and limits in a clear dashboard, which cuts down support questions. Your team sees firm-wide views of active challenges, pass rates, breach reasons and revenue.",
+      "parentH2": "What's Included",
+      "parentH3": "Performance Dashboards"
+    },
+    {
+      "type": "h3",
+      "text": "Payout Review Workflow",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Payout requests from funded traders arrive in a review queue with trading history, rule compliance and risk flags attached. Your team approves or queries each request, and approved payouts go out through your payment provider with a full record kept.",
+      "parentH2": "What's Included",
+      "parentH3": "Payout Review Workflow"
+    },
+    {
+      "type": "h3",
+      "text": "CRM and Admin Panel",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Trader profiles, KYC status, purchase history, account history, support notes and communication logs in one place, with role-based access for support, risk and finance staff.",
+      "parentH2": "What's Included",
+      "parentH3": "CRM and Admin Panel"
+    },
+    {
+      "type": "h3",
+      "text": "API Access",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "A documented API lets your website, affiliate system, payment providers, KYC service and trading platform exchange data with the CRM. Useful if you want a custom front end or need to plug in tools you already use.",
+      "parentH2": "What's Included",
+      "parentH3": "API Access"
+    },
+    {
+      "type": "h2",
+      "text": "How We Get You Running"
+    },
+    {
+      "type": "h3",
+      "text": "01 Consultation",
+      "parentH2": "How We Get You Running"
+    },
+    {
+      "type": "p",
+      "text": "We learn your business model, challenge structure, rule set, target markets, trading platform and the providers you plan to use.",
+      "parentH2": "How We Get You Running",
+      "parentH3": "01 Consultation"
+    },
+    {
+      "type": "h3",
+      "text": "02 Solution Design",
+      "parentH2": "How We Get You Running"
+    },
+    {
+      "type": "p",
+      "text": "Challenge types, rules, progression logic, risk flags, payout policy and integrations are mapped out in detail. You approve every rule before it's built, because a misconfigured rule is a support headache waiting to happen.",
+      "parentH2": "How We Get You Running",
+      "parentH3": "02 Solution Design"
+    },
+    {
+      "type": "h3",
+      "text": "03 Integration",
+      "parentH2": "How We Get You Running"
+    },
+    {
+      "type": "p",
+      "text": "The CRM is connected to your trading platform, website checkout, payment and KYC providers. We test every challenge type with simulated trading, deliberately triggering each rule to confirm breaches, passes and progressions behave exactly as intended.",
+      "parentH2": "How We Get You Running",
+      "parentH3": "03 Integration"
+    },
+    {
+      "type": "h3",
+      "text": "04 Launch & Support",
+      "parentH2": "How We Get You Running"
+    },
+    {
+      "type": "p",
+      "text": "We go live, monitor the first wave of traders closely and stay on hand for rule changes, new challenge types, scaling and technical support.",
+      "parentH2": "How We Get You Running",
+      "parentH3": "04 Launch & Support"
+    },
+    {
+      "type": "h2",
+      "text": "How Everything Connects"
+    },
+    {
+      "type": "p",
+      "text": "Trader → Your Website & Checkout → Payment Provider → Prop Firm CRM → Automatic Account Creation on Trading Platform",
+      "parentH2": "How Everything Connects",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Trading Platform → Live Trading Data → Rule Engine & Risk Monitoring → Breach / Pass / Progression Actions",
+      "parentH2": "How Everything Connects",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Funded Trader → Payout Request → Review Queue → Payment Provider → Record in CRM",
+      "parentH2": "How Everything Connects",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "A trader buys a challenge on your site, pays and gets an account straight away. As they trade, data streams back to the rule engine, which enforces limits and moves accounts between phases. Funded traders request payouts, your team reviews them, and approved payments go out with everything logged.",
+      "parentH2": "How Everything Connects",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Benefits for Your Firm"
+    },
+    {
+      "type": "h3",
+      "text": "Consistent Rule Enforcement",
+      "parentH2": "Benefits for Your Firm"
+    },
+    {
+      "type": "p",
+      "text": "Every trader is measured the same way, every time, with timestamps to back it up.",
+      "parentH2": "Benefits for Your Firm",
+      "parentH3": "Consistent Rule Enforcement"
+    },
+    {
+      "type": "h3",
+      "text": "Faster Progression",
+      "parentH2": "Benefits for Your Firm"
+    },
+    {
+      "type": "p",
+      "text": "Traders who pass move forward quickly, which keeps them happy and talking positively about your firm.",
+      "parentH2": "Benefits for Your Firm",
+      "parentH3": "Faster Progression"
+    },
+    {
+      "type": "h3",
+      "text": "Earlier Warning on Abuse",
+      "parentH2": "Benefits for Your Firm"
+    },
+    {
+      "type": "p",
+      "text": "Risk flags surface suspicious behaviour before it turns into a costly payout.",
+      "parentH2": "Benefits for Your Firm",
+      "parentH3": "Earlier Warning on Abuse"
+    },
+    {
+      "type": "h3",
+      "text": "A Smaller Support Load",
+      "parentH2": "Benefits for Your Firm"
+    },
+    {
+      "type": "p",
+      "text": "Clear dashboards and automatic notifications answer most of the questions traders would otherwise email about.",
+      "parentH2": "Benefits for Your Firm",
+      "parentH3": "A Smaller Support Load"
+    },
+    {
+      "type": "h3",
+      "text": "Ready to Scale",
+      "parentH2": "Benefits for Your Firm"
+    },
+    {
+      "type": "p",
+      "text": "Whether you run five hundred accounts or fifty thousand, the same automation handles the volume without hiring an army.",
+      "parentH2": "Benefits for Your Firm",
+      "parentH3": "Ready to Scale"
+    },
+    {
+      "type": "h2",
+      "text": "Who Handles What"
+    },
+    {
+      "type": "h3",
+      "text": "What We Handle",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "CRM and rule engine configuration, platform, payment and KYC integrations, API setup, testing, launch support and ongoing technical maintenance.",
+      "parentH2": "Who Handles What",
+      "parentH3": "What We Handle"
+    },
+    {
+      "type": "h3",
+      "text": "What Stays With You",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Your business model, challenge terms, rule definitions, pricing, payout decisions, trader agreements, marketing claims, and compliance with consumer protection, financial and tax rules in every market you serve. Some regulators have started looking more closely at prop trading, so legal advice in your target jurisdictions is strongly recommended.",
+      "parentH2": "Who Handles What",
+      "parentH3": "What Stays With You"
+    },
+    {
+      "type": "h3",
+      "text": "Platform and Third-Party Providers",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Trading platform licensing terms for prop firm use vary between providers and have changed in recent years, so confirm your arrangement directly with your platform provider. Payment, verification and platform providers each work under their own terms. We're not affiliated with or endorsed by any platform developer unless clearly stated.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Platform and Third-Party Providers"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "What is a prop firm CRM?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "It's software built around the prop trading cycle. Challenge sales, account creation, rule enforcement, phase progression, risk monitoring and payout review, all in one system linked to your trading platform.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What is a prop firm CRM?"
+    },
+    {
+      "type": "h3",
+      "text": "Can we create our own challenge rules?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. Targets, drawdowns, daily limits, minimum days, time limits, consistency rules and trading restrictions are all configurable per challenge type and phase.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can we create our own challenge rules?"
+    },
+    {
+      "type": "h3",
+      "text": "Is rule monitoring real time?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Trading data is checked continuously, so breaches can be detected and acted on as they happen rather than at the end of the day.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Is rule monitoring real time?"
+    },
+    {
+      "type": "h3",
+      "text": "Can the system detect copy trading or account abuse?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "It can flag patterns that suggest copy trading, cross-account hedging or other prohibited behaviour. Final decisions stay with your risk team.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can the system detect copy trading or account abuse?"
+    },
+    {
+      "type": "h3",
+      "text": "Are payouts sent automatically?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "They can be, but most firms prefer a review step. Requests come with trading history and risk flags attached so your team can decide quickly.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Are payouts sent automatically?"
+    },
+    {
+      "type": "h3",
+      "text": "Which trading platforms does it connect to?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "We review your chosen platform during design and confirm integration options. Platform availability for prop firms depends on each provider's current licensing terms.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Which trading platforms does it connect to?"
+    },
+    {
+      "type": "h3",
+      "text": "Do you offer a prop firm API?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. A documented API allows your website, affiliate tools and other systems to exchange data with the CRM, which helps if you want a custom front end or integrations of your own.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do you offer a prop firm API?"
+    },
+    {
+      "type": "h3",
+      "text": "Can we start with one challenge type and add more later?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Absolutely. Many firms launch with a single programme, then add sizes, phases or instant funding options as they grow. Our prop firm CRM is built to expand with you.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can we start with one challenge type and add more later?"
+    },
+    {
+      "type": "h2",
+      "text": "Run Your Prop Firm on Proper Technology"
+    },
+    {
+      "type": "p",
+      "text": "Tell us about your challenge model, rules and the platform you're planning to use. We'll show you how evaluation, monitoring and payouts would work in practice, and what it takes to get your programme live.",
+      "parentH2": "Run Your Prop Firm on Proper Technology",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Prop Firm CRM API & Trading Technology",
+    "subtitle": "Breadcrumb: Home > Products > Prop Firm CRM API",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Products"
+      },
+      {
+        "label": "Prop Firm Technology"
+      }
+    ],
+    "backgroundImageKey": "prop_desk",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "servers",
+    "prop_desk",
+    "world_map",
+    "data_center",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid3",
+    "timeline",
+    "mediaBand",
+    "cardGrid2",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "forex-trade-technology/icon-card",
+  "title": "Icon Card",
+  "category": "design",
+  "icon": "layout",
+  "description": "Editable Forex Trade Technology section, rendered from migrated content attributes.",
+  "textdomain": "forex-trade-technology",
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "paragraphs": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  }
+}

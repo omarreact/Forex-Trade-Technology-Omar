@@ -1,0 +1,868 @@
+{
+  "id": "mt5-white-label",
+  "slug": "/solutions/mt5-white-label",
+  "seo": {
+    "title": "MT5 White Label Solutions for Forex Brokers",
+    "description": "Launch your brokerage on an MT5 white label with branded terminals, configured trading groups, hosting, liquidity connectivity and CRM, KYC and payment integrations.",
+    "primaryKeyword": "MT5 white label",
+    "secondaryKeywords": "white label MT5, MT5 broker setup, MT5 trading platform",
+    "canonicalPath": "/solutions/mt5-white-label"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "MT5 White Label Solutions for Forex Brokers",
+    "subtitle": "An MT5 white label lets you put your own brand on the MT5 trading platform without buying and running a full server licence yourself. Your clients see your name. You control your own trading groups, symbols and conditions. And the heavy infrastructure underneath is set up and maintained for you.",
+    "leadParagraphs": [
+      "An MT5 white label lets you put your own brand on the MT5 trading platform without buying and running a full server licence yourself. Your clients see your name. You control your own trading groups, symbols and conditions. And the heavy infrastructure underneath is set up and maintained for you.",
+      "We handle the deployment, configuration and integrations, so you can launch on MT5 without building everything from the ground up."
+    ],
+    "imageKey": "mt5",
+    "ctas": [
+      {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "What an MT5 White Label Actually Means",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "There's a fair bit of confusion around this term, so let's keep it simple."
+        },
+        {
+          "type": "p",
+          "text": "MT5 runs on a server operated under a licence from the platform developer. With a full licence, you own and run that server yourself. That gives you the most control, but it also comes with a large upfront cost and a lot of technical responsibility."
+        },
+        {
+          "type": "p",
+          "text": "With a white label, your brokerage operates within an existing licensed MT5 environment. You get your own branded setup, your own client groups and manager access to run your business day to day. The core server sits under the licence holder's arrangement rather than yours."
+        },
+        {
+          "type": "p",
+          "text": "For most new brokers, that trade-off makes sense. Lower startup costs, faster time to market, and you can always look at moving to a full deployment later as volumes grow."
+        },
+        {
+          "type": "p",
+          "text": "One important point. A white label is a technology arrangement. It isn't a financial licence and it doesn't give you permission to offer trading services anywhere. That part is covered further down."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Who It Suits",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A white label MT5 setup tends to work well for:"
+        },
+        {
+          "type": "p",
+          "text": "* New brokers who want to launch on MT5 without committing to a full server licence on day one"
+        },
+        {
+          "type": "p",
+          "text": "* Introducing brokers ready to move clients under their own brand"
+        },
+        {
+          "type": "p",
+          "text": "* Regional brokerages testing a new market before investing in bigger infrastructure"
+        },
+        {
+          "type": "p",
+          "text": "* Businesses currently on MT4 who want to move to MT5 without a heavy upfront spend"
+        },
+        {
+          "type": "p",
+          "text": "If you already process high volumes, need deep control over server-level settings or plan to run several entities from one environment, a full deployment might suit you better. We're happy to talk through both."
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "media-world_map",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "world_map",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "How the Deployment Works",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "01 Requirements"
+        },
+        {
+          "type": "p",
+          "text": "We start with your business model. Which markets, which instruments, which account types, which liquidity provider. These answers shape every configuration decision that follows."
+        },
+        {
+          "type": "h3",
+          "text": "02 Environment Setup"
+        },
+        {
+          "type": "p",
+          "text": "Your white label environment is created and branded, with server access and hosting arranged."
+        },
+        {
+          "type": "h3",
+          "text": "03 Configuration"
+        },
+        {
+          "type": "p",
+          "text": "Groups, symbols, trading conditions and manager permissions get configured. This step takes care, because small mistakes here, like a wrong contract size or margin setting, can turn into real money problems later."
+        },
+        {
+          "type": "h3",
+          "text": "04 Connectivity and Integrations"
+        },
+        {
+          "type": "p",
+          "text": "Liquidity is connected, and your CRM, KYC and payment providers are linked to MT5."
+        },
+        {
+          "type": "h3",
+          "text": "05 Testing"
+        },
+        {
+          "type": "p",
+          "text": "We test pricing, execution, rejects, margin calls, stop outs, swaps and commissions, along with the full client journey from sign-up to first trade. Your team joins in to check its own workflows."
+        },
+        {
+          "type": "h3",
+          "text": "06 Launch and Ongoing Support"
+        },
+        {
+          "type": "p",
+          "text": "Go-live with monitoring in place. After that, we handle configuration changes, new symbols, new account types and day-to-day technical issues as your brokerage grows."
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Where the White Label Sits in Your Stack",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Client → Branded MT5 Terminals (Desktop, Web, Mobile) → Your MT5 Groups & Settings → Bridge / Gateway / FIX → Liquidity Provider"
+        },
+        {
+          "type": "p",
+          "text": "Client Portal & CRM ↔ MT5 Manager Access ↔ KYC & Payment Providers"
+        },
+        {
+          "type": "p",
+          "text": "Your clients only ever see your brand. Behind the terminals, their accounts sit in groups configured for your business. Orders route out to your liquidity provider, while your CRM keeps client records, verification status, deposits and trading accounts in sync with MT5."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Key Capabilities",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* Branded MT5 access across desktop, web and mobile"
+        },
+        {
+          "type": "p",
+          "text": "* Multiple account types with separate leverage, commission and swap settings"
+        },
+        {
+          "type": "p",
+          "text": "* Symbol-level control over spreads, markups, sessions and margin"
+        },
+        {
+          "type": "p",
+          "text": "* Role-based manager access for dealing, risk and support teams"
+        },
+        {
+          "type": "p",
+          "text": "* Bridge, gateway or FIX liquidity connectivity"
+        },
+        {
+          "type": "p",
+          "text": "* Automated account creation from your CRM"
+        },
+        {
+          "type": "p",
+          "text": "* KYC and payment provider integration"
+        },
+        {
+          "type": "p",
+          "text": "* IB and partner group setup"
+        },
+        {
+          "type": "p",
+          "text": "* Ongoing configuration changes and technical support"
+        },
+        {
+          "type": "p",
+          "text": "* A clear path to a full MT5 deployment when you're ready"
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 102,
+  "wordCountApprox": 1724,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "An MT5 white label lets you put your own brand on the MT5 trading platform without buying and running a full server licence yourself. Your clients see your name. You control your own trading groups, symbols and conditions. And the heavy infrastructure underneath is set up and maintained for you.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "We handle the deployment, configuration and integrations, so you can launch on MT5 without building everything from the ground up.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What an MT5 White Label Actually Means"
+    },
+    {
+      "type": "p",
+      "text": "There's a fair bit of confusion around this term, so let's keep it simple.",
+      "parentH2": "What an MT5 White Label Actually Means",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "MT5 runs on a server operated under a licence from the platform developer. With a full licence, you own and run that server yourself. That gives you the most control, but it also comes with a large upfront cost and a lot of technical responsibility.",
+      "parentH2": "What an MT5 White Label Actually Means",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "With a white label, your brokerage operates within an existing licensed MT5 environment. You get your own branded setup, your own client groups and manager access to run your business day to day. The core server sits under the licence holder's arrangement rather than yours.",
+      "parentH2": "What an MT5 White Label Actually Means",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "For most new brokers, that trade-off makes sense. Lower startup costs, faster time to market, and you can always look at moving to a full deployment later as volumes grow.",
+      "parentH2": "What an MT5 White Label Actually Means",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "One important point. A white label is a technology arrangement. It isn't a financial licence and it doesn't give you permission to offer trading services anywhere. That part is covered further down.",
+      "parentH2": "What an MT5 White Label Actually Means",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who It Suits"
+    },
+    {
+      "type": "p",
+      "text": "A white label MT5 setup tends to work well for:",
+      "parentH2": "Who It Suits",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* New brokers who want to launch on MT5 without committing to a full server licence on day one",
+      "parentH2": "Who It Suits",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Introducing brokers ready to move clients under their own brand",
+      "parentH2": "Who It Suits",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Regional brokerages testing a new market before investing in bigger infrastructure",
+      "parentH2": "Who It Suits",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Businesses currently on MT4 who want to move to MT5 without a heavy upfront spend",
+      "parentH2": "Who It Suits",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "If you already process high volumes, need deep control over server-level settings or plan to run several entities from one environment, a full deployment might suit you better. We're happy to talk through both.",
+      "parentH2": "Who It Suits",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What's Included"
+    },
+    {
+      "type": "h3",
+      "text": "Branding and Platform Setup",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Your brokerage name and branding applied where the white label arrangement allows it, including desktop, web and mobile terminal access for your clients. We also set up the company details clients see when they log in.",
+      "parentH2": "What's Included",
+      "parentH3": "Branding and Platform Setup"
+    },
+    {
+      "type": "h3",
+      "text": "Trading Groups and Account Types",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "We create the groups behind each account type you want to offer. Standard, raw spread, swap-free, demo, IB-linked accounts. Each one gets its own leverage, margin, commission and swap settings.",
+      "parentH2": "What's Included",
+      "parentH3": "Trading Groups and Account Types"
+    },
+    {
+      "type": "h3",
+      "text": "Symbols and Trading Conditions",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Forex pairs, metals, indices, energies, whatever your liquidity supports and your business model calls for. We configure contract sizes, trading hours, spreads, markups, stop levels and margin requirements symbol by symbol.",
+      "parentH2": "What's Included",
+      "parentH3": "Symbols and Trading Conditions"
+    },
+    {
+      "type": "h3",
+      "text": "Manager and Admin Access",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Your dealing, risk and support teams get role-based access, so each person sees and changes only what they're meant to.",
+      "parentH2": "What's Included",
+      "parentH3": "Manager and Admin Access"
+    },
+    {
+      "type": "h3",
+      "text": "Hosting and Server Setup",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Depending on the arrangement, we either deploy and host the relevant server components or coordinate with the environment your white label sits in. Either way, monitoring and backups are part of it.",
+      "parentH2": "What's Included",
+      "parentH3": "Hosting and Server Setup"
+    },
+    {
+      "type": "h3",
+      "text": "Liquidity Connectivity",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "We connect your groups to your liquidity provider through a bridge, an MT5 gateway or FIX, and set up symbol mapping and routing rules to match your execution model.",
+      "parentH2": "What's Included",
+      "parentH3": "Liquidity Connectivity"
+    },
+    {
+      "type": "h3",
+      "text": "CRM, KYC and Payment Integration",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "New clients register, verify and fund their accounts through your CRM, with trading accounts created automatically on MT5. No manual account creation, no spreadsheets in between.",
+      "parentH2": "What's Included",
+      "parentH3": "CRM, KYC and Payment Integration"
+    },
+    {
+      "type": "h3",
+      "text": "Testing, Launch and Support",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Full testing before go-live, close monitoring after it, and ongoing technical support once you're running.",
+      "parentH2": "What's Included",
+      "parentH3": "Testing, Launch and Support"
+    },
+    {
+      "type": "h2",
+      "text": "How the Deployment Works"
+    },
+    {
+      "type": "h3",
+      "text": "01 Requirements",
+      "parentH2": "How the Deployment Works"
+    },
+    {
+      "type": "p",
+      "text": "We start with your business model. Which markets, which instruments, which account types, which liquidity provider. These answers shape every configuration decision that follows.",
+      "parentH2": "How the Deployment Works",
+      "parentH3": "01 Requirements"
+    },
+    {
+      "type": "h3",
+      "text": "02 Environment Setup",
+      "parentH2": "How the Deployment Works"
+    },
+    {
+      "type": "p",
+      "text": "Your white label environment is created and branded, with server access and hosting arranged.",
+      "parentH2": "How the Deployment Works",
+      "parentH3": "02 Environment Setup"
+    },
+    {
+      "type": "h3",
+      "text": "03 Configuration",
+      "parentH2": "How the Deployment Works"
+    },
+    {
+      "type": "p",
+      "text": "Groups, symbols, trading conditions and manager permissions get configured. This step takes care, because small mistakes here, like a wrong contract size or margin setting, can turn into real money problems later.",
+      "parentH2": "How the Deployment Works",
+      "parentH3": "03 Configuration"
+    },
+    {
+      "type": "h3",
+      "text": "04 Connectivity and Integrations",
+      "parentH2": "How the Deployment Works"
+    },
+    {
+      "type": "p",
+      "text": "Liquidity is connected, and your CRM, KYC and payment providers are linked to MT5.",
+      "parentH2": "How the Deployment Works",
+      "parentH3": "04 Connectivity and Integrations"
+    },
+    {
+      "type": "h3",
+      "text": "05 Testing",
+      "parentH2": "How the Deployment Works"
+    },
+    {
+      "type": "p",
+      "text": "We test pricing, execution, rejects, margin calls, stop outs, swaps and commissions, along with the full client journey from sign-up to first trade. Your team joins in to check its own workflows.",
+      "parentH2": "How the Deployment Works",
+      "parentH3": "05 Testing"
+    },
+    {
+      "type": "h3",
+      "text": "06 Launch and Ongoing Support",
+      "parentH2": "How the Deployment Works"
+    },
+    {
+      "type": "p",
+      "text": "Go-live with monitoring in place. After that, we handle configuration changes, new symbols, new account types and day-to-day technical issues as your brokerage grows.",
+      "parentH2": "How the Deployment Works",
+      "parentH3": "06 Launch and Ongoing Support"
+    },
+    {
+      "type": "h2",
+      "text": "Where the White Label Sits in Your Stack"
+    },
+    {
+      "type": "p",
+      "text": "Client → Branded MT5 Terminals (Desktop, Web, Mobile) → Your MT5 Groups & Settings → Bridge / Gateway / FIX → Liquidity Provider",
+      "parentH2": "Where the White Label Sits in Your Stack",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Client Portal & CRM ↔ MT5 Manager Access ↔ KYC & Payment Providers",
+      "parentH2": "Where the White Label Sits in Your Stack",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Your clients only ever see your brand. Behind the terminals, their accounts sit in groups configured for your business. Orders route out to your liquidity provider, while your CRM keeps client records, verification status, deposits and trading accounts in sync with MT5.",
+      "parentH2": "Where the White Label Sits in Your Stack",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Key Capabilities"
+    },
+    {
+      "type": "p",
+      "text": "* Branded MT5 access across desktop, web and mobile",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Multiple account types with separate leverage, commission and swap settings",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Symbol-level control over spreads, markups, sessions and margin",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Role-based manager access for dealing, risk and support teams",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Bridge, gateway or FIX liquidity connectivity",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Automated account creation from your CRM",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* KYC and payment provider integration",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* IB and partner group setup",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Ongoing configuration changes and technical support",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* A clear path to a full MT5 deployment when you're ready",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Use Cases"
+    },
+    {
+      "type": "h3",
+      "text": "A New Brokerage Going Live",
+      "parentH2": "Use Cases"
+    },
+    {
+      "type": "p",
+      "text": "A startup brokerage wants to be on MT5 within a sensible budget. A white label gives them branded terminals, their own account types and liquidity connectivity without the cost of a full licence. They put the savings into marketing and compliance instead.",
+      "parentH2": "Use Cases",
+      "parentH3": "A New Brokerage Going Live"
+    },
+    {
+      "type": "h3",
+      "text": "An IB Becoming a Broker",
+      "parentH2": "Use Cases"
+    },
+    {
+      "type": "p",
+      "text": "An introducing broker has been sending clients to another brokerage for years. With a white label, they launch under their own brand, keep the relationship with their clients and build revenue that's actually theirs.",
+      "parentH2": "Use Cases",
+      "parentH3": "An IB Becoming a Broker"
+    },
+    {
+      "type": "h3",
+      "text": "An MT4 Broker Moving to MT5",
+      "parentH2": "Use Cases"
+    },
+    {
+      "type": "p",
+      "text": "A broker on MT4 wants MT5's broader instrument range and newer features but isn't ready for a full server licence. A white label lets them move across in stages, running both platforms side by side during the transition.",
+      "parentH2": "Use Cases",
+      "parentH3": "An MT4 Broker Moving to MT5"
+    },
+    {
+      "type": "h2",
+      "text": "Licensing and Responsibilities"
+    },
+    {
+      "type": "p",
+      "text": "This needs saying plainly. An MT5 white label is a technology service. It doesn't give you a financial licence, regulatory approval or permission to offer trading in any jurisdiction.",
+      "parentH2": "Licensing and Responsibilities",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "What We Handle",
+      "parentH2": "Licensing and Responsibilities"
+    },
+    {
+      "type": "p",
+      "text": "White label setup, branding, platform configuration, hosting arrangements, liquidity connectivity, CRM, KYC and payment integrations, testing and ongoing technical support.",
+      "parentH2": "Licensing and Responsibilities",
+      "parentH3": "What We Handle"
+    },
+    {
+      "type": "h3",
+      "text": "What Stays With You",
+      "parentH2": "Licensing and Responsibilities"
+    },
+    {
+      "type": "p",
+      "text": "Company formation, financial licensing, regulatory compliance, client agreements, risk disclosures, liquidity and payment provider contracts, and how you market your services.",
+      "parentH2": "Licensing and Responsibilities",
+      "parentH3": "What Stays With You"
+    },
+    {
+      "type": "h3",
+      "text": "Third Parties",
+      "parentH2": "Licensing and Responsibilities"
+    },
+    {
+      "type": "p",
+      "text": "The MT5 platform is developed by a third party, and the white label environment operates under a licence arrangement with them. We aren't affiliated with or endorsed by the platform developer unless clearly stated. Liquidity providers, KYC services and payment providers each have their own terms, which sit between you and them directly.",
+      "parentH2": "Licensing and Responsibilities",
+      "parentH3": "Third Parties"
+    },
+    {
+      "type": "p",
+      "text": "Rules on offering trading services vary by jurisdiction, so speak with qualified legal and regulatory advisors in your target markets.",
+      "parentH2": "Licensing and Responsibilities",
+      "parentH3": "Third Parties"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "What's the difference between an MT5 white label and a full licence?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "With a full licence, you own and run your own MT5 server, which means higher costs and more control. With a white label, you operate inside an existing licensed environment under your own brand. It's cheaper and quicker to launch, with somewhat less server-level control.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What's the difference between an MT5 white label and a full licence?"
+    },
+    {
+      "type": "h3",
+      "text": "How is a white label different from a grey label?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "The terms get used loosely across the industry. Generally, a white label gives you more branding and configuration control, while a grey label sits more directly under another provider's infrastructure and arrangement. We'll explain exactly what you get with any setup before you commit.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How is a white label different from a grey label?"
+    },
+    {
+      "type": "h3",
+      "text": "Will my clients see my brand or someone else's?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Your clients interact with your brand through the terminals, client portal and communications. What's visible depends on the specific arrangement, and we'll go through that clearly during scoping.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Will my clients see my brand or someone else's?"
+    },
+    {
+      "type": "h3",
+      "text": "Can I set my own spreads, leverage and account types?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes, within the limits of your liquidity setup and the rules that apply in your jurisdiction. You can run several account types with different conditions.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can I set my own spreads, leverage and account types?"
+    },
+    {
+      "type": "h3",
+      "text": "Can I connect my own liquidity provider?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Usually, yes. We connect your chosen provider through a bridge, gateway or FIX, depending on what they support.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can I connect my own liquidity provider?"
+    },
+    {
+      "type": "h3",
+      "text": "How long does an MT5 broker setup take with a white label?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "It depends on your account structure, the number of integrations and how quickly your third-party providers respond. White labels generally launch faster than full deployments. We'll give you a realistic timeline after scoping.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How long does an MT5 broker setup take with a white label?"
+    },
+    {
+      "type": "h3",
+      "text": "Can I move from a white label to a full MT5 server later?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. Many brokers start on a white label and move to their own server as they grow. We plan the configuration so that migration, when it comes, is as straightforward as possible.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can I move from a white label to a full MT5 server later?"
+    },
+    {
+      "type": "h3",
+      "text": "Does a white label include a licence to operate as a broker?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "No. An MT5 white label covers the technology only. Financial licensing and regulatory approval are separate, and they remain your responsibility.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Does a white label include a licence to operate as a broker?"
+    },
+    {
+      "type": "h2",
+      "text": "Related Services"
+    },
+    {
+      "type": "p",
+      "text": "* Brokerage Setup",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Trading Server Hosting",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Liquidity & Connectivity",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Broker CRM & Back Office",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* White Label Trading App",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* MT4/MT5 Maintenance",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Launch Your Brokerage on MT5"
+    },
+    {
+      "type": "p",
+      "text": "Tell us what you want to offer and who you want to offer it to. We'll show you how a white label setup would work for your business, what it involves and how long it should take.",
+      "parentH2": "Launch Your Brokerage on MT5",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "MT5 White Label Solutions for Forex Brokers",
+    "subtitle": "An MT5 white label lets you put your own brand on the MT5 trading platform without buying and running a full server licence yourself. Your clients see your name. You control your own trading groups, symbols and condition",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Solutions"
+      },
+      {
+        "label": "MT5 White Label"
+      }
+    ],
+    "backgroundImageKey": "trading_desk",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "code_ops",
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "servers",
+    "world_map",
+    "data_center",
+    "growth",
+    "handshake",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid3",
+    "mediaBand",
+    "cardGrid2",
+    "timeline",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

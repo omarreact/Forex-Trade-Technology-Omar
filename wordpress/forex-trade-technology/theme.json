@@ -1,0 +1,188 @@
+{
+  "version": 3,
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "1210px",
+      "wideSize": "1440px"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "ink",
+          "name": "ink",
+          "color": "#161816"
+        },
+        {
+          "slug": "dark",
+          "name": "dark",
+          "color": "#141613"
+        },
+        {
+          "slug": "deep",
+          "name": "deep",
+          "color": "#101210"
+        },
+        {
+          "slug": "lime",
+          "name": "lime",
+          "color": "#d8e9a2"
+        },
+        {
+          "slug": "limeStrong",
+          "name": "limeStrong",
+          "color": "#c3d982"
+        },
+        {
+          "slug": "stone",
+          "name": "stone",
+          "color": "#f4f5f0"
+        },
+        {
+          "slug": "white",
+          "name": "white",
+          "color": "#ffffff"
+        },
+        {
+          "slug": "muted",
+          "name": "muted",
+          "color": "#767970"
+        },
+        {
+          "slug": "border",
+          "name": "border",
+          "color": "#dedfd8"
+        },
+        {
+          "slug": "footerBg",
+          "name": "footerBg",
+          "color": "#10130f"
+        },
+        {
+          "slug": "ctaBg",
+          "name": "ctaBg",
+          "color": "#e8f1d8"
+        },
+        {
+          "slug": "ctaHomeStart",
+          "name": "ctaHomeStart",
+          "color": "#e5f0c9"
+        },
+        {
+          "slug": "ctaHomeEnd",
+          "name": "ctaHomeEnd",
+          "color": "#f3f8e9"
+        },
+        {
+          "slug": "ctaInk",
+          "name": "ctaInk",
+          "color": "#172118"
+        },
+        {
+          "slug": "ctaMuted",
+          "name": "ctaMuted",
+          "color": "#45543f"
+        },
+        {
+          "slug": "ctaAction",
+          "name": "ctaAction",
+          "color": "#1b281c"
+        },
+        {
+          "slug": "ctaAccent",
+          "name": "ctaAccent",
+          "color": "#63842f"
+        },
+        {
+          "slug": "sectionHeading",
+          "name": "sectionHeading",
+          "color": "#161816"
+        },
+        {
+          "slug": "sectionSubtitle",
+          "name": "sectionSubtitle",
+          "color": "#4c5c53"
+        },
+        {
+          "slug": "sectionEyebrow",
+          "name": "sectionEyebrow",
+          "color": "#637d2b"
+        },
+        {
+          "slug": "cardTitle",
+          "name": "cardTitle",
+          "color": "#161816"
+        },
+        {
+          "slug": "cardDescription",
+          "name": "cardDescription",
+          "color": "#4c5c53"
+        },
+        {
+          "slug": "cardIconBackground",
+          "name": "cardIconBackground",
+          "color": "#d8e9a2"
+        },
+        {
+          "slug": "cardIconForeground",
+          "name": "cardIconForeground",
+          "color": "#161816"
+        }
+      ],
+      "defaultPalette": false
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFamily": "Inter, system-ui, sans-serif",
+          "name": "Body · Inter",
+          "slug": "body"
+        },
+        {
+          "fontFamily": "Manrope, Inter, system-ui, sans-serif",
+          "name": "Headings · Manrope",
+          "slug": "display"
+        }
+      ]
+    },
+    "spacing": {
+      "units": [
+        "px",
+        "rem",
+        "em",
+        "%",
+        "vw",
+        "vh"
+      ],
+      "blockGap": "20px",
+      "padding": true,
+      "margin": true
+    },
+    "blocks": {
+      "core/button": {
+        "border": {
+          "radius": "8px"
+        }
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "text": "var(--wp--preset--color--ink)",
+      "background": "var(--wp--preset--color--white)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--body)",
+      "lineHeight": "1.65"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)"
+        }
+      }
+    }
+  }
+}
