@@ -29,9 +29,9 @@ function entry(name,value){
  return '<value'+a+attr({type:typeof value})+'>'+escapeXml(value)+'</value>';
 }
 const cssOrder=[...read('theme/styles/index.css').matchAll(/@import ["']\.\/([^"']+\.css)["'];/g)].map(m=>'theme/styles/'+m[1]);
-const components=['parts','patterns','blocks','templates'];
+const componentDirs=['parts','patterns','blocks','templates'];
 function walk(rel){return fs.readdirSync(path.join(root,rel),{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(rel+'/'+e.name):e.name.endsWith('.tsx')?[rel+'/'+e.name]:[]);}
-const templates=components.flatMap(walk).sort();
+const templates=componentDirs.flatMap(walk).sort();
 const rules=[
  {name:'Slider',trigger:'home.pageTop.variant=homeSlider',behavior:'Autoplay 6000ms; fade transition; 5 slides; dots only; mobile hero clamp(430px,68svh,570px); no nested scroll'},
  {name:'Trading stack flow',trigger:'home section title=How Your Trading Stack Connects',behavior:'Responsive five-stage icon flow, preserving original narrative from three text blocks'},
