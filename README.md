@@ -1,92 +1,79 @@
-# Forex Trade Technology
+# Forex Trade Technology — Next.js with a Block-Theme-Aligned Architecture
 
-Production Next.js multi-page website for brokerage technology services.
+This is a **Next.js 15 App Router + React 19** production marketing website, deployed to Vercel. **It is not a WordPress site.** There is no PHP, Gutenberg runtime, `wp-admin`, or WP dependency.
 
-**Live websites**
-- Full Next.js application: https://forextrade.pincodeit.com/
-- GitHub Pages static preview: https://omarreact.github.io/Forex-Trade-Technology-Omar/
-
-## Scope
-- **13 pages**, **87 source sections**, complete FAQ and original long-form content.
-- Modern responsive design, global headings/cards, 5-slide hero, looping service carousel, connected trading-stack diagram, single final CTA and global footer.
-- Accessible floating **Suggest a change** review form fixed at the right-middle of the screen.
-- **website.xml** is a portable, machine-readable site package: all 13 pages, original content blocks, routes, SEO, media URLs, design tokens, CSS in import order, React component source snapshots and behavior contracts. It is a comprehensive implementation reference; cross-framework pixel parity still needs device QA.
-
-## Run
-
-Node.js 20.9+ (CI uses 22).
+## Run the site
 
 ```bash
 npm install
-npm run validate:data
+npm run validate:content
 npm run dev
-```
-
-Open http://localhost:3000
-
-```bash
 npm run build
 npm run start
-npm run export:xml
+npm run export:block-manifest
 ```
 
-**Keep the XML synchronized:** run `npm run export:xml` after altering copy, page structure, tokens, CSS or components, then commit the regenerated root `website.xml`.
+Use Node.js 20.9 or later. `app/api/contact/route.ts` remains server-side Next.js and requires configured Resend credentials in the Vercel environment; no secrets belong in public JSON. GitHub Pages export remains optional and must omit the API route.
 
-## Architecture
+## Migration philosophy: parity through shared contracts
 
-```text
-app/                           Next.js App Router, SEO metadata, styles and form API
-components/new-theme/          Shared sections, heading, icon card, feedback, navigation and footer
-lib/site-data.ts               Strongly typed JSON loader and canonical routing
-site-data/
-  pages.content.json           Complete authoritative content for all 13 pages
-  site.config.json             Navigation, brand, CTA, footer and review controls
-  theme.styles.json            Color, typography, sizing, image URLs and animation tokens
-scripts/
-  validate-data.mjs            Validates content/route invariants
-  responsive-smoke.mjs         13 routes × 8 Chromium screen sizes
-  export-website-xml.mjs       Regenerates portable full-site XML
-website.xml                    Exported architecture-independent site specification
-.github/workflows/             Production build/test and independent GitHub Pages publisher
-```
+The folders deliberately resemble a WordPress **Full Site Editing block theme**, without adding a WP runtime. The existing class names, markup, theme variables and current ordered CSS layers are preserved. Token and content sources are platform-independent.
 
-### Site pages
-Home; Brokerage Setup; MT5 White Label; Trading Server Hosting; Liquidity & Connectivity; Forex CRM; KYC & AML; Payment Gateway; Prop Firm Technology; How It Works; About Us; FAQ; Contact.
+| Next.js folder | Future WordPress equivalent | Responsibility |
+|---|---|---|
+| `theme/theme.json`, `theme/styles` | `theme.json`, `style.css`, `assets/css/editor.css` | Design tokens, editor/front styles |
+| `parts/` | `parts/*.html` | Shared header/footer, CTA, site controls |
+| `templates/` | `templates/front-page.html`, `templates/page.html` | Composition (no marketing copy) |
+| `patterns/` | `patterns/*.php` (registered block patterns) | Mostly static section arrangements |
+| `blocks/*/types.ts` | `blocks/*/block.json` attributes | Interactive custom block contracts |
+| `content/pages/*.json` | Page `post_content` block markup | Copy, SEO, sections and attributes |
+| `lib/render-sections.tsx` | Gutenberg markup/block mapping | Layout dispatch & special overrides |
+| `app/api/contact/route.ts` | **Plugin**, not a theme | Secure contact mail transport |
 
-## Design tokens
-Design variables are defined in `site-data/theme.styles.json`. See CSS files under `app/` for exact selectors, responsive breakpoints and animations.
+**Do not migrate existing JSX into template PHP.** In WordPress, convert it to block markup for static patterns, implement interactive blocks with `block.json` and frontend scripts, and attach the same visual tokens to editor and frontend surfaces.
 
-Key values:
-- Heading font: **Manrope**, body font: **Inter**.
-- Primary ink `#161816`, body `#4c5c53`, soft lime `#d8e9a2`.
-- Desktop section H2 up to **46px**, icon-card H3 up to **23px**, body **14px**, icon badge **46px × 46px**.
-- Main content max-width **1210px**, section padding `clamp(48px, 5.5vw, 72px)`.
-- Home slider copy **70% width × 70% height**, left and vertically centered on desktop; responsive full-width copy on mobile.
+## Data and routing
 
-## Resend sending and development feedback
+`content/pages/` contains 13 individual, complete page documents (including `fullBlocks`, SEO, IDs, sections and footer notes). `content/site.config.json` owns navigation, footer, canonical routes and features. `theme/theme.json` is the canonical token + image source, derived losslessly from the old `site-data/theme.styles.json`.
 
-- Verified Resend sending subdomain: `forextrade.pincodeit.com` (region `ap-northeast-1`; DNS managed by Vercel).
-- Production `CONTACT_FROM_EMAIL`: `Forex Trade Technology <notifications@forextrade.pincodeit.com>`.
-- Production `CONTACT_TO_EMAIL`: a real owner Gmail inbox, stored privately as a Vercel sensitive environment variable; **never embed the private recipient address in public JSON**.
-- `RESEND_API_KEY`: required, must be created from [Resend API Keys](https://resend.com/api-keys) with Sending access limited to this verified subdomain and stored as a Vercel production secret.
-- Do not commit an API key, paste it into public comments or use a `NEXT_PUBLIC_` prefix.
-- Vercel Contact and Suggest a Change both POST to `/api/contact` and forward through Resend **only once all three keys are configured**; before that the endpoint returns HTTP 503 and explicitly confirms nothing was sent.
-- The verified sending subdomain does **not** itself create a receiving mailbox. The old `business@forextradetechnology.com` address is not owned and is intentionally removed from public fallbacks.
-- GitHub Pages now uses the **same private Vercel Contact API** at `https://forex-trade-technology.vercel.app/api/contact` (CORS allowlisted for `https://omarreact.github.io`). Both forms remain on the GitHub Pages site. This direct delivery works only when the production hostname resolves and Resend is configured.
-- On failure (including DNS NXDOMAIN), both forms offer a **public prefilled GitHub issue**. The URL intentionally excludes the visitor's name, email, phone, company and country fields; the entered message itself is public and should not contain secrets. The visitor must be signed in and click **Submit new issue** to actually post. Github issues are visible in the repository's Issues tab/notifications. No failed form submission is reported as delivered.
-- A real private form submission from either hosting origin requires a server-side email backend plus valid credentials; it cannot be implemented in GitHub Pages alone. Resend API tokens must **never** be exposed in the static bundle.
-- The production site currently has a DNS issue: Vercel confirms the hostname is configured as a project domain but the DNS configuration has no published A or CNAME value. Add an `A` record: hostname `forextrade` → `76.76.21.21` in the authoritative `pincodeit.com` zone. An A record is preferable here because the Resend-provided CAA/TXT records may already exist at the sending subdomain; a CNAME cannot coexist with other records at the same hostname. The connected Vercel account does not own that DNS zone, so this record must be created from the authoritative DNS account, not this app's project configuration.
-- The floating right-middle feedback control captures current page, section, category, and description. Only a successful response from the server should be shown as accepted by the email provider.
-- New Vercel environment variable values apply to new deployments. Test in production after the API key is configured.
+`content/index.ts` exports `allPages`, `getPage`, `getImage`, `siteConfig`, and route utilities. `lib/site-data.ts` is a temporary compatibility facade for unchanged components; new code should import directly from `@/content`.
 
-## Deployment
+## Add or change a section
 
-Each push to `main` runs the independently hosted GitHub Pages static build. Vercel also builds from `main` subject to Vercel account limits. **GitHub Pages does not automatically take over the `forextrade.pincodeit.com` DNS hostname**; this requires separate DNS/load-balancer failover.
+1. Edit the relevant `content/pages/<page>.json`, preserving section IDs and canonical route.
+2. Use an existing typed `patterns/*` component for static sections, or a `blocks/*` folder with an explicit `types.ts` attribute contract for interactions.
+3. Register/adjust the section layout mapping **only** in `lib/render-sections.tsx`.
+4. Keep all copy out of the template shell; style changes belong under `theme/styles` and should use `theme/theme.json` tokens.
+5. Run `npm run validate:content && npm run build`, then visually compare all routes at desktop/tablet/mobile widths.
 
-When GitHub Pages builds, its release manifest `/release.json` reports the exact deployed commit.
+### Preserved special behavior
 
-## QA and cleanup
+- Home uses exactly five slider images and the existing autoplay, captions, transitions and links.
+- `mediaBand` renders **on home only**; interior page media bands remain suppressed.
+- Page `ctaBand` sections are suppressed: one shared `parts/FinalCta` appears before the footer, with its richer home variant.
+- `How Your Trading Stack Connects` → `blocks/trading-stack-flow`.
+- `Platform & Infrastructure Under One Roof` and `Why Brokers Work With Us` → `patterns/FeatureFlex`.
+- `Who We Work With` with H3 subsections → `blocks/audience-carousel`.
+- Contact `Request a Consultation` + `splitContent` → `blocks/contact-form`.
+- The 13 canonical paths, SEO intent, static metadata, FAQ source copy and contact API contract remain unchanged.
 
-Use the responsive Actions workflow to run Chromium checks at 320, 360, 390, 430, 768, 1024, 1440 and 1920px. The tests do not replace iOS Safari, Firefox, email-delivery QA or full pixel-by-pixel approval.
+## Exact WordPress editor canvas parity — future implementation
 
-Only active application code, configuration, scripts, workflows, **this README**, and the portable `website.xml` are retained. Older theme archives, duplicate example sites and obsolete markdown reports remain recoverable through Git history.
+1. Adapt `theme/theme.json` into WordPress `settings.color`, `settings.typography`, `settings.spacing`, `styles`, and custom CSS variables, using **identical** colors, typefaces, scales, breakpoints and container widths.
+2. Convert `parts` into `parts/*.html` block template parts. Convert `templates` into `templates/*.html`; make the footer/CTA global.
+3. Convert each static `patterns` export to a registered WordPress block pattern; maintain class naming and semantic DOM structure.
+4. Implement each interactive `blocks` module as a custom block with the same attributes (`types.ts` → `block.json`) and frontend `view.js` where required.
+5. Transform `content/pages/*.json` into Gutenberg block serialization, keeping section IDs, attributes and editorial hierarchy. Import SEO metadata separately through the destination SEO integration.
+6. Supply `assets/css/editor.css` alongside frontend CSS, and scope editor resets so the **editor content canvas matches the front view**. Visual parity also requires identical remote images, font loading, media-query behavior, animation states and DOM wrapper normalization.
+7. Reimplement `app/api/contact/route.ts` in a **WordPress plugin** with nonce/rate limiting and server-side Resend transport; never place credentials in the theme or Gutenberg block attributes.
+8. Validate editor iframe and frontend screenshots at 1440, 1280, 1024, 768, 390 and 360 px before claiming pixel-level parity.
+
+Use `npm run export:block-manifest` to generate a handoff manifest with layout mapping and attribute schema locations. This repository only prepares for the migration; **it does not yet supply Gutenberg editor code or prove visual parity in WordPress.**
+
+## CSS architecture
+
+`theme/styles/index.css` is an ordered import list, retaining the current production cascade instead of merging all CSS into an unmaintainable file. Existing selectors remain intact until screenshot baselines permit further moves. `theme/css-variables.ts` injects token values into `body`, as before.
+
+## Validation and deployment
+
+`npm run validate:content` preserves the existing 13-page / 87-section / 42-FAQ / 11-media-band / 26-image invariants. `npm run export:xml` exports a portable XML reference from the new content and theme modules. Vercel remains the authoritative Next.js deployment; optional GitHub Pages export is a static preview only. Review build and responsive-smoke workflow results before merging the migration branch.
