@@ -9,7 +9,7 @@ export function V5SectionContent({section,index,pageId,mode}:{section:SectionDat
  const groups=regroup(section.blocks||[]);
  const leads=groups.filter(x=>!x.heading).flatMap(x=>x.paragraphs);
  const topics=groups.filter(x=>x.heading);
- const layout=mode;
+ const layout:string=mode;
  const dark=layout==='darkBand';
  if(layout==='splitContent'&&section.title==='Request a Consultation')
   return <section className="bs-v5-section bs-v5-contact" id={section.id}><div className="bs-shell"><h2>{section.title}</h2><ContactForm/></div></section>;
