@@ -1,0 +1,812 @@
+{
+  "id": "brokerage-setup",
+  "slug": "/solutions/brokerage-setup",
+  "seo": {
+    "title": "Forex Brokerage Setup & Launch Technology",
+    "description": "Plan your forex brokerage setup with MT5 configuration, server hosting, liquidity connectivity, CRM, KYC and payment integrations, tested before go-live.",
+    "primaryKeyword": "forex brokerage setup",
+    "secondaryKeywords": "start a forex brokerage, forex broker setup, forex brokerage technology, broker launch services",
+    "canonicalPath": "/solutions/brokerage-setup"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex Brokerage Setup & Launch Technology",
+    "subtitle": "A forex brokerage setup is a lot more than buying a platform and switching it on. Servers need hosting and securing. Liquidity has to be connected and tested. And clients need a way to sign up, get verified and fund an account without someone on your team copying details from one system into another.",
+    "leadParagraphs": [
+      "A forex brokerage setup is a lot more than buying a platform and switching it on. Servers need hosting and securing. Liquidity has to be connected and tested. And clients need a way to sign up, get verified and fund an account without someone on your team copying details from one system into another.",
+      "We plan and build that technical side for you, in the order it needs to happen, and we stick around after launch."
+    ],
+    "imageKey": "aboutPrimary",
+    "ctas": [
+      {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Who This Is For",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Mostly, people at the very start. Or close to it."
+        },
+        {
+          "type": "p",
+          "text": "That could be a founder who wants to start a forex brokerage and has nothing technical in place yet. It could be an introducing broker with a loyal client base, ready to run things under their own name. Sometimes it's a group opening a second entity for a new region, or a fintech business stepping into trading services for the first time."
+        },
+        {
+          "type": "p",
+          "text": "You don't have to show up with everything figured out. A lot of our clients arrive with a business model, a target market and a rough idea of timing. We help fill in the rest."
+        },
+        {
+          "type": "p",
+          "text": "Already running a brokerage and just need parts of it fixed or replaced? Our maintenance, hosting and integration services will probably suit you better."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "What Goes Into a Technology-Led Launch",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Every project gets scoped around your model, so no two look identical. That said, most launches cover the same core layers."
+        },
+        {
+          "type": "h3",
+          "text": "Choosing and Configuring the Platform"
+        },
+        {
+          "type": "p",
+          "text": "First question: full MT5 deployment or white label? A white label usually costs less and gets you live sooner. A full deployment gives you more control. We'll help you weigh it up against your budget and where you want to be in two or three years."
+        },
+        {
+          "type": "p",
+          "text": "Once that's decided, we configure the platform properly. Trading groups, account types, symbol specs, leverage and margin rules, and manager access for your dealing and support teams."
+        },
+        {
+          "type": "h3",
+          "text": "Servers and Infrastructure"
+        },
+        {
+          "type": "p",
+          "text": "Your platform needs somewhere to live. We set up hosting in a region that makes sense for your clients and your liquidity, lock down access, schedule backups and get monitoring running before launch day. A backup server and a recovery plan are built in from the start, because adding them later is always harder."
+        },
+        {
+          "type": "h3",
+          "text": "Connecting Liquidity"
+        },
+        {
+          "type": "p",
+          "text": "Depending on what your providers support and how you plan to execute, we'll connect through a bridge, an MT5 gateway or a direct FIX connection. Symbols get mapped. Price feeds get checked. Orders route the way your risk policy says they should."
+        },
+        {
+          "type": "h3",
+          "text": "CRM, KYC and Payments"
+        },
+        {
+          "type": "p",
+          "text": "This is the bit your clients actually notice. Registration, identity checks, account creation, deposits and withdrawals all have to work together, and they all have to talk to the trading platform. We connect your CRM, KYC provider and payment providers so a new client goes from sign-up to a funded account in one smooth flow."
+        },
+        {
+          "type": "h3",
+          "text": "Testing Before Anyone Goes Live"
+        },
+        {
+          "type": "p",
+          "text": "We test everything against real scenarios. Price feeds, order execution, rejects, margin calls, onboarding, deposits, withdrawals, reporting. Finding a problem at this stage costs very little. Finding it after your first hundred clients arrive is a different story."
+        },
+        {
+          "type": "h3",
+          "text": "Support After Launch"
+        },
+        {
+          "type": "p",
+          "text": "The first few weeks are when small issues tend to pop up. We keep a close eye on things during that period, tweak settings as real trading comes in, and then move you onto an ongoing support plan."
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "media-trading_desk",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "trading_desk",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "How It All Fits Together",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Here's the stack in a single line:"
+        },
+        {
+          "type": "p",
+          "text": "Client → Website & Client Portal → CRM, KYC & Payments → MT5 Trading Server → Bridge / Gateway / FIX → Liquidity Providers → Reporting & Back Office"
+        },
+        {
+          "type": "p",
+          "text": "A client signs up on your website. The CRM records them, the KYC provider verifies them, the payment provider handles their deposit. Their trading account opens on MT5. When they trade, orders travel through your connectivity layer to liquidity, and the results flow back into your reports."
+        },
+        {
+          "type": "p",
+          "text": "If one link is set up badly, everything downstream feels it. So we build and test the whole chain as one system."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Key Capabilities",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* MT5 server deployment, white label configuration and manager setup"
+        },
+        {
+          "type": "p",
+          "text": "* Hosting across regions, with security hardening, monitoring and backups"
+        },
+        {
+          "type": "p",
+          "text": "* Bridge, gateway and FIX connectivity, including symbol mapping and price-feed checks"
+        },
+        {
+          "type": "p",
+          "text": "* Primary and backup liquidity routes where needed"
+        },
+        {
+          "type": "p",
+          "text": "* CRM integration for leads, client records, trading accounts and IB tracking"
+        },
+        {
+          "type": "p",
+          "text": "* KYC integration with approval and rejection workflows plus audit trails"
+        },
+        {
+          "type": "p",
+          "text": "* Payment provider integration for deposits and withdrawals, including webhooks and reconciliation"
+        },
+        {
+          "type": "p",
+          "text": "* Structured testing with documented test cases and sign-off"
+        },
+        {
+          "type": "p",
+          "text": "* Monitoring after launch and a handover to managed support"
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "A Few Typical Launch Scenarios",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Starting From Nothing"
+        },
+        {
+          "type": "p",
+          "text": "A founder has a solid business plan and a licence application underway, but no technology at all. We scope the stack, time the build alongside the regulatory process and have everything tested and waiting for when approval lands."
+        },
+        {
+          "type": "h3",
+          "text": "Turning a Partner Network Into a Brokerage"
+        },
+        {
+          "type": "p",
+          "text": "An introducing broker with a strong client base wants its own brand. We set up an MT5 white label, connect liquidity and build onboarding that makes moving existing clients over as painless as possible."
+        },
+        {
+          "type": "h3",
+          "text": "Opening a Second Entity"
+        },
+        {
+          "type": "p",
+          "text": "An established group wants a separate brokerage for a new market. We design infrastructure that reuses what already works, while keeping the new entity's servers, data and client flows properly apart."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 91,
+  "wordCountApprox": 1768,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "A forex brokerage setup is a lot more than buying a platform and switching it on. Servers need hosting and securing. Liquidity has to be connected and tested. And clients need a way to sign up, get verified and fund an account without someone on your team copying details from one system into another.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "We plan and build that technical side for you, in the order it needs to happen, and we stick around after launch.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who This Is For"
+    },
+    {
+      "type": "p",
+      "text": "Mostly, people at the very start. Or close to it.",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "That could be a founder who wants to start a forex brokerage and has nothing technical in place yet. It could be an introducing broker with a loyal client base, ready to run things under their own name. Sometimes it's a group opening a second entity for a new region, or a fintech business stepping into trading services for the first time.",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "You don't have to show up with everything figured out. A lot of our clients arrive with a business model, a target market and a rough idea of timing. We help fill in the rest.",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Already running a brokerage and just need parts of it fixed or replaced? Our maintenance, hosting and integration services will probably suit you better.",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What Goes Into a Technology-Led Launch"
+    },
+    {
+      "type": "p",
+      "text": "Every project gets scoped around your model, so no two look identical. That said, most launches cover the same core layers.",
+      "parentH2": "What Goes Into a Technology-Led Launch",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "Choosing and Configuring the Platform",
+      "parentH2": "What Goes Into a Technology-Led Launch"
+    },
+    {
+      "type": "p",
+      "text": "First question: full MT5 deployment or white label? A white label usually costs less and gets you live sooner. A full deployment gives you more control. We'll help you weigh it up against your budget and where you want to be in two or three years.",
+      "parentH2": "What Goes Into a Technology-Led Launch",
+      "parentH3": "Choosing and Configuring the Platform"
+    },
+    {
+      "type": "p",
+      "text": "Once that's decided, we configure the platform properly. Trading groups, account types, symbol specs, leverage and margin rules, and manager access for your dealing and support teams.",
+      "parentH2": "What Goes Into a Technology-Led Launch",
+      "parentH3": "Choosing and Configuring the Platform"
+    },
+    {
+      "type": "h3",
+      "text": "Servers and Infrastructure",
+      "parentH2": "What Goes Into a Technology-Led Launch"
+    },
+    {
+      "type": "p",
+      "text": "Your platform needs somewhere to live. We set up hosting in a region that makes sense for your clients and your liquidity, lock down access, schedule backups and get monitoring running before launch day. A backup server and a recovery plan are built in from the start, because adding them later is always harder.",
+      "parentH2": "What Goes Into a Technology-Led Launch",
+      "parentH3": "Servers and Infrastructure"
+    },
+    {
+      "type": "h3",
+      "text": "Connecting Liquidity",
+      "parentH2": "What Goes Into a Technology-Led Launch"
+    },
+    {
+      "type": "p",
+      "text": "Depending on what your providers support and how you plan to execute, we'll connect through a bridge, an MT5 gateway or a direct FIX connection. Symbols get mapped. Price feeds get checked. Orders route the way your risk policy says they should.",
+      "parentH2": "What Goes Into a Technology-Led Launch",
+      "parentH3": "Connecting Liquidity"
+    },
+    {
+      "type": "h3",
+      "text": "CRM, KYC and Payments",
+      "parentH2": "What Goes Into a Technology-Led Launch"
+    },
+    {
+      "type": "p",
+      "text": "This is the bit your clients actually notice. Registration, identity checks, account creation, deposits and withdrawals all have to work together, and they all have to talk to the trading platform. We connect your CRM, KYC provider and payment providers so a new client goes from sign-up to a funded account in one smooth flow.",
+      "parentH2": "What Goes Into a Technology-Led Launch",
+      "parentH3": "CRM, KYC and Payments"
+    },
+    {
+      "type": "h3",
+      "text": "Testing Before Anyone Goes Live",
+      "parentH2": "What Goes Into a Technology-Led Launch"
+    },
+    {
+      "type": "p",
+      "text": "We test everything against real scenarios. Price feeds, order execution, rejects, margin calls, onboarding, deposits, withdrawals, reporting. Finding a problem at this stage costs very little. Finding it after your first hundred clients arrive is a different story.",
+      "parentH2": "What Goes Into a Technology-Led Launch",
+      "parentH3": "Testing Before Anyone Goes Live"
+    },
+    {
+      "type": "h3",
+      "text": "Support After Launch",
+      "parentH2": "What Goes Into a Technology-Led Launch"
+    },
+    {
+      "type": "p",
+      "text": "The first few weeks are when small issues tend to pop up. We keep a close eye on things during that period, tweak settings as real trading comes in, and then move you onto an ongoing support plan.",
+      "parentH2": "What Goes Into a Technology-Led Launch",
+      "parentH3": "Support After Launch"
+    },
+    {
+      "type": "h2",
+      "text": "How the Setup Process Works"
+    },
+    {
+      "type": "p",
+      "text": "There's a reason we do things in this order. Each stage relies on the one before it, and jumping ahead nearly always means redoing work.",
+      "parentH2": "How the Setup Process Works",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "01 Scoping",
+      "parentH2": "How the Setup Process Works"
+    },
+    {
+      "type": "p",
+      "text": "We get to know the business. Your target markets, account types, expected client numbers, execution model and any providers you've already picked. By the end, we both know exactly what's being built.",
+      "parentH2": "How the Setup Process Works",
+      "parentH3": "01 Scoping"
+    },
+    {
+      "type": "h3",
+      "text": "02 Stack Design",
+      "parentH2": "How the Setup Process Works"
+    },
+    {
+      "type": "p",
+      "text": "Then we draw up the technical blueprint. Platform, hosting region, liquidity method, CRM, KYC and payment providers, and how they all connect. You see the full plan and timeline before any build work begins.",
+      "parentH2": "How the Setup Process Works",
+      "parentH3": "02 Stack Design"
+    },
+    {
+      "type": "h3",
+      "text": "03 Build and Configuration",
+      "parentH2": "How the Setup Process Works"
+    },
+    {
+      "type": "p",
+      "text": "Servers get provisioned, the platform gets configured, liquidity gets connected. Your trading environment starts to take real shape here.",
+      "parentH2": "How the Setup Process Works",
+      "parentH3": "03 Build and Configuration"
+    },
+    {
+      "type": "h3",
+      "text": "04 Integration",
+      "parentH2": "How the Setup Process Works"
+    },
+    {
+      "type": "p",
+      "text": "CRM, KYC and payment systems are linked to the platform and to each other. We also chase your third-party providers for credentials, sandbox access and technical details. Honestly, this is where most launches get delayed when nobody owns it.",
+      "parentH2": "How the Setup Process Works",
+      "parentH3": "04 Integration"
+    },
+    {
+      "type": "h3",
+      "text": "05 User Acceptance Testing",
+      "parentH2": "How the Setup Process Works"
+    },
+    {
+      "type": "p",
+      "text": "Your team and ours run through every client and back-office workflow in a test environment. Anything that breaks gets fixed and retested. We sign off together.",
+      "parentH2": "How the Setup Process Works",
+      "parentH3": "05 User Acceptance Testing"
+    },
+    {
+      "type": "h3",
+      "text": "06 Go-Live and Early Support",
+      "parentH2": "How the Setup Process Works"
+    },
+    {
+      "type": "p",
+      "text": "Launch day happens with monitoring switched on and our engineers close by. After the first stretch, we agree on an ongoing support plan that fits how you operate.",
+      "parentH2": "How the Setup Process Works",
+      "parentH3": "06 Go-Live and Early Support"
+    },
+    {
+      "type": "h2",
+      "text": "How It All Fits Together"
+    },
+    {
+      "type": "p",
+      "text": "Here's the stack in a single line:",
+      "parentH2": "How It All Fits Together",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Client → Website & Client Portal → CRM, KYC & Payments → MT5 Trading Server → Bridge / Gateway / FIX → Liquidity Providers → Reporting & Back Office",
+      "parentH2": "How It All Fits Together",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "A client signs up on your website. The CRM records them, the KYC provider verifies them, the payment provider handles their deposit. Their trading account opens on MT5. When they trade, orders travel through your connectivity layer to liquidity, and the results flow back into your reports.",
+      "parentH2": "How It All Fits Together",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "If one link is set up badly, everything downstream feels it. So we build and test the whole chain as one system.",
+      "parentH2": "How It All Fits Together",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Key Capabilities"
+    },
+    {
+      "type": "p",
+      "text": "* MT5 server deployment, white label configuration and manager setup",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Hosting across regions, with security hardening, monitoring and backups",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Bridge, gateway and FIX connectivity, including symbol mapping and price-feed checks",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Primary and backup liquidity routes where needed",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* CRM integration for leads, client records, trading accounts and IB tracking",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* KYC integration with approval and rejection workflows plus audit trails",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Payment provider integration for deposits and withdrawals, including webhooks and reconciliation",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Structured testing with documented test cases and sign-off",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Monitoring after launch and a handover to managed support",
+      "parentH2": "Key Capabilities",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "A Few Typical Launch Scenarios"
+    },
+    {
+      "type": "h3",
+      "text": "Starting From Nothing",
+      "parentH2": "A Few Typical Launch Scenarios"
+    },
+    {
+      "type": "p",
+      "text": "A founder has a solid business plan and a licence application underway, but no technology at all. We scope the stack, time the build alongside the regulatory process and have everything tested and waiting for when approval lands.",
+      "parentH2": "A Few Typical Launch Scenarios",
+      "parentH3": "Starting From Nothing"
+    },
+    {
+      "type": "h3",
+      "text": "Turning a Partner Network Into a Brokerage",
+      "parentH2": "A Few Typical Launch Scenarios"
+    },
+    {
+      "type": "p",
+      "text": "An introducing broker with a strong client base wants its own brand. We set up an MT5 white label, connect liquidity and build onboarding that makes moving existing clients over as painless as possible.",
+      "parentH2": "A Few Typical Launch Scenarios",
+      "parentH3": "Turning a Partner Network Into a Brokerage"
+    },
+    {
+      "type": "h3",
+      "text": "Opening a Second Entity",
+      "parentH2": "A Few Typical Launch Scenarios"
+    },
+    {
+      "type": "p",
+      "text": "An established group wants a separate brokerage for a new market. We design infrastructure that reuses what already works, while keeping the new entity's servers, data and client flows properly apart.",
+      "parentH2": "A Few Typical Launch Scenarios",
+      "parentH3": "Opening a Second Entity"
+    },
+    {
+      "type": "h2",
+      "text": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Launches go smoother when everyone knows who owns which piece. Usually it splits like this.",
+      "parentH2": "Who Handles What",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "What We Take Care Of",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Technology planning, platform configuration, hosting setup, liquidity connectivity, CRM, KYC and payment integrations, testing, go-live support and ongoing maintenance where agreed.",
+      "parentH2": "Who Handles What",
+      "parentH3": "What We Take Care Of"
+    },
+    {
+      "type": "h3",
+      "text": "What Stays With You",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Company formation, licensing and regulatory approval, compliance policies, commercial agreements with liquidity and payment providers, banking, marketing and client support.",
+      "parentH2": "Who Handles What",
+      "parentH3": "What Stays With You"
+    },
+    {
+      "type": "h3",
+      "text": "Third-Party Providers",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Platform vendors, liquidity providers, KYC services and payment providers all run their own systems on their own terms. We handle the technical integration. Their service levels and contracts remain between you and them.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Third-Party Providers"
+    },
+    {
+      "type": "p",
+      "text": "One more thing worth saying clearly: regulatory requirements vary by jurisdiction. We can explain how technology choices relate to common regulatory expectations, but legal and compliance advice should come from qualified specialists in your target market.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Third-Party Providers"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "How long does a forex brokerage setup take?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "That depends on scope, and on how fast third-party providers respond. A white label with standard integrations moves quicker than a full MT5 deployment with several payment providers and multiple liquidity connections. After scoping, we'll give you a timeline based on what you actually need.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How long does a forex brokerage setup take?"
+    },
+    {
+      "type": "h3",
+      "text": "Do I need a licence before the technology work starts?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Not always. Plenty of clients start building while their licence application is still in progress, so everything's ready once approval comes through. Whether you need a licence, and which one, depends on your jurisdiction and business model. A regulatory advisor is the right person for that question.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do I need a licence before the technology work starts?"
+    },
+    {
+      "type": "h3",
+      "text": "Full MT5 setup or white label. Which one should I pick?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "White label is generally cheaper upfront and faster to launch. A full deployment gives you more control over configuration and infrastructure. We'll go through the trade-offs with you during scoping, based on your budget and growth plans.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Full MT5 setup or white label. Which one should I pick?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you work with providers I've already chosen?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. If you've already signed with a liquidity provider, KYC service or payment provider, we build around them. Haven't chosen yet? We can walk you through the technical points worth comparing.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you work with providers I've already chosen?"
+    },
+    {
+      "type": "h3",
+      "text": "What happens if something goes wrong after launch?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "During the early support period, our team watches your environment closely and responds to issues directly. After that, you move onto ongoing maintenance covering monitoring, configuration changes and incident response.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What happens if something goes wrong after launch?"
+    },
+    {
+      "type": "h3",
+      "text": "Can I start small and add more later?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes, and it's often the smarter way to go. We build the stack so extra liquidity providers, payment methods, a mobile app or new regions can be added later without rebuilding what's already there.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can I start small and add more later?"
+    },
+    {
+      "type": "h3",
+      "text": "What does it cost to start a forex brokerage?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Technology costs depend on your platform choice, hosting, the number of integrations and the level of support you want. Licensing, legal, banking and marketing come on top of that and vary a lot by jurisdiction. Once we understand your scope, we'll give you a clear breakdown of the technology side of your forex brokerage setup.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What does it cost to start a forex brokerage?"
+    },
+    {
+      "type": "h2",
+      "text": "Related Services"
+    },
+    {
+      "type": "p",
+      "text": "* MT5 White Label",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Trading Server Hosting",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Liquidity & Connectivity",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Broker CRM & Back Office",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* KYC/AML Integration",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Payment Integration",
+      "parentH2": "Related Services",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Plan Your Brokerage Launch"
+    },
+    {
+      "type": "p",
+      "text": "Tell us about your business model, your target markets and your timeline. We'll map out the technology your launch really needs, so you walk away with a clear view of the stack, the sequence and the decisions still left to make.",
+      "parentH2": "Plan Your Brokerage Launch",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex Brokerage Setup & Launch Technology",
+    "subtitle": "A forex brokerage setup is a lot more than buying a platform and switching it on. Servers need hosting and securing. Liquidity has to be connected and tested. And clients need a way to sign up, get verified and fund an a",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Solutions",
+        "href": "/solutions/brokerage-setup"
+      },
+      {
+        "label": "Brokerage Setup"
+      }
+    ],
+    "backgroundImageKey": "collaboration",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "code_ops",
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "collaboration",
+    "servers",
+    "world_map",
+    "data_center",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid3",
+    "mediaBand",
+    "timeline",
+    "cardGrid2",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

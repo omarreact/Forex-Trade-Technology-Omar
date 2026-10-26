@@ -1,0 +1,36 @@
+{
+  "tradingStackFlow": {
+    "connections": [
+      {
+        "label": "Client trade",
+        "sub": "Order request",
+        "icon": "users"
+      },
+      {
+        "label": "MT4 / MT5",
+        "sub": "Trading platform",
+        "icon": "server"
+      },
+      {
+        "label": "Bridge / FIX",
+        "sub": "Gateway connection",
+        "icon": "link"
+      },
+      {
+        "label": "Liquidity",
+        "sub": "Price & execution",
+        "icon": "globe"
+      },
+      {
+        "label": "CRM & reporting",
+        "sub": "Trade record",
+        "icon": "database"
+      }
+    ],
+    "subtitleFallback": "Follow a trade from the client to execution and reporting.",
+    "kicker": "ONE CONNECTED TRADING STACK",
+    "status": "Configuration · Testing · Monitoring",
+    "ariaLabel": "Trading and reporting system connections",
+    "caption": "Connected trade lifecycle — each integration must be configured, tested and monitored."
+  }
+}

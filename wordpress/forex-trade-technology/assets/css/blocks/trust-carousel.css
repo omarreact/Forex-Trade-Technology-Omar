@@ -1,0 +1,77 @@
+/* Full-bleed, uninterrupted capability marquee on the homepage. */
+.bs-trust.bs-trust-carousel{
+ background:#d8e9a2;
+ color:#141613;
+ width:100%;
+ padding:0;
+ margin:0;
+ overflow:hidden;
+}
+.bs-trust.bs-trust-carousel .bs-trust-carousel-window{
+ display:block;
+ width:100%;
+ max-width:none;
+ min-width:0;
+ overflow:hidden;
+ -webkit-mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent);
+ mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent);
+}
+.bs-trust-carousel-track{
+ display:flex;
+ align-items:center;
+ width:max-content;
+ min-width:100%;
+ min-height:102px;
+ animation:bs-trust-marquee 40s linear infinite;
+ will-change:transform;
+}
+.bs-trust-carousel-group{
+ display:flex;
+ align-items:center;
+ flex:0 0 auto;
+ gap:clamp(32px,4vw,68px);
+ padding-right:clamp(32px,4vw,68px);
+}
+.bs-trust-carousel-item{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ flex:0 0 auto;
+ white-space:nowrap;
+ font-size:clamp(13px,1.1vw,15px);
+ line-height:1.5;
+ font-weight:700;
+}
+.bs-trust-carousel-item svg{
+ color:#141613;
+ flex:0 0 auto;
+}
+.bs-trust-carousel-window:hover .bs-trust-carousel-track,
+.bs-trust-carousel-window:focus-within .bs-trust-carousel-track{
+ animation-play-state:paused;
+}
+/* With six identical groups, one cycle shifts precisely one group. */
+@keyframes bs-trust-marquee{
+ to{transform:translateX(-16.6666666667%)}
+}
+@media(max-width:830px){
+ .bs-trust-carousel-track{min-height:82px;animation-duration:33s}
+ .bs-trust-carousel-item{font-size:13px}
+ .bs-trust-carousel-group{gap:34px;padding-right:34px}
+}
+@media(max-width:480px){
+ .bs-trust-carousel-track{min-height:68px;animation-duration:30s}
+ .bs-trust-carousel-item{font-size:12px;gap:7px}
+ .bs-trust-carousel-item svg{width:16px;height:16px}
+ .bs-trust-carousel-group{gap:27px;padding-right:27px}
+}
+@media(prefers-reduced-motion:reduce){
+ .bs-trust.bs-trust-carousel .bs-trust-carousel-window{
+  overflow-x:auto;
+  -webkit-mask-image:none;
+  mask-image:none;
+  scrollbar-width:thin;
+ }
+ .bs-trust-carousel-track{animation:none;will-change:auto}
+ .bs-trust-carousel-group[aria-hidden="true"]{display:none}
+}
