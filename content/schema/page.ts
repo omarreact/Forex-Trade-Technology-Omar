@@ -1,3 +1,4 @@
+import type {SectionLayout} from './section';
 export type ButtonData={label:string;href:string;variant?:string;icon?:string};
 export type HeroData={kicker?:string;title:string;subtitle?:string;leadParagraphs?:string[];imageKey?:string;ctas?:ButtonData[];viewTransition?:string;useSlider?:boolean};
 export type ContentBlock={type:'h2'|'h3'|'p';text:string;parentH2?:string|null;parentH3?:string|null};
@@ -9,7 +10,8 @@ export type PageTopData={variant:'homeSlider'|'pageHeader';height?:string;fullWi
 export type SectionData={
  id:string;type:'trustStrip'|'contentSection'|'ctaRow'|'darkCta'|'faqAccordion'|'mediaBand'|'contactForm'|'cardGrid'|'prose'|'gallery3';viewTransition?:string;
  title?:string;subtitle?:string;kicker?:string;blocks?:ContentBlock[];items?:Array<string|FaqItem>;ctas?:ButtonData[];cta?:ButtonData;
- columns?:number;paragraphs?:string[];imageKey?:string;openFirst?:boolean;media?:MediaData;layout?:string;density?:string;preferredRender?:string;theme?:string;
+ columns?:number;paragraphs?:string[];imageKey?:string;openFirst?:boolean;media?:MediaData;layout:SectionLayout;density?:string;preferredRender?:string;theme?:string;
 };
+/** Preserves existing page document keys while freezing the render-critical contract. */
 export type PageData={id:string;slug:string;seo:{title:string;description:string;canonicalPath?:string;primaryKeyword?:string;secondaryKeywords?:string};hero:HeroData;pageTop?:PageTopData;pageImages?:string[];sections:SectionData[];rawBlockCount?:number;wordCountApprox?:number;fullBlocks?:ContentBlock[];documentFooterNotes?:string[]};
 
