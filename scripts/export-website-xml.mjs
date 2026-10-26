@@ -13,9 +13,9 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=rel=>fs.readFileSync(path.join(root,rel),'utf8');
 const json=rel=>JSON.parse(read(rel));
-const content=json('site-data/pages.content.json');
-const theme=json('site-data/theme.styles.json');
-const site=json('site-data/site.config.json');
+const content={...json('content/metadata.json'),pages:fs.readdirSync(path.join(root,'content/pages')).filter(name=>name.endsWith('.json')).sort().map(name=>json('content/pages/'+name))};
+const theme=json('theme/theme.json');
+const site=json('content/site.config.json');
 if(content.pages.length!==13)throw new Error('Expected exactly 13 pages');
 const escapeXml=value=>String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'');
 const cdata=value=>'<![CDATA['+String(value).replaceAll(']]>',']]]]><![CDATA[>')+']]>';
@@ -28,8 +28,10 @@ function entry(name,value){
  if(typeof value==='object')return '<object'+a+'>'+Object.entries(value).map(([k,v])=>entry(k,v)).join('')+'</object>';
  return '<value'+a+attr({type:typeof value})+'>'+escapeXml(value)+'</value>';
 }
-const cssOrder=[...read('app/layout.tsx').matchAll(/import '\.\/([^']+\.css)';/g)].map(m=>'app/'+m[1]);
-const templates=fs.readdirSync(path.join(root,'components/new-theme')).filter(name=>name.endsWith('.tsx')).sort().map(name=>'components/new-theme/'+name);
+const cssOrder=[...read('theme/styles/index.css').matchAll(/@import ["']\.\/([^"']+\.css)["'];/g)].map(m=>'theme/styles/'+m[1]);
+const components=['parts','patterns','blocks','templates'];
+function walk(rel){return fs.readdirSync(path.join(root,rel),{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(rel+'/'+e.name):e.name.endsWith('.tsx')?[rel+'/'+e.name]:[]);}
+const templates=components.flatMap(walk).sort();
 const rules=[
  {name:'Slider',trigger:'home.pageTop.variant=homeSlider',behavior:'Autoplay 6000ms; fade transition; 5 slides; dots only; mobile hero clamp(430px,68svh,570px); no nested scroll'},
  {name:'Trading stack flow',trigger:'home section title=How Your Trading Stack Connects',behavior:'Responsive five-stage icon flow, preserving original narrative from three text blocks'},
@@ -47,8 +49,8 @@ const pages=content.pages.map(page=>element('page',{id:page.id,slug:page.slug},
 const rootXml='<?xml version="1.0" encoding="UTF-8"?>\n'+
  '<website-spec version="1.0" name="Forex Trade Technology" page-count="13" framework-neutral="true">'+
  '<usage>Portable content and style reference. Rebuild semantics and behavior on any stack. CSS/source snapshots preserve design specificity; browser QA is still required for pixel-level parity.</usage>'+
- element('site-configuration',{source:'site-data/site.config.json'},entry('root',site))+
- element('theme-configuration',{source:'site-data/theme.styles.json'},entry('root',theme))+
+ element('site-configuration',{source:'content/site.config.json'},entry('root',site))+
+ element('theme-configuration',{source:'theme/theme.json'},entry('root',theme))+
  element('content-metadata',{},entry('root',Object.fromEntries(Object.entries(content).filter(([k])=>k!=='pages'))))+
  element('pages',{count:pages.length?content.pages.length:0},pages)+
  element('interactions',{count:rules.length},behaviorXml)+

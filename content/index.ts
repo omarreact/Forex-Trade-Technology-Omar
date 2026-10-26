@@ -1,5 +1,6 @@
 import site from './site.config.json';
 import theme from '@/theme/theme.json';
+import contentMetadata from './metadata.json';
 import p0 from './pages/home.json';
 import p1 from './pages/brokerage-setup.json';
 import p2 from './pages/mt5-white-label.json';
@@ -39,4 +40,4 @@ export function getPage(slug:string){const path=normalizePath(slug);return allPa
 export function getPageById(id:string){return pageById.get(id);}
 export function getImage(key?:string){const images=theme.assets.images as Record<string,{url:string;alt:string;source?:string;position?:string;credit?:string;sourcePage?:string}>;return key?images[key]:undefined;}
 export function absoluteUrl(path:string){const url=process.env.NEXT_PUBLIC_SITE_URL||site.site.url;return new URL(path,url).toString();}
-export const pageStats={...content.stats};
+export const pageStats={...contentMetadata.stats};
