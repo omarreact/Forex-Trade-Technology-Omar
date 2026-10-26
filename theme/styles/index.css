@@ -1,6 +1,6 @@
 @import "./base.css";
-@import "./trust-carousel.css";
-@import "./icon-box-carousel.css";
+@import "./blocks/trust-carousel.css";
+@import "./blocks/icon-box-carousel.css";
 @import "./flex-layout.css";
 @import "./media-title-bands.css";
 @import "./editorial-story.css";
@@ -9,7 +9,7 @@
 @import "./faq-polish.css";
 @import "./global-cta-footer.css";
 @import "./component-system.css";
-@import "./trading-stack-flow.css";
+@import "./blocks/trading-stack-flow.css";
 @import "./review-feedback.css";
 @import './layout.css';
 @import './header-footer.css';
