@@ -1,25 +1,31 @@
 #!/usr/bin/env node
-/** Export portable block and pattern contracts without introducing a WP runtime. */
+/** Machine-readable, versioned WP-handoff contract, not a WordPress runtime. */
 import fs from 'node:fs';
 import path from 'node:path';
 const root=path.resolve(import.meta.dirname,'..');
-const mapping={
- iconRow:'block/trust-carousel',cardGrid2:'pattern/CardGrid2',cardGrid3:'pattern/CardGrid3',
- timeline:'pattern/TimelineSteps',stack:'pattern/StackProse',darkBand:'pattern/DarkBand',
- mediaBand:'pattern/MediaBand',gallery3:'pattern/Gallery3',faqAccordion:'pattern/FaqAccordion',
- splitContent:'pattern/SplitContent (contact → block/contact-form)',ctaBand:'part/FinalCta (suppressed in JSON sections)',
- 'title:How Your Trading Stack Connects':'block/trading-stack-flow',
- 'title:Platform & Infrastructure Under One Roof':'pattern/FeatureFlex',
- 'title:Why Brokers Work With Us':'pattern/FeatureFlex',
- 'title:Who We Work With + H3':'block/audience-carousel'
+const read=name=>JSON.parse(fs.readFileSync(path.join(root,name),'utf8'));
+const registry=read('content/schema/render-map.json');
+const attr=read('content/schema/block-attributes.json');
+if(attr.contractVersion!==registry.contractVersion)throw Error('Block and render contracts disagree');
+const blocks=Object.entries(attr.blocks).map(([slug,spec])=>({
+ name:registry.namespace+'/'+slug,
+ component:spec.component,
+ typeFile:'blocks/'+slug+'/types.ts',
+ attributes:spec.attributes,
+ ...(spec.notes?{notes:spec.notes}:{})
+}));
+const manifest={
+ contractVersion:registry.contractVersion,
+ runtime:'Next.js (no WordPress runtime)',
+ namespace:registry.namespace,
+ layouts:Object.fromEntries(Object.entries(registry.layouts).map(([key,value])=>[key,{...value}])),
+ overrides:registry.overrides,
+ sharedFinalCta:registry.sharedFinalCta,
+ blocks,
+ paths:{theme:'theme/theme.json',pages:'content/pages/*.json',site:'content/site.config.json'},
+ contactTransport:{current:'app/api/contact/route.ts',future:'standalone WordPress plugin',credentialPolicy:'server-only'}
 };
-const blocks=['home-slider','trading-stack-flow','trust-carousel','audience-carousel','icon-card','contact-form'];
-const manifest={version:1,runtime:'Next.js only',generatedAt:new Date().toISOString(),layouts:mapping,blocks:blocks.map(name=>({
- name:'forex-trade-technology/'+name,
- typeFile:'blocks/'+name+'/types.ts',
- typeSource:fs.readFileSync(path.join(root,'blocks',name,'types.ts'),'utf8')
-})),theme:'theme/theme.json',pages:'content/pages/*.json',contactTransport:'plugin boundary: app/api/contact/route.ts'};
 fs.mkdirSync(path.join(root,'artifacts'),{recursive:true});
 const out=path.join(root,'artifacts/block-manifest.json');
 fs.writeFileSync(out,JSON.stringify(manifest,null,2)+'\n','utf8');
-console.log('Generated',out,'with',blocks.length,'blocks and',Object.keys(mapping).length,'layout/override contracts');
+console.log('Generated contract v'+manifest.contractVersion+' at',out,'with',blocks.length,'typed blocks and',Object.keys(manifest.layouts).length,'layouts');

@@ -1,0 +1,125 @@
+{
+  "contractVersion": 1,
+  "namespace": "forex-trade-technology",
+  "layouts": {
+    "iconRow": {
+      "kind": "pattern",
+      "module": "patterns/TrustStrip",
+      "runtime": "TrustStrip",
+      "wordpress": "forex-trade-technology/trust-carousel"
+    },
+    "cardGrid2": {
+      "kind": "pattern",
+      "module": "patterns/CardGrid2",
+      "runtime": "CardGrid2",
+      "wordpress": "forex-trade-technology/card-grid-2"
+    },
+    "cardGrid3": {
+      "kind": "pattern",
+      "module": "patterns/CardGrid3",
+      "runtime": "CardGrid3",
+      "wordpress": "forex-trade-technology/card-grid-3"
+    },
+    "stack": {
+      "kind": "pattern",
+      "module": "patterns/StackProse",
+      "runtime": "StackProse",
+      "wordpress": "forex-trade-technology/stack-prose"
+    },
+    "mediaBand": {
+      "kind": "pattern",
+      "module": "patterns/MediaBand",
+      "runtime": "MediaBand",
+      "wordpress": "forex-trade-technology/media-band",
+      "onlyPageId": "home"
+    },
+    "timeline": {
+      "kind": "pattern",
+      "module": "patterns/TimelineSteps",
+      "runtime": "TimelineSteps",
+      "wordpress": "forex-trade-technology/timeline-steps"
+    },
+    "splitContent": {
+      "kind": "pattern",
+      "module": "patterns/SplitContent",
+      "runtime": "SplitContent",
+      "wordpress": "forex-trade-technology/split-content"
+    },
+    "darkBand": {
+      "kind": "pattern",
+      "module": "patterns/DarkBand",
+      "runtime": "DarkBand",
+      "wordpress": "forex-trade-technology/dark-band"
+    },
+    "gallery3": {
+      "kind": "pattern",
+      "module": "patterns/Gallery3",
+      "runtime": "Gallery3",
+      "wordpress": "forex-trade-technology/gallery-3"
+    },
+    "statsRow": {
+      "kind": "pattern",
+      "module": "patterns/StackProse",
+      "runtime": "StackProse",
+      "wordpress": "forex-trade-technology/stats-row",
+      "note": "Legacy supported layout; no current page uses this. Falls back to existing prose styling."
+    },
+    "faqAccordion": {
+      "kind": "pattern",
+      "module": "patterns/FaqAccordion",
+      "runtime": "FaqAccordion",
+      "wordpress": "forex-trade-technology/faq-accordion"
+    },
+    "ctaBand": {
+      "kind": "part",
+      "module": "parts/FinalCta",
+      "runtime": "suppressed",
+      "wordpress": "forex-trade-technology/final-cta",
+      "neverRenderAsSection": true
+    }
+  },
+  "overrides": [
+    {
+      "id": "trading-stack",
+      "title": "How Your Trading Stack Connects",
+      "pageId": "home",
+      "module": "blocks/trading-stack-flow",
+      "runtime": "TradingStackFlow",
+      "kind": "block"
+    },
+    {
+      "id": "infrastructure-feature",
+      "title": "Platform & Infrastructure Under One Roof",
+      "module": "patterns/FeatureFlex",
+      "runtime": "FeatureFlexSection",
+      "kind": "pattern"
+    },
+    {
+      "id": "benefits-feature",
+      "title": "Why Brokers Work With Us",
+      "module": "patterns/FeatureFlex",
+      "runtime": "FeatureFlexSection",
+      "kind": "pattern"
+    },
+    {
+      "id": "audience-carousel",
+      "title": "Who We Work With",
+      "requiresH3": true,
+      "module": "blocks/audience-carousel",
+      "runtime": "AudienceCarousel",
+      "kind": "block"
+    },
+    {
+      "id": "contact",
+      "title": "Request a Consultation",
+      "layout": "splitContent",
+      "module": "patterns/ContactSection",
+      "runtime": "ContactSection",
+      "kind": "block"
+    }
+  ],
+  "sharedFinalCta": {
+    "part": "parts/FinalCta",
+    "richOnHome": true
+  }
+}

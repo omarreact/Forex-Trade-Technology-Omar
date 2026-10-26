@@ -18,6 +18,8 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Content schema
         run: npm run validate:content
+      - name: Contract registry tests
+        run: npm run test:contracts
       - name: TypeScript
         run: npx tsc --noEmit
       - name: Production build

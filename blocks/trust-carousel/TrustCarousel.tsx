@@ -2,14 +2,14 @@
 
 import {Icon} from '@/blocks/shared/Icon';
 
-type TrustCarouselProps={items:string[]};
+import type {TrustCarouselAttributes} from './types';
 
 /**
  * Edge-to-edge looping capabilities ticker. Six equal groups make the
  * one-group translation seamless even across ultrawide viewports.
  * Repeated items are hidden from assistive technology.
  */
-export function TrustCarousel({items}:TrustCarouselProps){
+export function TrustCarousel({items}:TrustCarouselAttributes){
  if(!items.length)return null;
  return <section className="bs-trust bs-trust-carousel" aria-label="Technology that connects">
   <div className="bs-trust-carousel-window" aria-live="off">
