@@ -113,10 +113,12 @@ function ftt_story(array $section,string $pageId,int $index,bool $dark):string{
 }
 function ftt_faq(array $section):string{
     $items=$section['items']??[];$id=$section['id']??'faq';
-    $html='<section class="bs-section bs-dense-section bs-dense-faq-page bs-faq-polished" id="'.esc_attr($id).'" aria-labelledby="faq-questions-heading"><div class="bs-shell">';
-    $html.='<div class="bs-dense-heading bs-faq-heading">'.ftt_heading('Frequently Asked Questions','SUPPORT & GUIDANCE','','','faq-questions-heading')
-    .'<p class="bs-faq-count"><strong>'.count($items).'</strong><span>questions answered</span></p></div>'
-    .'<div class="bs-dense-accordion bs-clean-accordion bs-faq-questions">';
+    $html='<section class="bs-section bs-dense-section bs-dense-faq-page bs-faq-polished" id="'.esc_attr($id).'" aria-labelledby="faq-questions-heading"><div class="bs-shell">'
+      .'<header class="bs-ui-heading bs-dense-heading bs-faq-heading">'
+      .'<span class="bs-ui-kicker">SUPPORT & GUIDANCE</span>'
+      .ftt_h('Frequently Asked Questions',2,'bs-ui-title','faq-questions-heading')
+      .'<p class="bs-faq-count"><strong>'.count($items).'</strong><span>questions answered</span></p></header>'
+      .'<div class="bs-dense-accordion bs-clean-accordion bs-faq-questions">';
     foreach($items as $i=>$item){
         $html.='<details name="ftt-faq"'.(!empty($section['openFirst'])&&$i===0?' open':'').'><summary><span class="bs-faq-question">'.esc_html($item['q']??'').'</span>'.ftt_icon('chevronDown').'</summary>'
           .'<div class="bs-dense-answer bs-faq-answer"><p>'.esc_html($item['a']??'').'</p></div></details>';

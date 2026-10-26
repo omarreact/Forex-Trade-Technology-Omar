@@ -132,16 +132,16 @@ function ftt_page_hero(array $page):string{
         $html.=!empty($crumb['href'])?'<a href="'.esc_url(ftt_url($crumb['href'])).'">'.esc_html($crumb['label']).'</a>':'<span aria-current="page">'.esc_html($crumb['label']).'</span>';
         $html.='</span>';
     }
-    $html.='</nav><div class="bs-section-heading bs-page-heading"><span class="bs-section-kicker bs-hero-kicker">'.esc_html($top['kicker']??'FOREX TRADE TECHNOLOGY').'</span>'
+    $html.='</nav><div class="bs-ui-heading bs-page-heading"><span class="bs-ui-kicker bs-hero-kicker">'.esc_html($top['kicker']??'FOREX TRADE TECHNOLOGY').'</span>'
         .ftt_h((string)($top['title']??$hero['title']??''),1,'bs-ui-title bs-page-title','bs-page-heading')
         .($subtitle?'<p class="bs-ui-lead bs-page-subtitle">'.esc_html($subtitle).'</p>':'').'</div></div></section>';
     return $html;
 }
 function ftt_document_notes(array $notes):string {
     if(!$notes)return '';
-    $html='<section class="bs-v5-document-notes bs-shell" aria-label="Additional notes">';
+    $html='<aside class="bs-notes"><div class="bs-shell"><details><summary>Additional information and risk disclosure</summary>';
     foreach($notes as $note)$html.='<p>'.esc_html((string)$note).'</p>';
-    return $html.'</section>';
+    return $html.'</details></div></aside>';
 }
 function ftt_trust_carousel(array $items):string{
     if(!$items)return '';
