@@ -1,0 +1,750 @@
+{
+  "id": "kyc-aml",
+  "slug": "/technology/kyc-aml-integration",
+  "seo": {
+    "title": "KYC & AML Integration for Forex Brokers | Client Verification Technology",
+    "description": "KYC and AML integration for forex brokers. Identity checks, document review, sanctions screening and approval workflows connected to your CRM and trading platform.",
+    "primaryKeyword": "KYC AML integration",
+    "secondaryKeywords": "KYC for forex brokers, AML integration forex, client onboarding forex, broker verification software, identity verification for brokers",
+    "canonicalPath": "/technology/kyc-aml-integration"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "KYC & AML Integration for Forex Brokers",
+    "subtitle": "Breadcrumb: Home > Technology > KYC/AML Integration",
+    "leadParagraphs": [
+      "Breadcrumb: Home > Technology > KYC/AML Integration",
+      "Label: Onboarding & Verification Technology",
+      "Verification is the first real conversation a new client has with your brokerage. If it's clumsy, slow or confusing, a good number of people simply give up and go elsewhere. If it's too loose, you're exposed to fraud, bad actors and serious regulatory trouble.",
+      "Our KYC AML integration work helps you strike that balance. We link identity checks, document review and screening services into your onboarding, connect the results to your CRM and trading platform, and give your compliance team a tidy, traceable workflow to act on."
+    ],
+    "imageKey": "kyc",
+    "ctas": [
+      {
+        "label": "Request a Consultation",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Why Brokers Need This Done Properly",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Most brokerages start out verifying clients by hand. A passport photo arrives by email, someone eyeballs it, a utility bill follows a day later, and approval gets noted in a spreadsheet. That's manageable at twenty sign-ups a week. At two hundred, it falls apart."
+        },
+        {
+          "type": "p",
+          "text": "Manual handling also leaves gaps. Documents get lost in inboxes. Nobody's sure who approved which client. Expired IDs go unnoticed. And when a regulator or banking partner asks to see your onboarding records, pulling together a coherent answer takes days."
+        },
+        {
+          "type": "p",
+          "text": "Integrated verification fixes the mechanics. Your compliance people still make the calls that need human judgement, but the collecting, checking, routing and record-keeping run on rails."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Who This Helps",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* Brokers launching soon who want verification built in from the first client"
+        },
+        {
+          "type": "p",
+          "text": "* Firms whose compliance staff are drowning in manual document checks"
+        },
+        {
+          "type": "p",
+          "text": "* Brokerages expanding into countries with different ID types and onboarding rules"
+        },
+        {
+          "type": "p",
+          "text": "* Businesses that failed a banking or payment provider review over weak onboarding records"
+        },
+        {
+          "type": "p",
+          "text": "* Prop firms that need to verify traders before releasing funded accounts or payouts"
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "media-crm_team",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "crm_team",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "How We Approach a Project",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "01 Consultation"
+        },
+        {
+          "type": "p",
+          "text": "We start with your compliance policy, target markets, current onboarding process and any providers you already use or are considering."
+        },
+        {
+          "type": "h3",
+          "text": "02 Solution Design"
+        },
+        {
+          "type": "p",
+          "text": "Together we define the verification flow for each client type, which checks happen where, how risk is assessed, who reviews what and what each status allows a client to do. You sign off on the design before we build."
+        },
+        {
+          "type": "h3",
+          "text": "03 Integration"
+        },
+        {
+          "type": "p",
+          "text": "Providers are connected, the workflow is configured in your CRM and onboarding screens, and status sync with your trading platform is set up. We test with sample identities, edge cases and failure scenarios, such as blurry uploads, mismatched names and provider timeouts."
+        },
+        {
+          "type": "h3",
+          "text": "04 Launch & Support"
+        },
+        {
+          "type": "p",
+          "text": "We go live and keep watch over the early volume, tuning the flow where clients stumble. After that, we handle changes as your policies, providers or markets evolve."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Where Verification Fits in the Client Journey",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Registration → ID & Document Capture → Verification Provider Checks → Screening & Risk Rating → Compliance Review Queue → Approved / More Info Needed / Rejected → CRM Status Update → Deposits & MT4 / MT5 Account Access"
+        },
+        {
+          "type": "p",
+          "text": "A client signs up and is prompted to verify. Their documents go to your provider for automated checks, then through screening and risk rating. Clear cases can move quickly, while flagged ones wait for a reviewer. Whatever the decision, it updates the CRM and controls whether the client can fund and trade."
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Benefits for Your Brokerage",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Fewer Drop-Offs"
+        },
+        {
+          "type": "p",
+          "text": "A smooth, mobile-friendly verification step keeps more of the prospects your marketing has paid for."
+        },
+        {
+          "type": "h3",
+          "text": "A Lighter Compliance Workload"
+        },
+        {
+          "type": "p",
+          "text": "Automation takes the routine checks, so your team spends time on genuine edge cases instead of squinting at clear passport scans."
+        },
+        {
+          "type": "h3",
+          "text": "Records You Can Stand Behind"
+        },
+        {
+          "type": "p",
+          "text": "A complete, time-stamped onboarding history makes reviews by banks, payment partners and regulators far less stressful."
+        },
+        {
+          "type": "h3",
+          "text": "Consistency"
+        },
+        {
+          "type": "p",
+          "text": "Every client goes through the same defined steps for their profile. No more approvals depending on who happened to be on shift."
+        },
+        {
+          "type": "h3",
+          "text": "Easier Expansion"
+        },
+        {
+          "type": "p",
+          "text": "New countries and document types can be added to the flow without rebuilding your onboarding from scratch."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 87,
+  "wordCountApprox": 1598,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > Technology > KYC/AML Integration",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Onboarding & Verification Technology",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Verification is the first real conversation a new client has with your brokerage. If it's clumsy, slow or confusing, a good number of people simply give up and go elsewhere. If it's too loose, you're exposed to fraud, bad actors and serious regulatory trouble.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Our KYC AML integration work helps you strike that balance. We link identity checks, document review and screening services into your onboarding, connect the results to your CRM and trading platform, and give your compliance team a tidy, traceable workflow to act on.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Why Brokers Need This Done Properly"
+    },
+    {
+      "type": "p",
+      "text": "Most brokerages start out verifying clients by hand. A passport photo arrives by email, someone eyeballs it, a utility bill follows a day later, and approval gets noted in a spreadsheet. That's manageable at twenty sign-ups a week. At two hundred, it falls apart.",
+      "parentH2": "Why Brokers Need This Done Properly",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Manual handling also leaves gaps. Documents get lost in inboxes. Nobody's sure who approved which client. Expired IDs go unnoticed. And when a regulator or banking partner asks to see your onboarding records, pulling together a coherent answer takes days.",
+      "parentH2": "Why Brokers Need This Done Properly",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Integrated verification fixes the mechanics. Your compliance people still make the calls that need human judgement, but the collecting, checking, routing and record-keeping run on rails.",
+      "parentH2": "Why Brokers Need This Done Properly",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who This Helps"
+    },
+    {
+      "type": "p",
+      "text": "* Brokers launching soon who want verification built in from the first client",
+      "parentH2": "Who This Helps",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Firms whose compliance staff are drowning in manual document checks",
+      "parentH2": "Who This Helps",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Brokerages expanding into countries with different ID types and onboarding rules",
+      "parentH2": "Who This Helps",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Businesses that failed a banking or payment provider review over weak onboarding records",
+      "parentH2": "Who This Helps",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Prop firms that need to verify traders before releasing funded accounts or payouts",
+      "parentH2": "Who This Helps",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What We Build"
+    },
+    {
+      "type": "h3",
+      "text": "The Verification Workflow",
+      "parentH2": "What We Build"
+    },
+    {
+      "type": "p",
+      "text": "We design the path a client takes from registration to approval. What gets collected, in what order, what happens automatically and where a human reviewer steps in. Requirements can vary by country, account type or risk level, so a client in one jurisdiction might see a different flow from a client in another.",
+      "parentH2": "What We Build",
+      "parentH3": "The Verification Workflow"
+    },
+    {
+      "type": "h3",
+      "text": "Identity and Document Verification",
+      "parentH2": "What We Build"
+    },
+    {
+      "type": "p",
+      "text": "We connect your chosen verification provider so clients can photograph their ID, take a selfie for a liveness check and upload proof of address straight from their phone or browser. The provider checks document authenticity, compares faces and extracts data, then passes the outcome back to your systems.",
+      "parentH2": "What We Build",
+      "parentH3": "Identity and Document Verification"
+    },
+    {
+      "type": "h3",
+      "text": "Sanctions, PEP and Risk Screening",
+      "parentH2": "What We Build"
+    },
+    {
+      "type": "p",
+      "text": "Where your providers support it, we link screening against sanctions lists, politically exposed person databases and adverse media sources. Matches get flagged for your team to investigate rather than silently blocking or passing a client.",
+      "parentH2": "What We Build",
+      "parentH3": "Sanctions, PEP and Risk Screening"
+    },
+    {
+      "type": "h3",
+      "text": "Risk Scoring Inputs",
+      "parentH2": "What We Build"
+    },
+    {
+      "type": "p",
+      "text": "Country of residence, screening results, source of funds answers, account type and other factors can feed a risk rating that decides whether a client sails through or lands in an enhanced review queue. The scoring rules come from your compliance policy. We wire them in.",
+      "parentH2": "What We Build",
+      "parentH3": "Risk Scoring Inputs"
+    },
+    {
+      "type": "h3",
+      "text": "Approval and Rejection Handling",
+      "parentH2": "What We Build"
+    },
+    {
+      "type": "p",
+      "text": "Reviewers work from a single queue showing documents, check results and flags side by side. They can approve, reject with a reason, or ask the client for something more. Clients are told what's needed without having to email support.",
+      "parentH2": "What We Build",
+      "parentH3": "Approval and Rejection Handling"
+    },
+    {
+      "type": "h3",
+      "text": "CRM and Platform Sync",
+      "parentH2": "What We Build"
+    },
+    {
+      "type": "p",
+      "text": "Verification status lives on the client profile in your CRM. Approval can automatically unlock deposits or trading account creation on MT4 or MT5, while a pending or rejected status keeps those doors closed. No one has to remember to flip a switch.",
+      "parentH2": "What We Build",
+      "parentH3": "CRM and Platform Sync"
+    },
+    {
+      "type": "h3",
+      "text": "Audit Trail",
+      "parentH2": "What We Build"
+    },
+    {
+      "type": "p",
+      "text": "Every upload, automated result, reviewer decision and status change is logged with time and user. When an auditor, bank or regulator asks how a particular client was onboarded, the answer takes minutes to retrieve.",
+      "parentH2": "What We Build",
+      "parentH3": "Audit Trail"
+    },
+    {
+      "type": "h3",
+      "text": "Ongoing Checks",
+      "parentH2": "What We Build"
+    },
+    {
+      "type": "p",
+      "text": "Verification doesn't end at approval. Expiring documents can trigger reminders to clients, and periodic rescreening can be scheduled where your provider supports it, so client records don't quietly go out of date.",
+      "parentH2": "What We Build",
+      "parentH3": "Ongoing Checks"
+    },
+    {
+      "type": "h2",
+      "text": "How We Approach a Project"
+    },
+    {
+      "type": "h3",
+      "text": "01 Consultation",
+      "parentH2": "How We Approach a Project"
+    },
+    {
+      "type": "p",
+      "text": "We start with your compliance policy, target markets, current onboarding process and any providers you already use or are considering.",
+      "parentH2": "How We Approach a Project",
+      "parentH3": "01 Consultation"
+    },
+    {
+      "type": "h3",
+      "text": "02 Solution Design",
+      "parentH2": "How We Approach a Project"
+    },
+    {
+      "type": "p",
+      "text": "Together we define the verification flow for each client type, which checks happen where, how risk is assessed, who reviews what and what each status allows a client to do. You sign off on the design before we build.",
+      "parentH2": "How We Approach a Project",
+      "parentH3": "02 Solution Design"
+    },
+    {
+      "type": "h3",
+      "text": "03 Integration",
+      "parentH2": "How We Approach a Project"
+    },
+    {
+      "type": "p",
+      "text": "Providers are connected, the workflow is configured in your CRM and onboarding screens, and status sync with your trading platform is set up. We test with sample identities, edge cases and failure scenarios, such as blurry uploads, mismatched names and provider timeouts.",
+      "parentH2": "How We Approach a Project",
+      "parentH3": "03 Integration"
+    },
+    {
+      "type": "h3",
+      "text": "04 Launch & Support",
+      "parentH2": "How We Approach a Project"
+    },
+    {
+      "type": "p",
+      "text": "We go live and keep watch over the early volume, tuning the flow where clients stumble. After that, we handle changes as your policies, providers or markets evolve.",
+      "parentH2": "How We Approach a Project",
+      "parentH3": "04 Launch & Support"
+    },
+    {
+      "type": "h2",
+      "text": "Where Verification Fits in the Client Journey"
+    },
+    {
+      "type": "p",
+      "text": "Registration → ID & Document Capture → Verification Provider Checks → Screening & Risk Rating → Compliance Review Queue → Approved / More Info Needed / Rejected → CRM Status Update → Deposits & MT4 / MT5 Account Access",
+      "parentH2": "Where Verification Fits in the Client Journey",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "A client signs up and is prompted to verify. Their documents go to your provider for automated checks, then through screening and risk rating. Clear cases can move quickly, while flagged ones wait for a reviewer. Whatever the decision, it updates the CRM and controls whether the client can fund and trade.",
+      "parentH2": "Where Verification Fits in the Client Journey",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "h3",
+      "text": "Fewer Drop-Offs",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "A smooth, mobile-friendly verification step keeps more of the prospects your marketing has paid for.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Fewer Drop-Offs"
+    },
+    {
+      "type": "h3",
+      "text": "A Lighter Compliance Workload",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Automation takes the routine checks, so your team spends time on genuine edge cases instead of squinting at clear passport scans.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "A Lighter Compliance Workload"
+    },
+    {
+      "type": "h3",
+      "text": "Records You Can Stand Behind",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "A complete, time-stamped onboarding history makes reviews by banks, payment partners and regulators far less stressful.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Records You Can Stand Behind"
+    },
+    {
+      "type": "h3",
+      "text": "Consistency",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Every client goes through the same defined steps for their profile. No more approvals depending on who happened to be on shift.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Consistency"
+    },
+    {
+      "type": "h3",
+      "text": "Easier Expansion",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "New countries and document types can be added to the flow without rebuilding your onboarding from scratch.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Easier Expansion"
+    },
+    {
+      "type": "h2",
+      "text": "Where Responsibility Sits"
+    },
+    {
+      "type": "p",
+      "text": "This part matters, so we'll be direct about it.",
+      "parentH2": "Where Responsibility Sits",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "What We Do",
+      "parentH2": "Where Responsibility Sits"
+    },
+    {
+      "type": "p",
+      "text": "Design the technical workflow, integrate verification and screening providers, connect results to your CRM and trading platform, build review queues and audit logging, test everything and support it afterwards.",
+      "parentH2": "Where Responsibility Sits",
+      "parentH3": "What We Do"
+    },
+    {
+      "type": "h3",
+      "text": "What Remains Yours",
+      "parentH2": "Where Responsibility Sits"
+    },
+    {
+      "type": "p",
+      "text": "Your KYC and AML policies, risk appetite, which checks your jurisdiction requires, final approval or rejection decisions, suspicious activity reporting, record retention obligations and every other legal or regulatory duty tied to running a regulated business. Technology supports compliance. It doesn't replace it, and it doesn't make a business compliant on its own.",
+      "parentH2": "Where Responsibility Sits",
+      "parentH3": "What Remains Yours"
+    },
+    {
+      "type": "h3",
+      "text": "Provider Terms",
+      "parentH2": "Where Responsibility Sits"
+    },
+    {
+      "type": "p",
+      "text": "Verification and screening providers run under their own agreements, coverage and accuracy levels. Results depend on their data and services. We're not affiliated with any provider or the MT4 and MT5 platform developer unless clearly stated. Regulatory requirements vary by jurisdiction, so please take legal and compliance advice from qualified professionals in your markets.",
+      "parentH2": "Where Responsibility Sits",
+      "parentH3": "Provider Terms"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "Which verification providers can you integrate?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Most established identity verification and screening services offer APIs we can work with. We review the provider you prefer during design and confirm what's supported before building.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Which verification providers can you integrate?"
+    },
+    {
+      "type": "h3",
+      "text": "Can we have different checks for different countries?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. The workflow can vary by country, account type or risk level, so clients only see the steps that apply to them.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can we have different checks for different countries?"
+    },
+    {
+      "type": "h3",
+      "text": "Will automated checks approve clients on their own?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "That's your call. Some brokers auto-approve clear cases and send only flagged ones for review. Others want a human to sign off every client. We configure whichever approach your policy requires.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Will automated checks approve clients on their own?"
+    },
+    {
+      "type": "h3",
+      "text": "Can unverified clients still deposit or trade?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Only if your rules allow it. Verification status can control access to deposits, withdrawals and trading account creation in whatever combination your policy sets.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can unverified clients still deposit or trade?"
+    },
+    {
+      "type": "h3",
+      "text": "Does this include sanctions and PEP screening?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes, where the provider you choose supports it. Matches are flagged for your team to review rather than decided automatically.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Does this include sanctions and PEP screening?"
+    },
+    {
+      "type": "h3",
+      "text": "How are verification records stored?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Results and decisions are recorded against each client profile with a full audit log. Retention periods and storage requirements should follow your own legal obligations, and we'll set things up to match them.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How are verification records stored?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you add this to an existing CRM?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Usually, yes. We assess your current system's integration options and connect verification to it, or recommend changes if it can't support what you need.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you add this to an existing CRM?"
+    },
+    {
+      "type": "h3",
+      "text": "Will this make our brokerage compliant?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "No technology alone can do that. KYC AML integration gives your compliance team the tools and records to apply your policies consistently, while the regulatory responsibility stays with your business.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Will this make our brokerage compliant?"
+    },
+    {
+      "type": "h2",
+      "text": "Related Solutions"
+    },
+    {
+      "type": "p",
+      "text": "* Forex CRM",
+      "parentH2": "Related Solutions",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Payment Gateway Integration",
+      "parentH2": "Related Solutions",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Forex Broker Website",
+      "parentH2": "Related Solutions",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Forex Turnkey Solution",
+      "parentH2": "Related Solutions",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Start a Forex Brokerage",
+      "parentH2": "Related Solutions",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Make Verification the Easy Part of Onboarding"
+    },
+    {
+      "type": "p",
+      "text": "Share how you onboard clients today, which markets you serve and the providers you're working with. We'll suggest a verification flow that fits your policy and show you how it would connect to the rest of your stack.",
+      "parentH2": "Make Verification the Easy Part of Onboarding",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "KYC & AML Integration for Forex Brokers",
+    "subtitle": "Breadcrumb: Home > Technology > KYC/AML Integration",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Technology"
+      },
+      {
+        "label": "KYC & AML"
+      }
+    ],
+    "backgroundImageKey": "identity",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "identity",
+    "code_ops",
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "servers",
+    "world_map",
+    "data_center",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid2",
+    "mediaBand",
+    "timeline",
+    "cardGrid3",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

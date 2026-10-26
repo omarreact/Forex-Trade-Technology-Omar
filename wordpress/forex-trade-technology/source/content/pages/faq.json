@@ -1,0 +1,260 @@
+{
+  "id": "faq",
+  "slug": "/faq",
+  "seo": {
+    "title": "Forex Broker Technology FAQ | MT5, Hosting & Liquidity Questions",
+    "description": "Answers to common forex broker technology questions on MT5 white and grey label, CRM, liquidity, hosting, payments, verification, prop firms and support.",
+    "primaryKeyword": "forex broker technology FAQ",
+    "secondaryKeywords": "MT5 setup FAQ, forex broker hosting FAQ, liquidity integration FAQ, forex CRM questions",
+    "canonicalPath": "/faq"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex Brokerage Technology FAQs",
+    "subtitle": "Breadcrumb: Home > FAQ",
+    "leadParagraphs": [
+      "Breadcrumb: Home > FAQ",
+      "Label: Questions & Answers",
+      "Brokerage technology comes with its own vocabulary, and it's easy to feel lost between gateways, grey labels and webhooks. This forex broker technology FAQ gathers the questions founders, operators and prop firm owners ask us most, answered in plain language.",
+      "Can't see your question here? Ask us directly and we'll give you a straight answer."
+    ],
+    "imageKey": "hero",
+    "ctas": [
+      {
+        "label": "Request a Consultation",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "faq-accordion",
+      "type": "faqAccordion",
+      "viewTransition": "section",
+      "openFirst": true,
+      "items": [
+        {
+          "q": "What does a forex technology provider actually do?",
+          "a": "We build, connect and maintain the systems a brokerage depends on. That covers trading platforms, servers, liquidity connections, CRMs, payment and verification integrations, apps and APIs. The brokerage runs the business, and we make sure the technology underneath it works."
+        },
+        {
+          "q": "Are you a broker or a liquidity provider?",
+          "a": "Neither. We're purely a technology company. We don't execute client trades, provide liquidity, hold client money or offer investment advice."
+        },
+        {
+          "q": "Do I have to buy everything from you?",
+          "a": "No. Some clients use us for one service, such as hosting or a CRM. Others hand us the whole stack. We're happy to work alongside systems and vendors you already have."
+        },
+        {
+          "q": "Can you help if I don't know where to start?",
+          "a": "Yes, and plenty of our clients begin exactly there. During the first consultation we'll help you work out what you need, in what order and roughly what it involves."
+        },
+        {
+          "q": "Can you help us get a licence?",
+          "a": "Licensing is a legal and regulatory matter, so it's outside what we do. We can explain how technology decisions interact with common regulatory expectations, but you'll need qualified advisors in your target jurisdiction for the licence itself."
+        },
+        {
+          "q": "Which markets do you work with?",
+          "a": "We support brokerages serving clients in many regions. Where your clients are located does affect choices like hosting location, payment methods and verification providers, which we factor into the design."
+        },
+        {
+          "q": "Should a new broker choose MT5 or MT4?",
+          "a": "Most new brokers now choose MT5. It supports more asset classes, has a more modern architecture and is where the platform developer focuses ongoing work. MT4 still has a loyal user base, so some brokers offer both."
+        },
+        {
+          "q": "Can we run MT4 and MT5 at the same time?",
+          "a": "Yes. Many brokers do, either permanently or during a gradual move from one to the other. The two can share liquidity connections and a CRM."
+        },
+        {
+          "q": "How hard is it to move from MT4 to MT5?",
+          "a": "It takes careful planning rather than heavy lifting. Account types, groups, symbols and trading conditions need recreating, integrations need reconnecting and clients need a clear transition path. Phased migrations tend to go smoothest."
+        },
+        {
+          "q": "Are you affiliated with the MetaTrader platform developer?",
+          "a": "No, not unless we state otherwise for a specific arrangement. We work with the platforms as a technology provider."
+        },
+        {
+          "q": "What is an MT5 white label?",
+          "a": "It's an arrangement where your brokerage runs on MT5 under your own brand, inside an environment operated under an existing platform licence. You get branded access and your own account setup without buying a full server licence yourself."
+        },
+        {
+          "q": "Why would a broker choose white label over a full licence?",
+          "a": "Mainly cost and speed. A full licence carries a large upfront investment and more technical responsibility. A white label lets you launch sooner and spend less, with the option to move to your own server later."
+        },
+        {
+          "q": "Can I control my own spreads and account types on a white label?",
+          "a": "Usually, yes, within the limits of the arrangement and your liquidity setup. Exactly how much control you get varies by provider, so it's worth confirming before signing."
+        },
+        {
+          "q": "Does a white label give me permission to operate as a broker?",
+          "a": "No. It's a technology arrangement only. Financial licensing is completely separate."
+        },
+        {
+          "q": "What is a grey label?",
+          "a": "A grey label generally sits more directly under another provider's infrastructure and arrangement, with lower entry costs and less independent control than a white label. Terms vary widely between providers, so definitions aren't always consistent."
+        },
+        {
+          "q": "What's the main difference between white label and grey label?",
+          "a": "In broad terms, a white label gives you more control over branding and configuration, while a grey label trades some of that control for a lighter, cheaper setup. We'll explain exactly what any specific offer includes before you commit."
+        },
+        {
+          "q": "Is a grey label right for my business?",
+          "a": "It can suit smaller or early-stage operations testing the market with limited budget. If you expect fast growth or need detailed control over trading conditions, a white label or full deployment is often a better long-term fit."
+        },
+        {
+          "q": "Does a grey label mean I don't need a company or licence?",
+          "a": "Not necessarily. Requirements depend on your jurisdiction, business model and the provider's terms. Take legal advice rather than relying on general claims."
+        },
+        {
+          "q": "What does a forex CRM do?",
+          "a": "It manages the whole client journey. Lead capture, registration, identity verification, deposits, withdrawals, trading account creation, partner commissions and reporting, usually with a client portal on top."
+        },
+        {
+          "q": "Can the CRM connect with MT5?",
+          "a": "Yes. It links to MT5 and MT4 through manager API access, so trading accounts are created, balances updated and trading data pulled in automatically."
+        },
+        {
+          "q": "Can it handle introducing broker commissions?",
+          "a": "Yes. Rebate rules are set in the CRM, which then calculates earnings from real trading data, including multi-level partner structures."
+        },
+        {
+          "q": "Can we move our data from our current CRM?",
+          "a": "In most cases, yes. We map fields between the two systems, run test imports and check records carefully before switching over."
+        },
+        {
+          "q": "What is a liquidity bridge?",
+          "a": "It's software that sits between your trading platform and one or more liquidity providers, passing prices in and orders out. Bridges typically add tools like markups, routing rules and multi-provider pricing."
+        },
+        {
+          "q": "What's the difference between a bridge, a gateway and FIX?",
+          "a": "A gateway is a more direct link between MT5 and an external system. A bridge is separate middleware with extra routing and aggregation features. FIX is the messaging protocol that both commonly use to communicate with providers."
+        },
+        {
+          "q": "Can I connect more than one liquidity provider?",
+          "a": "Yes. Multiple providers can be aggregated for pricing or set up as backups for each other."
+        },
+        {
+          "q": "Can you guarantee spreads or execution quality?",
+          "a": "No. Pricing and fills come from your providers and depend on market conditions. What we make sure of is that the technical link carrying them is accurate and well monitored."
+        },
+        {
+          "q": "Do you provide MT4 and MT5 hosting?",
+          "a": "Yes. We host both, along with environments where they run side by side."
+        },
+        {
+          "q": "Where should our trading server be?",
+          "a": "Typically near your main liquidity providers, with client access points closer to where your clients trade. Data rules in your markets can also influence the decision."
+        },
+        {
+          "q": "What happens if a server fails?",
+          "a": "Your disaster recovery plan kicks in. Depending on your setup, a standby server takes over or the environment is restored from tested backups."
+        },
+        {
+          "q": "Can you guarantee uptime?",
+          "a": "No honest provider can. We reduce risk through monitoring, redundancy, tested backups and a fast response when issues arise."
+        },
+        {
+          "q": "Do you process client payments?",
+          "a": "No. Payment providers process the money. We integrate them with your CRM and trading platform so deposits and withdrawals flow properly."
+        },
+        {
+          "q": "Can you connect our existing payment and KYC providers?",
+          "a": "Usually, yes, as long as they offer usable integration options. We confirm this during the design stage."
+        },
+        {
+          "q": "Does your verification integration make us compliant?",
+          "a": "No technology can do that alone. It gives your compliance team the workflow and records they need, but compliance obligations stay with your business."
+        },
+        {
+          "q": "Do you build technology for prop firms?",
+          "a": "Yes. That includes challenge setup, automated account creation, rule monitoring, risk flags, performance dashboards and payout review workflows."
+        },
+        {
+          "q": "Can we have a branded mobile trading app?",
+          "a": "Yes. We build iOS and Android apps under your brand, connected to your platform, CRM, payments and verification. Publication is subject to app store review."
+        },
+        {
+          "q": "Can you integrate APIs?",
+          "a": "Yes. We work with manager APIs, payment and verification APIs, webhooks and custom integrations between your systems and third-party tools."
+        },
+        {
+          "q": "Do you offer PAMM and MAM solutions?",
+          "a": "Yes. We provide PAMM and MAM technology for brokers that support money managers, integrated with MT4 or MT5."
+        },
+        {
+          "q": "How long does setup take?",
+          "a": "It depends on scope, platform choice and how quickly third-party providers complete their onboarding. You'll get a realistic timeline after the solution design stage."
+        },
+        {
+          "q": "What do you need from us to get started?",
+          "a": "A clear point of contact, an outline of your business model, details of any providers you've chosen and your target timeline. We'll guide you through the rest."
+        },
+        {
+          "q": "What support do you offer after launch?",
+          "a": "Monitoring, maintenance, configuration changes, updates and technical help, under a support arrangement agreed with you before go-live."
+        },
+        {
+          "q": "Do we keep ownership of our systems and data?",
+          "a": "Yes. Your data and your accounts with third-party providers remain yours, and every change we make is documented."
+        },
+        {
+          "q": "Still have a question that isn't covered here?",
+          "a": "Get in touch. This forex broker technology FAQ grows over time based on what clients ask, so your question may help the next person too."
+        }
+      ],
+      "layout": "faqAccordion",
+      "density": "compact"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "title": "Still have questions?",
+      "subtitle": "We're happy to walk through your specific setup.",
+      "cta": {
+        "label": "Contact Us",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 100,
+  "wordCountApprox": 1657,
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex Brokerage Technology FAQs",
+    "subtitle": "Breadcrumb: Home > FAQ",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "FAQ"
+      }
+    ],
+    "backgroundImageKey": "support",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "support",
+    "growth"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "faqAccordion",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

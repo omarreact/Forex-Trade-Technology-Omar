@@ -1,0 +1,790 @@
+{
+  "id": "liquidity",
+  "slug": "/solutions/forex-liquidity-connectivity",
+  "seo": {
+    "title": "Forex Liquidity & Connectivity | MT4 MT5 Liquidity Solutions",
+    "description": "Forex liquidity connectivity for MT4 and MT5 brokers. Provider integration, bridges, FIX API, aggregation, symbol mapping, order routing and live monitoring.",
+    "primaryKeyword": "forex liquidity",
+    "secondaryKeywords": "liquidity provider, liquidity solution, liquidity bridge, MT5 liquidity bridge, liquidity aggregation, FIX API forex",
+    "canonicalPath": "/solutions/forex-liquidity-connectivity"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex Liquidity & Connectivity Solutions",
+    "subtitle": "Breadcrumb: Home > Solutions > Forex Liquidity & Connectivity",
+    "leadParagraphs": [
+      "Breadcrumb: Home > Solutions > Forex Liquidity & Connectivity",
+      "Label: Market Access Infrastructure",
+      "Every quote your clients see and every trade they place depends on one thing working quietly in the background: the line between your trading platform and the market. When that line is clean, nobody thinks about it. When it isn't, you hear about it within minutes.",
+      "We engineer that line. Our team plugs your MT4 or MT5 server into the forex liquidity sources you've chosen, configures how orders travel, and keeps a close watch on everything once real money starts flowing.",
+      "Quick clarification before going further. We don't supply liquidity ourselves. We build and look after the technical plumbing that links your platform to the providers you contract with."
+    ],
+    "imageKey": "liquidity",
+    "ctas": [
+      {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "What Is Forex Liquidity?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Put simply, liquidity is the availability of buyers and sellers ready to trade at a given price. For a brokerage, it usually arrives through a liquidity provider. That might be a bank, a prime broker, a prime-of-prime firm or a non-bank market maker, each streaming bid and ask prices and accepting orders against them."
+        },
+        {
+          "type": "p",
+          "text": "Your clients never deal with those institutions directly. They trade on your platform. Your platform, in turn, needs a reliable technical route to the provider so prices come in accurately and orders go out quickly. That route is what we mean by connectivity, and it's where a surprising number of brokerage problems begin."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Who Comes to Us for This",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* Startups wiring up their very first provider ahead of launch"
+        },
+        {
+          "type": "p",
+          "text": "* Established brokers wanting a second source for depth or as a safety net"
+        },
+        {
+          "type": "p",
+          "text": "* Firms switching providers and needing zero downtime during the changeover"
+        },
+        {
+          "type": "p",
+          "text": "* Operations troubled by unexplained rejects, odd spreads or quotes that stop updating"
+        },
+        {
+          "type": "p",
+          "text": "* Prop trading businesses needing external pricing or hedging links"
+        },
+        {
+          "type": "p",
+          "text": "* Brokers ready to graduate from a single feed to a multi-provider pool"
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "media-collaboration",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "collaboration",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "What We Deliver",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Liquidity Provider Integration"
+        },
+        {
+          "type": "p",
+          "text": "Before touching any configuration, we gather your provider's technical documentation. Supported protocols, session schedules, instrument lists, minimum and maximum order sizes, permitted order types, and whatever conformance testing they insist on. We flag mismatches early, while they're still cheap to resolve."
+        },
+        {
+          "type": "h3",
+          "text": "Liquidity Bridge Setup"
+        },
+        {
+          "type": "p",
+          "text": "A bridge is middleware that sits between your server and one or more providers. It typically handles markups, routing logic, risk-based splitting of flow and multi-source pricing. We install it, configure it to your instructions and connect it at both ends. This is especially useful if you plan to grow beyond one provider."
+        },
+        {
+          "type": "h3",
+          "text": "MT5 Gateway Configuration"
+        },
+        {
+          "type": "p",
+          "text": "Where a provider offers a native MT5 gateway, it can be a lighter, more direct option with fewer moving pieces. Fine for straightforward setups with a single source and simple routing. We'll tell you honestly whether a gateway is enough or whether a bridge would serve you better."
+        },
+        {
+          "type": "h3",
+          "text": "FIX API Connectivity"
+        },
+        {
+          "type": "p",
+          "text": "FIX, short for Financial Information eXchange, is the protocol institutions use to swap price and order messages. Most bridges and many gateways speak FIX under the hood. We establish and certify these sessions, sort out network routing, credentials and heartbeats, and make sure reconnection behaves sensibly after a drop."
+        },
+        {
+          "type": "h3",
+          "text": "Liquidity Aggregation"
+        },
+        {
+          "type": "p",
+          "text": "With two or more providers, aggregation merges their price streams into a single book. Orders can then route by best price, by fixed allocation or by whatever logic you specify. It can tighten what clients see and spread your dependence. It also introduces extra settings to manage, which we'll explain upfront."
+        },
+        {
+          "type": "h3",
+          "text": "MT4 and MT5 Integration"
+        },
+        {
+          "type": "p",
+          "text": "Whichever platform you run, or both, we link it with your chosen connector, aligning account groups, execution modes and the way fills are reported back. Brokers running MT4 and MT5 in parallel can share a single bridge, so pricing stays consistent across the two."
+        },
+        {
+          "type": "h3",
+          "text": "Symbol Mapping"
+        },
+        {
+          "type": "p",
+          "text": "Providers and platforms rarely name or size instruments identically. One might list gold in ounces, another in lots of a hundred. Suffixes differ. Decimal places differ. Session hours differ. We line up every instrument manually and verify contract size, precision, trading hours and margin currency for each. Sloppy mapping is a classic source of costly mistakes, so this gets real attention."
+        },
+        {
+          "type": "h3",
+          "text": "Order Routing"
+        },
+        {
+          "type": "p",
+          "text": "You decide your execution model. Pass everything to the market, keep some flow internally, or use a hybrid split based on account group, trade size or client profile. We translate those decisions into working rules, test them and document them so your dealing team knows exactly what's configured."
+        },
+        {
+          "type": "h3",
+          "text": "Monitoring"
+        },
+        {
+          "type": "p",
+          "text": "After go-live, we track feed freshness, session status, fill rates, rejection counts and round-trip timing to each provider. Unusual patterns trigger alerts for our engineers, and you get a clear explanation of what happened if something needs investigating."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "How We Run a Connectivity Project",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "01 Consultation"
+        },
+        {
+          "type": "p",
+          "text": "We talk through your providers, platform, execution model and what you expect from the setup. If you haven't picked a provider yet, we can outline the technical questions worth asking each candidate."
+        },
+        {
+          "type": "h3",
+          "text": "02 Solution Design"
+        },
+        {
+          "type": "p",
+          "text": "We decide between bridge, gateway or direct FIX, plan any aggregation and backup paths, and document how routing will work. You approve the design before build work begins."
+        },
+        {
+          "type": "h3",
+          "text": "03 Integration"
+        },
+        {
+          "type": "p",
+          "text": "Connections go up in a staging environment first. Symbols get mapped, routing gets configured, and we run thorough tests. Normal fills, partial fills, rejections, behaviour around rollover and weekend open, and what happens when a feed briefly disconnects. Any provider certification gets completed here too."
+        },
+        {
+          "type": "h3",
+          "text": "04 Launch & Support"
+        },
+        {
+          "type": "p",
+          "text": "We move to production at an agreed time, watch closely through the opening sessions and then shift to ongoing monitoring and maintenance."
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "The Connectivity Chain at a Glance",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Client Terminal → MT4 / MT5 Server → Bridge or Gateway → FIX Session → Primary Provider"
+        },
+        {
+          "type": "p",
+          "text": "Bridge → Secondary Provider (Aggregation or Failover)"
+        },
+        {
+          "type": "p",
+          "text": "Fills & Confirmations → Server → Client Terminal & Back Office Reporting"
+        },
+        {
+          "type": "p",
+          "text": "Orders leave the platform, pass through your connector and reach a provider over FIX. Where a second provider is in place, the bridge can blend pricing from both or switch over if the first becomes unavailable. Every confirmation returns along the chain and lands in your reports, giving your dealing desk a full picture."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 87,
+  "wordCountApprox": 1743,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > Solutions > Forex Liquidity & Connectivity",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Market Access Infrastructure",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Every quote your clients see and every trade they place depends on one thing working quietly in the background: the line between your trading platform and the market. When that line is clean, nobody thinks about it. When it isn't, you hear about it within minutes.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "We engineer that line. Our team plugs your MT4 or MT5 server into the forex liquidity sources you've chosen, configures how orders travel, and keeps a close watch on everything once real money starts flowing.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Quick clarification before going further. We don't supply liquidity ourselves. We build and look after the technical plumbing that links your platform to the providers you contract with.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What Is Forex Liquidity?"
+    },
+    {
+      "type": "p",
+      "text": "Put simply, liquidity is the availability of buyers and sellers ready to trade at a given price. For a brokerage, it usually arrives through a liquidity provider. That might be a bank, a prime broker, a prime-of-prime firm or a non-bank market maker, each streaming bid and ask prices and accepting orders against them.",
+      "parentH2": "What Is Forex Liquidity?",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Your clients never deal with those institutions directly. They trade on your platform. Your platform, in turn, needs a reliable technical route to the provider so prices come in accurately and orders go out quickly. That route is what we mean by connectivity, and it's where a surprising number of brokerage problems begin.",
+      "parentH2": "What Is Forex Liquidity?",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who Comes to Us for This"
+    },
+    {
+      "type": "p",
+      "text": "* Startups wiring up their very first provider ahead of launch",
+      "parentH2": "Who Comes to Us for This",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Established brokers wanting a second source for depth or as a safety net",
+      "parentH2": "Who Comes to Us for This",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Firms switching providers and needing zero downtime during the changeover",
+      "parentH2": "Who Comes to Us for This",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Operations troubled by unexplained rejects, odd spreads or quotes that stop updating",
+      "parentH2": "Who Comes to Us for This",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Prop trading businesses needing external pricing or hedging links",
+      "parentH2": "Who Comes to Us for This",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Brokers ready to graduate from a single feed to a multi-provider pool",
+      "parentH2": "Who Comes to Us for This",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "How Connectivity Works"
+    },
+    {
+      "type": "p",
+      "text": "Here's the journey of a single trade, in plain terms.",
+      "parentH2": "How Connectivity Works",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "A client clicks buy on EUR/USD. Their order lands on your MT4 or MT5 server. Depending on your rules, the server either fills it internally or passes it onward through a connector, which might be a bridge, a gateway plugin or a direct FIX session. The connector translates the order into a format your provider understands and sends it across. The provider fills it and returns a confirmation. That confirmation travels back along the same path, the client's position appears on screen, and your reporting records what happened.",
+      "parentH2": "How Connectivity Works",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "All of that typically takes a fraction of a second. Each hop, though, is a spot where a wrong setting can cause trouble.",
+      "parentH2": "How Connectivity Works",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What We Deliver"
+    },
+    {
+      "type": "h3",
+      "text": "Liquidity Provider Integration",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "Before touching any configuration, we gather your provider's technical documentation. Supported protocols, session schedules, instrument lists, minimum and maximum order sizes, permitted order types, and whatever conformance testing they insist on. We flag mismatches early, while they're still cheap to resolve.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Liquidity Provider Integration"
+    },
+    {
+      "type": "h3",
+      "text": "Liquidity Bridge Setup",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "A bridge is middleware that sits between your server and one or more providers. It typically handles markups, routing logic, risk-based splitting of flow and multi-source pricing. We install it, configure it to your instructions and connect it at both ends. This is especially useful if you plan to grow beyond one provider.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Liquidity Bridge Setup"
+    },
+    {
+      "type": "h3",
+      "text": "MT5 Gateway Configuration",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "Where a provider offers a native MT5 gateway, it can be a lighter, more direct option with fewer moving pieces. Fine for straightforward setups with a single source and simple routing. We'll tell you honestly whether a gateway is enough or whether a bridge would serve you better.",
+      "parentH2": "What We Deliver",
+      "parentH3": "MT5 Gateway Configuration"
+    },
+    {
+      "type": "h3",
+      "text": "FIX API Connectivity",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "FIX, short for Financial Information eXchange, is the protocol institutions use to swap price and order messages. Most bridges and many gateways speak FIX under the hood. We establish and certify these sessions, sort out network routing, credentials and heartbeats, and make sure reconnection behaves sensibly after a drop.",
+      "parentH2": "What We Deliver",
+      "parentH3": "FIX API Connectivity"
+    },
+    {
+      "type": "h3",
+      "text": "Liquidity Aggregation",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "With two or more providers, aggregation merges their price streams into a single book. Orders can then route by best price, by fixed allocation or by whatever logic you specify. It can tighten what clients see and spread your dependence. It also introduces extra settings to manage, which we'll explain upfront.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Liquidity Aggregation"
+    },
+    {
+      "type": "h3",
+      "text": "MT4 and MT5 Integration",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "Whichever platform you run, or both, we link it with your chosen connector, aligning account groups, execution modes and the way fills are reported back. Brokers running MT4 and MT5 in parallel can share a single bridge, so pricing stays consistent across the two.",
+      "parentH2": "What We Deliver",
+      "parentH3": "MT4 and MT5 Integration"
+    },
+    {
+      "type": "h3",
+      "text": "Symbol Mapping",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "Providers and platforms rarely name or size instruments identically. One might list gold in ounces, another in lots of a hundred. Suffixes differ. Decimal places differ. Session hours differ. We line up every instrument manually and verify contract size, precision, trading hours and margin currency for each. Sloppy mapping is a classic source of costly mistakes, so this gets real attention.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Symbol Mapping"
+    },
+    {
+      "type": "h3",
+      "text": "Order Routing",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "You decide your execution model. Pass everything to the market, keep some flow internally, or use a hybrid split based on account group, trade size or client profile. We translate those decisions into working rules, test them and document them so your dealing team knows exactly what's configured.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Order Routing"
+    },
+    {
+      "type": "h3",
+      "text": "Monitoring",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "After go-live, we track feed freshness, session status, fill rates, rejection counts and round-trip timing to each provider. Unusual patterns trigger alerts for our engineers, and you get a clear explanation of what happened if something needs investigating.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Monitoring"
+    },
+    {
+      "type": "h2",
+      "text": "How We Run a Connectivity Project"
+    },
+    {
+      "type": "h3",
+      "text": "01 Consultation",
+      "parentH2": "How We Run a Connectivity Project"
+    },
+    {
+      "type": "p",
+      "text": "We talk through your providers, platform, execution model and what you expect from the setup. If you haven't picked a provider yet, we can outline the technical questions worth asking each candidate.",
+      "parentH2": "How We Run a Connectivity Project",
+      "parentH3": "01 Consultation"
+    },
+    {
+      "type": "h3",
+      "text": "02 Solution Design",
+      "parentH2": "How We Run a Connectivity Project"
+    },
+    {
+      "type": "p",
+      "text": "We decide between bridge, gateway or direct FIX, plan any aggregation and backup paths, and document how routing will work. You approve the design before build work begins.",
+      "parentH2": "How We Run a Connectivity Project",
+      "parentH3": "02 Solution Design"
+    },
+    {
+      "type": "h3",
+      "text": "03 Integration",
+      "parentH2": "How We Run a Connectivity Project"
+    },
+    {
+      "type": "p",
+      "text": "Connections go up in a staging environment first. Symbols get mapped, routing gets configured, and we run thorough tests. Normal fills, partial fills, rejections, behaviour around rollover and weekend open, and what happens when a feed briefly disconnects. Any provider certification gets completed here too.",
+      "parentH2": "How We Run a Connectivity Project",
+      "parentH3": "03 Integration"
+    },
+    {
+      "type": "h3",
+      "text": "04 Launch & Support",
+      "parentH2": "How We Run a Connectivity Project"
+    },
+    {
+      "type": "p",
+      "text": "We move to production at an agreed time, watch closely through the opening sessions and then shift to ongoing monitoring and maintenance.",
+      "parentH2": "How We Run a Connectivity Project",
+      "parentH3": "04 Launch & Support"
+    },
+    {
+      "type": "h2",
+      "text": "The Connectivity Chain at a Glance"
+    },
+    {
+      "type": "p",
+      "text": "Client Terminal → MT4 / MT5 Server → Bridge or Gateway → FIX Session → Primary Provider",
+      "parentH2": "The Connectivity Chain at a Glance",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Bridge → Secondary Provider (Aggregation or Failover)",
+      "parentH2": "The Connectivity Chain at a Glance",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Fills & Confirmations → Server → Client Terminal & Back Office Reporting",
+      "parentH2": "The Connectivity Chain at a Glance",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Orders leave the platform, pass through your connector and reach a provider over FIX. Where a second provider is in place, the bridge can blend pricing from both or switch over if the first becomes unavailable. Every confirmation returns along the chain and lands in your reports, giving your dealing desk a full picture.",
+      "parentH2": "The Connectivity Chain at a Glance",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Why It Pays to Get This Right"
+    },
+    {
+      "type": "h3",
+      "text": "Fewer Client Complaints",
+      "parentH2": "Why It Pays to Get This Right"
+    },
+    {
+      "type": "p",
+      "text": "Most \"the platform is broken\" tickets trace back to connectivity: frozen prices, mysterious rejects, fills that don't match the chart. A carefully built link removes the technical causes behind many of them.",
+      "parentH2": "Why It Pays to Get This Right",
+      "parentH3": "Fewer Client Complaints"
+    },
+    {
+      "type": "h3",
+      "text": "Protection From Single Points of Failure",
+      "parentH2": "Why It Pays to Get This Right"
+    },
+    {
+      "type": "p",
+      "text": "A backup provider with tested failover keeps clients trading if one source goes dark.",
+      "parentH2": "Why It Pays to Get This Right",
+      "parentH3": "Protection From Single Points of Failure"
+    },
+    {
+      "type": "h3",
+      "text": "Freedom to Grow",
+      "parentH2": "Why It Pays to Get This Right"
+    },
+    {
+      "type": "p",
+      "text": "A well-structured bridge makes adding providers, instruments or a second platform far less disruptive later on.",
+      "parentH2": "Why It Pays to Get This Right",
+      "parentH3": "Freedom to Grow"
+    },
+    {
+      "type": "h3",
+      "text": "Clear Visibility",
+      "parentH2": "Why It Pays to Get This Right"
+    },
+    {
+      "type": "p",
+      "text": "Monitoring and documentation mean your team understands exactly how orders flow, rather than relying on settings nobody remembers.",
+      "parentH2": "Why It Pays to Get This Right",
+      "parentH3": "Clear Visibility"
+    },
+    {
+      "type": "h2",
+      "text": "Who Is Responsible for What"
+    },
+    {
+      "type": "h3",
+      "text": "Our Responsibilities",
+      "parentH2": "Who Is Responsible for What"
+    },
+    {
+      "type": "p",
+      "text": "Technical review of providers, connector setup, FIX sessions, symbol mapping, configuring routing per your instructions, testing, certification support, launch and ongoing monitoring.",
+      "parentH2": "Who Is Responsible for What",
+      "parentH3": "Our Responsibilities"
+    },
+    {
+      "type": "h3",
+      "text": "Your Responsibilities",
+      "parentH2": "Who Is Responsible for What"
+    },
+    {
+      "type": "p",
+      "text": "Selecting and contracting with providers, negotiating commercial terms, setting your execution model and risk policy, and meeting any regulatory duties on order handling and best execution in your jurisdiction.",
+      "parentH2": "Who Is Responsible for What",
+      "parentH3": "Your Responsibilities"
+    },
+    {
+      "type": "h3",
+      "text": "Provider Responsibilities",
+      "parentH2": "Who Is Responsible for What"
+    },
+    {
+      "type": "p",
+      "text": "Spreads, depth, fill quality and uptime are determined by your providers and by market conditions. We can't guarantee those outcomes. We have no affiliation with or endorsement from any provider, bridge vendor or the MT4/MT5 platform developer unless expressly stated.",
+      "parentH2": "Who Is Responsible for What",
+      "parentH3": "Provider Responsibilities"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "Do you provide liquidity directly?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "No. We're a technology firm. We connect your platform to providers you hold agreements with.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do you provide liquidity directly?"
+    },
+    {
+      "type": "h3",
+      "text": "Do I need a bridge, or will an MT5 gateway do?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "For one provider and uncomplicated routing, a gateway is often enough. Multiple sources, aggregation, markups or hybrid execution usually call for a bridge. We'll assess your plans and recommend accordingly.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do I need a bridge, or will an MT5 gateway do?"
+    },
+    {
+      "type": "h3",
+      "text": "What is FIX API in forex?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "It's the messaging standard used across institutional trading to stream prices and transmit orders. Your bridge or gateway typically communicates with providers through FIX sessions that we set up and certify.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What is FIX API in forex?"
+    },
+    {
+      "type": "h3",
+      "text": "How does liquidity aggregation help a broker?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "By combining prices from several providers, aggregation can offer clients tighter quotes and reduce reliance on any single source. It requires more configuration and monitoring, which we handle.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How does liquidity aggregation help a broker?"
+    },
+    {
+      "type": "h3",
+      "text": "How long does it take to connect a provider?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Timelines vary with the connection method, the number of instruments and how quickly the provider schedules certification. Provider-side steps frequently take the longest. We'll estimate after reviewing their documentation.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How long does it take to connect a provider?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you fix problems in an existing liquidity setup?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. We audit current mappings, routing rules and connector settings, identify what's causing the issues and correct them, then document the cleaned-up configuration.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you fix problems in an existing liquidity setup?"
+    },
+    {
+      "type": "h3",
+      "text": "Can MT4 and MT5 share the same liquidity?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. A single bridge can serve both platforms, keeping pricing aligned while you run them side by side.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can MT4 and MT5 share the same liquidity?"
+    },
+    {
+      "type": "h3",
+      "text": "Will you guarantee my spreads or execution?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "No. Pricing and fills come from your providers and the market. Our job is to make sure the technology carrying your forex liquidity is accurate, stable and well monitored.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Will you guarantee my spreads or execution?"
+    },
+    {
+      "type": "h2",
+      "text": "Build a Dependable Link to the Market"
+    },
+    {
+      "type": "p",
+      "text": "Share which providers you work with or are considering, along with how you'd like orders handled. We'll propose the right connection approach and walk you through every stage of the integration.",
+      "parentH2": "Build a Dependable Link to the Market",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex Liquidity & Connectivity Solutions",
+    "subtitle": "Breadcrumb: Home > Solutions > Forex Liquidity & Connectivity",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Solutions"
+      },
+      {
+        "label": "Liquidity & Connectivity"
+      }
+    ],
+    "backgroundImageKey": "network",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "code_ops",
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "servers",
+    "world_map",
+    "data_center",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid3",
+    "mediaBand",
+    "timeline",
+    "cardGrid2",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}
