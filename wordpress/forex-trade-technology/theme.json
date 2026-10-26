@@ -1,7 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
-  "title": "Forex Trade Technology",
   "settings": {
     "appearanceTools": true,
     "useRootPaddingAwareAlignments": true,
@@ -32,7 +31,7 @@
           "color": "#d8e9a2"
         },
         {
-          "name": "limeStrong",
+          "name": "lime Strong",
           "slug": "lime-strong",
           "color": "#c3d982"
         },
@@ -57,9 +56,24 @@
           "color": "#dedfd8"
         },
         {
+          "name": "footerBg",
+          "slug": "footer-bg",
+          "color": "#10130f"
+        },
+        {
           "name": "ctaBg",
           "slug": "cta-bg",
           "color": "#e8f1d8"
+        },
+        {
+          "name": "ctaHomeStart",
+          "slug": "cta-home-start",
+          "color": "#e5f0c9"
+        },
+        {
+          "name": "ctaHomeEnd",
+          "slug": "cta-home-end",
+          "color": "#f3f8e9"
         },
         {
           "name": "ctaInk",
@@ -67,93 +81,152 @@
           "color": "#172118"
         },
         {
+          "name": "ctaMuted",
+          "slug": "cta-muted",
+          "color": "#45543f"
+        },
+        {
+          "name": "ctaAction",
+          "slug": "cta-action",
+          "color": "#1b281c"
+        },
+        {
           "name": "ctaAccent",
           "slug": "cta-accent",
           "color": "#63842f"
-        }
-      ]
-    },
-    "typography": {
-      "fontFamilies": [
-        {
-          "fontFamily": "Inter, system-ui, sans-serif",
-          "name": "Inter (Body)",
-          "slug": "body"
         },
         {
-          "fontFamily": "Manrope, Inter, system-ui, sans-serif",
-          "name": "Manrope (Display)",
-          "slug": "display"
+          "name": "sectionHeading",
+          "slug": "section-heading",
+          "color": "#161816"
+        },
+        {
+          "name": "sectionSubtitle",
+          "slug": "section-subtitle",
+          "color": "#4c5c53"
+        },
+        {
+          "name": "sectionEyebrow",
+          "slug": "section-eyebrow",
+          "color": "#637d2b"
+        },
+        {
+          "name": "cardTitle",
+          "slug": "card-title",
+          "color": "#161816"
+        },
+        {
+          "name": "cardDescription",
+          "slug": "card-description",
+          "color": "#4c5c53"
+        },
+        {
+          "name": "cardIconBackground",
+          "slug": "card-icon-background",
+          "color": "#d8e9a2"
+        },
+        {
+          "name": "cardIconForeground",
+          "slug": "card-icon-foreground",
+          "color": "#161816"
+        }
+      ],
+      "defaultPalette": false,
+      "custom": false,
+      "customGradient": false
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "name": "Manrope \u2014 headings",
+          "slug": "display",
+          "fontFamily": "Manrope,Inter,system-ui,sans-serif"
+        },
+        {
+          "name": "Inter \u2014 body",
+          "slug": "body",
+          "fontFamily": "Inter,system-ui,sans-serif"
         }
       ],
       "fontSizes": [
         {
           "name": "Body",
           "slug": "body",
-          "size": "clamp(14px, calc(13.427px + 0.179vw), 16px)"
+          "size": "16px"
         },
         {
-          "name": "H1",
-          "slug": "h1",
-          "size": "clamp(40px, 5.5vw, 72px)"
-        },
-        {
-          "name": "H2",
-          "slug": "h2",
-          "size": "clamp(30px, 3.65vw, 46px)"
+          "name": "Small",
+          "slug": "small",
+          "size": "14px"
         },
         {
           "name": "H3",
           "slug": "h3",
-          "size": "clamp(20px, 1.8vw, 23px)"
+          "size": "clamp(19px,2vw,24px)"
+        },
+        {
+          "name": "H2",
+          "slug": "h2",
+          "size": "clamp(30px,3.7vw,46px)"
+        },
+        {
+          "name": "Hero",
+          "slug": "hero",
+          "size": "clamp(36px,5.5vw,72px)"
         }
       ]
     },
     "spacing": {
       "units": [
         "px",
-        "em",
         "rem",
+        "em",
         "%",
-        "vw",
-        "vh"
+        "vw"
       ],
       "spacingSizes": [
         {
-          "name": "Small",
-          "slug": "small",
+          "name": "XS",
+          "slug": "xs",
+          "size": "8px"
+        },
+        {
+          "name": "S",
+          "slug": "s",
           "size": "16px"
+        },
+        {
+          "name": "M",
+          "slug": "m",
+          "size": "24px"
+        },
+        {
+          "name": "L",
+          "slug": "l",
+          "size": "40px"
+        },
+        {
+          "name": "XL",
+          "slug": "xl",
+          "size": "64px"
         },
         {
           "name": "Section",
           "slug": "section",
-          "size": "clamp(48px, 5.5vw, 72px)"
-        },
-        {
-          "name": "Large",
-          "slug": "large",
-          "size": "72px"
+          "size": "clamp(48px,5.5vw,72px)"
         }
       ]
-    },
-    "custom": {
-      "ftt": {
-        "sectionGap": "clamp(48px, 5.5vw, 72px)",
-        "headerHeight": "72px",
-        "cardGap": "16px",
-        "cardPadding": "clamp(20px, 2.2vw, 27px)"
-      }
     }
   },
   "styles": {
     "color": {
-      "background": "#ffffff",
+      "background": "#fff",
       "text": "#161816"
     },
     "typography": {
       "fontFamily": "var(--wp--preset--font-family--body)",
-      "fontSize": "var(--wp--preset--font-size--body)",
-      "lineHeight": "1.65"
+      "lineHeight": "1.6"
     },
     "elements": {
       "heading": {
@@ -162,9 +235,13 @@
           "fontWeight": "700"
         }
       },
-      "link": {
+      "button": {
         "color": {
+          "background": "#d8e9a2",
           "text": "#161816"
+        },
+        "border": {
+          "radius": "999px"
         }
       }
     }
@@ -182,22 +259,8 @@
     },
     {
       "name": "final-cta",
-      "title": "Final CTA",
+      "title": "Global Final CTA",
       "area": "uncategorized"
-    },
-    {
-      "name": "final-cta-home",
-      "title": "Home Final CTA",
-      "area": "uncategorized"
-    }
-  ],
-  "customTemplates": [
-    {
-      "name": "landing",
-      "title": "Landing Page",
-      "postTypes": [
-        "page"
-      ]
     }
   ]
 }

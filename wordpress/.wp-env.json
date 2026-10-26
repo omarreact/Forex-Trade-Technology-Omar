@@ -1,11 +1,1 @@
-{
-  "$schema": "https://schemas.wp.org/trunk/wp-env.json",
-  "themes": [
-    "./forex-trade-technology"
-  ],
-  "plugins": [
-    "./forex-trade-technology-contact"
-  ],
-  "port": 8888,
-  "testsPort": 8889
-}
+{"core":"WordPress/WordPress#6.7","phpVersion":"8.2","plugins":["./forex-trade-technology-contact"],"themes":["./forex-trade-technology"],"port":8888,"testsPort":8889,"config":{"WP_DEBUG":true}}

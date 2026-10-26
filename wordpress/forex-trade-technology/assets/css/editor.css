@@ -1,40 +1,15 @@
-/* Editor canvas parity: enqueue the same ordered front.css first. */
+/* Site Editor and Page Editor canvas use the same stylesheet as the public site. */
 .editor-styles-wrapper{font-family:Inter,system-ui,sans-serif;background:#fff;color:#161816}
-.editor-styles-wrapper .is-root-container{max-width:none!important}
-.editor-styles-wrapper .is-root-container>.wp-block{max-width:none!important}
-.editor-styles-wrapper .bs-shell{width:min(1210px,calc(100% - 88px));margin-left:auto;margin-right:auto}
-.editor-styles-wrapper .ftt-block-editor-preview{max-width:none!important;padding:0;position:relative}
-.editor-styles-wrapper .ftt-block-editor-preview .ftt-editor-preview-toolbar{position:relative;z-index:5;background:#172118;color:#fff;padding:7px 12px;font:600 12px/1.4 Inter,sans-serif}
-.editor-styles-wrapper .ftt-block-editor-preview .components-placeholder{min-height:80px}
-.editor-styles-wrapper .ftt-block-editor-preview .bs-home-slider{min-height:500px}
-.editor-styles-wrapper .ftt-block-editor-preview .bs-page-header{min-height:240px}
-.editor-styles-wrapper .block-editor-block-list__block[data-type^="forex-trade-technology/"]{max-width:none}
-.editor-styles-wrapper .block-editor-block-list__layout{overflow:visible}
-.ftt-editor-item{border-top:1px solid #ddd;padding-top:10px}
-@media(max-width:767px){.editor-styles-wrapper .bs-shell{width:calc(100% - 32px)}}
-
-/* ServerSideRender renders six marquee copies for animation. In Gutenberg
-   expose one legible row; never show repeated accessibility clones. */
-.editor-styles-wrapper .ftt-block-editor-preview .bs-trust-carousel-group[aria-hidden="true"]{display:none!important}
-.editor-styles-wrapper .ftt-block-editor-preview .bs-trust-carousel-track{
- animation:none!important;transform:none!important;will-change:auto;
- width:max-content;max-width:none;min-height:72px
-}
-.editor-styles-wrapper .ftt-block-editor-preview .bs-trust-carousel-window{
- overflow:hidden;mask-image:none;-webkit-mask-image:none
-}
-/* Keep an editable static three-card composition in the SSR editor preview.
-   The public carousel still gets its functional clones and JS navigation. */
-.editor-styles-wrapper .ftt-block-editor-preview .bs-audience-track{
- transform:none!important;transition:none!important;will-change:auto
-}
-.editor-styles-wrapper .ftt-block-editor-preview .bs-audience-slide:nth-child(n+4){display:none!important}
-.editor-styles-wrapper .ftt-block-editor-preview .bs-audience-slide{
- flex:0 0 calc((100% - 2 * 18px) / 3)!important;min-width:0
-}
-@media(max-width:1020px){
- .editor-styles-wrapper .ftt-block-editor-preview .bs-audience-slide{flex-basis:calc((100% - 18px) / 2)!important}
-}
-@media(max-width:640px){
- .editor-styles-wrapper .ftt-block-editor-preview .bs-audience-slide{flex-basis:100%!important}
-}
+.editor-styles-wrapper .is-root-container,.editor-styles-wrapper .wp-block-post-content{max-width:none!important}
+.editor-styles-wrapper .bs-shell{max-width:1210px;width:var(--bs-shell);margin-inline:auto}
+.editor-styles-wrapper .bs-main{max-width:none!important;margin-block:0}
+.editor-styles-wrapper .bs-home-slider .bs-slide{opacity:0;visibility:hidden}
+.editor-styles-wrapper .bs-home-slider .bs-slide:first-child{opacity:1;visibility:visible}
+.editor-styles-wrapper .bs-trust-carousel-track{animation:none!important;transform:none!important}
+.editor-styles-wrapper .bs-trust-carousel-group[aria-hidden=true]{display:none!important}
+.editor-styles-wrapper .bs-audience-track{transform:none!important;transition:none!important}
+/* No section-label ribbons or development preview banners appear on the canvas. */
+.editor-styles-wrapper .ftt-xml-editor-block{max-width:none!important;border:0;padding:0;margin:0}
+.editor-styles-wrapper .ftt-xml-editor-block>.wp-block{max-width:none}
+.editor-styles-wrapper .bs-site-header{position:relative}
+.editor-styles-wrapper :where(.bs-v5-section,.bs-page-header,.bs-home-slider,.bs-footer){width:100%}

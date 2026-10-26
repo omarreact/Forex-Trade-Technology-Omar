@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "xmlSha256": "8ac014971eb3ce30f2cb633253a4dc9c7cf9a1ff46802ea0cf5231f38c2786db",
+  "pageCount": 13,
+  "sectionCount": 87,
+  "faqCount": 42,
+  "stylesheetCount": 17,
+  "imageCount": 26,
+  "layoutCounts": {
+    "stack": 12,
+    "cardGrid2": 12,
+    "mediaBand": 11,
+    "cardGrid3": 11,
+    "darkBand": 12,
+    "timeline": 12,
+    "ctaBand": 13,
+    "splitContent": 1,
+    "faqAccordion": 1,
+    "iconRow": 1,
+    "gallery3": 1
+  },
+  "routes": {
+    "about": "/about-us",
+    "brokerage-setup": "/solutions/brokerage-setup",
+    "contact": "/contact",
+    "crm": "/products/forex-crm",
+    "faq": "/faq",
+    "home": "/",
+    "hosting": "/solutions/forex-broker-hosting",
+    "how-it-works": "/how-it-works",
+    "kyc-aml": "/technology/kyc-aml-integration",
+    "liquidity": "/solutions/forex-liquidity-connectivity",
+    "mt5-white-label": "/solutions/mt5-white-label",
+    "payments": "/products/payment-gateway-integration",
+    "prop-firm": "/products/prop-firm-crm-api"
+  }
+}
