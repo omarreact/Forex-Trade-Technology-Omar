@@ -40,9 +40,12 @@ try{
     slides:document.querySelectorAll('.bs-slide').length,
     media:document.querySelectorAll('.bs-v5-media').length,
     form:document.querySelectorAll('form[data-ftt-contact]').length,
-    overflowing:document.documentElement.scrollWidth>innerWidth+8
+    overflowing:document.documentElement.scrollWidth>innerWidth+8,
+    scrollWidth:document.documentElement.scrollWidth,
+    offenders:[...document.querySelectorAll('body *')].map(e=>({el:e,box:e.getBoundingClientRect()})).filter(o=>o.box.right>innerWidth+6&&o.box.width>0).slice(0,8).map(o=>({tag:o.el.tagName,class:o.el.className?.baseVal||String(o.el.className).slice(0,95),right:Math.round(o.box.right),width:Math.round(o.box.width)}))
    }));
    const status=rsp?.status();
+   if(info.overflowing&&path==='/faq'&&(width===768||width===1440))console.log('OVERFLOW DIAGNOSTIC',width,JSON.stringify(info.offenders),'scrollWidth',info.scrollWidth);
    report.routes.push({path,width,status,...info});
    if(status!==200||!info.h1||info.overflowing)report.errors.push({path,width,status,issue:!info.h1?'missing H1':info.overflowing?'horizontal overflow':'HTTP error'});
    if(path==='/'&& (info.slides!==5||info.ctas!==1))report.errors.push({path,width,issue:'home slides/CTA regression'});
