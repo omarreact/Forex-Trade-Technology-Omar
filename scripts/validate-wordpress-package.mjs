@@ -29,7 +29,7 @@ assert.equal(Object.keys(source.assets.images).length,26);
 assert.equal(registry.layouts.mediaBand.onlyPageId,'home');assert.equal(registry.layouts.ctaBand.neverRenderAsSection,true);
 const files=fs.readdirSync(path.join(project,'theme/styles')).filter(f=>f.endsWith('.css'));
 const cssPath=path.join(theme,'assets/css');
-for(const css of files)assert(fs.existsSync(path.join(cssPath,css)),'Missing mirrored CSS '+css);
+for(const css of files){const packaged=css==='index.css'?'front.css':css;assert(fs.existsSync(path.join(cssPath,packaged)),'Missing mirrored CSS '+css);}
 for(const css of ['trust-carousel.css','icon-box-carousel.css','trading-stack-flow.css'])assert(fs.existsSync(path.join(cssPath,'blocks',css)));
 assert(fs.existsSync(path.join(plugin,'forex-trade-technology-contact.php')));
 const importer=fs.readFileSync(path.join(theme,'inc/import.php'),'utf8');
