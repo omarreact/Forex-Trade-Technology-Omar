@@ -32,6 +32,10 @@ const cssPath=path.join(theme,'assets/css');
 for(const css of files){const packaged=css==='index.css'?'front.css':css;assert(fs.existsSync(path.join(cssPath,packaged)),'Missing mirrored CSS '+css);}
 for(const css of ['trust-carousel.css','icon-box-carousel.css','trading-stack-flow.css'])assert(fs.existsSync(path.join(cssPath,'blocks',css)));
 assert(fs.existsSync(path.join(plugin,'forex-trade-technology-contact.php')));
+const parityCss=fs.readFileSync(path.join(cssPath,'wp-parity.css'),'utf8');
+assert(parityCss.includes('.bs-global-cta:not(.bs-global-cta-home) .bs-global-cta-decoration{right:0}'),'Interior final CTA must not extend beyond the viewport');
+const smokeWorkflow=fs.readFileSync(path.join(project,'.github/workflows/wordpress-smoke.yml'),'utf8');
+assert(smokeWorkflow.includes("docker ps -a --format '{{.ID}}'"),'Dynamic docker diagnostic required');
 const importer=fs.readFileSync(path.join(theme,'inc/import.php'),'utf8');
 assert(importer.includes('wp_insert_post')&&importer.includes('get_page_by_path')&&importer.includes('wp_slash'));
 assert(importer.includes("if($layout==='ctaBand'||($layout==='mediaBand'&&$id!=='home'))continue"),'CTA / interior media suppression');

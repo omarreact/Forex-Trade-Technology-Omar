@@ -45,7 +45,8 @@ add_action('enqueue_block_editor_assets', function (): void {
     wp_localize_script('ftt-block-editor','fttEditorConfig',[
         'navigation'=>$public['navigation']??[],
         'footer'=>$public['footer']??[],
-        'copyright'=>$public['site']['copyright']??''
+        'copyright'=>$public['site']['copyright']??'',
+        'images'=>ftt_data('source-theme.json')['assets']['images']??[]
     ]);
 });
 add_action('init', function (): void {

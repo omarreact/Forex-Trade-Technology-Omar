@@ -78,7 +78,7 @@ function ftt_feature_flex(array $section,bool $dark=false):string{
 function ftt_story(array $section,string $pageId,int $index,bool $dark):string{
     $data=ftt_data('story-visuals.json');
     $visual=$data[$pageId]??$data['home']??[];
-    $img=ftt_image((string)($visual['image']??''));
+    $img=ftt_image((string)($section['media']['imageKey']??$visual['image']??''));
     $blocks=$section['blocks']??[];$leads=[];$topics=[];
     foreach($blocks as $b){
         if(($b['type']??'')==='h3'){$topics[]=['heading'=>$b['text'],'paragraphs'=>[]];continue;}

@@ -1,5 +1,11 @@
 name: WordPress Phase C end-to-end staging smoke
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'wordpress/**'
+      - 'scripts/wordpress-runtime-smoke.mjs'
+      - '.github/workflows/wordpress-smoke.yml'
   pull_request:
     branches: [main]
     paths:

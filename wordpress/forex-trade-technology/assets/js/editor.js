@@ -10,7 +10,8 @@
   const h=wp.element.createElement;
   const {registerBlockType}=wp.blocks;
   const {useBlockProps,InspectorControls}=wp.blockEditor;
-  const {PanelBody,TextControl,TextareaControl,ToggleControl,Button,Notice}=wp.components;
+  const {PanelBody,TextControl,TextareaControl,ToggleControl,Button,Notice,SelectControl}=wp.components;
+  const imageOptions=[{label:'Use default asset',value:''},...Object.entries(window.fttEditorConfig?.images||{}).map(([key,img])=>({value:key,label:key+' — '+(img.alt||'image')}))];
   const SSR=wp.serverSideRender && (wp.serverSideRender.default || wp.serverSideRender);
   const ns='forex-trade-technology/';
   const descriptions={
@@ -37,6 +38,9 @@
     return [
       h(TextControl,{key:'title',label:'Section heading',value:sec.title||'',onChange:v=>update(props,'section',{title:v})}),
       h(TextControl,{key:'subtitle',label:'Section subtitle',value:sec.subtitle||'',onChange:v=>update(props,'section',{subtitle:v})}),
+      h(TextControl,{key:'kicker',label:'Section eyebrow',value:sec.kicker||'',onChange:v=>update(props,'section',{kicker:v})}),
+      h(SelectControl,{key:'image',label:'Section image',value:sec.media?.imageKey||'',options:imageOptions,onChange:v=>update(props,'section',{media:{...(sec.media||{}),imageKey:v}})}),
+      sec.layout==='gallery3'?h(TextareaControl,{key:'gallery',label:'Gallery image keys (one per line)',value:(sec.media?.imageKeys||[]).join('\n'),onChange:v=>update(props,'section',{media:{...(sec.media||{}),imageKeys:v.split('\n').map(x=>x.trim()).filter(Boolean)}})}):null,
       h(TextControl,{key:'id',label:'Stable section ID',value:sec.id||'',onChange:v=>update(props,'section',{id:v})}),
       h(TextControl,{key:'layout',label:'Layout key (contract v1)',value:sec.layout||'',help:'Keep an allowed layout from the render-map registry.',onChange:v=>update(props,'section',{layout:v})}),
       ...(sec.blocks||[]).map((b,i)=>h(TextareaControl,{key:'block-'+i,label:'Content '+(i+1)+' ('+b.type+')',value:b.text||'',rows:3,onChange:v=>{
@@ -66,7 +70,9 @@
       ...slides.flatMap((slide,i)=>[
         h(TextControl,{key:'s-title-'+i,label:'Slide '+(i+1)+' title',value:slide.title||'',onChange:v=>{const list=[...slides];list[i]={...list[i],title:v};props.setAttributes({slides:list});}}),
         h(TextareaControl,{key:'s-desc-'+i,label:'Slide '+(i+1)+' subtitle',value:slide.subtitle||'',onChange:v=>{const list=[...slides];list[i]={...list[i],subtitle:v};props.setAttributes({slides:list});}}),
-        h(TextControl,{key:'s-image-'+i,label:'Image key',value:slide.imageKey||'',onChange:v=>{const list=[...slides];list[i]={...list[i],imageKey:v};props.setAttributes({slides:list});}}),
+        h(SelectControl,{key:'s-image-'+i,label:'Slide image',value:slide.imageKey||'',options:imageOptions,onChange:v=>{const list=[...slides];list[i]={...list[i],imageKey:v};props.setAttributes({slides:list});}}),
+        h(TextControl,{key:'s-kicker-'+i,label:'Slide '+(i+1)+' eyebrow',value:slide.kicker||'',onChange:v=>{const list=[...slides];list[i]={...list[i],kicker:v};props.setAttributes({slides:list});}}),
+        h(TextControl,{key:'s-button-'+i,label:'Slide '+(i+1)+' button text',value:slide.cta?.label||'',onChange:v=>{const list=[...slides];list[i]={...list[i],cta:{...(list[i].cta||{}),label:v}};props.setAttributes({slides:list});}}),
         h(TextControl,{key:'s-cta-'+i,label:'CTA destination',value:slide.cta?.href||'',onChange:v=>{const list=[...slides];list[i]={...list[i],cta:{...(list[i].cta||{}),href:v}};props.setAttributes({slides:list});}})
       ])
     ];
@@ -77,7 +83,8 @@
     if(slug==='home-slider')return editSlider(props);
     if(slug==='page-hero')return [
       h(TextControl,{key:'hero-title',label:'Page heading',value:a.page?.pageTop?.title||'',onChange:v=>update(props,'page',{pageTop:{...(a.page?.pageTop||{}),title:v}})}),
-      h(TextareaControl,{key:'hero-subtitle',label:'Subtitle',value:a.page?.pageTop?.subtitle||'',onChange:v=>update(props,'page',{pageTop:{...(a.page?.pageTop||{}),subtitle:v}})})
+      h(TextareaControl,{key:'hero-subtitle',label:'Subtitle',value:a.page?.pageTop?.subtitle||'',onChange:v=>update(props,'page',{pageTop:{...(a.page?.pageTop||{}),subtitle:v}})}),
+      h(SelectControl,{key:'hero-image',label:'Header background image',value:a.page?.pageTop?.backgroundImageKey||'',options:imageOptions,onChange:v=>update(props,'page',{pageTop:{...(a.page?.pageTop||{}),backgroundImageKey:v}})})
     ];
     if(slug==='final-cta'){
       const copy=a.copy||window.fttEditorConfig?.footer?.cta||{};
