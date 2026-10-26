@@ -50,6 +50,25 @@ try{
    if(status!==200||!info.h1||info.overflowing)report.errors.push({path,width,status,issue:!info.h1?'missing H1':info.overflowing?'horizontal overflow':'HTTP error'});
    if(path==='/'&& (info.slides!==5||info.ctas!==1))report.errors.push({path,width,issue:'home slides/CTA regression'});
    if(path==='/faq'&&info.faq!==42)report.errors.push({path,width,issue:'Expected 42 FAQs'});
+   if(path==='/'){
+    const ui=await page.evaluate(()=>{
+     const cta=document.querySelector('.bs-global-cta-panel'),gallery=document.querySelector('.bs-v5-gallery'),viewport=document.querySelector('.bs-audience-viewport'),card=document.querySelector('.bs-audience-slide');
+     return {
+      ctaDisplay:cta?getComputedStyle(cta).display:'',
+      ctaBackground:cta?getComputedStyle(cta).backgroundImage:'',
+      ctaScoped:!!document.querySelector('.ftt-cta-style-scope .bs-global-cta-panel'),
+      galleryTitle:gallery?.querySelector('h2')?.textContent?.trim()||'',
+      audienceWidth:card?.getBoundingClientRect().width||0,
+      audienceViewport:viewport?.getBoundingClientRect().width||0
+     };
+    });
+    if(!ui.ctaScoped||ui.ctaDisplay!=='flex'||!ui.ctaBackground.includes('gradient'))
+     report.errors.push({path,width,issue:'Final CTA missing two-column panel styles',ui});
+    if(ui.galleryTitle!=='Technology Behind the Brokerage')
+     report.errors.push({path,width,issue:'Incorrect homepage gallery heading',ui});
+    if(ui.audienceViewport&&ui.audienceWidth>ui.audienceViewport*(width>=1024?0.48:width>=641?0.65:1.05))
+     report.errors.push({path,width,issue:'Audience carousel card width exceeds responsive layout',ui});
+   }
    if(path!=='/'&&(info.media!==0||info.ctas!==1))report.errors.push({path,width,issue:'Interior mediaBand or Final CTA regression'});
    if(path==='/contact'&&info.form!==1)report.errors.push({path,width,issue:'Missing contact form'});
    if(inspect.includes(path)){
@@ -83,6 +102,31 @@ try{
     await page.frameLocator('iframe[name="editor-canvas"]').locator('.bs-faq-polished').waitFor({timeout:20000});
     await page.screenshot({path:'artifacts/wordpress/editor-faq-1440.png'});
     report.editor.push({page:'/faq',loaded:true});
+    // Validate computed styles, not just DOM presence. The page editor runs
+    // inside a dedicated iframe on WordPress 7.1+.
+    const homeLookup=await context.request.get(base+'/wp-json/wp/v2/pages?slug=home');
+    if(!homeLookup.ok())throw new Error('Home page REST lookup failed');
+    const homeData=await homeLookup.json();
+    if(!homeData[0]?.id)throw new Error('Imported home page not available');
+    await page.goto(base+'/wp-admin/post.php?post='+homeData[0].id+'&action=edit',{waitUntil:'domcontentloaded'});
+    const frame=page.frameLocator('iframe[name="editor-canvas"]');
+    const trust=frame.locator('.bs-trust-carousel');
+    await trust.waitFor({timeout:35000});
+    const appearance=await trust.evaluate(el=>{
+      const style=getComputedStyle(el);
+      const marquee=el.querySelector('.bs-trust-carousel-track');
+      const clones=[...el.querySelectorAll('.bs-trust-carousel-group[aria-hidden="true"]')];
+      return {background:style.backgroundColor,marqueeDisplay:marquee?getComputedStyle(marquee).display:'',clonesHidden:clones.length>0&&clones.every(c=>getComputedStyle(c).display==='none')};
+    });
+    if(appearance.background!=='rgb(216, 233, 162)'||appearance.marqueeDisplay!=='flex'||!appearance.clonesHidden)
+      report.errors.push({page:'editor-home',issue:'Frontend CSS or editor-only carousel styling missing inside iframe',appearance});
+    const slide=frame.locator('.bs-audience-slide').first();
+    await slide.waitFor({timeout:30000});
+    const audience=await slide.evaluate(el=>({width:el.getBoundingClientRect().width,viewport:el.closest('.bs-audience-viewport')?.getBoundingClientRect().width||0}));
+    if(!audience.viewport||audience.width>audience.viewport*.48)
+      report.errors.push({page:'editor-home',issue:'Editor audience carousel width is not three-column',audience});
+    await page.screenshot({path:'artifacts/wordpress/editor-home-1440.png',fullPage:true,animations:'disabled'});
+    report.editor.push({page:'/',loaded:true,appearance,audience});
    }catch(e){await page.screenshot({path:'artifacts/wordpress/editor-failure.png',fullPage:true}).catch(()=>{});report.errors.push({page:'editor',issue:'Gutenberg editor canvas did not appear',url:page.url(),message:String(e),pageText:(await page.locator('body').innerText().catch(()=>'' )).slice(0,900)});}
   }else report.errors.push({page:'editor',issue:'Unable to resolve FAQ page through REST'});
  }else report.errors.push({page:'editor',issue:'REST page lookup failed '+list.status()});

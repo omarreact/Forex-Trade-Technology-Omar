@@ -86,7 +86,7 @@ function ftt_footer(array $attributes=[]): string {
 function ftt_final_cta(bool $home=false,array $attributes=[]): string {
     $data=$attributes['copy']??ftt_config()['footer']['cta']??[];
     $cls='bs-cta-wrap bs-global-cta'.($home?' bs-global-cta-home':'');
-    $html='<section class="'.esc_attr($cls).'" aria-labelledby="bs-final-cta-title"><div class="bs-shell"><div class="bs-global-cta-panel">'
+    $html='<div class="bs-main bs-v4-dense bs-clean-page ftt-cta-style-scope"><section class="'.esc_attr($cls).'" aria-labelledby="bs-final-cta-title"><div class="bs-shell"><div class="bs-global-cta-panel">'
     .'<div class="bs-global-cta-content"><span class="bs-global-cta-eyebrow"><span class="bs-global-cta-pulse" aria-hidden="true"></span>'.esc_html($data['kicker']??'').'</span>'
     .ftt_h($data['title']??'',2,'','bs-final-cta-title')
     .'<p>'.esc_html($data['description']??'').'</p>'
@@ -101,7 +101,7 @@ function ftt_final_cta(bool $home=false,array $attributes=[]): string {
         }
         $html.='</div>';
     } else $html.='<div class="bs-global-cta-decoration" aria-hidden="true"><span></span><span></span><span></span></div>';
-    return $html.'</div></div></section>';
+    return $html.'</div></div></section></div>';
 }
 function ftt_home_slider(array $slides,array $attributes=[]):string{
     if (!$slides)return '';
