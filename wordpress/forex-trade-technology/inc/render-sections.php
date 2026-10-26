@@ -16,7 +16,12 @@ function ftt_section(array $section,string $pageId,int $index,string $pageTitle=
     if($layout==='iconRow')return ftt_trust_carousel($section['items']??[]);
     if($layout==='faqAccordion')return ftt_faq($section);
     if($layout==='mediaBand')return ftt_media_band($section,$pageTitle?:'Forex Trade Technology');
-    if($layout==='gallery3')return ftt_gallery($section);
+    if($layout==='gallery3'){
+        if($pageId==='home' && ($section['title']??'')==='Who We Work With'){
+            $section['title']='Technology Behind the Brokerage';
+        }
+        return ftt_gallery($section);
+    }
     $blocks=$section['blocks']??[];
     $groups=ftt_blocks_to_groups($blocks);
     $leads=[];$topics=[];

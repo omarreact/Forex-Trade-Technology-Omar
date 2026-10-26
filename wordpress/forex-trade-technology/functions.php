@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 defined('ABSPATH') || exit;
-define('FTT_THEME_VERSION', '0.1.0');
+define('FTT_THEME_VERSION', '0.1.1');
 require_once __DIR__ . '/inc/content.php';
 require_once __DIR__ . '/inc/render.php';
 require_once __DIR__ . '/inc/render-sections.php';
@@ -15,13 +15,22 @@ require_once __DIR__ . '/inc/import.php';
 add_action('after_setup_theme', function (): void {
     add_theme_support('wp-block-styles');
     add_theme_support('editor-styles');
-    add_editor_style('assets/css/front.css');
-    add_editor_style('assets/css/editor.css');
 });
-function ftt_enqueue_theme_assets(): void {
+/**
+ * Shared front-end and Gutenberg iframe styles.
+ * enqueue_block_editor_assets only styles the editor chrome; it does NOT
+ * reliably place the original frontend CSS in the iframe content.
+ * enqueue_block_assets reaches both front-end and the editor canvas (WP 6.3+).
+ */
+add_action('enqueue_block_assets', function (): void {
     wp_enqueue_style('ftt-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap', [], null);
     wp_enqueue_style('ftt-front', get_theme_file_uri('assets/css/front.css'), [], FTT_THEME_VERSION);
     wp_enqueue_style('ftt-parity', get_theme_file_uri('assets/css/wp-parity.css'), ['ftt-front'], FTT_THEME_VERSION);
+    if (is_admin()) {
+        wp_enqueue_style('ftt-canvas', get_theme_file_uri('assets/css/editor.css'), ['ftt-parity'], FTT_THEME_VERSION);
+    }
+});
+function ftt_enqueue_theme_assets(): void {
     wp_enqueue_script('ftt-front', get_theme_file_uri('assets/js/front.js'), [], FTT_THEME_VERSION, true);
     wp_localize_script('ftt-front', 'fttTheme', [
         'contactUrl' => esc_url_raw(rest_url('ftt/v1/contact')),
@@ -30,10 +39,6 @@ function ftt_enqueue_theme_assets(): void {
 }
 add_action('wp_enqueue_scripts', 'ftt_enqueue_theme_assets');
 add_action('enqueue_block_editor_assets', function (): void {
-    wp_enqueue_style('ftt-editor-front', get_theme_file_uri('assets/css/front.css'), [], FTT_THEME_VERSION);
-    wp_enqueue_style('ftt-editor-parity', get_theme_file_uri('assets/css/wp-parity.css'), ['ftt-editor-front'], FTT_THEME_VERSION);
-    wp_enqueue_style('ftt-editor', get_theme_file_uri('assets/css/editor.css'), ['ftt-editor-parity'], FTT_THEME_VERSION);
-    wp_enqueue_style('ftt-fonts-editor', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap', [], null);
     wp_enqueue_script(
         'ftt-block-editor',
         get_theme_file_uri('assets/js/editor.js'),

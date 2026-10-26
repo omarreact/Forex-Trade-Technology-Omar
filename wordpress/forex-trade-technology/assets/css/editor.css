@@ -12,3 +12,29 @@
 .editor-styles-wrapper .block-editor-block-list__layout{overflow:visible}
 .ftt-editor-item{border-top:1px solid #ddd;padding-top:10px}
 @media(max-width:767px){.editor-styles-wrapper .bs-shell{width:calc(100% - 32px)}}
+
+/* ServerSideRender renders six marquee copies for animation. In Gutenberg
+   expose one legible row; never show repeated accessibility clones. */
+.editor-styles-wrapper .ftt-block-editor-preview .bs-trust-carousel-group[aria-hidden="true"]{display:none!important}
+.editor-styles-wrapper .ftt-block-editor-preview .bs-trust-carousel-track{
+ animation:none!important;transform:none!important;will-change:auto;
+ width:max-content;max-width:none;min-height:72px
+}
+.editor-styles-wrapper .ftt-block-editor-preview .bs-trust-carousel-window{
+ overflow:hidden;mask-image:none;-webkit-mask-image:none
+}
+/* Keep an editable static three-card composition in the SSR editor preview.
+   The public carousel still gets its functional clones and JS navigation. */
+.editor-styles-wrapper .ftt-block-editor-preview .bs-audience-track{
+ transform:none!important;transition:none!important;will-change:auto
+}
+.editor-styles-wrapper .ftt-block-editor-preview .bs-audience-slide:nth-child(n+4){display:none!important}
+.editor-styles-wrapper .ftt-block-editor-preview .bs-audience-slide{
+ flex:0 0 calc((100% - 2 * 18px) / 3)!important;min-width:0
+}
+@media(max-width:1020px){
+ .editor-styles-wrapper .ftt-block-editor-preview .bs-audience-slide{flex-basis:calc((100% - 18px) / 2)!important}
+}
+@media(max-width:640px){
+ .editor-styles-wrapper .ftt-block-editor-preview .bs-audience-slide{flex-basis:100%!important}
+}
