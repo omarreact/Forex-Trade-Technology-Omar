@@ -1,14 +1,8 @@
 import type {ReactNode} from 'react';
 import {Icon} from '@/blocks/shared/Icon';
 
-type IconCardProps={
- title?:string;
- icon:string;
- description?:string;
- paragraphs?:readonly string[];
- children?:ReactNode;
- className?:string;
-};
+import type {IconCardAttributes} from './types';
+type IconCardProps=IconCardAttributes & {children?:ReactNode};
 
 /** Decorative background icon — never read out twice by screen readers. */
 export function IconWatermark({icon}:{icon:string}){

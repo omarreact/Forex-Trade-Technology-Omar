@@ -5,8 +5,9 @@ import {ChevronLeft,ChevronRight} from 'lucide-react';
 import {IconCard} from '@/blocks/icon-card';
 import {SectionHeading} from '@/blocks/shared/SectionHeading';
 
-export type AudienceItem={title:string;description:string;icon:string};
-type Props={title:string;kicker?:string;items:AudienceItem[]};
+import type {AudienceCarouselAttributes} from './types';
+export type AudienceItem=AudienceCarouselAttributes['items'][number];
+type Props=AudienceCarouselAttributes;
 
 /**
  * Multi-card, responsive, circular carousel. Source copy remains in pages.content.json.
