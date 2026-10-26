@@ -1,0 +1,588 @@
+{
+  "id": "about",
+  "slug": "/about-us",
+  "seo": {
+    "title": "About Us | Forex Brokerage Technology Partner",
+    "description": "Meet the forex technology company helping brokers and prop firms launch, connect and run their trading infrastructure, from MT5 and CRM to liquidity and hosting.",
+    "primaryKeyword": "forex technology company",
+    "secondaryKeywords": "brokerage technology provider, forex broker technology provider, fintech technology company",
+    "canonicalPath": "/about-us"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Technology for the Modern Forex Brokerage",
+    "subtitle": "Breadcrumb: Home > About Us",
+    "leadParagraphs": [
+      "Breadcrumb: Home > About Us",
+      "Label: Who We Are",
+      "We're a forex technology company that builds and looks after the systems brokerages run on. Trading platforms, servers, liquidity links, CRMs, payment and verification integrations, apps and the APIs that hold them together.",
+      "We don't trade, we don't hold client money and we don't give investment advice. Our work sits behind the scenes, making sure the businesses that do those things have technology they can rely on."
+    ],
+    "imageKey": "aboutPrimary",
+    "ctas": [
+      {
+        "label": "Request a Consultation",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Who We Are",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Our team is made up of platform engineers, integration developers, infrastructure specialists and people who've spent years inside brokerage operations. That last part matters. We understand why a withdrawal queue needs certain checks, why a symbol mapping error can cost real money, and why a dealing desk gets twitchy when a price feed goes quiet."
+        },
+        {
+          "type": "p",
+          "text": "We started because we kept seeing the same problem. Brokers bought a platform from one company, a CRM from another, hosting from a third and liquidity connectivity from a fourth. When something broke, every vendor blamed someone else. We set out to be the team that takes responsibility for how the whole stack fits together."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Our Expertise",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Our work spans the full technology layer of a brokerage:"
+        },
+        {
+          "type": "p",
+          "text": "* MT5 and MT4 deployment, configuration and maintenance"
+        },
+        {
+          "type": "p",
+          "text": "* White label and grey label platform setups"
+        },
+        {
+          "type": "p",
+          "text": "* Trading server hosting, monitoring and disaster recovery"
+        },
+        {
+          "type": "p",
+          "text": "* Liquidity connectivity through bridges, gateways and FIX"
+        },
+        {
+          "type": "p",
+          "text": "* Forex CRM, client portals and back office tooling"
+        },
+        {
+          "type": "p",
+          "text": "* KYC, AML screening and payment provider integrations"
+        },
+        {
+          "type": "p",
+          "text": "* Branded mobile and web trading experiences"
+        },
+        {
+          "type": "p",
+          "text": "* Prop firm evaluation systems and APIs"
+        },
+        {
+          "type": "p",
+          "text": "Some clients use us for one of these. Others hand us the entire stack. Either way, the depth of knowledge behind each piece is the same."
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "media-mobile_trade",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "mobile_trade",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "What We Deliver",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Our work falls into three broad areas."
+        },
+        {
+          "type": "h3",
+          "text": "Solutions"
+        },
+        {
+          "type": "p",
+          "text": "For businesses setting up or running a brokerage. MT5 and MT4 white and grey label setups, turnkey launches, hosting and liquidity connectivity."
+        },
+        {
+          "type": "h3",
+          "text": "Products"
+        },
+        {
+          "type": "p",
+          "text": "Specific tools brokers plug into their operations. CRM, broker websites, mobile and web trading apps, manager APIs, PAMM and MAM, prop firm systems and payment integrations."
+        },
+        {
+          "type": "h3",
+          "text": "Technology"
+        },
+        {
+          "type": "p",
+          "text": "The infrastructure underneath. Servers, bridges, FIX connectivity, verification and payment integrations, security, monitoring and backups."
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "How We Work",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Every project follows the same four stages. We start with a consultation to understand your business properly. We then design the solution and agree it with you in writing. Next comes integration, where everything is built, connected and tested thoroughly. Finally, we launch with you and stay on to support what we've built."
+        },
+        {
+          "type": "p",
+          "text": "Clear stages, clear deliverables and no work you haven't approved."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Support That Doesn't Disappear",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Plenty of technology providers are very attentive until the invoice is paid. We see launch as the start of the relationship, not the end."
+        },
+        {
+          "type": "p",
+          "text": "After go-live, our engineers handle monitoring, updates, configuration changes and problem-solving for the environments we've built. Because we set them up, we already know how they work, which means faster answers when something needs fixing."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 61,
+  "wordCountApprox": 979,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > About Us",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Who We Are",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "We're a forex technology company that builds and looks after the systems brokerages run on. Trading platforms, servers, liquidity links, CRMs, payment and verification integrations, apps and the APIs that hold them together.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "We don't trade, we don't hold client money and we don't give investment advice. Our work sits behind the scenes, making sure the businesses that do those things have technology they can rely on.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who We Are"
+    },
+    {
+      "type": "p",
+      "text": "Our team is made up of platform engineers, integration developers, infrastructure specialists and people who've spent years inside brokerage operations. That last part matters. We understand why a withdrawal queue needs certain checks, why a symbol mapping error can cost real money, and why a dealing desk gets twitchy when a price feed goes quiet.",
+      "parentH2": "Who We Are",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "We started because we kept seeing the same problem. Brokers bought a platform from one company, a CRM from another, hosting from a third and liquidity connectivity from a fourth. When something broke, every vendor blamed someone else. We set out to be the team that takes responsibility for how the whole stack fits together.",
+      "parentH2": "Who We Are",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Our Expertise"
+    },
+    {
+      "type": "p",
+      "text": "Our work spans the full technology layer of a brokerage:",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* MT5 and MT4 deployment, configuration and maintenance",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* White label and grey label platform setups",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Trading server hosting, monitoring and disaster recovery",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Liquidity connectivity through bridges, gateways and FIX",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Forex CRM, client portals and back office tooling",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* KYC, AML screening and payment provider integrations",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Branded mobile and web trading experiences",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Prop firm evaluation systems and APIs",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Some clients use us for one of these. Others hand us the entire stack. Either way, the depth of knowledge behind each piece is the same.",
+      "parentH2": "Our Expertise",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "How We Think About Technology"
+    },
+    {
+      "type": "h3",
+      "text": "Fit Before Features",
+      "parentH2": "How We Think About Technology"
+    },
+    {
+      "type": "p",
+      "text": "A long feature list means little if half of it doesn't suit your business. We start with how you operate and choose technology to match, rather than pushing a fixed package.",
+      "parentH2": "How We Think About Technology",
+      "parentH3": "Fit Before Features"
+    },
+    {
+      "type": "h3",
+      "text": "Integration Is the Real Work",
+      "parentH2": "How We Think About Technology"
+    },
+    {
+      "type": "p",
+      "text": "Individual systems are rarely the problem. The connections between them are. That's where we spend most of our attention.",
+      "parentH2": "How We Think About Technology",
+      "parentH3": "Integration Is the Real Work"
+    },
+    {
+      "type": "h3",
+      "text": "Honesty Over Hype",
+      "parentH2": "How We Think About Technology"
+    },
+    {
+      "type": "p",
+      "text": "We won't promise execution speeds, guaranteed uptime or regulatory approval, because nobody can honestly offer those. We'd rather tell you what's realistic and then deliver it.",
+      "parentH2": "How We Think About Technology",
+      "parentH3": "Honesty Over Hype"
+    },
+    {
+      "type": "h3",
+      "text": "Built to Grow",
+      "parentH2": "How We Think About Technology"
+    },
+    {
+      "type": "p",
+      "text": "Whatever we set up for your launch should still make sense when you've got ten times the clients. We design with that next stage in mind.",
+      "parentH2": "How We Think About Technology",
+      "parentH3": "Built to Grow"
+    },
+    {
+      "type": "h2",
+      "text": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "Our work falls into three broad areas.",
+      "parentH2": "What We Deliver",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "Solutions",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "For businesses setting up or running a brokerage. MT5 and MT4 white and grey label setups, turnkey launches, hosting and liquidity connectivity.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Solutions"
+    },
+    {
+      "type": "h3",
+      "text": "Products",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "Specific tools brokers plug into their operations. CRM, broker websites, mobile and web trading apps, manager APIs, PAMM and MAM, prop firm systems and payment integrations.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Products"
+    },
+    {
+      "type": "h3",
+      "text": "Technology",
+      "parentH2": "What We Deliver"
+    },
+    {
+      "type": "p",
+      "text": "The infrastructure underneath. Servers, bridges, FIX connectivity, verification and payment integrations, security, monitoring and backups.",
+      "parentH2": "What We Deliver",
+      "parentH3": "Technology"
+    },
+    {
+      "type": "h2",
+      "text": "How We Work"
+    },
+    {
+      "type": "p",
+      "text": "Every project follows the same four stages. We start with a consultation to understand your business properly. We then design the solution and agree it with you in writing. Next comes integration, where everything is built, connected and tested thoroughly. Finally, we launch with you and stay on to support what we've built.",
+      "parentH2": "How We Work",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Clear stages, clear deliverables and no work you haven't approved.",
+      "parentH2": "How We Work",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Support That Doesn't Disappear"
+    },
+    {
+      "type": "p",
+      "text": "Plenty of technology providers are very attentive until the invoice is paid. We see launch as the start of the relationship, not the end.",
+      "parentH2": "Support That Doesn't Disappear",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "After go-live, our engineers handle monitoring, updates, configuration changes and problem-solving for the environments we've built. Because we set them up, we already know how they work, which means faster answers when something needs fixing.",
+      "parentH2": "Support That Doesn't Disappear",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who We Serve"
+    },
+    {
+      "type": "p",
+      "text": "* New brokerages preparing for their first launch",
+      "parentH2": "Who We Serve",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Established brokers improving, replacing or expanding parts of their stack",
+      "parentH2": "Who We Serve",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Prop trading firms running evaluation and funded trader programmes",
+      "parentH2": "Who We Serve",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Introducing brokers stepping up to operate under their own brand",
+      "parentH2": "Who We Serve",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Fintech businesses adding trading services to existing products",
+      "parentH2": "Who We Serve",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Money managers needing PAMM or MAM infrastructure",
+      "parentH2": "Who We Serve",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Why Brokers Work With Us"
+    },
+    {
+      "type": "h3",
+      "text": "One Accountable Team",
+      "parentH2": "Why Brokers Work With Us"
+    },
+    {
+      "type": "p",
+      "text": "When your stack is built and supported by one team, there's no finger-pointing between vendors when something goes wrong.",
+      "parentH2": "Why Brokers Work With Us",
+      "parentH3": "One Accountable Team"
+    },
+    {
+      "type": "h3",
+      "text": "Flexible Engagements",
+      "parentH2": "Why Brokers Work With Us"
+    },
+    {
+      "type": "p",
+      "text": "Take a single service or the whole stack. Start small and add more as you grow.",
+      "parentH2": "Why Brokers Work With Us",
+      "parentH3": "Flexible Engagements"
+    },
+    {
+      "type": "h3",
+      "text": "Practical Experience",
+      "parentH2": "Why Brokers Work With Us"
+    },
+    {
+      "type": "p",
+      "text": "We understand brokerage operations, not just the code behind them, so our recommendations make sense on the desk as well as on the server.",
+      "parentH2": "Why Brokers Work With Us",
+      "parentH3": "Practical Experience"
+    },
+    {
+      "type": "h3",
+      "text": "Straight Answers",
+      "parentH2": "Why Brokers Work With Us"
+    },
+    {
+      "type": "p",
+      "text": "Realistic timelines, clear costs and honest views on what will and won't work for your business.",
+      "parentH2": "Why Brokers Work With Us",
+      "parentH3": "Straight Answers"
+    },
+    {
+      "type": "h2",
+      "text": "A Note on What We Are"
+    },
+    {
+      "type": "p",
+      "text": "We provide technology, software and infrastructure services to businesses operating in financial markets. We are not a broker, we do not hold or manage client funds, and nothing we publish is investment, legal or regulatory advice. Where our work involves third-party platforms or providers, we're not affiliated with or endorsed by them unless clearly stated. Regulatory requirements vary by jurisdiction and remain the responsibility of each business we work with.",
+      "parentH2": "A Note on What We Are",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Let's Talk About Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Whether you're planning a launch, fixing a stack that's grown messy or adding something new, we'd like to hear what you're working on. As a forex technology company focused purely on brokers, we'll give you a clear view of what's possible and how we'd approach it.",
+      "parentH2": "Let's Talk About Your Brokerage",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Technology for the Modern Forex Brokerage",
+    "subtitle": "Breadcrumb: Home > About Us",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About Us"
+      }
+    ],
+    "backgroundImageKey": "meeting",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "code_ops",
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "meeting",
+    "servers",
+    "world_map",
+    "data_center",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid2",
+    "mediaBand",
+    "cardGrid3",
+    "darkBand",
+    "timeline",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

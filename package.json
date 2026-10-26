@@ -9,9 +9,11 @@
     "dev": "next dev",
     "build": "npm run validate:data && next build",
     "start": "next start",
-    "validate:data": "node scripts/validate-data.mjs",
+    "validate:data": "node scripts/validate-content.mjs",
     "lint": "next lint",
-    "export:xml": "node scripts/export-website-xml.mjs"
+    "export:xml": "node scripts/export-website-xml.mjs",
+    "validate:content": "node scripts/validate-content.mjs",
+    "export:block-manifest": "node scripts/export-block-manifest.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.553.0",

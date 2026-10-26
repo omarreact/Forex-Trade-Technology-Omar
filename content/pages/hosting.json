@@ -1,0 +1,756 @@
+{
+  "id": "hosting",
+  "slug": "/solutions/forex-broker-hosting",
+  "seo": {
+    "title": "Forex Broker Hosting | MT4 & MT5 Server Hosting",
+    "description": "Forex broker hosting for MT4 and MT5, with properly sized servers, security, monitoring, tested backups and a disaster recovery plan you can rely on.",
+    "primaryKeyword": "forex broker hosting",
+    "secondaryKeywords": "forex server hosting, MT5 server hosting, MT4 server hosting, forex VPS, trading server hosting",
+    "canonicalPath": "/solutions/forex-broker-hosting"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex Broker Hosting & Trading Server Infrastructure",
+    "subtitle": "Breadcrumb: Home > Solutions > Forex Broker Hosting",
+    "leadParagraphs": [
+      "Breadcrumb: Home > Solutions > Forex Broker Hosting",
+      "Label: Trading Infrastructure",
+      "Your trading server is the one piece of your brokerage that simply can't have a bad day. When it slows down, clients notice. When it goes offline, they start calling, and some of them start looking elsewhere.",
+      "Our forex broker hosting gives your MT4 or MT5 platform infrastructure that's sized for real trading activity, secured properly and watched closely, with backups and a recovery plan that actually get tested."
+    ],
+    "imageKey": "hosting",
+    "ctas": [
+      {
+        "label": "Request a Consultation",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Why Reliable Hosting Matters for a Brokerage",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Think about a major news release. Thousands of clients log in at once, prices move fast and orders pour in within seconds. That's exactly when weak hosting shows itself. Terminals freeze, history won't load, orders hang."
+        },
+        {
+          "type": "p",
+          "text": "A regular website can get away with a slow afternoon. A trading server can't. It has to handle sudden spikes, stay connected to liquidity without interruption and keep client data safe the whole time."
+        },
+        {
+          "type": "p",
+          "text": "General web hosts rarely understand this. They'll sell you a server, but they won't know how MT5 components fit together, why server location matters for liquidity, or what to do when your platform stops responding at 2am during the Asian session."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Who This Service Is For",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* Brokers preparing to launch and setting up their first trading environment"
+        },
+        {
+          "type": "p",
+          "text": "* Brokers on general-purpose hosting who keep hitting slowdowns during busy markets"
+        },
+        {
+          "type": "p",
+          "text": "* Businesses running MT4 and MT5 side by side and wanting both managed in one place"
+        },
+        {
+          "type": "p",
+          "text": "* Brokers with no real disaster recovery plan, or one nobody has ever tested"
+        },
+        {
+          "type": "p",
+          "text": "* Prop firms whose account numbers are growing faster than their current servers can handle"
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "media-mobile_trade",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "mobile_trade",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "MT5 Hosting",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "MT5 is built differently. It splits work across several types of servers, typically a main trade server, history servers, access servers for client connections and backup servers ready to step in."
+        },
+        {
+          "type": "p",
+          "text": "That spread gives MT5 more flexibility and resilience, but it also means more parts to place and manage well. We design your MT5 server hosting around how each component should sit, where access points should go to suit your client base, and how backup servers are kept in sync so failover works when it matters."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "What's Included",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Server Infrastructure"
+        },
+        {
+          "type": "p",
+          "text": "Properly sized servers for your platform and expected volumes, whether that's cloud, virtual or dedicated hardware. We size for busy market conditions, not quiet Tuesday afternoons, and leave room to grow."
+        },
+        {
+          "type": "h3",
+          "text": "Location Planning"
+        },
+        {
+          "type": "p",
+          "text": "We place your main trading server with your liquidity providers in mind, often in established financial data centre hubs, and put access points closer to where your clients trade from. Data residency rules in your target markets are taken into account too."
+        },
+        {
+          "type": "h3",
+          "text": "Monitoring"
+        },
+        {
+          "type": "p",
+          "text": "Server resources, platform services, network health and liquidity connections are monitored continuously. Our engineers get alerted when something starts to look wrong, which usually means catching a problem before it reaches clients."
+        },
+        {
+          "type": "h3",
+          "text": "Security"
+        },
+        {
+          "type": "p",
+          "text": "Firewalls, tightly controlled admin access, secure connections for your team, regular patching and separation between servers. A trading server holds client data and controls real money, so we treat security as part of the build itself."
+        },
+        {
+          "type": "h3",
+          "text": "Backups"
+        },
+        {
+          "type": "p",
+          "text": "Automated backups on a schedule that suits your trading activity, stored away from your main server. We also restore from them on a regular basis to confirm they actually work."
+        },
+        {
+          "type": "h3",
+          "text": "Disaster Recovery"
+        },
+        {
+          "type": "p",
+          "text": "A written, practiced plan for what happens if your main server fails. Which server takes over, how data is restored, who does what and roughly how long each step takes. You'll have a copy, and so will we."
+        },
+        {
+          "type": "h3",
+          "text": "Performance Reviews"
+        },
+        {
+          "type": "p",
+          "text": "Every so often we look at how your environment is holding up. Resource trends, database growth, slow components, peak-time behaviour. That way upgrades happen when they're needed rather than after something breaks."
+        },
+        {
+          "type": "h3",
+          "text": "Technical Support"
+        },
+        {
+          "type": "p",
+          "text": "Our engineers stay responsible for your hosting after setup. Patching, capacity changes, alert response and help whenever your team needs it."
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "A Note on Forex VPS",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "You'll often see \"forex VPS\" advertised. In most cases that means a small virtual server a trader rents to run expert advisors around the clock. It's a useful product, but it's not the same as broker hosting."
+        },
+        {
+          "type": "p",
+          "text": "What we provide is the infrastructure your brokerage runs on, meaning the servers behind your trading platform. That said, virtual servers can still be a perfectly good choice for parts of a broker's environment, especially for newer operations, and we'll recommend them where they make sense."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 88,
+  "wordCountApprox": 1636,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > Solutions > Forex Broker Hosting",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Trading Infrastructure",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Your trading server is the one piece of your brokerage that simply can't have a bad day. When it slows down, clients notice. When it goes offline, they start calling, and some of them start looking elsewhere.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Our forex broker hosting gives your MT4 or MT5 platform infrastructure that's sized for real trading activity, secured properly and watched closely, with backups and a recovery plan that actually get tested.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Why Reliable Hosting Matters for a Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Think about a major news release. Thousands of clients log in at once, prices move fast and orders pour in within seconds. That's exactly when weak hosting shows itself. Terminals freeze, history won't load, orders hang.",
+      "parentH2": "Why Reliable Hosting Matters for a Brokerage",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "A regular website can get away with a slow afternoon. A trading server can't. It has to handle sudden spikes, stay connected to liquidity without interruption and keep client data safe the whole time.",
+      "parentH2": "Why Reliable Hosting Matters for a Brokerage",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "General web hosts rarely understand this. They'll sell you a server, but they won't know how MT5 components fit together, why server location matters for liquidity, or what to do when your platform stops responding at 2am during the Asian session.",
+      "parentH2": "Why Reliable Hosting Matters for a Brokerage",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who This Service Is For"
+    },
+    {
+      "type": "p",
+      "text": "* Brokers preparing to launch and setting up their first trading environment",
+      "parentH2": "Who This Service Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Brokers on general-purpose hosting who keep hitting slowdowns during busy markets",
+      "parentH2": "Who This Service Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Businesses running MT4 and MT5 side by side and wanting both managed in one place",
+      "parentH2": "Who This Service Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Brokers with no real disaster recovery plan, or one nobody has ever tested",
+      "parentH2": "Who This Service Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Prop firms whose account numbers are growing faster than their current servers can handle",
+      "parentH2": "Who This Service Is For",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "MT4 Hosting"
+    },
+    {
+      "type": "p",
+      "text": "MT4 is still widely used, and plenty of brokers keep it running alongside MT5 for clients who prefer it. Its setup is simpler, usually a main server supported by data centre access points that clients connect through.",
+      "parentH2": "MT4 Hosting",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "That simplicity doesn't mean it can be neglected. We host MT4 environments with sensible resource allocation, access points placed close to your clients, regular backups and monitoring. If you're planning an eventual move to MT5, we'll set things up so both platforms can run together during the transition.",
+      "parentH2": "MT4 Hosting",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "MT5 Hosting"
+    },
+    {
+      "type": "p",
+      "text": "MT5 is built differently. It splits work across several types of servers, typically a main trade server, history servers, access servers for client connections and backup servers ready to step in.",
+      "parentH2": "MT5 Hosting",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "That spread gives MT5 more flexibility and resilience, but it also means more parts to place and manage well. We design your MT5 server hosting around how each component should sit, where access points should go to suit your client base, and how backup servers are kept in sync so failover works when it matters.",
+      "parentH2": "MT5 Hosting",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What's Included"
+    },
+    {
+      "type": "h3",
+      "text": "Server Infrastructure",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Properly sized servers for your platform and expected volumes, whether that's cloud, virtual or dedicated hardware. We size for busy market conditions, not quiet Tuesday afternoons, and leave room to grow.",
+      "parentH2": "What's Included",
+      "parentH3": "Server Infrastructure"
+    },
+    {
+      "type": "h3",
+      "text": "Location Planning",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "We place your main trading server with your liquidity providers in mind, often in established financial data centre hubs, and put access points closer to where your clients trade from. Data residency rules in your target markets are taken into account too.",
+      "parentH2": "What's Included",
+      "parentH3": "Location Planning"
+    },
+    {
+      "type": "h3",
+      "text": "Monitoring",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Server resources, platform services, network health and liquidity connections are monitored continuously. Our engineers get alerted when something starts to look wrong, which usually means catching a problem before it reaches clients.",
+      "parentH2": "What's Included",
+      "parentH3": "Monitoring"
+    },
+    {
+      "type": "h3",
+      "text": "Security",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Firewalls, tightly controlled admin access, secure connections for your team, regular patching and separation between servers. A trading server holds client data and controls real money, so we treat security as part of the build itself.",
+      "parentH2": "What's Included",
+      "parentH3": "Security"
+    },
+    {
+      "type": "h3",
+      "text": "Backups",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Automated backups on a schedule that suits your trading activity, stored away from your main server. We also restore from them on a regular basis to confirm they actually work.",
+      "parentH2": "What's Included",
+      "parentH3": "Backups"
+    },
+    {
+      "type": "h3",
+      "text": "Disaster Recovery",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "A written, practiced plan for what happens if your main server fails. Which server takes over, how data is restored, who does what and roughly how long each step takes. You'll have a copy, and so will we.",
+      "parentH2": "What's Included",
+      "parentH3": "Disaster Recovery"
+    },
+    {
+      "type": "h3",
+      "text": "Performance Reviews",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Every so often we look at how your environment is holding up. Resource trends, database growth, slow components, peak-time behaviour. That way upgrades happen when they're needed rather than after something breaks.",
+      "parentH2": "What's Included",
+      "parentH3": "Performance Reviews"
+    },
+    {
+      "type": "h3",
+      "text": "Technical Support",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Our engineers stay responsible for your hosting after setup. Patching, capacity changes, alert response and help whenever your team needs it.",
+      "parentH2": "What's Included",
+      "parentH3": "Technical Support"
+    },
+    {
+      "type": "h2",
+      "text": "A Note on Forex VPS"
+    },
+    {
+      "type": "p",
+      "text": "You'll often see \"forex VPS\" advertised. In most cases that means a small virtual server a trader rents to run expert advisors around the clock. It's a useful product, but it's not the same as broker hosting.",
+      "parentH2": "A Note on Forex VPS",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "What we provide is the infrastructure your brokerage runs on, meaning the servers behind your trading platform. That said, virtual servers can still be a perfectly good choice for parts of a broker's environment, especially for newer operations, and we'll recommend them where they make sense.",
+      "parentH2": "A Note on Forex VPS",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "How We Set It Up"
+    },
+    {
+      "type": "h3",
+      "text": "01 Consultation",
+      "parentH2": "How We Set It Up"
+    },
+    {
+      "type": "p",
+      "text": "We learn about your business. Platform choice, expected clients and volumes, where your liquidity sits, where your clients are and any regulatory or data requirements.",
+      "parentH2": "How We Set It Up",
+      "parentH3": "01 Consultation"
+    },
+    {
+      "type": "h3",
+      "text": "02 Solution Design",
+      "parentH2": "How We Set It Up"
+    },
+    {
+      "type": "p",
+      "text": "We design your server setup and choose locations, then explain the plan, costs and how recovery will work before anything is built.",
+      "parentH2": "How We Set It Up",
+      "parentH3": "02 Solution Design"
+    },
+    {
+      "type": "h3",
+      "text": "03 Integration",
+      "parentH2": "How We Set It Up"
+    },
+    {
+      "type": "p",
+      "text": "Servers are provisioned and secured, the platform is installed or migrated, liquidity connections are linked up, and monitoring and backups are switched on. Everything is tested, including a trial restore.",
+      "parentH2": "How We Set It Up",
+      "parentH3": "03 Integration"
+    },
+    {
+      "type": "h3",
+      "text": "04 Launch & Support",
+      "parentH2": "How We Set It Up"
+    },
+    {
+      "type": "p",
+      "text": "Your environment goes live, or your migration cutover happens during a quiet window. From there, our team looks after it on an ongoing basis.",
+      "parentH2": "How We Set It Up",
+      "parentH3": "04 Launch & Support"
+    },
+    {
+      "type": "h2",
+      "text": "How a Typical Hosting Environment Is Laid Out"
+    },
+    {
+      "type": "p",
+      "text": "Clients → Access Servers (Close to Client Regions) → Main Trade Server → Liquidity Bridge → Liquidity Providers",
+      "parentH2": "How a Typical Hosting Environment Is Laid Out",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Main Trade Server ↔ Backup Server",
+      "parentH2": "How a Typical Hosting Environment Is Laid Out",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "History Server → Charts & Trade History",
+      "parentH2": "How a Typical Hosting Environment Is Laid Out",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Monitoring → Alerts to Engineers",
+      "parentH2": "How a Typical Hosting Environment Is Laid Out",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Automated Backups → Separate Secure Storage",
+      "parentH2": "How a Typical Hosting Environment Is Laid Out",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Clients never touch your main server directly. They connect through access servers, which protects the core and spreads the load. The main server talks to your liquidity through a bridge, while a backup server stays ready to take over if needed. Backups live in separate storage, so one failure can't wipe out both your live data and your recovery copies.",
+      "parentH2": "How a Typical Hosting Environment Is Laid Out",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "h3",
+      "text": "Steadier Performance When It Counts",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Servers sized and configured for busy markets mean fewer slowdowns during the moments your clients care about most.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Steadier Performance When It Counts"
+    },
+    {
+      "type": "h3",
+      "text": "Faster Recovery",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "With a tested plan and a standby server in place, a hardware failure becomes a managed incident instead of a crisis.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Faster Recovery"
+    },
+    {
+      "type": "h3",
+      "text": "Less Load on Your Team",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Your staff don't need to become server administrators. They can focus on clients, dealing and growth.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Less Load on Your Team"
+    },
+    {
+      "type": "h3",
+      "text": "Room to Grow",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "As your client base expands, capacity can be added in a planned way rather than in a panic.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Room to Grow"
+    },
+    {
+      "type": "h2",
+      "text": "Who Handles What"
+    },
+    {
+      "type": "h3",
+      "text": "What We Take Care Of",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Server design, provisioning, security, monitoring, backups, disaster recovery planning, migrations, performance reviews and ongoing hosting support.",
+      "parentH2": "Who Handles What",
+      "parentH3": "What We Take Care Of"
+    },
+    {
+      "type": "h3",
+      "text": "What Stays With You",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Platform licensing, trading conditions, dealing and risk decisions, client communication, and compliance with data and regulatory rules in your markets.",
+      "parentH2": "Who Handles What",
+      "parentH3": "What Stays With You"
+    },
+    {
+      "type": "h3",
+      "text": "Third Parties",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Data centres, cloud providers, network carriers and the platform developer each work under their own terms. We manage the technical side with them, but their service commitments belong to them. We aren't affiliated with or endorsed by the MT4 or MT5 platform developer unless clearly stated.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Third Parties"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "What's the difference between forex broker hosting and normal web hosting?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Normal hosting is built for websites. Broker hosting is built for trading platforms, which need to handle sudden activity spikes, stay connected to liquidity and protect client data at all times. The setup, monitoring and support are quite different.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What's the difference between forex broker hosting and normal web hosting?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you host MT4 and MT5 together?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. Many brokers run both, and we can host and manage them side by side, including during a move from one to the other.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you host MT4 and MT5 together?"
+    },
+    {
+      "type": "h3",
+      "text": "Where should my trading server be located?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Usually close to your main liquidity providers, with access servers nearer to your clients. Data rules in your target markets can also affect the decision. We'll recommend a setup and explain the reasoning.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Where should my trading server be located?"
+    },
+    {
+      "type": "h3",
+      "text": "Will better hosting improve my execution speed?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Good hosting can cut network delay and remove server-side slowdowns. But execution also depends on your liquidity providers, bridge setup and market conditions, so we won't promise specific speeds.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Will better hosting improve my execution speed?"
+    },
+    {
+      "type": "h3",
+      "text": "What happens if my main server goes down?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Your disaster recovery plan takes over. Depending on your setup, a backup server steps in or data is restored from backup, following steps we've already tested with you.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What happens if my main server goes down?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you move my platform from my current hosting provider?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. We plan and test the migration first, then carry out the cutover during a quiet trading period to keep disruption low.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you move my platform from my current hosting provider?"
+    },
+    {
+      "type": "h3",
+      "text": "Do you offer forex VPS for traders?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Our focus is broker-side forex broker hosting, meaning the infrastructure your trading platform runs on. Trader VPS products are a separate service aimed at individual traders.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do you offer forex VPS for traders?"
+    },
+    {
+      "type": "p",
+      "text": "Tell us which platform you run, how many clients you serve or expect to, and where your liquidity sits. We'll recommend a hosting setup that fits and show you exactly how recovery would work if a server ever failed.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do you offer forex VPS for traders?"
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex Broker Hosting & Trading Server Infrastructure",
+    "subtitle": "Breadcrumb: Home > Solutions > Forex Broker Hosting",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Solutions"
+      },
+      {
+        "label": "Trading Server Hosting"
+      }
+    ],
+    "backgroundImageKey": "servers",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "code_ops",
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "servers",
+    "world_map",
+    "data_center",
+    "growth",
+    "handshake",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid2",
+    "mediaBand",
+    "timeline",
+    "cardGrid3",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

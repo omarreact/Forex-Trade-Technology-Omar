@@ -1,0 +1,719 @@
+{
+  "id": "payments",
+  "slug": "/products/payment-gateway-integration",
+  "seo": {
+    "title": "Forex Payment Gateway Integration | Deposits & Withdrawals for Brokers",
+    "description": "Forex payment gateway integration for MT4 and MT5 brokers. Connect PSPs, automate deposits, control withdrawals and reconcile every transaction with your CRM.",
+    "primaryKeyword": "forex payment gateway",
+    "secondaryKeywords": "forex broker payment gateway, payment integration, broker payment solution, PSP integration for brokers",
+    "canonicalPath": "/products/payment-gateway-integration"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Payment Gateway Integration for Forex Brokers",
+    "subtitle": "Breadcrumb: Home > Products > Payment Gateway Integration",
+    "leadParagraphs": [
+      "Breadcrumb: Home > Products > Payment Gateway Integration",
+      "Label: Funding Infrastructure",
+      "Money moving in and out is where client trust gets won or lost. A deposit that takes hours to show up in a trading account makes people nervous. A withdrawal stuck in limbo makes them angry. And a finance team reconciling payments line by line against bank statements is a finance team that never gets ahead.",
+      "We connect your forex payment gateway providers to your CRM and trading platform so deposits credit quickly, withdrawals follow a controlled approval path, and every transaction can be traced from the client's click to the final balance."
+    ],
+    "imageKey": "payments",
+    "ctas": [
+      {
+        "label": "Request a Consultation",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Why Payments Are Harder for Brokers",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Online shops take a payment and ship a product. Brokers deal with something messier. Money arrives in many currencies, through many methods, from clients in many countries. It has to land in the correct trading account, often within minutes. Then, unlike most businesses, you also have to send money back out, regularly and securely, after checking it's going to the right person."
+        },
+        {
+          "type": "p",
+          "text": "On top of that, forex is treated as higher risk by many payment companies, so brokers often end up juggling several providers. Each one has its own API, its own status codes, its own settlement timing and its own quirks. Without proper integration, the result is manual work, delays and errors that are painful to unpick later."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Who This Is For",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* Brokers setting up their first payment methods ahead of launch"
+        },
+        {
+          "type": "p",
+          "text": "* Brokerages adding local payment options to grow in new regions"
+        },
+        {
+          "type": "p",
+          "text": "* Firms whose deposits still need someone to manually credit trading accounts"
+        },
+        {
+          "type": "p",
+          "text": "* Businesses that have lost a provider before and want backup routes in place"
+        },
+        {
+          "type": "p",
+          "text": "* Prop firms handling challenge fees on the way in and trader payouts on the way out"
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "media-collaboration",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "collaboration",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "How a Payment Integration Project Runs",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "01 Consultation"
+        },
+        {
+          "type": "p",
+          "text": "We look at your target markets, preferred payment methods, existing provider agreements, withdrawal policy and current pain points."
+        },
+        {
+          "type": "h3",
+          "text": "02 Solution Design"
+        },
+        {
+          "type": "p",
+          "text": "We plan provider connections, deposit and withdrawal flows, approval rules, routing logic and reconciliation reporting. You approve the design before development starts."
+        },
+        {
+          "type": "h3",
+          "text": "03 Integration"
+        },
+        {
+          "type": "p",
+          "text": "Each provider is connected in its test environment first. We run through successful payments, declines, partial refunds, reversals, delayed confirmations and duplicate notifications. Withdrawal approvals and balance updates are tested end to end."
+        },
+        {
+          "type": "h3",
+          "text": "04 Launch & Support"
+        },
+        {
+          "type": "p",
+          "text": "We move to live credentials, monitor early transactions closely and stay on hand to add providers, adjust routing or resolve issues as your business grows."
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "How the Payment Flow Connects",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Client Portal → Deposit Request → Payment Provider Secure Page → Provider Confirmation via Webhook → CRM Transaction Record → MT4 / MT5 Balance Update"
+        },
+        {
+          "type": "p",
+          "text": "Client Portal → Withdrawal Request → Finance Approval Queue → Payout via Provider → CRM Record → MT4 / MT5 Balance Update"
+        },
+        {
+          "type": "p",
+          "text": "All Transactions → Daily Reconciliation Report"
+        },
+        {
+          "type": "p",
+          "text": "Deposits flow from the portal through the provider and back as a confirmed transaction that credits the trading account. Withdrawals travel the other way, pausing for approval before payout. Every movement feeds the reconciliation report so nothing slips through unnoticed."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Benefits for Your Brokerage",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "Quicker Funding"
+        },
+        {
+          "type": "p",
+          "text": "Clients see deposits on their accounts soon after paying, which means they can start trading while they're still keen."
+        },
+        {
+          "type": "h3",
+          "text": "Controlled Payouts"
+        },
+        {
+          "type": "p",
+          "text": "Withdrawals follow your rules every time, with a clear record of who approved what."
+        },
+        {
+          "type": "h3",
+          "text": "Less Manual Finance Work"
+        },
+        {
+          "type": "p",
+          "text": "Automatic crediting and daily reconciliation free your finance team from the spreadsheet grind."
+        },
+        {
+          "type": "h3",
+          "text": "Resilience"
+        },
+        {
+          "type": "p",
+          "text": "Backup providers keep clients funding even when one provider has a bad day."
+        },
+        {
+          "type": "h3",
+          "text": "Room to Expand"
+        },
+        {
+          "type": "p",
+          "text": "Adding a local payment method for a new market becomes a manageable project, not a rebuild."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 81,
+  "wordCountApprox": 1531,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > Products > Payment Gateway Integration",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Funding Infrastructure",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Money moving in and out is where client trust gets won or lost. A deposit that takes hours to show up in a trading account makes people nervous. A withdrawal stuck in limbo makes them angry. And a finance team reconciling payments line by line against bank statements is a finance team that never gets ahead.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "We connect your forex payment gateway providers to your CRM and trading platform so deposits credit quickly, withdrawals follow a controlled approval path, and every transaction can be traced from the client's click to the final balance.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Why Payments Are Harder for Brokers"
+    },
+    {
+      "type": "p",
+      "text": "Online shops take a payment and ship a product. Brokers deal with something messier. Money arrives in many currencies, through many methods, from clients in many countries. It has to land in the correct trading account, often within minutes. Then, unlike most businesses, you also have to send money back out, regularly and securely, after checking it's going to the right person.",
+      "parentH2": "Why Payments Are Harder for Brokers",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "On top of that, forex is treated as higher risk by many payment companies, so brokers often end up juggling several providers. Each one has its own API, its own status codes, its own settlement timing and its own quirks. Without proper integration, the result is manual work, delays and errors that are painful to unpick later.",
+      "parentH2": "Why Payments Are Harder for Brokers",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who This Is For"
+    },
+    {
+      "type": "p",
+      "text": "* Brokers setting up their first payment methods ahead of launch",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Brokerages adding local payment options to grow in new regions",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Firms whose deposits still need someone to manually credit trading accounts",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Businesses that have lost a provider before and want backup routes in place",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Prop firms handling challenge fees on the way in and trader payouts on the way out",
+      "parentH2": "Who This Is For",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What's Included"
+    },
+    {
+      "type": "h3",
+      "text": "Payment Architecture",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "We plan how your payment providers fit together. Which methods serve which countries, which currencies each supports, where card payments go versus bank transfers or e-wallets, and how everything reports back into a single view. Good structure here saves a lot of patching later.",
+      "parentH2": "What's Included",
+      "parentH3": "Payment Architecture"
+    },
+    {
+      "type": "h3",
+      "text": "Deposit Workflow",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "A client chooses an amount and method in your client portal, completes payment on the provider's secure page, and once the provider confirms success, the funds appear on their trading account. Failed or abandoned payments are recorded too, so your support team can see exactly what happened when a client gets in touch.",
+      "parentH2": "What's Included",
+      "parentH3": "Deposit Workflow"
+    },
+    {
+      "type": "h3",
+      "text": "Withdrawal Workflow",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Withdrawal requests move into a review queue rather than going out automatically. Your finance team can check verification status, open positions, available margin, previous deposit methods and any rules you apply, such as returning funds to the original source first. Once approved, the payout is sent through the relevant provider and the client's balance updates.",
+      "parentH2": "What's Included",
+      "parentH3": "Withdrawal Workflow"
+    },
+    {
+      "type": "h3",
+      "text": "Webhooks and Status Handling",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Providers send real-time notifications when a payment succeeds, fails, is reversed or is still pending. We set your systems up to listen for these messages, verify they're genuine and act on them correctly, including handling duplicates and delayed callbacks without double-crediting anyone.",
+      "parentH2": "What's Included",
+      "parentH3": "Webhooks and Status Handling"
+    },
+    {
+      "type": "h3",
+      "text": "Reconciliation",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Daily matching between what providers report, what your CRM recorded and what landed on trading accounts. Mismatches are flagged instead of quietly piling up until month end.",
+      "parentH2": "What's Included",
+      "parentH3": "Reconciliation"
+    },
+    {
+      "type": "h3",
+      "text": "CRM and Balance Synchronisation",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Every deposit and withdrawal is logged against the client profile in your CRM and reflected on their MT4 or MT5 account. Your finance, support and compliance teams all look at the same numbers.",
+      "parentH2": "What's Included",
+      "parentH3": "CRM and Balance Synchronisation"
+    },
+    {
+      "type": "h3",
+      "text": "Multiple Providers and Backup Routes",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Payment providers sometimes go down, change their risk appetite or exit a market altogether. With more than one provider connected for key methods, you can route traffic elsewhere if one stops working. Routing can also follow country, currency or amount rules.",
+      "parentH2": "What's Included",
+      "parentH3": "Multiple Providers and Backup Routes"
+    },
+    {
+      "type": "h3",
+      "text": "Security Setup",
+      "parentH2": "What's Included"
+    },
+    {
+      "type": "p",
+      "text": "Card details are handled on the provider's own secure pages rather than passing through your servers, which keeps sensitive data out of your systems and reduces your exposure. API credentials are stored securely, callback endpoints are protected, and staff access to payment functions is limited by role.",
+      "parentH2": "What's Included",
+      "parentH3": "Security Setup"
+    },
+    {
+      "type": "h2",
+      "text": "How a Payment Integration Project Runs"
+    },
+    {
+      "type": "h3",
+      "text": "01 Consultation",
+      "parentH2": "How a Payment Integration Project Runs"
+    },
+    {
+      "type": "p",
+      "text": "We look at your target markets, preferred payment methods, existing provider agreements, withdrawal policy and current pain points.",
+      "parentH2": "How a Payment Integration Project Runs",
+      "parentH3": "01 Consultation"
+    },
+    {
+      "type": "h3",
+      "text": "02 Solution Design",
+      "parentH2": "How a Payment Integration Project Runs"
+    },
+    {
+      "type": "p",
+      "text": "We plan provider connections, deposit and withdrawal flows, approval rules, routing logic and reconciliation reporting. You approve the design before development starts.",
+      "parentH2": "How a Payment Integration Project Runs",
+      "parentH3": "02 Solution Design"
+    },
+    {
+      "type": "h3",
+      "text": "03 Integration",
+      "parentH2": "How a Payment Integration Project Runs"
+    },
+    {
+      "type": "p",
+      "text": "Each provider is connected in its test environment first. We run through successful payments, declines, partial refunds, reversals, delayed confirmations and duplicate notifications. Withdrawal approvals and balance updates are tested end to end.",
+      "parentH2": "How a Payment Integration Project Runs",
+      "parentH3": "03 Integration"
+    },
+    {
+      "type": "h3",
+      "text": "04 Launch & Support",
+      "parentH2": "How a Payment Integration Project Runs"
+    },
+    {
+      "type": "p",
+      "text": "We move to live credentials, monitor early transactions closely and stay on hand to add providers, adjust routing or resolve issues as your business grows.",
+      "parentH2": "How a Payment Integration Project Runs",
+      "parentH3": "04 Launch & Support"
+    },
+    {
+      "type": "h2",
+      "text": "How the Payment Flow Connects"
+    },
+    {
+      "type": "p",
+      "text": "Client Portal → Deposit Request → Payment Provider Secure Page → Provider Confirmation via Webhook → CRM Transaction Record → MT4 / MT5 Balance Update",
+      "parentH2": "How the Payment Flow Connects",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Client Portal → Withdrawal Request → Finance Approval Queue → Payout via Provider → CRM Record → MT4 / MT5 Balance Update",
+      "parentH2": "How the Payment Flow Connects",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "All Transactions → Daily Reconciliation Report",
+      "parentH2": "How the Payment Flow Connects",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Deposits flow from the portal through the provider and back as a confirmed transaction that credits the trading account. Withdrawals travel the other way, pausing for approval before payout. Every movement feeds the reconciliation report so nothing slips through unnoticed.",
+      "parentH2": "How the Payment Flow Connects",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "h3",
+      "text": "Quicker Funding",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Clients see deposits on their accounts soon after paying, which means they can start trading while they're still keen.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Quicker Funding"
+    },
+    {
+      "type": "h3",
+      "text": "Controlled Payouts",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Withdrawals follow your rules every time, with a clear record of who approved what.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Controlled Payouts"
+    },
+    {
+      "type": "h3",
+      "text": "Less Manual Finance Work",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Automatic crediting and daily reconciliation free your finance team from the spreadsheet grind.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Less Manual Finance Work"
+    },
+    {
+      "type": "h3",
+      "text": "Resilience",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Backup providers keep clients funding even when one provider has a bad day.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Resilience"
+    },
+    {
+      "type": "h3",
+      "text": "Room to Expand",
+      "parentH2": "Benefits for Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Adding a local payment method for a new market becomes a manageable project, not a rebuild.",
+      "parentH2": "Benefits for Your Brokerage",
+      "parentH3": "Room to Expand"
+    },
+    {
+      "type": "h2",
+      "text": "Who Handles What"
+    },
+    {
+      "type": "h3",
+      "text": "What We Handle",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Payment architecture planning, provider integrations, deposit and withdrawal workflows, webhook handling, routing rules, reconciliation reporting, CRM and platform synchronisation, testing and ongoing technical support.",
+      "parentH2": "Who Handles What",
+      "parentH3": "What We Handle"
+    },
+    {
+      "type": "h3",
+      "text": "What Stays With You",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Signing agreements with payment providers, passing their onboarding and risk reviews, setting your withdrawal and refund policies, approving payouts, managing chargebacks and disputes, and meeting all financial, AML and regulatory obligations in your markets.",
+      "parentH2": "Who Handles What",
+      "parentH3": "What Stays With You"
+    },
+    {
+      "type": "h3",
+      "text": "Payment Providers",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Each provider sets its own fees, settlement times, supported countries, risk rules and service levels. Whether a provider will accept your business is their decision. We're a technology company, we don't process payments ourselves, and we never hold or manage client funds. We're not affiliated with any payment provider or the MT4 and MT5 platform developer unless clearly stated.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Payment Providers"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "Do you provide a forex payment gateway yourselves?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "No. We integrate the payment providers you hold agreements with. The providers process the money, and we build the technical connections around them.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do you provide a forex payment gateway yourselves?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you help us find payment providers that accept forex brokers?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "We can explain the technical considerations worth checking, such as supported methods, APIs, webhooks and settlement reporting. Commercial approval and terms are between you and each provider.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you help us find payment providers that accept forex brokers?"
+    },
+    {
+      "type": "h3",
+      "text": "How quickly do deposits reach trading accounts?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Once the provider confirms a successful payment, the balance can update automatically. Overall timing depends on the payment method and the provider, since some methods confirm almost instantly while bank transfers can take longer.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How quickly do deposits reach trading accounts?"
+    },
+    {
+      "type": "h3",
+      "text": "Can withdrawals be fully automatic?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "They can, but most brokers prefer an approval step for checks like verification status, open positions and source-of-funds rules. We set it up however your policy requires.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can withdrawals be fully automatic?"
+    },
+    {
+      "type": "h3",
+      "text": "What happens if a payment provider goes offline?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "If you have a backup provider connected for that method, routing can switch so clients can still deposit. Without one, that method is unavailable until the provider recovers.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "What happens if a payment provider goes offline?"
+    },
+    {
+      "type": "h3",
+      "text": "Do card details pass through our servers?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "In a standard setup, no. Clients enter card details on the provider's secure page, which keeps that data out of your systems.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Do card details pass through our servers?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you connect crypto payment options?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Where you've agreed terms with a crypto payment provider that offers an API, yes. Regulatory treatment of crypto payments differs by jurisdiction, so check your obligations first.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you connect crypto payment options?"
+    },
+    {
+      "type": "h3",
+      "text": "How does reconciliation work?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Provider reports, CRM records and trading account balances are matched daily. Anything that doesn't line up is flagged so your finance team can investigate. This is one of the main benefits of a proper forex payment gateway integration.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How does reconciliation work?"
+    },
+    {
+      "type": "h2",
+      "text": "Make Funding the Smoothest Part of Your Brokerage"
+    },
+    {
+      "type": "p",
+      "text": "Tell us which markets you serve, the payment methods your clients prefer and the providers you're working with. We'll map out an integration plan that gets deposits in faster and keeps withdrawals firmly under control.",
+      "parentH2": "Make Funding the Smoothest Part of Your Brokerage",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Payment Gateway Integration for Forex Brokers",
+    "subtitle": "Breadcrumb: Home > Products > Payment Gateway Integration",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Products"
+      },
+      {
+        "label": "Payment Gateway"
+      }
+    ],
+    "backgroundImageKey": "payments",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "servers",
+    "payments",
+    "world_map",
+    "data_center",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid3",
+    "mediaBand",
+    "cardGrid2",
+    "darkBand",
+    "timeline",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

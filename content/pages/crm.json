@@ -1,0 +1,830 @@
+{
+  "id": "crm",
+  "slug": "/products/forex-crm",
+  "seo": {
+    "title": "Forex CRM Software | CRM for Forex Brokers",
+    "description": "Forex CRM software that runs your whole client lifecycle. Leads, KYC, deposits, withdrawals, trading accounts, IBs and reporting, connected to MT4 and MT5.",
+    "primaryKeyword": "forex CRM",
+    "secondaryKeywords": "forex CRM software, forex broker CRM, CRM for forex brokers, forex back office, forex client management system",
+    "canonicalPath": "/products/forex-crm"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex CRM Software for Brokers",
+    "subtitle": "Breadcrumb: Home > Products > Forex CRM",
+    "leadParagraphs": [
+      "Breadcrumb: Home > Products > Forex CRM",
+      "Label: Client Operations Platform",
+      "Ask any brokerage operations manager where the day disappears, and you'll hear the same answers. Chasing missing ID documents. Matching deposits to the right client. Working out which introducer referred whom. Creating trading accounts by hand. Pulling numbers together for the weekly meeting.",
+      "A proper forex CRM takes that scattered work and puts it in one place. Every prospect, every verification, every payment and every trading account sits in a single system linked straight to your MT4 or MT5 server, so your staff stop juggling tabs and start actually serving clients."
+    ],
+    "imageKey": "crm",
+    "ctas": [
+      {
+        "label": "Request a Consultation",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "What Is a Forex CRM?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "General sales CRMs were designed for tracking deals and phone calls. They have no idea what a margin account is, how a withdrawal request should be checked, or why an introducing broker expects a rebate on every lot traded."
+        },
+        {
+          "type": "p",
+          "text": "A CRM built for brokers handles all of that. It manages prospects and sales activity, yes, but it also runs onboarding, identity checks, funding, trading account creation, partner commissions and reporting. Many brokers think of it as their back office and their client portal rolled together, since clients log in to it too, to upload documents, deposit money and open new accounts."
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Who Uses It",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* Newly launched brokers who need a client lifecycle in place before the first sign-up"
+        },
+        {
+          "type": "p",
+          "text": "* Growing brokerages whose spreadsheets and email threads have stopped scaling"
+        },
+        {
+          "type": "p",
+          "text": "* Firms replacing an older CRM that never integrated properly with their trading server"
+        },
+        {
+          "type": "p",
+          "text": "* Businesses running large introducing broker or affiliate networks"
+        },
+        {
+          "type": "p",
+          "text": "* Brokers with sales teams across several regions and languages"
+        }
+      ],
+      "layout": "cardGrid3",
+      "density": "compact"
+    },
+    {
+      "id": "media-network",
+      "type": "mediaBand",
+      "layout": "mediaBand",
+      "media": {
+        "imageKey": "network",
+        "layout": "mediaBand",
+        "height": "300px",
+        "loading": "lazy"
+      }
+    },
+    {
+      "id": "section-4",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "MT5, Payment and KYC Integration",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The value of a broker CRM comes almost entirely from how well it links to everything around it."
+        },
+        {
+          "type": "h3",
+          "text": "MT4 and MT5 Connection"
+        },
+        {
+          "type": "p",
+          "text": "The CRM talks to your trading server through manager API access. Accounts are created, balances adjusted after deposits and withdrawals, groups assigned and trading data pulled in for reporting and commission calculation. No retyping between systems."
+        },
+        {
+          "type": "h3",
+          "text": "Payment Provider Integration"
+        },
+        {
+          "type": "p",
+          "text": "Card processors, bank transfer services, local payment methods and crypto gateways can be plugged in. Payment confirmations arrive automatically, so deposits credit without someone checking a bank statement first."
+        },
+        {
+          "type": "h3",
+          "text": "KYC Provider Integration"
+        },
+        {
+          "type": "p",
+          "text": "Automated identity verification, liveness checks and sanctions screening services can be linked, depending on which providers you use and what they support. Results flow straight onto the client profile."
+        },
+        {
+          "type": "h3",
+          "text": "Website and Other Systems"
+        },
+        {
+          "type": "p",
+          "text": "Registration forms on your website feed the CRM directly. Marketing tools, help desk software, telephony and accounting systems can connect through APIs and webhooks where needed."
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "How the CRM Sits in Your Technology Stack",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Client → Broker Website → Forex CRM (KYC, Payments, IB) → MT5 / MT4 Server → Liquidity Bridge → Liquidity Providers"
+        },
+        {
+          "type": "p",
+          "text": "A prospect registers on your website and lands in the CRM. They're verified through the KYC flow, fund through an integrated payment provider and receive a trading account generated on your MT5 or MT4 server. Their trades route out through your bridge to liquidity, while trading data flows back into the CRM to drive reports and partner commissions."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "section-6",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "How We Roll It Out",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "01 Consultation"
+        },
+        {
+          "type": "p",
+          "text": "We map your current process. How leads arrive, how onboarding works today, which payment and verification providers you use, how your partner programme is structured and where things get stuck."
+        },
+        {
+          "type": "h3",
+          "text": "02 Solution Design"
+        },
+        {
+          "type": "p",
+          "text": "We agree on account types, onboarding forms, approval rules, user roles, commission plans and integrations. If you're replacing an existing system, we also plan how client data will move across."
+        },
+        {
+          "type": "h3",
+          "text": "03 Integration"
+        },
+        {
+          "type": "p",
+          "text": "The CRM is configured and branded, connected to your trading server, payment providers and verification services, then tested end to end with realistic client journeys. Your team gets training on the parts they'll use."
+        },
+        {
+          "type": "h3",
+          "text": "04 Launch & Support"
+        },
+        {
+          "type": "p",
+          "text": "We go live, monitor the first weeks closely and stay available for configuration changes, new integrations and technical help as you grow."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 102,
+  "wordCountApprox": 1741,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > Products > Forex CRM",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Client Operations Platform",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Ask any brokerage operations manager where the day disappears, and you'll hear the same answers. Chasing missing ID documents. Matching deposits to the right client. Working out which introducer referred whom. Creating trading accounts by hand. Pulling numbers together for the weekly meeting.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "A proper forex CRM takes that scattered work and puts it in one place. Every prospect, every verification, every payment and every trading account sits in a single system linked straight to your MT4 or MT5 server, so your staff stop juggling tabs and start actually serving clients.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What Is a Forex CRM?"
+    },
+    {
+      "type": "p",
+      "text": "General sales CRMs were designed for tracking deals and phone calls. They have no idea what a margin account is, how a withdrawal request should be checked, or why an introducing broker expects a rebate on every lot traded.",
+      "parentH2": "What Is a Forex CRM?",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "A CRM built for brokers handles all of that. It manages prospects and sales activity, yes, but it also runs onboarding, identity checks, funding, trading account creation, partner commissions and reporting. Many brokers think of it as their back office and their client portal rolled together, since clients log in to it too, to upload documents, deposit money and open new accounts.",
+      "parentH2": "What Is a Forex CRM?",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Who Uses It"
+    },
+    {
+      "type": "p",
+      "text": "* Newly launched brokers who need a client lifecycle in place before the first sign-up",
+      "parentH2": "Who Uses It",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Growing brokerages whose spreadsheets and email threads have stopped scaling",
+      "parentH2": "Who Uses It",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Firms replacing an older CRM that never integrated properly with their trading server",
+      "parentH2": "Who Uses It",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Businesses running large introducing broker or affiliate networks",
+      "parentH2": "Who Uses It",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Brokers with sales teams across several regions and languages",
+      "parentH2": "Who Uses It",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Features Organised Around How a Brokerage Actually Works"
+    },
+    {
+      "type": "p",
+      "text": "Rather than listing features in a random pile, here they are in the order a client experiences them.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "Stage 1: Acquire & Convert",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works"
+    },
+    {
+      "type": "p",
+      "text": "Lead Management",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 1: Acquire & Convert"
+    },
+    {
+      "type": "p",
+      "text": "Prospects arrive from your website, landing pages, partners and campaigns, and every one of them is captured automatically with its source recorded. Sales staff see who to call next, log conversations, set follow-ups and move leads through custom stages. Managers can reassign leads by region, language or workload.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 1: Acquire & Convert"
+    },
+    {
+      "type": "p",
+      "text": "Campaign and Source Tracking",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 1: Acquire & Convert"
+    },
+    {
+      "type": "p",
+      "text": "Find out which channels deliver clients who actually fund, rather than just sign up. That insight helps marketing spend go where it earns something back.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 1: Acquire & Convert"
+    },
+    {
+      "type": "h3",
+      "text": "Stage 2: Onboard & Verify",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works"
+    },
+    {
+      "type": "p",
+      "text": "Client Registration",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 2: Onboard & Verify"
+    },
+    {
+      "type": "p",
+      "text": "A branded sign-up flow collects the details you need, with forms that can change by jurisdiction or account type.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 2: Onboard & Verify"
+    },
+    {
+      "type": "p",
+      "text": "KYC Processing",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 2: Onboard & Verify"
+    },
+    {
+      "type": "p",
+      "text": "Clients upload identity and address documents through the portal, or verify through an automated identity check provider you've connected. Your compliance team reviews submissions in a queue, approves, rejects or requests more information, and every decision is stamped with who made it and when.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 2: Onboard & Verify"
+    },
+    {
+      "type": "p",
+      "text": "Client Management",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 2: Onboard & Verify"
+    },
+    {
+      "type": "p",
+      "text": "Each client gets a single profile holding personal details, documents, verification status, linked accounts, transaction history, notes and communication records. Anyone with the right permission can see the full picture in seconds.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 2: Onboard & Verify"
+    },
+    {
+      "type": "h3",
+      "text": "Stage 3: Fund & Operate",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works"
+    },
+    {
+      "type": "p",
+      "text": "Deposits and Withdrawals",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 3: Fund & Operate"
+    },
+    {
+      "type": "p",
+      "text": "Clients fund through whichever payment methods you've integrated. Deposits credit their trading account once confirmed. Withdrawal requests flow into an approval queue where your finance team checks them against your policies before releasing funds.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 3: Fund & Operate"
+    },
+    {
+      "type": "p",
+      "text": "Trading Account Management",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 3: Fund & Operate"
+    },
+    {
+      "type": "p",
+      "text": "Once verified, clients can open live or demo accounts themselves, choosing from the account types you offer. The CRM creates them on MT4 or MT5 instantly, places them in the correct group and sends login details. Internal transfers between accounts, leverage change requests and account archiving all happen here too.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 3: Fund & Operate"
+    },
+    {
+      "type": "p",
+      "text": "Notifications",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 3: Fund & Operate"
+    },
+    {
+      "type": "p",
+      "text": "Automated emails and in-portal alerts keep clients informed. Document approved, deposit received, withdrawal processed, margin level warning. Templates can be edited and translated.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 3: Fund & Operate"
+    },
+    {
+      "type": "h3",
+      "text": "Stage 4: Grow & Retain",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works"
+    },
+    {
+      "type": "p",
+      "text": "IB Management",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 4: Grow & Retain"
+    },
+    {
+      "type": "p",
+      "text": "Introducing brokers get their own portal area with referral links, client lists and earnings dashboards. You can set up multi-level structures where sub-partners sit under master partners.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 4: Grow & Retain"
+    },
+    {
+      "type": "p",
+      "text": "Commissions and Rebates",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 4: Grow & Retain"
+    },
+    {
+      "type": "p",
+      "text": "Rebate plans can be per lot, per trade, a share of spread or a fixed amount per funded client. The CRM calculates payouts from actual trading data and shows partners exactly what they've earned and why.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 4: Grow & Retain"
+    },
+    {
+      "type": "p",
+      "text": "Reporting",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 4: Grow & Retain"
+    },
+    {
+      "type": "p",
+      "text": "Funded accounts, net deposits, trading volume, IB performance, sales team conversion, KYC backlog and more. Reports can be filtered by date, region, account type or staff member, then exported for your accounting or board meetings.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Stage 4: Grow & Retain"
+    },
+    {
+      "type": "h3",
+      "text": "Across Every Stage: Role-Based Access",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works"
+    },
+    {
+      "type": "p",
+      "text": "Sales sees leads. Compliance sees documents. Finance sees payments. Dealing sees trading data. Each user gets precisely the access their job needs, and an audit log records every action taken inside the system.",
+      "parentH2": "Features Organised Around How a Brokerage Actually Works",
+      "parentH3": "Across Every Stage: Role-Based Access"
+    },
+    {
+      "type": "h2",
+      "text": "MT5, Payment and KYC Integration"
+    },
+    {
+      "type": "p",
+      "text": "The value of a broker CRM comes almost entirely from how well it links to everything around it.",
+      "parentH2": "MT5, Payment and KYC Integration",
+      "parentH3": null
+    },
+    {
+      "type": "h3",
+      "text": "MT4 and MT5 Connection",
+      "parentH2": "MT5, Payment and KYC Integration"
+    },
+    {
+      "type": "p",
+      "text": "The CRM talks to your trading server through manager API access. Accounts are created, balances adjusted after deposits and withdrawals, groups assigned and trading data pulled in for reporting and commission calculation. No retyping between systems.",
+      "parentH2": "MT5, Payment and KYC Integration",
+      "parentH3": "MT4 and MT5 Connection"
+    },
+    {
+      "type": "h3",
+      "text": "Payment Provider Integration",
+      "parentH2": "MT5, Payment and KYC Integration"
+    },
+    {
+      "type": "p",
+      "text": "Card processors, bank transfer services, local payment methods and crypto gateways can be plugged in. Payment confirmations arrive automatically, so deposits credit without someone checking a bank statement first.",
+      "parentH2": "MT5, Payment and KYC Integration",
+      "parentH3": "Payment Provider Integration"
+    },
+    {
+      "type": "h3",
+      "text": "KYC Provider Integration",
+      "parentH2": "MT5, Payment and KYC Integration"
+    },
+    {
+      "type": "p",
+      "text": "Automated identity verification, liveness checks and sanctions screening services can be linked, depending on which providers you use and what they support. Results flow straight onto the client profile.",
+      "parentH2": "MT5, Payment and KYC Integration",
+      "parentH3": "KYC Provider Integration"
+    },
+    {
+      "type": "h3",
+      "text": "Website and Other Systems",
+      "parentH2": "MT5, Payment and KYC Integration"
+    },
+    {
+      "type": "p",
+      "text": "Registration forms on your website feed the CRM directly. Marketing tools, help desk software, telephony and accounting systems can connect through APIs and webhooks where needed.",
+      "parentH2": "MT5, Payment and KYC Integration",
+      "parentH3": "Website and Other Systems"
+    },
+    {
+      "type": "h2",
+      "text": "How the CRM Sits in Your Technology Stack"
+    },
+    {
+      "type": "p",
+      "text": "Client → Broker Website → Forex CRM (KYC, Payments, IB) → MT5 / MT4 Server → Liquidity Bridge → Liquidity Providers",
+      "parentH2": "How the CRM Sits in Your Technology Stack",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "A prospect registers on your website and lands in the CRM. They're verified through the KYC flow, fund through an integrated payment provider and receive a trading account generated on your MT5 or MT4 server. Their trades route out through your bridge to liquidity, while trading data flows back into the CRM to drive reports and partner commissions.",
+      "parentH2": "How the CRM Sits in Your Technology Stack",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "How We Roll It Out"
+    },
+    {
+      "type": "h3",
+      "text": "01 Consultation",
+      "parentH2": "How We Roll It Out"
+    },
+    {
+      "type": "p",
+      "text": "We map your current process. How leads arrive, how onboarding works today, which payment and verification providers you use, how your partner programme is structured and where things get stuck.",
+      "parentH2": "How We Roll It Out",
+      "parentH3": "01 Consultation"
+    },
+    {
+      "type": "h3",
+      "text": "02 Solution Design",
+      "parentH2": "How We Roll It Out"
+    },
+    {
+      "type": "p",
+      "text": "We agree on account types, onboarding forms, approval rules, user roles, commission plans and integrations. If you're replacing an existing system, we also plan how client data will move across.",
+      "parentH2": "How We Roll It Out",
+      "parentH3": "02 Solution Design"
+    },
+    {
+      "type": "h3",
+      "text": "03 Integration",
+      "parentH2": "How We Roll It Out"
+    },
+    {
+      "type": "p",
+      "text": "The CRM is configured and branded, connected to your trading server, payment providers and verification services, then tested end to end with realistic client journeys. Your team gets training on the parts they'll use.",
+      "parentH2": "How We Roll It Out",
+      "parentH3": "03 Integration"
+    },
+    {
+      "type": "h3",
+      "text": "04 Launch & Support",
+      "parentH2": "How We Roll It Out"
+    },
+    {
+      "type": "p",
+      "text": "We go live, monitor the first weeks closely and stay available for configuration changes, new integrations and technical help as you grow.",
+      "parentH2": "How We Roll It Out",
+      "parentH3": "04 Launch & Support"
+    },
+    {
+      "type": "h2",
+      "text": "What Changes for Your Team"
+    },
+    {
+      "type": "h3",
+      "text": "Less Manual Work",
+      "parentH2": "What Changes for Your Team"
+    },
+    {
+      "type": "p",
+      "text": "Account creation, deposit crediting, commission calculation and client notifications happen automatically, freeing people for work that needs judgement.",
+      "parentH2": "What Changes for Your Team",
+      "parentH3": "Less Manual Work"
+    },
+    {
+      "type": "h3",
+      "text": "Faster Onboarding",
+      "parentH2": "What Changes for Your Team"
+    },
+    {
+      "type": "p",
+      "text": "Clients move from registration to a funded account with fewer delays, which usually means fewer prospects dropping off midway.",
+      "parentH2": "What Changes for Your Team",
+      "parentH3": "Faster Onboarding"
+    },
+    {
+      "type": "h3",
+      "text": "Cleaner Records",
+      "parentH2": "What Changes for Your Team"
+    },
+    {
+      "type": "p",
+      "text": "One profile per client, one log of every action. Audits, disputes and internal reviews become far simpler.",
+      "parentH2": "What Changes for Your Team",
+      "parentH3": "Cleaner Records"
+    },
+    {
+      "type": "h3",
+      "text": "Partners Who Trust Your Numbers",
+      "parentH2": "What Changes for Your Team"
+    },
+    {
+      "type": "p",
+      "text": "Transparent, automated commission reporting cuts down on the back-and-forth that strains IB relationships.",
+      "parentH2": "What Changes for Your Team",
+      "parentH3": "Partners Who Trust Your Numbers"
+    },
+    {
+      "type": "h3",
+      "text": "Decisions Based on Real Data",
+      "parentH2": "What Changes for Your Team"
+    },
+    {
+      "type": "p",
+      "text": "Reports built from live trading and payment data show what's actually working across marketing, sales and partners.",
+      "parentH2": "What Changes for Your Team",
+      "parentH3": "Decisions Based on Real Data"
+    },
+    {
+      "type": "h2",
+      "text": "Who Handles What"
+    },
+    {
+      "type": "h3",
+      "text": "Our Part",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "CRM configuration, branding, integrations with your trading server and providers, data migration where agreed, testing, training and ongoing technical support.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Our Part"
+    },
+    {
+      "type": "h3",
+      "text": "Your Part",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Onboarding policies, KYC and AML rules, withdrawal approval decisions, commission terms with partners, client communication and regulatory compliance in your markets. The CRM supports your compliance workflow, but compliance obligations stay with your business.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Your Part"
+    },
+    {
+      "type": "h3",
+      "text": "Third-Party Providers",
+      "parentH2": "Who Handles What"
+    },
+    {
+      "type": "p",
+      "text": "Payment processors, verification services and the platform developer each operate under their own terms and service levels. We connect to them technically. We're not affiliated with or endorsed by the MT4 or MT5 platform developer unless clearly stated.",
+      "parentH2": "Who Handles What",
+      "parentH3": "Third-Party Providers"
+    },
+    {
+      "type": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "type": "h3",
+      "text": "How is a forex CRM different from a regular CRM?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "A regular CRM tracks sales. A broker CRM also handles onboarding, verification, funding, trading account creation, partner commissions and a client portal, all linked to your trading server.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How is a forex CRM different from a regular CRM?"
+    },
+    {
+      "type": "h3",
+      "text": "Is a forex CRM the same as a back office?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "They overlap heavily. Many brokers use the CRM as their main back office, covering clients, payments, accounts and reporting in one system.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Is a forex CRM the same as a back office?"
+    },
+    {
+      "type": "h3",
+      "text": "Does it work with both MT4 and MT5?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. It connects to either platform, or both at once if you run them side by side.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Does it work with both MT4 and MT5?"
+    },
+    {
+      "type": "h3",
+      "text": "Can clients manage their own accounts?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. Through the client portal they can upload documents, deposit, request withdrawals, open new trading accounts and transfer funds between them.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can clients manage their own accounts?"
+    },
+    {
+      "type": "h3",
+      "text": "Can you connect the payment and KYC providers we already use?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "In most cases, yes. We review each provider's integration options during design and confirm what's possible before build starts.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can you connect the payment and KYC providers we already use?"
+    },
+    {
+      "type": "h3",
+      "text": "How does IB commission tracking work?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "You set the rebate rules. The CRM pulls trading data from your server, calculates what each partner has earned across every level of your structure and displays it in their portal.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "How does IB commission tracking work?"
+    },
+    {
+      "type": "h3",
+      "text": "Can we move our data from an old CRM?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "Yes. We plan the migration, map fields between systems, run trial imports and verify records before switching over.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Can we move our data from an old CRM?"
+    },
+    {
+      "type": "h3",
+      "text": "Does the CRM make us compliant?",
+      "parentH2": "Frequently Asked Questions"
+    },
+    {
+      "type": "p",
+      "text": "No software can do that on its own. Our forex CRM gives your compliance team the tools, records and audit trail to apply your policies, but the obligations remain with your regulated business.",
+      "parentH2": "Frequently Asked Questions",
+      "parentH3": "Does the CRM make us compliant?"
+    },
+    {
+      "type": "h2",
+      "text": "Bring Your Client Operations Into One System"
+    },
+    {
+      "type": "p",
+      "text": "Tell us how your onboarding, funding and partner programme run today. We'll show you how the CRM would fit your workflow, which integrations you'd need and what a rollout would look like.",
+      "parentH2": "Bring Your Client Operations Into One System",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Forex CRM Software for Brokers",
+    "subtitle": "Breadcrumb: Home > Products > Forex CRM",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Products"
+      },
+      {
+        "label": "Forex CRM"
+      }
+    ],
+    "backgroundImageKey": "crm_team",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "code_ops",
+    "crm_team",
+    "trading_desk",
+    "laptop_charts",
+    "servers",
+    "world_map",
+    "data_center",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "stack",
+    "cardGrid3",
+    "mediaBand",
+    "cardGrid2",
+    "timeline",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

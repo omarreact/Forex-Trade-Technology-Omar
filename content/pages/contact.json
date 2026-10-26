@@ -1,0 +1,486 @@
+{
+  "id": "contact",
+  "slug": "/contact",
+  "seo": {
+    "title": "Contact Us | Forex Brokerage Technology Consultation",
+    "description": "Book a forex broker technology consultation. Tell us about your brokerage, prop firm or project and our team will come back with practical next steps.",
+    "primaryKeyword": "forex broker technology consultation",
+    "secondaryKeywords": "forex brokerage technology consultation, forex broker setup consultation, brokerage technology support",
+    "canonicalPath": "/contact"
+  },
+  "hero": {
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Let's Build Your Brokerage Technology Stack",
+    "subtitle": "Breadcrumb: Home > Contact",
+    "leadParagraphs": [
+      "Breadcrumb: Home > Contact",
+      "Label: Get in Touch",
+      "Planning a launch, fixing a setup that's grown messy, or just trying to figure out which pieces you actually need? Tell us a little about your business and we'll arrange a forex broker technology consultation with someone who knows the subject properly.",
+      "No sales script and no obligation. Just a useful conversation about your brokerage."
+    ],
+    "imageKey": "contact",
+    "ctas": [
+      {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "variant": "primary",
+        "icon": "arrowUpRight"
+      }
+    ],
+    "viewTransition": "hero",
+    "variant": "pageHeader",
+    "useSlider": false
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Request a Consultation",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Name*"
+        },
+        {
+          "type": "p",
+          "text": "Business Email*"
+        },
+        {
+          "type": "p",
+          "text": "Company"
+        },
+        {
+          "type": "p",
+          "text": "Country"
+        },
+        {
+          "type": "p",
+          "text": "Phone / WhatsApp"
+        },
+        {
+          "type": "p",
+          "text": "What are you interested in?"
+        },
+        {
+          "type": "p",
+          "text": "MT5 White Label · MT5 Grey Label · MT4 White Label · CRM · Website · Liquidity · Hosting · Turnkey · API · Other"
+        },
+        {
+          "type": "p",
+          "text": "Where is your business right now?"
+        },
+        {
+          "type": "p",
+          "text": "Planning · Preparing to Launch · Existing Broker · Scaling"
+        },
+        {
+          "type": "p",
+          "text": "Message"
+        },
+        {
+          "type": "p",
+          "text": "Share anything that helps us understand your situation. Your business model, target markets, current platform, providers you've already chosen or the problem you're trying to solve."
+        },
+        {
+          "type": "p",
+          "text": "Button: Request a Consultation"
+        },
+        {
+          "type": "p",
+          "text": "Fields marked with an asterisk are required."
+        }
+      ],
+      "layout": "splitContent",
+      "density": "compact"
+    },
+    {
+      "id": "section-2",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "What Happens After You Send Your Request",
+      "blocks": [
+        {
+          "type": "h3",
+          "text": "01 We Read It Properly"
+        },
+        {
+          "type": "p",
+          "text": "A member of our technical team reviews your details, rather than dropping you into an automated sales sequence."
+        },
+        {
+          "type": "h3",
+          "text": "02 We Get Back to You"
+        },
+        {
+          "type": "p",
+          "text": "We'll reply by email or WhatsApp to arrange a call at a time that suits you, and we may ask a couple of quick questions beforehand so the conversation is worth your time."
+        },
+        {
+          "type": "h3",
+          "text": "03 We Talk Through Your Plans"
+        },
+        {
+          "type": "p",
+          "text": "On the call, we'll discuss what you're building, where you are today and what's getting in the way. You'll come away with a clearer picture of the technology involved, whether you work with us or not."
+        },
+        {
+          "type": "h3",
+          "text": "04 You Get a Clear Next Step"
+        },
+        {
+          "type": "p",
+          "text": "If it makes sense to continue, we'll put together a scoped outline of what we'd recommend, how long it would take and what it would cost."
+        }
+      ],
+      "layout": "timeline",
+      "density": "compact"
+    },
+    {
+      "id": "section-3",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "Who Should Get in Touch",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "* Founders exploring how to start a brokerage"
+        },
+        {
+          "type": "p",
+          "text": "* Brokers needing help with platforms, hosting, liquidity or integrations"
+        },
+        {
+          "type": "p",
+          "text": "* Prop firms setting up or improving their trading programmes"
+        },
+        {
+          "type": "p",
+          "text": "* Introducing brokers planning to launch under their own brand"
+        },
+        {
+          "type": "p",
+          "text": "* Fintech teams adding trading to an existing product"
+        }
+      ],
+      "layout": "stack",
+      "density": "compact"
+    },
+    {
+      "id": "section-4",
+      "type": "cardGrid",
+      "viewTransition": "section",
+      "title": "Before You Reach Out",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "You don't need a finished plan to contact us. Even a rough idea of your business model and timeline is enough to start. If you already have agreements with liquidity, payment or verification providers, mentioning them helps us give more specific advice."
+        },
+        {
+          "type": "p",
+          "text": "We only ask for information needed to understand your enquiry. Please don't send passwords, client data or sensitive documents through this form."
+        }
+      ],
+      "layout": "cardGrid2",
+      "density": "compact"
+    },
+    {
+      "id": "section-5",
+      "type": "contentSection",
+      "viewTransition": "section",
+      "title": "A Quick Note on What We Do",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "We provide technology, software and infrastructure services for businesses in the financial markets. We're not a broker, we don't hold client funds and we don't offer investment, legal or regulatory advice. For licensing questions, we'd always recommend speaking with qualified advisors in your target jurisdiction."
+        }
+      ],
+      "layout": "darkBand",
+      "density": "compact",
+      "theme": "dark"
+    },
+    {
+      "id": "closing-cta",
+      "type": "darkCta",
+      "viewTransition": "section",
+      "title": "Build Your Trading Infrastructure",
+      "subtitle": "Tell us where your brokerage is today and where you want it to be. We'll look at your current setup, point out the gaps and suggest a practical path forward.",
+      "cta": {
+        "label": "Discuss Your Setup",
+        "href": "/contact",
+        "icon": "arrowUpRight"
+      },
+      "layout": "ctaBand",
+      "density": "compact"
+    }
+  ],
+  "rawBlockCount": 40,
+  "wordCountApprox": 583,
+  "fullBlocks": [
+    {
+      "type": "p",
+      "text": "Breadcrumb: Home > Contact",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Label: Get in Touch",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Planning a launch, fixing a setup that's grown messy, or just trying to figure out which pieces you actually need? Tell us a little about your business and we'll arrange a forex broker technology consultation with someone who knows the subject properly.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "No sales script and no obligation. Just a useful conversation about your brokerage.",
+      "parentH2": null,
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Request a Consultation"
+    },
+    {
+      "type": "p",
+      "text": "Name*",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Business Email*",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Company",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Country",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Phone / WhatsApp",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "What are you interested in?",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "MT5 White Label · MT5 Grey Label · MT4 White Label · CRM · Website · Liquidity · Hosting · Turnkey · API · Other",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Where is your business right now?",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Planning · Preparing to Launch · Existing Broker · Scaling",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Message",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Share anything that helps us understand your situation. Your business model, target markets, current platform, providers you've already chosen or the problem you're trying to solve.",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Button: Request a Consultation",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "Fields marked with an asterisk are required.",
+      "parentH2": "Request a Consultation",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "What Happens After You Send Your Request"
+    },
+    {
+      "type": "h3",
+      "text": "01 We Read It Properly",
+      "parentH2": "What Happens After You Send Your Request"
+    },
+    {
+      "type": "p",
+      "text": "A member of our technical team reviews your details, rather than dropping you into an automated sales sequence.",
+      "parentH2": "What Happens After You Send Your Request",
+      "parentH3": "01 We Read It Properly"
+    },
+    {
+      "type": "h3",
+      "text": "02 We Get Back to You",
+      "parentH2": "What Happens After You Send Your Request"
+    },
+    {
+      "type": "p",
+      "text": "We'll reply by email or WhatsApp to arrange a call at a time that suits you, and we may ask a couple of quick questions beforehand so the conversation is worth your time.",
+      "parentH2": "What Happens After You Send Your Request",
+      "parentH3": "02 We Get Back to You"
+    },
+    {
+      "type": "h3",
+      "text": "03 We Talk Through Your Plans",
+      "parentH2": "What Happens After You Send Your Request"
+    },
+    {
+      "type": "p",
+      "text": "On the call, we'll discuss what you're building, where you are today and what's getting in the way. You'll come away with a clearer picture of the technology involved, whether you work with us or not.",
+      "parentH2": "What Happens After You Send Your Request",
+      "parentH3": "03 We Talk Through Your Plans"
+    },
+    {
+      "type": "h3",
+      "text": "04 You Get a Clear Next Step",
+      "parentH2": "What Happens After You Send Your Request"
+    },
+    {
+      "type": "p",
+      "text": "If it makes sense to continue, we'll put together a scoped outline of what we'd recommend, how long it would take and what it would cost.",
+      "parentH2": "What Happens After You Send Your Request",
+      "parentH3": "04 You Get a Clear Next Step"
+    },
+    {
+      "type": "h2",
+      "text": "Who Should Get in Touch"
+    },
+    {
+      "type": "p",
+      "text": "* Founders exploring how to start a brokerage",
+      "parentH2": "Who Should Get in Touch",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Brokers needing help with platforms, hosting, liquidity or integrations",
+      "parentH2": "Who Should Get in Touch",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Prop firms setting up or improving their trading programmes",
+      "parentH2": "Who Should Get in Touch",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Introducing brokers planning to launch under their own brand",
+      "parentH2": "Who Should Get in Touch",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "* Fintech teams adding trading to an existing product",
+      "parentH2": "Who Should Get in Touch",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Before You Reach Out"
+    },
+    {
+      "type": "p",
+      "text": "You don't need a finished plan to contact us. Even a rough idea of your business model and timeline is enough to start. If you already have agreements with liquidity, payment or verification providers, mentioning them helps us give more specific advice.",
+      "parentH2": "Before You Reach Out",
+      "parentH3": null
+    },
+    {
+      "type": "p",
+      "text": "We only ask for information needed to understand your enquiry. Please don't send passwords, client data or sensitive documents through this form.",
+      "parentH2": "Before You Reach Out",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "A Quick Note on What We Do"
+    },
+    {
+      "type": "p",
+      "text": "We provide technology, software and infrastructure services for businesses in the financial markets. We're not a broker, we don't hold client funds and we don't offer investment, legal or regulatory advice. For licensing questions, we'd always recommend speaking with qualified advisors in your target jurisdiction.",
+      "parentH2": "A Quick Note on What We Do",
+      "parentH3": null
+    },
+    {
+      "type": "h2",
+      "text": "Prefer to Read First?"
+    },
+    {
+      "type": "p",
+      "text": "If you'd like more background before booking a forex broker technology consultation, our FAQ and How It Works pages cover the most common questions about setup, platforms, liquidity, hosting and support.",
+      "parentH2": "Prefer to Read First?",
+      "parentH3": null
+    }
+  ],
+  "pageTop": {
+    "variant": "pageHeader",
+    "height": "240px",
+    "kicker": "FOREX TRADE TECHNOLOGY",
+    "title": "Let's Build Your Brokerage Technology Stack",
+    "subtitle": "Breadcrumb: Home > Contact",
+    "breadcrumbs": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Contact"
+      }
+    ],
+    "backgroundImageKey": "contact_desk",
+    "overlay": "rgba(8,12,8,0.72)",
+    "viewTransition": "hero",
+    "compact": true
+  },
+  "pageImages": [
+    "crm_team",
+    "trading_desk",
+    "contact_desk",
+    "laptop_charts",
+    "servers",
+    "growth",
+    "network",
+    "security"
+  ],
+  "layoutPolicy": "v5-no-repeat",
+  "layoutsUsed": [
+    "splitContent",
+    "timeline",
+    "stack",
+    "cardGrid2",
+    "darkBand",
+    "ctaBand"
+  ],
+  "noRepeatDesigns": true,
+  "maxOncePerLayout": true
+}

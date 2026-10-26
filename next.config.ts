@@ -1,5 +1,5 @@
 import type {NextConfig} from 'next';
-import site from './site-data/site.config.json';
+import site from './content/site.config.json';
 const paths=site.routing.paths;
 const aliases:Record<string,string>={
  '/brokerage-setup':paths['brokerage-setup'], '/mt5-white-label':paths['mt5-white-label'],

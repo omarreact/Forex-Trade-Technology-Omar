@@ -1,0 +1,59 @@
+name: Production visual parity audit
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'theme/**'
+      - 'parts/**'
+      - 'patterns/**'
+      - 'blocks/**'
+      - 'templates/**'
+      - 'content/**'
+      - 'lib/**'
+      - 'scripts/visual-parity.mjs'
+      - '.github/workflows/visual-parity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare-with-production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install app and visual test dependencies
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright@1.56.1 pixelmatch@6 pngjs@7
+          npx playwright install --with-deps chromium
+      - name: Build
+        run: npm run build
+      - name: Start PR server
+        run: |
+          npm run start -- -p 3000 > /tmp/ftt-parity-server.log 2>&1 &
+          for i in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:3000/ >/dev/null; then exit 0; fi
+            sleep 2
+          done
+          cat /tmp/ftt-parity-server.log
+          exit 1
+      - name: Compare 13 routes to live production at 320, 768, 1440
+        env:
+          PARITY_PRODUCTION_URL: https://forextrade.pincodeit.com
+          PARITY_LOCAL_URL: http://127.0.0.1:3000
+          PARITY_MAX_DIFF_RATIO: '0.05'
+        run: node scripts/visual-parity.mjs
+      - name: Upload visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-parity-evidence
+          path: artifacts/visual-parity/
+          if-no-files-found: warn
+      - name: Show PR server log on error
+        if: failure()
+        run: cat /tmp/ftt-parity-server.log || true
