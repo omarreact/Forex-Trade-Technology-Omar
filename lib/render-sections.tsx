@@ -1,6 +1,8 @@
 import {Fragment} from 'react';
 import visualLabels from '@/content/visual-labels.json';
 import renderMap from '@/content/schema/render-map.json';
+import type {SectionLayout} from '@/content/schema/section';
+const layoutContract=renderMap.layouts as Record<SectionLayout,{runtime:string;neverRenderAsSection?:boolean;onlyPageId?:string}>;
 import type {ContentBlock,SectionData,PageData} from '@/content/schema/page';
 import {regroup} from '@/patterns/section-helpers';
 import {FeatureFlexSection} from '@/patterns/FeatureFlex';
@@ -54,7 +56,7 @@ function Section({section,index,pageTitle,pageId}:{section:SectionData;index:num
   return <AudienceCarousel title={section.title} items={items}/>;
  }
  if(override?.id==='contact')return <ContactSection section={section}/>;
- const target=renderMap.layouts[section.layout];
+ const target=layoutContract[section.layout];
  if(!target)throw new Error('Unregistered section layout: '+section.layout);
  switch(target.runtime){
   case 'TrustStrip':return <TrustStrip section={section}/>;
@@ -74,6 +76,6 @@ function Section({section,index,pageTitle,pageId}:{section:SectionData;index:num
 export function renderSections(page:PageData){
  const home=page.slug==='/';
  const title=home?'Forex Trade Technology':page.pageTop?.title||page.hero.title;
- return page.sections.filter(section=>!renderMap.layouts[section.layout].neverRenderAsSection&&(home||renderMap.layouts[section.layout].onlyPageId!=='home'))
+ return page.sections.filter(section=>!layoutContract[section.layout].neverRenderAsSection&&(home||layoutContract[section.layout].onlyPageId!=='home'))
  .map((section,index)=><Fragment key={section.id}><Section section={section} index={index} pageTitle={title} pageId={page.id}/></Fragment>);
 }
