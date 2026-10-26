@@ -74,6 +74,10 @@ try{
     const iframe=page.frameLocator('iframe[name="editor-canvas"]').locator('.editor-styles-wrapper');
     try{await iframe.waitFor({timeout:35000});}
     catch(e){await page.locator('.editor-styles-wrapper').waitFor({timeout:10000});}
+    await page.locator('.components-modal__header button').first().click({timeout:2500}).catch(()=>{});
+    const target=page.frameLocator('iframe[name="editor-canvas"]').locator('.bs-page-header');
+    await target.waitFor({timeout:35000});
+    await page.frameLocator('iframe[name="editor-canvas"]').locator('.bs-faq-polished').waitFor({timeout:20000});
     await page.screenshot({path:'artifacts/wordpress/editor-faq-1440.png'});
     report.editor.push({page:'/faq',loaded:true});
    }catch(e){await page.screenshot({path:'artifacts/wordpress/editor-failure.png',fullPage:true}).catch(()=>{});report.errors.push({page:'editor',issue:'Gutenberg editor canvas did not appear',url:page.url(),message:String(e),pageText:(await page.locator('body').innerText().catch(()=>'' )).slice(0,900)});}
