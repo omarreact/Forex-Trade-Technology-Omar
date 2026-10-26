@@ -1,4 +1,5 @@
 import {Fragment} from 'react';
+import visualLabels from '@/content/visual-labels.json';
 import type {ContentBlock,SectionData,PageData} from '@/content/schema/page';
 import {regroup} from '@/patterns/section-helpers';
 import {FeatureFlexSection} from '@/patterns/FeatureFlex';
@@ -15,7 +16,7 @@ import {StackProse} from '@/patterns/StackProse';
 import {DarkBand} from '@/patterns/DarkBand';
 import {SplitContent} from '@/patterns/SplitContent';
 function Section({section,index,pageTitle,pageId}:{section:SectionData;index:number;pageTitle:string;pageId:string}){
- if(pageId==='home'&&section.title==='How Your Trading Stack Connects')return <TradingStackFlow section={section}/>;
+ if(pageId==='home'&&section.title==='How Your Trading Stack Connects')return <TradingStackFlow section={section} visual={visualLabels.tradingStackFlow}/>;
  if(section.title==='Platform & Infrastructure Under One Roof'||section.title==='Why Brokers Work With Us'){
   const topics=regroup(section.blocks||[]);
   const icons=section.title==='Why Brokers Work With Us'
