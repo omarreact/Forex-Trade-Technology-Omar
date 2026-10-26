@@ -2,10 +2,11 @@
 import {useEffect,useState,useRef} from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {canonicalHref,getImage,type SlideData} from '@/lib/site-data';
+import {canonicalHref,getImage} from '@/lib/site-data';
+import type {HomeSliderAttributes} from './types';
 import {Icon} from '@/blocks/shared/Icon';
 
-export function HomeSlider({slides,intervalMs=6000,autoplay=true}:{slides:SlideData[];intervalMs?:number;autoplay?:boolean}){
+export function HomeSlider({slides,intervalMs=6000,autoplay=true}:HomeSliderAttributes){
  const [index,setIndex]=useState(0),[paused,setPaused]=useState(false);
  const focusInside=useRef(false);
  useEffect(()=>{
