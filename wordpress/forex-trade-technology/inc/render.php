@@ -41,7 +41,6 @@ function ftt_header(array $attributes=[]): string {
     $html='<header class="bs-site-header bs-clean-header"><div class="bs-shell bs-header-inner">'
     .'<a href="'.esc_url(home_url('/')).'" class="bs-brand" aria-label="Forex Trade Technology — Home">'
     .'<span class="bs-brand-mark" aria-hidden="true">✳</span><span class="bs-logo-text">FOREX<span>TRADE</span><small>TECHNOLOGY</small></span></a>'
-    .'<button type="button" class="bs-mobile-menu-toggle" aria-controls="bs-primary-nav" aria-label="Open navigation" aria-expanded="false">☰</button>'
     .'<nav id="bs-primary-nav" aria-label="Main navigation" class="bs-inline-nav">';
     foreach ($config['navigation']['primary']??[] as $nav) {
         $label=esc_html($nav['label']??'');
@@ -62,7 +61,7 @@ function ftt_header(array $attributes=[]): string {
     }
     $cta=$config['navigation']['cta']??['label'=>'Contact Us','href'=>'/contact'];
     $html.='<a class="bs-btn bs-btn-primary bs-header-cta" href="'.esc_url(ftt_url($cta['href'])).'">'.esc_html($cta['label']).ftt_icon('arrowUpRight').'</a>';
-    return $html.'</nav></div></header>';
+    return $html.'</nav><div class="bs-header-actions"><button type="button" class="bs-mobile-menu-toggle" aria-controls="bs-primary-nav" aria-label="Open navigation" aria-expanded="false">☰</button>'.ftt_social_links('header').'</div></div></header>';
 }
 function ftt_footer(array $attributes=[]): string {
     $config=ftt_config();
@@ -81,7 +80,7 @@ function ftt_footer(array $attributes=[]): string {
         $html.='</div>';
     }
     return $html.'</div><div class="bs-shell bs-footer-bottom"><span>'.esc_html($config['site']['copyright']??'').'</span>'
-        .'<a href="'.esc_url(ftt_url('/contact')).'">Talk to our team '.ftt_icon('arrowUpRight').'</a></div></footer>';
+        .'<div class="bs-footer-actions"><a href="'.esc_url(ftt_url('/contact')).'">Talk to our team '.ftt_icon('arrowUpRight').'</a>'.ftt_social_links('footer').'</div></div></footer>';
 }
 function ftt_final_cta(bool $home=false,array $attributes=[]): string {
     $data=$attributes['copy']??ftt_config()['footer']['cta']??[];
