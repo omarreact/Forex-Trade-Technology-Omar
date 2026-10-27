@@ -25,8 +25,8 @@ export function SocialLinks({location}:{location:'header'|'footer'}){
   {kind:'whatsapp';href:string;label:string},
   {kind:'telegram';href:string;label:string}
  ]=[
-  {kind:'whatsapp',href:process.env.NEXT_PUBLIC_FTT_WHATSAPP_URL||siteConfig.social.whatsapp||`https://api.whatsapp.com/send?text=${encodeURIComponent(page)}`,label:process.env.NEXT_PUBLIC_FTT_WHATSAPP_URL||siteConfig.social.whatsapp?'Chat on WhatsApp':'Share this page on WhatsApp'},
-  {kind:'telegram',href:process.env.NEXT_PUBLIC_FTT_TELEGRAM_URL||siteConfig.social.telegram||`https://t.me/share/url?url=${encodeURIComponent(page)}&text=${encodeURIComponent(siteConfig.site.name)}`,label:process.env.NEXT_PUBLIC_FTT_TELEGRAM_URL||siteConfig.social.telegram?'Open Telegram':'Share this page on Telegram'}
+  {kind:'whatsapp',href:siteConfig.social.whatsapp||process.env.NEXT_PUBLIC_FTT_WHATSAPP_URL||`https://api.whatsapp.com/send?text=${encodeURIComponent(page)}`,label:process.env.NEXT_PUBLIC_FTT_WHATSAPP_URL||siteConfig.social.whatsapp?'Chat on WhatsApp':'Share this page on WhatsApp'},
+  {kind:'telegram',href:siteConfig.social.telegram||process.env.NEXT_PUBLIC_FTT_TELEGRAM_URL||`https://t.me/share/url?url=${encodeURIComponent(page)}&text=${encodeURIComponent(siteConfig.site.name)}`,label:process.env.NEXT_PUBLIC_FTT_TELEGRAM_URL||siteConfig.social.telegram?'Open Telegram':'Share this page on Telegram'}
  ];
  return <div className={`bs-social-links bs-social-links--${location}`} aria-label="Social channels">
    {links.map(link=><a key={link.kind} href={link.href} target="_blank" rel="noopener noreferrer" className={`bs-social-link bs-social-link--${link.kind}`} aria-label={link.label} title={link.label}><SocialIcon kind={link.kind}/></a>)}

@@ -1,6 +1,7 @@
 'use client';
 import {useState,type FormEvent} from 'react';
 import {Icon} from '@/blocks/shared/Icon';
+import {siteConfig} from '@/content';
 const staticPreview=process.env.NEXT_PUBLIC_STATIC_EXPORT==='true';
 const issueBase='https://github.com/omarreact/Forex-Trade-Technology-Omar/issues/new';
 import type {ContactFormAttributes} from './types';
@@ -35,6 +36,10 @@ export function ContactForm({copy,email}:ContactFormAttributes){
    {staticPreview?<a href={issueBase} target="_blank" rel="noopener noreferrer">{copy.previewLinkText}<Icon name="arrowUpRight" size={17}/></a>
      :email?<a href={`mailto:${email}`}>{email}<Icon name="arrowUpRight" size={17}/></a>
      :null}
+   <div className="bs-contact-direct-links" aria-label="Direct messaging options">
+     <a href={siteConfig.social.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +44 7988 028424">WhatsApp · +44 7988 028424 <Icon name="arrowUpRight" size={16}/></a>
+     <a href={siteConfig.social.telegram} target="_blank" rel="noopener noreferrer" aria-label="Telegram forexbrokertech">Telegram · @forexbrokertech <Icon name="arrowUpRight" size={16}/></a>
+   </div>
   </div>
   <form className="bs-contact-form" onSubmit={send}>
    <input type="text" name="website" autoComplete="off" tabIndex={-1} className="bs-honeypot" aria-hidden="true"/>
