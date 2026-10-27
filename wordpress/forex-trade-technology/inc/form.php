@@ -6,7 +6,11 @@ function ftt_contact_form(array $copy=[]):string{
     $html='<section class="bs-v5-section bs-v5-layout-splitContent ftt-contact-section"><div class="bs-shell"><div class="bs-contact-grid">'
       .'<div class="bs-contact-intro"><span class="bs-eyebrow">'.esc_html($copy['eyebrow']??'REQUEST A CONSULTATION').'</span>'
       .'<h2>'.esc_html($copy['headingBefore']??"Let's build something").' <em>'.esc_html($copy['headingEmphasis']??'reliable.').'</em></h2>'
-      .'<p>'.esc_html($copy['intro']??'').'</p><p>'.esc_html($copy['publicNotice']??'').'</p></div>'
+      .'<p>'.esc_html($copy['intro']??'').'</p><p>'.esc_html($copy['publicNotice']??'').'</p>'
+      .'<div class="bs-contact-direct-links" aria-label="Direct messaging options">'
+      .'<a href="'.esc_url(ftt_social_direct_url('whatsapp')).'" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp +44 7988 028424">WhatsApp · +44 7988 028424 '.ftt_icon('arrowUpRight').'</a>'
+      .'<a href="'.esc_url(ftt_social_direct_url('telegram')).'" target="_blank" rel="noopener noreferrer" aria-label="Telegram forexbrokertech">Telegram · @forexbrokertech '.ftt_icon('arrowUpRight').'</a>'
+      .'</div></div>'
       .'<form class="bs-contact-form" data-ftt-contact method="post">'
       .'<input type="text" name="website" autocomplete="off" tabindex="-1" class="bs-honeypot" aria-hidden="true">'
       .'<div class="bs-form-fields">';

@@ -34,6 +34,8 @@ jobs:
           node --check wordpress/forex-trade-technology/assets/js/front.js
       - name: Verify Phase B → WordPress migration contracts
         run: node scripts/validate-wordpress-package.mjs
+      - name: Verify direct social accounts
+        run: node scripts/test-direct-social-links.mjs
       - name: Build independently installable ZIPs
         working-directory: wordpress
         run: |

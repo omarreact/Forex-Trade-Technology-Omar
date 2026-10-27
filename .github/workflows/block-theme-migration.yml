@@ -20,6 +20,8 @@ jobs:
         run: npm run validate:content
       - name: Contract registry tests
         run: npm run test:contracts
+      - name: Verify direct social accounts
+        run: node scripts/test-direct-social-links.mjs
       - name: TypeScript
         run: npx tsc --noEmit
       - name: Production build
