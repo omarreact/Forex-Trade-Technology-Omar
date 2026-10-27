@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect,useRef,useState} from 'react';
 import {Icon} from '@/blocks/shared/Icon';
+import {SocialLinks} from '@/parts/SocialLinks';
 import {canonicalHref,siteConfig} from '@/lib/site-data';
 
 export function SiteHeader(){
@@ -38,7 +39,7 @@ export function SiteHeader(){
     <Link href="/" className="bs-brand" aria-label={`${siteConfig.site.name} — Home`}>
       <span className="bs-brand-mark" aria-hidden="true">✳</span><span className="bs-logo-text">FOREX<span>TRADE</span><small>TECHNOLOGY</small></span>
     </Link>
-    <button type="button" className="bs-mobile-menu-toggle" aria-controls="bs-primary-nav" aria-label={menu?'Close navigation':'Open navigation'} aria-expanded={menu} onClick={()=>{setMenu(v=>!v);setSubmenu(false)}}><Icon name={menu?'x':'menu'} size={25}/></button>
+
     <nav id="bs-primary-nav" aria-label="Main navigation" className={`bs-inline-nav ${menu?'is-open':''}`}>
      {siteConfig.navigation.primary.map(nav=>('children' in nav && Array.isArray(nav.children))?
         <div className="bs-nav-dropdown" key={nav.id} ref={dropdownRef}>
@@ -52,7 +53,11 @@ export function SiteHeader(){
       :<Link href={canonicalHref(('href' in nav && typeof nav.href==='string')?nav.href:'/')} key={nav.id} className={`bs-nav-link ${pathname.replace(/\/$/,'')===canonicalHref(('href' in nav && typeof nav.href==='string')?nav.href:'/').replace(/\/$/,'')?'active':''}`}>{nav.label}</Link>)}
       <Link className="bs-btn bs-btn-primary bs-nav-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
     </nav>
-    <Link className="bs-btn bs-btn-primary bs-desktop-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
+    <div className="bs-header-actions">
+     <button type="button" className="bs-mobile-menu-toggle" aria-controls="bs-primary-nav" aria-label={menu?'Close navigation':'Open navigation'} aria-expanded={menu} onClick={()=>{setMenu(v=>!v);setSubmenu(false)}}><Icon name={menu?'x':'menu'} size={25}/></button>
+     <SocialLinks location="header"/>
+     <Link className="bs-btn bs-btn-primary bs-desktop-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
+    </div>
    </div>
   </header>;
 }
