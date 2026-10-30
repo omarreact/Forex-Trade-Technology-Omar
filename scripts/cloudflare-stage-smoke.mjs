@@ -11,7 +11,7 @@ for (const { path, kind } of checks) {
     const body = (await response.text()).slice(0, 100000);
     let contentOk = false;
     if (kind === "html") {
-      contentOk = (response.headers.get("content-type") || "").includes("text/html") && /<html[\\s>]/i.test(body) && !/preview pending/i.test(body);
+      contentOk = (response.headers.get("content-type") || "").includes("text/html") && body.toLowerCase().includes("<html") && !/preview pending/i.test(body);
     } else {
       try {
         const data = JSON.parse(body);
