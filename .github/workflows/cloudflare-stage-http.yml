@@ -6,6 +6,9 @@ on:
     paths:
       - scripts/cloudflare-stage-smoke.mjs
       - .github/workflows/cloudflare-stage-http.yml
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
