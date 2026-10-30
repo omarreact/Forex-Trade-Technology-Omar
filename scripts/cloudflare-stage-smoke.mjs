@@ -26,6 +26,21 @@ for (const { path, kind } of checks) {
     failures++;
   }
 }
+
+try {
+  const response = await fetch(new URL("/api/contact", origin), {
+    method: "OPTIONS", redirect: "manual", signal: AbortSignal.timeout(20000),
+    headers: { Origin: "https://omarreact.github.io" },
+  });
+  const pass = response.status === 204 &&
+    response.headers.get("access-control-allow-origin") === "https://omarreact.github.io";
+  console.log(`${pass ? "PASS" : "FAIL"} OPTIONS /api/contact: HTTP ${response.status}; CORS verified=${pass}`);
+  if (!pass) failures++;
+} catch (e) {
+  console.error(`FAIL OPTIONS /api/contact: ${e instanceof Error ? e.message : String(e)}`);
+  failures++;
+}
+
 if (failures) {
   console.error(`Cloudflare staging gate failed (${failures} check(s)); do NOT attach a production domain.`);
   process.exitCode = 1;
