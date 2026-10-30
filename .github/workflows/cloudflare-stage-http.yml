@@ -1,0 +1,29 @@
+name: Cloudflare isolated-stage HTTP gate
+on:
+  push:
+    branches:
+      - chore/cloudflare-stage-http-gate-20261030
+    paths:
+      - scripts/cloudflare-stage-smoke.mjs
+      - .github/workflows/cloudflare-stage-http.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-stage-http-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  staging-http:
+    name: Verify isolated Workers deployment
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Read-only HTTP gate
+        run: node scripts/cloudflare-stage-smoke.mjs
