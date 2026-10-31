@@ -43,6 +43,11 @@ for(const [name,area,source] of [
 }
 assert.match(nativeHeader,/wp:navigation/);
 assert.match(nativeHeader,/wp:navigation-submenu/);
+assert.match(nativeHeader,/wp-block-button ftt-native-cta/);
+assert.doesNotMatch(nativeHeader,/wp-block-button bs-btn bs-btn-primary/);
+assert.match(nativeCss,/\.ftt-native-header \.ftt-native-header-action \.wp-block-button__link/);
+assert.match(nativeCss,/\.ftt-native-header \.ftt-native-header-action \.wp-block-button \{/);
+assert.match(nativeCss,/background:transparent!important/);
 assert.match(nativeHeader,/wp:site-title/);
 assert.match(nativeFooter,/wp:columns/);
 assert.match(nativeFooter,/wp:social-links/);
