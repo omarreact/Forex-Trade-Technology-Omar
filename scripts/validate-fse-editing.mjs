@@ -55,14 +55,15 @@ for(const [name,area,source] of [
   assert.deepEqual(stack,[],name+' has unclosed blocks');
   assert(!source.includes('ftt/site-navigation'),name+' should use Core blocks');
 }
-assert.match(nativeHeader,/wp:navigation/);
-assert.match(nativeHeader,/wp:navigation-submenu/);
-assert.match(nativeHeader,/wp-block-button ftt-native-cta/);
-assert.doesNotMatch(nativeHeader,/wp-block-button bs-btn bs-btn-primary/);
+assert.match(nativeHeader,/wp:template-part.*"slug":"ftt-header"/);
+assert.match(canonicalHeader,/wp:navigation/);
+assert.match(canonicalHeader,/wp:navigation-submenu/);
+assert.match(canonicalHeader,/wp-block-button ftt-native-cta/);
+assert.doesNotMatch(canonicalHeader,/wp-block-button bs-btn bs-btn-primary/);
 assert.match(nativeCss,/\.ftt-native-header \.ftt-native-header-action \.wp-block-button__link/);
 assert.match(nativeCss,/\.ftt-native-header \.ftt-native-header-action \.wp-block-button \{/);
 assert.match(nativeCss,/background:transparent!important/);
-assert.match(nativeHeader,/wp:site-title/);
+assert.match(canonicalHeader,/wp:site-logo/);
 assert.match(nativeFooter,/wp:columns/);
 assert.match(nativeFooter,/wp:social-links/);
 assert.equal(meta.attributes.brand.type,'object');
@@ -81,7 +82,7 @@ const routes=[
 ];
 for(const {href} of routes){
  if(typeof href!=='string'||!href.startsWith('/'))continue;
- assert(nativeHeader.includes('"url":"'+href+'"')||nativeFooter.includes('"url":"'+href+'"'),
+ assert(canonicalHeader.includes('"url":"'+href+'"')||nativeFooter.includes('"url":"'+href+'"'),
    'missing native template URL: '+href);
 }
 // Native preview CSS must be limited to scoped selectors, not broad site resets.
