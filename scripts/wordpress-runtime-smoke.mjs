@@ -29,12 +29,52 @@ try{
  for(const width of sizes){
   const context=await browser.newContext({viewport:{width,height:width===320?720:width===768?1024:900},deviceScaleFactor:1});
   const page=await context.newPage();
+  let headerMenuBaseline=null;
   page.on('pageerror',error=>report.errors.push({page:'runtime',width,error:error.message}));
   for(const path of paths){
    const rsp=await page.goto(base+path,{waitUntil:'domcontentloaded',timeout:60000});
    await page.locator('main').waitFor({timeout:30000});
    const info=await page.evaluate(()=>({
     h1:document.querySelector('main h1')?.textContent?.trim()||'',
+    sharedHeaders:document.querySelectorAll('.bs-site-header.bs-clean-header').length,
+    headerMenuSignature:[...document.querySelectorAll('.bs-site-header .bs-inline-nav > .bs-nav-link,.bs-site-header .bs-inline-nav > .bs-nav-dropdown > .bs-menu-trigger,.bs-site-header .bs-submenu > a')].map(el=>[el.textContent.trim(),el.getAttribute('href')||''].join(':')).join('|'),
+    headerSocial:[...document.querySelectorAll('.bs-site-header .bs-social-links--header .bs-social-link')].map(el=>({
+      className:el.className,
+      glyphs:el.querySelectorAll('svg').length,
+      glyphStroke:el.querySelector('svg')?getComputedStyle(el.querySelector('svg')).stroke:'',
+      color:getComputedStyle(el).color,
+      display:getComputedStyle(el).display,
+      href:el.getAttribute('href')||''
+    })),
+    headerDesktopCtas:document.querySelectorAll('.bs-site-header .bs-desktop-cta').length,
+    headerMobileCtas:document.querySelectorAll('.bs-site-header .bs-nav-cta').length,
+    headerActionVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-header-actions');return !!e&&getComputedStyle(e).display!=='none'})(),
+    headerToggleVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-mobile-menu-toggle');return !!e&&getComputedStyle(e).display!=='none'})(),
+    headerMobileCtaVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-nav-cta');return !!e&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden'})(),
+    headerDesktopCtaVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-desktop-cta');return !!e&&getComputedStyle(e).display!=='none'})(),
+    headerNavAppearance:(()=>{
+      const root=document.querySelector('.bs-site-header .bs-inline-nav');
+      const top=root?.querySelector('.bs-nav-link');
+      const submenu=root?.querySelector('.bs-submenu');
+      const sublink=submenu?.querySelector('a');
+      if(!top||!submenu||!sublink)return null;
+      const topStyle=getComputedStyle(top),menuStyle=getComputedStyle(submenu),subStyle=getComputedStyle(sublink);
+      return {
+        fontFamily:topStyle.fontFamily,
+        topFontSize:parseFloat(topStyle.fontSize),
+        submenuFontSize:parseFloat(subStyle.fontSize),
+        submenuRadius:parseFloat(menuStyle.borderTopLeftRadius),
+        submenuShadow:menuStyle.boxShadow,
+        submenuBackground:menuStyle.backgroundColor
+      };
+    })(),
+    // WordPress's default site block gap must not create a blank strip below the header.
+    headerBodyGapPx:(()=>{
+      const header=document.querySelector('.wp-site-blocks > header');
+      const main=document.querySelector('.wp-site-blocks > main');
+      if(!header||!main)return null;
+      return Math.round((main.getBoundingClientRect().top-header.getBoundingClientRect().bottom)*100)/100;
+    })(),
     ctas:document.querySelectorAll('.bs-global-cta-panel').length,
     faq:document.querySelectorAll('.bs-faq-questions details').length,
     slides:document.querySelectorAll('.bs-slide').length,
@@ -48,6 +88,45 @@ try{
    if(info.overflowing&&path==='/faq'&&(width===768||width===1440))console.log('OVERFLOW DIAGNOSTIC',width,JSON.stringify(info.offenders),'scrollWidth',info.scrollWidth);
    report.routes.push({path,width,status,...info});
    if(status!==200||!info.h1||info.overflowing)report.errors.push({path,width,status,issue:!info.h1?'missing H1':info.overflowing?'horizontal overflow':'HTTP error'});
+   if(info.headerBodyGapPx===null||Math.abs(info.headerBodyGapPx)>1.5)
+    report.errors.push({path,width,issue:'Unexpected gap between FSE header and main',gapPx:info.headerBodyGapPx});
+   if(info.sharedHeaders!==1||info.headerDesktopCtas!==1||info.headerMobileCtas!==1||!info.headerMenuSignature)
+    report.errors.push({path,width,issue:'Expected reference-matched header with mobile and desktop CTAs',info});
+   if(width<=830&&(!info.headerActionVisible||!info.headerToggleVisible||info.headerDesktopCtaVisible||info.headerMobileCtaVisible))
+    report.errors.push({path,width,issue:'Mobile navbar button or CTA visibility mismatch',info});
+   if(headerMenuBaseline===null)headerMenuBaseline=info.headerMenuSignature;
+   else if(headerMenuBaseline!==info.headerMenuSignature)
+    report.errors.push({path,width,issue:'Navigation differs between homepage and inner page',expected:headerMenuBaseline,got:info.headerMenuSignature});
+   if(info.headerSocial.length!==2||info.headerSocial.some(x=>x.glyphs!==1||!x.href.startsWith('https://')))
+    report.errors.push({path,width,issue:'WhatsApp / Telegram social icons or destinations missing',social:info.headerSocial});
+   if(info.headerSocial.some(x=>x.glyphStroke==='rgb(255, 255, 255)'||x.glyphStroke==='none'))
+    report.errors.push({path,width,issue:'Invisible social SVG stroke',social:info.headerSocial});
+   if(width===1440 && (!info.headerNavAppearance
+     || !info.headerNavAppearance.fontFamily.toLowerCase().includes('inter')
+     || info.headerNavAppearance.topFontSize<12.5
+     || info.headerNavAppearance.topFontSize>15
+     || info.headerNavAppearance.submenuFontSize<12
+     || info.headerNavAppearance.submenuFontSize>14
+     || info.headerNavAppearance.submenuRadius<11
+     || info.headerNavAppearance.submenuShadow==='none'
+     || info.headerNavAppearance.submenuBackground!=='rgb(255, 255, 255)'))
+    report.errors.push({path,width,issue:'Navigation regressed from the Next.js reference typography/dropdown',navAppearance:info.headerNavAppearance});
+
+
+   if(path==='/'&&width<=830){
+    await page.locator('.bs-site-header .bs-mobile-menu-toggle').click();
+    const opened=await page.evaluate(()=>{
+      const n=document.querySelector('.bs-site-header .bs-inline-nav'),b=document.querySelector('.bs-site-header .bs-mobile-menu-toggle');
+      return !!n&&n.classList.contains('is-open')&&getComputedStyle(n).display!=='none'&&b?.getAttribute('aria-expanded')==='true';
+    });
+    if(!opened)report.errors.push({path,width,issue:'Hamburger did not open navigation'});
+    await page.locator('.bs-site-header .bs-mobile-menu-toggle').click();
+    const closed=await page.evaluate(()=>{
+      const n=document.querySelector('.bs-site-header .bs-inline-nav'),b=document.querySelector('.bs-site-header .bs-mobile-menu-toggle');
+      return !!n&&!n.classList.contains('is-open')&&getComputedStyle(n).display==='none'&&b?.getAttribute('aria-expanded')==='false';
+    });
+    if(!closed)report.errors.push({path,width,issue:'Hamburger did not close navigation'});
+   }
    if(path==='/'&& (info.slides!==5||info.ctas!==1))report.errors.push({path,width,issue:'home slides/CTA regression'});
    if(path==='/faq'&&info.faq!==42)report.errors.push({path,width,issue:'Expected 42 FAQs'});
    if(path==='/'){
