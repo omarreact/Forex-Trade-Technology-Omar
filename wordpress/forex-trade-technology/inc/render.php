@@ -65,8 +65,8 @@ function ftt_header(array $attributes=[]): string {
         }
     }
     $cta=$config['navigation']['cta']??['label'=>'Contact Us','href'=>'/contact'];
-    $html.='<a class="bs-btn bs-btn-primary bs-header-cta" href="'.esc_url(ftt_url($cta['href'])).'">'.esc_html($cta['label']).ftt_icon('arrowUpRight').'</a>';
-    return $html.'</nav><div class="bs-header-actions"><button type="button" class="bs-mobile-menu-toggle" aria-controls="bs-primary-nav" aria-label="Open navigation" aria-expanded="false">☰</button>'.ftt_social_links('header').'</div></div></header>';
+    $html.='<a class="bs-btn bs-btn-primary bs-nav-cta" href="'.esc_url(ftt_url($cta['href'])).'">'.esc_html($cta['label']).ftt_icon('arrowUpRight').'</a>';
+    return $html.'</nav><div class="bs-header-actions"><button type="button" class="bs-mobile-menu-toggle" aria-controls="bs-primary-nav" aria-label="Open navigation" aria-expanded="false"><span class="bs-toggle-open" aria-hidden="true">'.ftt_icon('menu').'</span><span class="bs-toggle-close" aria-hidden="true">'.ftt_icon('x').'</span></button>'.ftt_social_links('header').'<a class="bs-btn bs-btn-primary bs-desktop-cta" href="'.esc_url(ftt_url((string)$cta['href'])).'">'.esc_html((string)$cta['label']).ftt_icon('arrowUpRight').'</a></div></div></header>';
 }
 function ftt_footer(array $attributes=[]): string {
     $config=ftt_config();
