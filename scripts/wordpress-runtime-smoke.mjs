@@ -29,12 +29,25 @@ try{
  for(const width of sizes){
   const context=await browser.newContext({viewport:{width,height:width===320?720:width===768?1024:900},deviceScaleFactor:1});
   const page=await context.newPage();
+  let headerMenuBaseline=null;
   page.on('pageerror',error=>report.errors.push({page:'runtime',width,error:error.message}));
   for(const path of paths){
    const rsp=await page.goto(base+path,{waitUntil:'domcontentloaded',timeout:60000});
    await page.locator('main').waitFor({timeout:30000});
    const info=await page.evaluate(()=>({
     h1:document.querySelector('main h1')?.textContent?.trim()||'',
+    sharedHeaders:document.querySelectorAll('.ftt-native-header').length,
+    headerMenuSignature:[...document.querySelectorAll('.ftt-native-header .wp-block-navigation-item__content')].map(el=>[el.textContent.trim(),el.getAttribute('href')||''].join(':')).join('|'),
+    headerSocial:[...document.querySelectorAll('.ftt-native-header .ftt-native-header-social .wp-social-link')].map(el=>({
+      className:el.className,
+      glyphs:el.querySelectorAll('svg').length,
+      glyphFill:el.querySelector('svg')?getComputedStyle(el.querySelector('svg')).fill:'',
+      color:getComputedStyle(el).color,
+      display:getComputedStyle(el).display,
+      href:el.querySelector('a')?.getAttribute('href')||''
+    })),
+    headerContactPills:document.querySelectorAll('.ftt-native-header .ftt-native-header-action .wp-block-button__link').length,
+    headerOuterButtonColor:(()=>{const el=document.querySelector('.ftt-native-header .ftt-native-header-action .wp-block-button');return el?getComputedStyle(el).backgroundColor:''})(),
     // WordPress's default site block gap must not create a blank strip below the header.
     headerBodyGapPx:(()=>{
       const header=document.querySelector('.wp-site-blocks > header');
@@ -57,6 +70,18 @@ try{
    if(status!==200||!info.h1||info.overflowing)report.errors.push({path,width,status,issue:!info.h1?'missing H1':info.overflowing?'horizontal overflow':'HTTP error'});
    if(info.headerBodyGapPx===null||Math.abs(info.headerBodyGapPx)>1.5)
     report.errors.push({path,width,issue:'Unexpected gap between FSE header and main',gapPx:info.headerBodyGapPx});
+   if(info.sharedHeaders!==1||info.headerContactPills!==1||!info.headerMenuSignature)
+    report.errors.push({path,width,issue:'Expected exactly one canonical native header, navigation and Contact Us pill',sharedHeaders:info.sharedHeaders,headerContactPills:info.headerContactPills});
+   if(headerMenuBaseline===null)headerMenuBaseline=info.headerMenuSignature;
+   else if(headerMenuBaseline!==info.headerMenuSignature)
+    report.errors.push({path,width,issue:'Navigation differs between homepage and inner page',expected:headerMenuBaseline,got:info.headerMenuSignature});
+   if(info.headerSocial.length!==2||info.headerSocial.some(x=>x.glyphs!==1||!x.href.startsWith('https://')))
+    report.errors.push({path,width,issue:'WhatsApp / Telegram social icons or destinations missing',social:info.headerSocial});
+   if(width>=768 && info.headerSocial.some(x=>x.glyphFill==='rgb(255, 255, 255)'||x.glyphFill==='none'))
+    report.errors.push({path,width,issue:'Invisible white-on-white social icon',social:info.headerSocial});
+   if(info.headerOuterButtonColor && info.headerOuterButtonColor!=='rgba(0, 0, 0, 0)')
+    report.errors.push({path,width,issue:'Unexpected second colored Contact Us capsule',color:info.headerOuterButtonColor});
+
    if(path==='/'&& (info.slides!==5||info.ctas!==1))report.errors.push({path,width,issue:'home slides/CTA regression'});
    if(path==='/faq'&&info.faq!==42)report.errors.push({path,width,issue:'Expected 42 FAQs'});
    if(path==='/'){
