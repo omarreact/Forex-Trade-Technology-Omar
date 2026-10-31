@@ -189,6 +189,16 @@
       "name": "final-cta-home",
       "title": "Home Final CTA",
       "area": "uncategorized"
+    },
+    {
+      "name": "header-native",
+      "title": "Header — native Navigation (preview)",
+      "area": "header"
+    },
+    {
+      "name": "footer-native",
+      "title": "Footer — native Gutenberg (preview)",
+      "area": "footer"
     }
   ],
   "customTemplates": [
