@@ -205,6 +205,14 @@
   fill:currentColor!important;
 }
 
+
+/* Shared template-part aliases must never add a second header band or spacing. */
+.ftt-global-header {
+  margin:0!important;
+  padding:0!important;
+  border:0;
+}
+
 /* v0.1.6 — Social icon contrast for the single shared FSE header.
  * Older wp_template_part records specify iconColor:white with a white circle.
  * WordPress then uses white SVG fill regardless of theme color declarations.
