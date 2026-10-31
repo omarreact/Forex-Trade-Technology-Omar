@@ -50,7 +50,7 @@ try{
     headerMobileCtas:document.querySelectorAll('.bs-site-header .bs-nav-cta').length,
     headerActionVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-header-actions');return !!e&&getComputedStyle(e).display!=='none'})(),
     headerToggleVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-mobile-menu-toggle');return !!e&&getComputedStyle(e).display!=='none'})(),
-    headerMobileCtaVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-nav-cta');return !!e&&getComputedStyle(e).display!=='none'})(),
+    headerMobileCtaVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-nav-cta');return !!e&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden'})(),
     headerDesktopCtaVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-desktop-cta');return !!e&&getComputedStyle(e).display!=='none'})(),
     headerNavAppearance:(()=>{
       const root=document.querySelector('.bs-site-header .bs-inline-nav');
