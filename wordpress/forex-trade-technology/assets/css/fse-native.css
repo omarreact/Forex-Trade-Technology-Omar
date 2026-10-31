@@ -1,0 +1,45 @@
+/* Opt-in Gutenberg Core header/footer adapters.
+ * Scoped deliberately: current site-header/site-footer renderers remain pixel-identical.
+ * Do NOT switch default template parts until desktop/mobile screenshot parity is approved.
+ */
+.ftt-native-header .ftt-native-brand{display:flex;align-items:center;gap:9px;flex-shrink:0;margin:0}
+.ftt-native-header .ftt-native-brand-mark{margin:0;font-size:28px;line-height:1;color:var(--wp--preset--color--lime-strong,#c3d982)}
+.ftt-native-header .ftt-native-site-title{margin:0;line-height:1.1;font-family:var(--wp--preset--font-family--display,Manrope,sans-serif);font-size:16px;font-weight:800}
+.ftt-native-header .ftt-native-site-title a{text-decoration:none;color:inherit}
+.ftt-native-header .ftt-native-brand-subtitle{margin:1px 0 0;font-size:9px;font-weight:700;letter-spacing:.14em;line-height:1.2}
+.ftt-native-header .ftt-native-nav{margin:0;flex:1 1 auto;background:transparent}
+.ftt-native-header .wp-block-navigation__container{align-items:center;gap:clamp(7px,1.1vw,15px)}
+.ftt-native-header .wp-block-navigation-item__content{font-family:inherit;text-decoration:none;font-weight:600;white-space:nowrap}
+.ftt-native-header .wp-block-navigation-item__content:hover,.ftt-native-header .wp-block-navigation-item__content:focus-visible{color:var(--wp--preset--color--cta-accent,#63842f)}
+.ftt-native-header .ftt-native-header-action{margin:0;flex:none}
+.ftt-native-header .ftt-native-header-action .wp-block-button__link{text-decoration:none;white-space:nowrap}
+.ftt-native-header .ftt-native-header-social{display:flex;gap:8px;margin:0;flex:none}
+.ftt-native-header .ftt-native-header-social .wp-social-link{border:1px solid #dce8df;border-radius:50%;background:#fff;color:#118566}
+.ftt-native-header .ftt-native-header-social .wp-social-link:hover{background:#e7f9ee}
+.ftt-native-footer .bs-footer-main{display:grid;grid-template-columns:minmax(0,1.45fr) repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,68px)}
+.ftt-native-footer .bs-footer-col .wp-block-navigation{margin:0}
+.ftt-native-footer .bs-footer-col .wp-block-navigation__container{align-items:flex-start;gap:10px}
+.ftt-native-footer .bs-footer-col .wp-block-navigation-item__content{text-decoration:none}
+.ftt-native-footer .bs-footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.ftt-native-footer .bs-footer-bottom p{margin:0}
+.ftt-native-footer .bs-footer-actions{display:flex;gap:16px;align-items:center}
+.ftt-native-footer .ftt-native-footer-social{margin:0}
+.ftt-native-footer .ftt-native-footer-social .wp-social-link{border:1px solid rgba(208,247,224,.24);border-radius:50%;background:#14231b;color:#baf3dc}
+@media(max-width:1120px){
+ .ftt-native-header .bs-header-inner{gap:10px}
+ .ftt-native-header .ftt-native-header-social{gap:5px}
+}
+@media(max-width:830px){
+ .ftt-native-header .ftt-native-nav{flex:0 1 auto;margin-left:auto}
+ .ftt-native-header .ftt-native-header-social{display:none}
+ .ftt-native-footer .bs-footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ftt-native-footer .bs-footer-about{grid-column:1/-1}
+}
+@media(max-width:560px){
+ .ftt-native-header .ftt-native-brand-subtitle{display:none}
+ .ftt-native-header .bs-header-inner{flex-wrap:wrap}
+ .ftt-native-footer .bs-footer-main{grid-template-columns:1fr}
+ .ftt-native-footer .bs-footer-about{grid-column:auto}
+ .ftt-native-footer .bs-footer-bottom{align-items:flex-start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){.ftt-native-header .wp-social-link{transition:none}}
