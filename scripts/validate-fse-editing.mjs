@@ -24,9 +24,10 @@ const meta=JSON.parse(read('blocks/site-header/block.json'));
 // All templates must resolve to one shared database-editable Site Editor header.
 assert.match(header,/wp:template-part.*"slug":"ftt-header"/);
 assert(theme.templateParts.some(x=>x.name==='ftt-header'&&x.area==='header'));
-assert.match(canonicalHeader,/wp:site-logo/);
-assert.match(canonicalHeader,/wp:navigation/);
-assert.match(canonicalHeader,/wp:social-links/);
+assert.match(canonicalHeader,/wp:forex-trade-technology\/site-header/);
+assert.match(renderer,/class=\"bs-brand\"/);
+assert.match(renderer,/class=\"bs-mobile-menu-toggle\"/);
+assert.match(renderer,/ftt_social_links\('header'\)/);
 for(const slug of ['front-page','page','index','404','landing']){
  const template=read('templates/'+slug+'.html');
  assert.match(template,/wp:template-part.*"slug":"header"/,slug+' must resolve through shared header alias');
@@ -56,14 +57,15 @@ for(const [name,area,source] of [
   assert(!source.includes('ftt/site-navigation'),name+' should use Core blocks');
 }
 assert.match(nativeHeader,/wp:template-part.*"slug":"ftt-header"/);
-assert.match(canonicalHeader,/wp:navigation/);
-assert.match(canonicalHeader,/wp:navigation-submenu/);
-assert.match(canonicalHeader,/wp-block-button ftt-native-cta/);
-assert.doesNotMatch(canonicalHeader,/wp-block-button bs-btn bs-btn-primary/);
+assert.match(canonicalHeader,/wp:forex-trade-technology\/site-header/);
+assert.match(renderer,/class=\"bs-btn bs-btn-primary bs-nav-cta\"/);
+assert.match(renderer,/class=\"bs-btn bs-btn-primary bs-desktop-cta\"/);
+assert.match(renderer,/bs-toggle-open/);
+assert.match(renderer,/bs-toggle-close/);
 assert.match(nativeCss,/\.ftt-native-header \.ftt-native-header-action \.wp-block-button__link/);
 assert.match(nativeCss,/\.ftt-native-header \.ftt-native-header-action \.wp-block-button \{/);
 assert.match(nativeCss,/background:transparent!important/);
-assert.match(canonicalHeader,/wp:site-logo/);
+assert.match(canonicalHeader,/wp:forex-trade-technology\/site-header/);
 assert.match(nativeFooter,/wp:columns/);
 assert.match(nativeFooter,/wp:social-links/);
 assert.equal(meta.attributes.brand.type,'object');
@@ -75,15 +77,12 @@ assert.match(editor,/Copyright and legal notice/);
 assert.match(renderer,/\$submenuIds=/);
 assert.match(renderer,/esc_html\(\(string\)\$brand\['primary'\]\)/);
 assert.match(front,/closeDropdowns/);
-// Native prototype should preserve original source link inventory.
-const routes=[
- ...config.navigation.primary.flatMap(item=>item.children||[item]),
- ...config.footer.columns.flatMap(column=>column.links||[])
-];
-for(const {href} of routes){
+// The single dynamic header renders navigation from site.config.json, and the footer remains Core-editable.
+assert.match(renderer,/\$config\['navigation'\]\['primary'\]/);
+assert.match(renderer,/ftt_url\(\(string\)\$child\['href'\]\)/);
+for(const {href} of config.footer.columns.flatMap(column=>column.links||[])){
  if(typeof href!=='string'||!href.startsWith('/'))continue;
- assert(canonicalHeader.includes('"url":"'+href+'"')||nativeFooter.includes('"url":"'+href+'"'),
-   'missing native template URL: '+href);
+ assert(nativeFooter.includes('"url":"'+href+'"'),'missing native footer URL: '+href);
 }
 // Native preview CSS must be limited to scoped selectors, not broad site resets.
 for(const chunk of nativeCss.split('}')){
@@ -93,4 +92,4 @@ for(const chunk of nativeCss.split('}')){
  assert(!/(^|,)\s*(?:body|html|\.bs-site-header|\.bs-footer)\b/.test(rule),
    'Unscoped native CSS selector: '+rule);
 }
-console.log('FSE editing checks passed: one shared header, balanced Core blocks, visible social icon contrast, menu controls.');
+console.log('FSE editing checks passed: one reference-matched shared dynamic header, balanced blocks, mobile menu, social links, footer controls.');
