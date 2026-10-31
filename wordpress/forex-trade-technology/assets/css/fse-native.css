@@ -293,3 +293,235 @@
 @media(prefers-reduced-motion:reduce) {
   .ftt-native-header .ftt-native-header-social .wp-social-link:hover {transform:none}
 }
+
+/* v0.1.7 — Restore original compact navigation + clean-reference dropdown.
+ * Core Navigation markup differs from the old .bs-nav-link/.bs-submenu markup:
+ * inherited WordPress global styles inflate fonts and render a square, plain
+ * large list. Adapt its CORE blocks; never replace database-saved menu entries.
+ * Original reference: assets/css/clean-reference.css (.bs-clean-header).
+ */
+.ftt-native-header .ftt-native-nav.wp-block-navigation {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif!important;
+  font-size:14px!important;
+  font-weight:600;
+  line-height:1.4;
+  color:#333933;
+}
+.ftt-native-header .ftt-native-nav .wp-block-navigation__container {
+  align-items:center;
+  column-gap:clamp(12px,1.55vw,23px)!important;
+  row-gap:0!important;
+  flex-wrap:nowrap;
+}
+.ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item {
+  position:relative;
+  flex:0 0 auto;
+  margin:0;
+  padding:0;
+  font:inherit;
+  line-height:1.4;
+}
+.ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
+.ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content .wp-block-navigation-item__label {
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin:0;
+  padding:12px 0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif!important;
+  font-size:14px!important;
+  font-weight:600!important;
+  line-height:1.4!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  text-decoration:none!important;
+  white-space:nowrap;
+  color:#333933!important;
+}
+.ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:hover,
+.ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:hover .wp-block-navigation-item__label,
+.ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content:focus-visible,
+.ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content[aria-current="page"] {
+  color:#5a7826!important;
+}
+.ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-icon {
+  margin:0 0 0 4px;
+  padding:0;
+  color:#59605a;
+  line-height:1;
+}
+.ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-icon svg {
+  width:11px;
+  height:11px;
+  stroke-width:1.75;
+  transition:transform .18s ease;
+}
+.ftt-native-header .ftt-native-nav .wp-block-navigation-submenu:hover > .wp-block-navigation__submenu-icon svg,
+.ftt-native-header .ftt-native-nav .wp-block-navigation-submenu:focus-within > .wp-block-navigation__submenu-icon svg {
+  transform:rotate(180deg);
+}
+@media(min-width:831px) {
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container {
+    box-sizing:border-box;
+    z-index:180;
+    top:calc(100% - 1px)!important;
+    left:-12px!important;
+    width:min(320px,calc(100vw - 40px))!important;
+    min-width:280px!important;
+    height:auto!important;
+    max-height:min(75vh,560px);
+    overflow-y:auto;
+    overflow-x:hidden;
+    margin:0!important;
+    padding:9px!important;
+    border:1px solid #e2e8e4!important;
+    border-radius:13px!important;
+    background:#fff!important;
+    box-shadow:0 18px 42px rgba(15,23,42,.11)!important;
+    font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif!important;
+    font-size:13px!important;
+    font-weight:550!important;
+    line-height:1.4!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container > .wp-block-navigation-item {
+    box-sizing:border-box;
+    display:block;
+    width:100%;
+    margin:0!important;
+    padding:0!important;
+    border:0;
+    background:transparent;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+    box-sizing:border-box;
+    display:flex!important;
+    align-items:center;
+    width:100%!important;
+    min-height:40px;
+    margin:0!important;
+    padding:9px 12px!important;
+    border:0;
+    border-radius:8px!important;
+    background:transparent!important;
+    font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif!important;
+    font-size:13px!important;
+    font-weight:550!important;
+    line-height:1.4!important;
+    letter-spacing:0!important;
+    text-decoration:none!important;
+    text-transform:none!important;
+    white-space:normal!important;
+    color:#334155!important;
+    transition:color .16s ease,background-color .16s ease;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content .wp-block-navigation-item__label {
+    font:inherit!important;
+    white-space:normal!important;
+    color:inherit!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content:hover,
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content:focus-visible {
+    color:#3b551d!important;
+    background:#f3f8e7!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content[aria-current="page"] {
+    color:#24350f!important;
+    background:#e7f1c7!important;
+    font-weight:700!important;
+    box-shadow:inset 3px 0 0 #6f922b;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content:focus-visible {
+    outline:2px solid #6d9030;
+    outline-offset:-2px;
+  }
+}
+@media(max-width:1120px) and (min-width:831px) {
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__container {
+    column-gap:clamp(8px,1vw,13px)!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content,
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content .wp-block-navigation-item__label {
+    font-size:13px!important;
+  }
+}
+@media(max-width:830px) {
+  /* Core Navigation must stay reachable. The old .bs-inline-nav rules would
+     otherwise hide the entire WordPress <nav> at this breakpoint. */
+  .ftt-native-header .ftt-native-nav.wp-block-navigation {
+    display:flex!important;
+    position:relative!important;
+    inset:auto!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+    margin:0 0 0 auto!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__responsive-container-open:not(.always-shown) {
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    width:42px;
+    height:42px;
+    padding:9px;
+    border:1px solid #e2e8e4;
+    border-radius:10px;
+    background:#f5f7f0;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__responsive-container:not(.is-menu-open) {
+    display:none!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__responsive-container.is-menu-open {
+    display:flex!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+    flex-direction:column;
+    align-items:stretch;
+    flex-wrap:nowrap;
+    row-gap:0!important;
+    width:100%;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+    font-size:14px!important;
+    font-weight:600!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container {
+    box-sizing:border-box;
+    width:100%!important;
+    min-width:0!important;
+    margin:7px 0!important;
+    padding:7px!important;
+    border:0!important;
+    border-left:2px solid #a7d2b9!important;
+    border-radius:0 8px 8px 0!important;
+    background:#f8fbf8!important;
+    box-shadow:none!important;
+  }
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+    box-sizing:border-box;
+    display:flex;
+    width:100%;
+    padding:9px 12px!important;
+    font-size:13px!important;
+    font-weight:550!important;
+    color:#334155!important;
+    border-radius:8px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-icon svg,
+  .ftt-native-header .ftt-native-nav .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+    transition:none!important;
+  }
+}
