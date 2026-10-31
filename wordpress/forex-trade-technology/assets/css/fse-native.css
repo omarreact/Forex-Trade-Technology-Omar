@@ -43,3 +43,77 @@
  .ftt-native-footer .bs-footer-bottom{align-items:flex-start;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){.ftt-native-header .wp-social-link{transition:none}}
+
+/* v0.1.5 — Core Button normalization in native FSE header.
+ * WordPress stores the active header in wp_template_part; it may still contain
+ * the earlier wp-block-button.bs-btn.bs-btn-primary.bs-header-cta classes.
+ * Those classes colored/padded the OUTER div while WordPress styled the inner
+ * <a>, resulting in an oversized lime halo around a dark Contact Us pill.
+ * Neutralize only this header's Core Buttons wrappers, preserving all other
+ * .bs-btn styles throughout the site.
+ */
+.ftt-native-header .ftt-native-header-action {
+  margin:0!important;
+  padding:0!important;
+  min-height:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+.ftt-native-header .ftt-native-header-action .wp-block-button {
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  width:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+.ftt-native-header .ftt-native-header-action .wp-block-button::before,
+.ftt-native-header .ftt-native-header-action .wp-block-button::after {
+  display:none!important;
+}
+.ftt-native-header .ftt-native-header-action .wp-block-button__link {
+  box-sizing:border-box;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  min-height:50px;
+  margin:0;
+  padding:13px 24px;
+  border:0;
+  border-radius:999px;
+  background:#252a2e;
+  color:#fff;
+  font:750 14px/1.25 'Inter',system-ui,sans-serif;
+  text-align:center;
+  text-decoration:none;
+  white-space:nowrap;
+  box-shadow:none;
+  transition:background-color .2s ease,transform .2s ease;
+}
+.ftt-native-header .ftt-native-header-action .wp-block-button__link:hover {
+  background:#384044;
+  color:#fff;
+  transform:translateY(-2px);
+}
+.ftt-native-header .ftt-native-header-action .wp-block-button__link:focus-visible {
+  outline:3px solid #63842f;
+  outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce){
+  .ftt-native-header .ftt-native-header-action .wp-block-button__link {
+    transition:none;
+  }
+  .ftt-native-header .ftt-native-header-action .wp-block-button__link:hover {
+    transform:none;
+  }
+}
