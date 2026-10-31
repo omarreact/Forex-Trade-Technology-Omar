@@ -36,35 +36,36 @@ try{
    await page.locator('main').waitFor({timeout:30000});
    const info=await page.evaluate(()=>({
     h1:document.querySelector('main h1')?.textContent?.trim()||'',
-    sharedHeaders:document.querySelectorAll('.ftt-native-header').length,
-    headerMenuSignature:[...document.querySelectorAll('.ftt-native-header .wp-block-navigation-item__content')].map(el=>[el.textContent.trim(),el.getAttribute('href')||''].join(':')).join('|'),
-    headerSocial:[...document.querySelectorAll('.ftt-native-header .ftt-native-header-social .wp-social-link')].map(el=>({
+    sharedHeaders:document.querySelectorAll('.bs-site-header.bs-clean-header').length,
+    headerMenuSignature:[...document.querySelectorAll('.bs-site-header .bs-inline-nav > .bs-nav-link,.bs-site-header .bs-inline-nav > .bs-nav-dropdown > .bs-menu-trigger,.bs-site-header .bs-submenu > a')].map(el=>[el.textContent.trim(),el.getAttribute('href')||''].join(':')).join('|'),
+    headerSocial:[...document.querySelectorAll('.bs-site-header .bs-social-links--header .bs-social-link')].map(el=>({
       className:el.className,
       glyphs:el.querySelectorAll('svg').length,
-      glyphFill:el.querySelector('svg')?getComputedStyle(el.querySelector('svg')).fill:'',
+      glyphStroke:el.querySelector('svg')?getComputedStyle(el.querySelector('svg')).stroke:'',
       color:getComputedStyle(el).color,
       display:getComputedStyle(el).display,
-      href:el.querySelector('a')?.getAttribute('href')||''
+      href:el.getAttribute('href')||''
     })),
-    headerContactPills:document.querySelectorAll('.ftt-native-header .ftt-native-header-action .wp-block-button__link').length,
-    headerOuterButtonColor:(()=>{const el=document.querySelector('.ftt-native-header .ftt-native-header-action .wp-block-button');return el?getComputedStyle(el).backgroundColor:''})(),
+    headerDesktopCtas:document.querySelectorAll('.bs-site-header .bs-desktop-cta').length,
+    headerMobileCtas:document.querySelectorAll('.bs-site-header .bs-nav-cta').length,
+    headerActionVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-header-actions');return !!e&&getComputedStyle(e).display!=='none'})(),
+    headerToggleVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-mobile-menu-toggle');return !!e&&getComputedStyle(e).display!=='none'})(),
+    headerMobileCtaVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-nav-cta');return !!e&&getComputedStyle(e).display!=='none'})(),
+    headerDesktopCtaVisible:(()=>{const e=document.querySelector('.bs-site-header .bs-desktop-cta');return !!e&&getComputedStyle(e).display!=='none'})(),
     headerNavAppearance:(()=>{
-      const root=document.querySelector('.ftt-native-header .ftt-native-nav.wp-block-navigation');
-      const top=root?.querySelector('.wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content');
-      const submenu=root?.querySelector('.wp-block-navigation__submenu-container');
-      const sublink=submenu?.querySelector('.wp-block-navigation-item__content');
+      const root=document.querySelector('.bs-site-header .bs-inline-nav');
+      const top=root?.querySelector('.bs-nav-link');
+      const submenu=root?.querySelector('.bs-submenu');
+      const sublink=submenu?.querySelector('a');
       if(!top||!submenu||!sublink)return null;
-      const topStyle=getComputedStyle(top), menuStyle=getComputedStyle(submenu), subStyle=getComputedStyle(sublink);
+      const topStyle=getComputedStyle(top),menuStyle=getComputedStyle(submenu),subStyle=getComputedStyle(sublink);
       return {
         fontFamily:topStyle.fontFamily,
         topFontSize:parseFloat(topStyle.fontSize),
-        topWeight:parseInt(topStyle.fontWeight,10),
         submenuFontSize:parseFloat(subStyle.fontSize),
-        submenuWeight:parseInt(subStyle.fontWeight,10),
         submenuRadius:parseFloat(menuStyle.borderTopLeftRadius),
         submenuShadow:menuStyle.boxShadow,
-        submenuBackground:menuStyle.backgroundColor,
-        submenuPadding:parseFloat(subStyle.paddingLeft)
+        submenuBackground:menuStyle.backgroundColor
       };
     })(),
     // WordPress's default site block gap must not create a blank strip below the header.
@@ -89,17 +90,17 @@ try{
    if(status!==200||!info.h1||info.overflowing)report.errors.push({path,width,status,issue:!info.h1?'missing H1':info.overflowing?'horizontal overflow':'HTTP error'});
    if(info.headerBodyGapPx===null||Math.abs(info.headerBodyGapPx)>1.5)
     report.errors.push({path,width,issue:'Unexpected gap between FSE header and main',gapPx:info.headerBodyGapPx});
-   if(info.sharedHeaders!==1||info.headerContactPills!==1||!info.headerMenuSignature)
-    report.errors.push({path,width,issue:'Expected exactly one canonical native header, navigation and Contact Us pill',sharedHeaders:info.sharedHeaders,headerContactPills:info.headerContactPills});
+   if(info.sharedHeaders!==1||info.headerDesktopCtas!==1||info.headerMobileCtas!==1||!info.headerMenuSignature)
+    report.errors.push({path,width,issue:'Expected reference-matched header with mobile and desktop CTAs',info});
+   if(width<=830&&(!info.headerActionVisible||!info.headerToggleVisible||info.headerDesktopCtaVisible||info.headerMobileCtaVisible))
+    report.errors.push({path,width,issue:'Mobile navbar button or CTA visibility mismatch',info});
    if(headerMenuBaseline===null)headerMenuBaseline=info.headerMenuSignature;
    else if(headerMenuBaseline!==info.headerMenuSignature)
     report.errors.push({path,width,issue:'Navigation differs between homepage and inner page',expected:headerMenuBaseline,got:info.headerMenuSignature});
    if(info.headerSocial.length!==2||info.headerSocial.some(x=>x.glyphs!==1||!x.href.startsWith('https://')))
     report.errors.push({path,width,issue:'WhatsApp / Telegram social icons or destinations missing',social:info.headerSocial});
-   if(width>=768 && info.headerSocial.some(x=>x.glyphFill==='rgb(255, 255, 255)'||x.glyphFill==='none'))
-    report.errors.push({path,width,issue:'Invisible white-on-white social icon',social:info.headerSocial});
-   if(info.headerOuterButtonColor && info.headerOuterButtonColor!=='rgba(0, 0, 0, 0)')
-    report.errors.push({path,width,issue:'Unexpected second colored Contact Us capsule',color:info.headerOuterButtonColor});
+   if(info.headerSocial.some(x=>x.glyphStroke==='rgb(255, 255, 255)'||x.glyphStroke==='none'))
+    report.errors.push({path,width,issue:'Invisible social SVG stroke',social:info.headerSocial});
    if(width===1440 && (!info.headerNavAppearance
      || !info.headerNavAppearance.fontFamily.toLowerCase().includes('inter')
      || info.headerNavAppearance.topFontSize<12.5
@@ -109,9 +110,23 @@ try{
      || info.headerNavAppearance.submenuRadius<11
      || info.headerNavAppearance.submenuShadow==='none'
      || info.headerNavAppearance.submenuBackground!=='rgb(255, 255, 255)'))
-    report.errors.push({path,width,issue:'Native FSE navigation regressed from original compact reference typography/dropdown',navAppearance:info.headerNavAppearance});
+    report.errors.push({path,width,issue:'Navigation regressed from the Next.js reference typography/dropdown',navAppearance:info.headerNavAppearance});
 
 
+   if(path==='/'&&width<=830){
+    await page.locator('.bs-site-header .bs-mobile-menu-toggle').click();
+    const opened=await page.evaluate(()=>{
+      const n=document.querySelector('.bs-site-header .bs-inline-nav'),b=document.querySelector('.bs-site-header .bs-mobile-menu-toggle');
+      return !!n&&n.classList.contains('is-open')&&getComputedStyle(n).display!=='none'&&b?.getAttribute('aria-expanded')==='true';
+    });
+    if(!opened)report.errors.push({path,width,issue:'Hamburger did not open navigation'});
+    await page.locator('.bs-site-header .bs-mobile-menu-toggle').click();
+    const closed=await page.evaluate(()=>{
+      const n=document.querySelector('.bs-site-header .bs-inline-nav'),b=document.querySelector('.bs-site-header .bs-mobile-menu-toggle');
+      return !!n&&!n.classList.contains('is-open')&&getComputedStyle(n).display==='none'&&b?.getAttribute('aria-expanded')==='false';
+    });
+    if(!closed)report.errors.push({path,width,issue:'Hamburger did not close navigation'});
+   }
    if(path==='/'&& (info.slides!==5||info.ctas!==1))report.errors.push({path,width,issue:'home slides/CTA regression'});
    if(path==='/faq'&&info.faq!==42)report.errors.push({path,width,issue:'Expected 42 FAQs'});
    if(path==='/'){
