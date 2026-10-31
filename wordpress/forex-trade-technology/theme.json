@@ -199,6 +199,11 @@
       "name": "footer-native",
       "title": "Footer — native Gutenberg (preview)",
       "area": "footer"
+    },
+    {
+      "name": "ftt-header",
+      "title": "Global Site Header — Shared Navigation",
+      "area": "header"
     }
   ],
   "customTemplates": [
