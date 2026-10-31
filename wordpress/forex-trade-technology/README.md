@@ -46,3 +46,28 @@ the saved `ftt-header` template part**, re-import content, or manually replace
 the Site Editor customization. Template changes made to `ftt-header` then
 appear everywhere. If an older saved `header` part overrides the theme file,
 edit that part to a single Template Part block referencing `ftt-header`.
+
+## v0.1.7 — Original navigation look on Core Gutenberg menus
+
+The shared header is now a native `core/navigation` block, but WordPress Core
+renders `.wp-block-navigation__submenu-container` rather than the original
+`.bs-submenu`, so original `clean-reference.css` rules did not reach it.
+Default block styles caused oversized top-level/menu fonts, wide row spacing,
+square edges, and no original muted-lime highlight.
+
+`assets/css/fse-native.css` now maps the *original* header rules onto the Core
+Navigation markup: Inter 14px/600 top-level links, Inter 13px/550 dropdown
+items, maximum 320px rounded 13px white menu, 40px rows, subtle shadow,
+soft green hover/focus, and active-page highlighting. The submenu arrow is
+small and rotates on expanded hover/focus. Mobile WordPress's overlay toggle
+remains reachable below 830px, avoiding the legacy `.bs-inline-nav{display:none}`
+rule accidentally hiding the entire WordPress navigation.
+
+The fix is CSS-only in the live saved FSE header: no WordPress database edits,
+no reset of your site logo, navigation links, CTA block, page designs, or social
+links. WordPress Core Nav remains editable under Appearance → Editor.
+
+QA: On desktop compare Home, About, FAQ and Contact headers, hover/focus
+Solutions, and test long dropdown items. On mobile test open/close, submenu
+keyboard access, and no horizontal overflow. Purge CSS caches after replacing
+the theme ZIP; the new theme version is 0.1.7.
