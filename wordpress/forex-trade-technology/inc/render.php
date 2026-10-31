@@ -37,17 +37,22 @@ function ftt_heading(string $title='', string $kicker='FOREX TRADE TECHNOLOGY', 
 function ftt_header(array $attributes=[]): string {
     $config=ftt_config();
     if(isset($attributes['navigation'])&&is_array($attributes['navigation']))$config['navigation']=$attributes['navigation'];
+    $brand=array_replace(['primary'=>'FOREX','accent'=>'TRADE','tagline'=>'TECHNOLOGY','mark'=>'✳','href'=>'/'],is_array($attributes['brand']??null)?$attributes['brand']:[]);
     $current=(string)parse_url((string)($_SERVER['REQUEST_URI']??'/'), PHP_URL_PATH);
     $html='<header class="bs-site-header bs-clean-header"><div class="bs-shell bs-header-inner">'
-    .'<a href="'.esc_url(home_url('/')).'" class="bs-brand" aria-label="Forex Trade Technology — Home">'
-    .'<span class="bs-brand-mark" aria-hidden="true">✳</span><span class="bs-logo-text">FOREX<span>TRADE</span><small>TECHNOLOGY</small></span></a>'
+    .'<a href="'.esc_url(ftt_url((string)$brand['href'])).'" class="bs-brand" aria-label="'.esc_attr(trim($brand['primary'].' '.$brand['accent'].' '.$brand['tagline'])).' — Home">'
+    .'<span class="bs-brand-mark" aria-hidden="true">'.esc_html((string)$brand['mark']).'</span><span class="bs-logo-text">'.esc_html((string)$brand['primary']).'<span>'.esc_html((string)$brand['accent']).'</span><small>'.esc_html((string)$brand['tagline']).'</small></span></a>'
     .'<nav id="bs-primary-nav" aria-label="Main navigation" class="bs-inline-nav">';
-    foreach ($config['navigation']['primary']??[] as $nav) {
+    $submenuIds=[];
+    foreach ($config['navigation']['primary']??[] as $navIndex=>$nav) {
         $label=esc_html($nav['label']??'');
         if (!empty($nav['children'])) {
+            $submenuId='bs-'.sanitize_title((string)($nav['id']??$nav['label']??'submenu'));
+            if(in_array($submenuId,$submenuIds,true))$submenuId.='-'.(int)$navIndex;
+            $submenuIds[]=$submenuId;
             $active=false;
             foreach($nav['children'] as $child)if(($child['href']??'')===$current){$active=true;break;}
-            $html.='<div class="bs-nav-dropdown"><button type="button" class="bs-nav-link bs-menu-trigger'.($active?' active':'').'" aria-expanded="false" aria-haspopup="true" aria-controls="bs-solutions">'.$label.ftt_icon('chevronDown').'</button><div id="bs-solutions" class="bs-submenu" aria-hidden="true">';
+            $html.='<div class="bs-nav-dropdown"><button type="button" class="bs-nav-link bs-menu-trigger'.($active?' active':'').'" aria-expanded="false" aria-haspopup="true" aria-controls="'.esc_attr($submenuId).'">'.$label.ftt_icon('chevronDown').'</button><div id="'.esc_attr($submenuId).'" class="bs-submenu" aria-hidden="true">';
             foreach($nav['children'] as $child) {
                 $selected=($child['href']??'')===$current;
                 $html.='<a tabindex="-1" class="'.($selected?'active':'').'"'.($selected?' aria-current="page"':'').' href="'.esc_url(ftt_url((string)$child['href'])).'">'.esc_html($child['label']??'').ftt_icon('arrowUpRight').'</a>';
@@ -67,12 +72,13 @@ function ftt_footer(array $attributes=[]): string {
     $config=ftt_config();
     if(isset($attributes['footer'])&&is_array($attributes['footer']))$config['footer']=$attributes['footer'];
     if(isset($attributes['copyright']))$config['site']['copyright']=$attributes['copyright'];$footer=$config['footer']??[];
+    $logo=$footer['brand']??[];
     $html='<footer class="bs-footer"><div class="bs-shell bs-footer-main"><div class="bs-footer-about">'
-    .'<a href="'.esc_url(home_url('/')).'" class="bs-footer-logo">Forex Trade <strong>Technology<span>.</span></strong></a>'
+    .'<a href="'.esc_url(home_url('/')).'" class="bs-footer-logo">'.esc_html((string)($logo['titleFirst']??'Forex Trade')).' <strong>'.esc_html((string)($logo['titleAccent']??'Technology')).'<span>.</span></strong></a>'
     .'<p>'.esc_html($footer['brand']['description']??'').'</p>';
-    $email=$config['site']['email']??'';
+    $email=$footer['contactEmail']??$config['site']['email']??'';
     if ($email) $html.='<a class="bs-footer-email" href="mailto:'.esc_attr($email).'">'.esc_html($email).ftt_icon('arrowUpRight').'</a>';
-    else $html.='<a class="bs-footer-email" href="'.esc_url(ftt_url('/contact')).'">Contact our team'.ftt_icon('arrowUpRight').'</a>';
+    else $html.='<a class="bs-footer-email" href="'.esc_url(ftt_url((string)($footer['contactHref']??'/contact'))).'">'.esc_html((string)($footer['contactLabel']??'Contact our team')).ftt_icon('arrowUpRight').'</a>';
     $html.='</div>';
     foreach ($footer['columns']??[] as $column) {
         $html.='<div class="bs-footer-col">'.ftt_h((string)$column['heading'],3);
@@ -80,7 +86,7 @@ function ftt_footer(array $attributes=[]): string {
         $html.='</div>';
     }
     return $html.'</div><div class="bs-shell bs-footer-bottom"><span>'.esc_html($config['site']['copyright']??'').'</span>'
-        .'<div class="bs-footer-actions"><a href="'.esc_url(ftt_url('/contact')).'">Talk to our team '.ftt_icon('arrowUpRight').'</a>'.ftt_social_links('footer').'</div></div></footer>';
+        .'<div class="bs-footer-actions"><a href="'.esc_url(ftt_url((string)($footer['bottomActionHref']??'/contact'))).'">'.esc_html((string)($footer['bottomActionLabel']??'Talk to our team')).' '.ftt_icon('arrowUpRight').'</a>'.ftt_social_links('footer').'</div></div></footer>';
 }
 function ftt_final_cta(bool $home=false,array $attributes=[]): string {
     $data=$attributes['copy']??ftt_config()['footer']['cta']??[];
