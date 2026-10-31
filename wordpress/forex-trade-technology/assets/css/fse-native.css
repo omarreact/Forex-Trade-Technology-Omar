@@ -525,3 +525,31 @@
     transition:none!important;
   }
 }
+
+
+/* Mobile FSE header overflow fix (2026-11-01) */
+@media (max-width: 830px) {
+  /* On mobile the global header needs exactly one row: logo and menu.
+   * A saved Core Buttons CTA otherwise wraps under the header and appears
+   * as a stray button above the homepage hero. The hero CTA is unaffected. */
+  .ftt-native-header .ftt-native-header-action,
+  .ftt-native-header .bs-header-cta,
+  .ftt-global-header .ftt-native-header-action,
+  .bs-site-header .bs-header-actions .bs-header-cta {
+    display: none !important;
+  }
+  .ftt-native-header .bs-header-inner {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    min-width: 0;
+  }
+  .ftt-native-header .ftt-native-nav.wp-block-navigation {
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+  }
+  .ftt-native-header .wp-block-site-logo {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+}
