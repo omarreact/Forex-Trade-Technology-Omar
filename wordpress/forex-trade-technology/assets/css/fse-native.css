@@ -117,3 +117,90 @@
     transform:none;
   }
 }
+
+/* v0.1.6 — Visible Gutenberg Social Links in saved native FSE headers.
+ * A saved WordPress template part can still carry iconColor="white" and
+ * has-icon-color even after theme files change. Fix at the rendered SVG,
+ * li and anchor levels; do not overwrite database-saved navigation/logo.
+ */
+.ftt-native-header .ftt-native-header-social {
+  display:flex;
+  align-items:center;
+  flex-wrap:nowrap;
+  gap:9px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.ftt-native-header .ftt-native-header-social .wp-social-link {
+  box-sizing:border-box;
+  flex:0 0 38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  margin:0;
+  padding:0;
+  border:1px solid #cfe6d8;
+  border-radius:50%;
+  background:#f1f9f3!important;
+  color:#167a4f!important;
+  box-shadow:none;
+  transition:background-color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.ftt-native-header .ftt-native-header-social .wp-social-link.wp-social-link-telegram {
+  border-color:#d1e4f2;
+  background:#f0f8fc!important;
+  color:#1685b8!important;
+}
+.ftt-native-header .ftt-native-header-social .wp-social-link .wp-block-social-link-anchor {
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0!important;
+  border-radius:50%;
+  background:transparent!important;
+  color:inherit!important;
+  text-decoration:none;
+}
+.ftt-native-header .ftt-native-header-social .wp-social-link svg {
+  display:block;
+  width:20px;
+  height:20px;
+  color:inherit!important;
+  fill:currentColor!important;
+}
+.ftt-native-header .ftt-native-header-social .wp-social-link:hover {
+  border-color:#8bc7a5;
+  background:#e2f3e8!important;
+  transform:translateY(-2px);
+}
+.ftt-native-header .ftt-native-header-social .wp-social-link.wp-social-link-telegram:hover {
+  border-color:#9acde7;
+  background:#e4f4fc!important;
+}
+.ftt-native-header .ftt-native-header-social .wp-social-link:focus-within {
+  outline:3px solid #63842f;
+  outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce){
+  .ftt-native-header .ftt-native-header-social .wp-social-link {
+    transition:none;
+  }
+  .ftt-native-header .ftt-native-header-social .wp-social-link:hover {
+    transform:none;
+  }
+}
+/* Footer Core social icons, only when the opt-in native footer is used. */
+.ftt-native-footer .ftt-native-footer-social .wp-social-link,
+.ftt-native-footer .ftt-native-footer-social .wp-social-link .wp-block-social-link-anchor {
+  color:#baf3dc!important;
+}
+.ftt-native-footer .ftt-native-footer-social .wp-social-link svg {
+  fill:currentColor!important;
+}
