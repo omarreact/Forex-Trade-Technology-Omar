@@ -27,6 +27,8 @@ add_action('enqueue_block_assets', function (): void {
     wp_enqueue_style('ftt-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap', [], null);
     wp_enqueue_style('ftt-front', get_theme_file_uri('assets/css/front.css'), [], FTT_THEME_VERSION);
     wp_enqueue_style('ftt-parity', get_theme_file_uri('assets/css/wp-parity.css'), ['ftt-front'], FTT_THEME_VERSION);
+    // Scoped native FSE preview styles: current header/footer layout remains unchanged.
+    wp_enqueue_style('ftt-native-fse', get_theme_file_uri('assets/css/fse-native.css'), ['ftt-parity'], FTT_THEME_VERSION);
     if (is_admin()) {
         wp_enqueue_style('ftt-canvas', get_theme_file_uri('assets/css/editor.css'), ['ftt-parity'], FTT_THEME_VERSION);
     }
