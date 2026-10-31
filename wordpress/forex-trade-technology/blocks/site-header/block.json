@@ -6,10 +6,13 @@
   "title": "Site Header",
   "category": "design",
   "icon": "layout",
-  "description": "FSE block rendered from Phase B Next.js-compatible data contracts.",
+  "description": "Visual-parity site header with editable logo, navigation links, dropdowns and button in Gutenberg.",
   "textdomain": "forex-trade-technology",
   "attributes": {
     "navigation": {
+      "type": "object"
+    },
+    "brand": {
       "type": "object"
     }
   },
