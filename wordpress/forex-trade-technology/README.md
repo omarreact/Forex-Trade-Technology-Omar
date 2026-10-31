@@ -21,3 +21,28 @@ then draws a **single** dark, accessible clickable pill on the anchor.
 The default `parts/header-native.html` uses a single `ftt-native-cta` class for new installations.
 Current saved Site Editor logo and navigation remain untouched. After updating,
 clear full-page/CSS CDN caches and re-check desktop and mobile.
+
+## v0.1.6 — Unify homepage and inner-page navigation
+
+The WordPress site `omar.akogs-fashion.com` saves a custom `wp_template_part`
+named `ftt-header` and a custom `front-page` template that references it.
+Other pages and the blog use the theme-provided `header` part, previously the
+older dynamic navigation. That creates two different bars.
+
+**Resolution:** `parts/header.html` and `parts/header-native.html` now forward
+to `parts/ftt-header.html` — the canonical, block-editable header. The saved
+database version of `ftt-header` always wins over its file fallback, preserving
+the existing live logo, links, and Site Editor edits. Fresh installations get a
+complete core Site Logo + Navigation + Contact button + WhatsApp/Telegram header
+from the bundled `ftt-header.html`.
+
+`assets/css/fse-native.css` fixes white-on-white icon glyphs from saved
+`wp:social-links` `iconColor:white` attributes using scoped color/fill rules,
+and keeps WhatsApp green / Telegram blue. Existing header action fixes remain.
+
+After replacing the theme ZIP: purge any WordPress/CDN caches, verify homepage,
+About, FAQ, Contact and blog all show the same header. **Do not reset or delete
+the saved `ftt-header` template part**, re-import content, or manually replace
+the Site Editor customization. Template changes made to `ftt-header` then
+appear everywhere. If an older saved `header` part overrides the theme file,
+edit that part to a single Template Part block referencing `ftt-header`.
