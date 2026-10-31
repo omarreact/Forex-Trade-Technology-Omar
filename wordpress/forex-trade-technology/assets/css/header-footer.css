@@ -22,3 +22,116 @@
 .bs-contact-direct-links a:focus-visible{outline:3px solid #63842f;outline-offset:3px}
 @media(max-width:440px){.bs-contact-direct-links a{width:100%}}
 @media(prefers-reduced-motion:reduce){.bs-contact-direct-links a{transition:none}}
+
+
+/* Reference navigation parity: mobile header only (2026-11-01). */
+/* Only the shared site header, not sections, banners, or footer. */
+.bs-site-header.bs-clean-header .bs-mobile-menu-toggle .bs-toggle-open,
+.bs-site-header.bs-clean-header .bs-mobile-menu-toggle .bs-toggle-close {
+  align-items:center;
+  justify-content:center;
+  width:25px;
+  height:25px;
+}
+.bs-site-header.bs-clean-header .bs-mobile-menu-toggle .bs-toggle-open {display:flex}
+.bs-site-header.bs-clean-header .bs-mobile-menu-toggle .bs-toggle-close {display:none}
+.bs-site-header.bs-clean-header .bs-mobile-menu-toggle[aria-expanded="true"] .bs-toggle-open {display:none}
+.bs-site-header.bs-clean-header .bs-mobile-menu-toggle[aria-expanded="true"] .bs-toggle-close {display:flex}
+.bs-site-header.bs-clean-header .bs-mobile-menu-toggle svg {display:block;width:25px;height:25px}
+@media(max-width:830px) {
+  /* Logo, hamburger, WhatsApp and Telegram remain on one line. */
+  .bs-site-header.bs-clean-header .bs-header-inner {
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between;
+    flex-wrap:nowrap!important;
+    gap:clamp(5px,1vw,10px)!important;
+    min-width:0;
+  }
+  .bs-site-header.bs-clean-header .bs-brand {
+    display:flex;
+    align-items:center;
+    flex:0 1 auto;
+    min-width:0;
+    max-width:calc(100% - 140px);
+  }
+  .bs-site-header.bs-clean-header .bs-logo-text {min-width:0}
+  .bs-site-header.bs-clean-header .bs-header-actions {
+    display:flex!important;
+    align-items:center;
+    flex:0 0 auto;
+    margin-left:auto!important;
+    gap:clamp(4px,1.3vw,8px);
+  }
+  .bs-site-header.bs-clean-header .bs-mobile-menu-toggle {
+    display:grid!important;
+    place-items:center;
+    margin:0!important;
+    flex:0 0 44px;
+    width:44px;
+    height:44px;
+    border:0;
+    border-radius:11px;
+    background:#f2f4ef;
+    color:#141713;
+    cursor:pointer;
+  }
+  .bs-site-header.bs-clean-header .bs-social-links--header {
+    display:flex!important;
+    flex-wrap:nowrap;
+    align-items:center;
+    gap:clamp(4px,1vw,7px);
+  }
+  .bs-site-header.bs-clean-header .bs-social-links--header .bs-social-link {
+    display:inline-flex!important;
+    flex:0 0 38px;
+    width:38px;
+    height:38px;
+  }
+  /* The desktop CTA disappears; the mobile navigation keeps its CTA.
+     Never hide .bs-header-actions (it contains the hamburger). */
+  .bs-site-header.bs-clean-header .bs-desktop-cta {display:none!important}
+  .bs-site-header.bs-clean-header .bs-inline-nav:not(.is-open) {display:none!important}
+  .bs-site-header.bs-clean-header .bs-inline-nav.is-open {
+    display:flex!important;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    z-index:130;
+    max-height:calc(100svh - 73px);
+    overflow-y:auto;
+    background:#fff;
+  }
+  .bs-site-header.bs-clean-header .bs-inline-nav.is-open .bs-nav-cta {
+    display:inline-flex!important;
+    align-self:flex-start;
+    width:auto;
+    margin-top:12px;
+  }
+}
+@media(max-width:390px) {
+  .bs-site-header.bs-clean-header .bs-header-inner {gap:5px!important}
+  .bs-site-header.bs-clean-header .bs-brand {gap:7px;max-width:calc(100% - 119px)}
+  .bs-site-header.bs-clean-header .bs-brand-mark {
+    flex:0 0 35px;
+    width:35px;
+    height:35px;
+    border-radius:11px;
+    font-size:24px;
+  }
+  .bs-site-header.bs-clean-header .bs-logo-text {font-size:14px}
+  .bs-site-header.bs-clean-header .bs-logo-text small {font-size:8px}
+  .bs-site-header.bs-clean-header .bs-header-actions,
+  .bs-site-header.bs-clean-header .bs-social-links--header {gap:4px}
+  .bs-site-header.bs-clean-header .bs-social-links--header .bs-social-link {
+    flex-basis:32px;
+    width:32px;
+    height:32px;
+  }
+  .bs-site-header.bs-clean-header .bs-mobile-menu-toggle {
+    flex-basis:42px;
+    width:42px;
+    height:42px;
+  }
+}
