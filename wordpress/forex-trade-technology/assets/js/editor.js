@@ -15,7 +15,7 @@
   const SSR=wp.serverSideRender && (wp.serverSideRender.default || wp.serverSideRender);
   const ns='forex-trade-technology/';
   const descriptions={
-    'site-header':['Site Header',{navigation:{type:'object'}}],'site-footer':['Site Footer',{footer:{type:'object'},copyright:{type:'string'}}],
+    'site-header':['Site Header',{navigation:{type:'object'},brand:{type:'object'}}],'site-footer':['Site Footer',{footer:{type:'object'},copyright:{type:'string'}}],
     'final-cta':['Final CTA',{home:{type:'boolean',default:false},copy:{type:'object'}}],
     'home-slider':['Home Slider',{slides:{type:'array',default:[]},intervalMs:{type:'number',default:6000},autoplay:{type:'boolean',default:true}}],
     'page-hero':['Interior Page Hero',{page:{type:'object',default:{}}}],
@@ -96,21 +96,97 @@
     }
     if(slug==='site-header'){
       const navigation=a.navigation||window.fttEditorConfig?.navigation||{primary:[]};
-      return (navigation.primary||[]).flatMap((item,i)=>[
-        h(TextControl,{key:'nav-label-'+i,label:'Navigation '+(i+1)+' label',value:item.label||'',onChange:v=>{const primary=[...navigation.primary];primary[i]={...item,label:v};props.setAttributes({navigation:{...navigation,primary}});}}),
-        ...((item.children||[]).flatMap((child,j)=>[
-          h(TextControl,{key:'child-label-'+i+'-'+j,label:'Submenu '+(i+1)+'.'+(j+1)+' text',value:child.label||'',onChange:v=>{const primary=[...navigation.primary];const children=[...item.children];children[j]={...child,label:v};primary[i]={...item,children};props.setAttributes({navigation:{...navigation,primary}});}}),
-          h(TextControl,{key:'child-link-'+i+'-'+j,label:'Submenu '+(i+1)+'.'+(j+1)+' href',value:child.href||'',onChange:v=>{const primary=[...navigation.primary];const children=[...item.children];children[j]={...child,href:v};primary[i]={...item,children};props.setAttributes({navigation:{...navigation,primary}});}})
-        ])),
-        !item.children?h(TextControl,{key:'nav-href-'+i,label:'Navigation href',value:item.href||'',onChange:v=>{const primary=[...navigation.primary];primary[i]={...item,href:v};props.setAttributes({navigation:{...navigation,primary}});}}):null
-      ]);
+      const brand={primary:'FOREX',accent:'TRADE',tagline:'TECHNOLOGY',mark:'✳',href:'/',...(a.brand||{})};
+      const primary=Array.isArray(navigation.primary)?navigation.primary:[];
+      const savePrimary=next=>props.setAttributes({navigation:{...navigation,primary:next}});
+      const patchItem=(i,patch)=>savePrimary(primary.map((item,k)=>k===i?{...item,...patch}:item));
+      const moveItem=(i,delta)=>{
+        const k=i+delta;if(k<0||k>=primary.length)return;
+        const next=[...primary];[next[i],next[k]]=[next[k],next[i]];savePrimary(next);
+      };
+      const patchChild=(i,j,patch)=>{
+        const children=[...(primary[i].children||[])];children[j]={...children[j],...patch};patchItem(i,{children});
+      };
+      return [
+        h('h3',{key:'brand-heading'},'Brand / Logo'),
+        ...[['primary','First word'],['accent','Highlighted word'],['tagline','Small tagline'],['mark','Logo mark'],['href','Home URL']].map(([key,label])=>
+          h(TextControl,{key:'brand-'+key,label,value:brand[key]||'',onChange:v=>props.setAttributes({brand:{...brand,[key]:v}})})
+        ),
+        h('h3',{key:'menu-heading'},'Main navigation'),
+        ...primary.flatMap((item,i)=>[
+          h('div',{key:'menu-title-'+i,className:'ftt-editor-item'},h('strong',null,'Menu item '+(i+1))),
+          h(TextControl,{key:'menu-label-'+i,label:'Menu label',value:item.label||'',onChange:v=>patchItem(i,{label:v})}),
+          !Array.isArray(item.children)?h(TextControl,{key:'menu-link-'+i,label:'Destination URL',value:item.href||'',onChange:v=>patchItem(i,{href:v})}):null,
+          h('div',{key:'menu-actions-'+i,className:'ftt-editor-item'},
+            h(Button,{variant:'secondary',disabled:i===0,onClick:()=>moveItem(i,-1)},'Move up'),
+            ' ',
+            h(Button,{variant:'secondary',disabled:i===primary.length-1,onClick:()=>moveItem(i,1)},'Move down'),
+            ' ',
+            h(Button,{isDestructive:true,variant:'tertiary',onClick:()=>savePrimary(primary.filter((_,k)=>k!==i))},'Remove')
+          ),
+          ...(Array.isArray(item.children)?[
+            ...item.children.flatMap((child,j)=>[
+              h(TextControl,{key:'child-label-'+i+'-'+j,label:'Submenu '+(i+1)+'.'+(j+1)+' label',value:child.label||'',onChange:v=>patchChild(i,j,{label:v})}),
+              h(TextControl,{key:'child-link-'+i+'-'+j,label:'Submenu destination',value:child.href||'',onChange:v=>patchChild(i,j,{href:v})}),
+              h(Button,{key:'child-remove-'+i+'-'+j,variant:'tertiary',isDestructive:true,onClick:()=>patchItem(i,{children:item.children.filter((_,k)=>k!==j)})},'Remove submenu link')
+            ]),
+            h(Button,{key:'child-add-'+i,variant:'secondary',onClick:()=>patchItem(i,{children:[...item.children,{label:'New link',href:'/'}]})},'Add submenu link'),
+            h('hr',{key:'menu-rule-'+i})
+          ]:[])
+        ]),
+        h(Button,{key:'menu-add',variant:'secondary',onClick:()=>savePrimary([...primary,{id:'new-page-'+primary.length,label:'New page',href:'/'}])},'Add menu link'),
+        ' ',
+        h(Button,{key:'group-add',variant:'secondary',onClick:()=>savePrimary([...primary,{id:'new-group-'+primary.length,label:'New group',children:[{label:'New link',href:'/'}]}])},'Add dropdown'),
+        h('h3',{key:'cta-heading'},'Header button'),
+        h(TextControl,{key:'cta-label',label:'Button text',value:navigation.cta?.label||'',onChange:v=>props.setAttributes({navigation:{...navigation,cta:{...(navigation.cta||{}),label:v}}})}),
+        h(TextControl,{key:'cta-href',label:'Button URL',value:navigation.cta?.href||'',onChange:v=>props.setAttributes({navigation:{...navigation,cta:{...(navigation.cta||{}),href:v}}})}),
+        h(Notice,{key:'social-info',status:'info',isDismissible:false},'WhatsApp and Telegram icon URLs are shared globally under Appearance → Social Links.')
+      ];
     }
     if(slug==='site-footer'){
       const footer=a.footer||window.fttEditorConfig?.footer||{};
+      const brand={titleFirst:'Forex Trade',titleAccent:'Technology',...(footer.brand||{})};
+      const columns=Array.isArray(footer.columns)?footer.columns:[];
+      const patchFooter=patch=>props.setAttributes({footer:{...footer,...patch}});
+      const saveColumns=next=>patchFooter({columns:next});
+      const patchColumn=(i,patch)=>saveColumns(columns.map((col,j)=>j===i?{...col,...patch}:col));
+      const moveColumn=(i,delta)=>{
+        const k=i+delta;if(k<0||k>=columns.length)return;
+        const next=[...columns];[next[i],next[k]]=[next[k],next[i]];saveColumns(next);
+      };
+      const patchLink=(i,j,patch)=>{
+        const links=[...(columns[i].links||[])];links[j]={...links[j],...patch};patchColumn(i,{links});
+      };
       return [
-        h(TextareaControl,{key:'footer-desc',label:'Footer about text',value:footer.brand?.description||'',onChange:v=>props.setAttributes({footer:{...footer,brand:{...(footer.brand||{}),description:v}}})}),
-        h(TextareaControl,{key:'copyright',label:'Copyright notice',value:a.copyright??window.fttEditorConfig?.copyright??'',onChange:v=>props.setAttributes({copyright:v})}),
-        ...((footer.columns||[]).map((col,i)=>h(TextControl,{key:'column-'+i,label:'Footer column '+(i+1)+' title',value:col.heading||'',onChange:v=>{const columns=[...footer.columns];columns[i]={...col,heading:v};props.setAttributes({footer:{...footer,columns}});}})))
+        h('h3',{key:'brand-heading'},'Footer branding'),
+        ...[['titleFirst','Brand first words'],['titleAccent','Brand highlighted word'],['description','About text']].map(([key,label])=>
+          h(key==='description'?TextareaControl:TextControl,{key:'brand-'+key,label,value:brand[key]||'',onChange:v=>patchFooter({brand:{...brand,[key]:v}})})
+        ),
+        h('h3',{key:'columns-heading'},'Footer link columns'),
+        ...columns.flatMap((col,i)=>[
+          h(TextControl,{key:'col-'+i,label:'Column '+(i+1)+' heading',value:col.heading||'',onChange:v=>patchColumn(i,{heading:v})}),
+          ...(col.links||[]).flatMap((link,j)=>[
+            h(TextControl,{key:'link-label-'+i+'-'+j,label:'Link '+(j+1)+' label',value:link.label||'',onChange:v=>patchLink(i,j,{label:v})}),
+            h(TextControl,{key:'link-url-'+i+'-'+j,label:'Link URL',value:link.href||'',onChange:v=>patchLink(i,j,{href:v})}),
+            h(Button,{key:'link-remove-'+i+'-'+j,variant:'tertiary',isDestructive:true,onClick:()=>patchColumn(i,{links:col.links.filter((_,k)=>k!==j)})},'Remove link')
+          ]),
+          h(Button,{key:'link-add-'+i,variant:'secondary',onClick:()=>patchColumn(i,{links:[...(col.links||[]),{label:'New link',href:'/'}]})},'Add link'),
+          h('div',{key:'column-actions-'+i,className:'ftt-editor-item'},
+            h(Button,{variant:'secondary',disabled:i===0,onClick:()=>moveColumn(i,-1)},'Move column up'),
+            ' ',
+            h(Button,{variant:'secondary',disabled:i===columns.length-1,onClick:()=>moveColumn(i,1)},'Move column down'),
+            ' ',
+            h(Button,{variant:'tertiary',isDestructive:true,onClick:()=>saveColumns(columns.filter((_,k)=>k!==i))},'Remove column')
+          ),
+          h('hr',{key:'column-rule-'+i})
+        ]),
+        h(Button,{key:'column-add',variant:'secondary',onClick:()=>saveColumns([...columns,{heading:'New column',links:[] }])},'Add footer column'),
+        h('h3',{key:'contact-heading'},'Contact links'),
+        ...[['contactEmail','Contact email (optional)'],['contactLabel','Fallback contact text'],['contactHref','Fallback contact URL'],['bottomActionLabel','Bottom action text'],['bottomActionHref','Bottom action URL']].map(([key,label])=>
+          h(TextControl,{key,value:footer[key]||'',label,onChange:v=>patchFooter({[key]:v})})
+        ),
+        h(TextareaControl,{key:'copyright',label:'Copyright and legal notice',value:a.copyright??window.fttEditorConfig?.copyright??'',onChange:v=>props.setAttributes({copyright:v})}),
+        h(Notice,{key:'social-info',status:'info',isDismissible:false},'Social icons remain global; edit both header and footer destinations under Appearance → Social Links.')
       ];
     }
     if(slug==='trust-carousel')return [
