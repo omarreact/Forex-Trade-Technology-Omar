@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 defined('ABSPATH') || exit;
-define('FTT_THEME_VERSION', '0.1.4');
+define('FTT_THEME_VERSION', '0.1.5');
 require_once __DIR__ . '/inc/content.php';
 require_once __DIR__ . '/inc/social.php';
 require_once __DIR__ . '/inc/render.php';
