@@ -35,6 +35,13 @@ try{
    await page.locator('main').waitFor({timeout:30000});
    const info=await page.evaluate(()=>({
     h1:document.querySelector('main h1')?.textContent?.trim()||'',
+    // WordPress's default site block gap must not create a blank strip below the header.
+    headerBodyGapPx:(()=>{
+      const header=document.querySelector('.wp-site-blocks > header');
+      const main=document.querySelector('.wp-site-blocks > main');
+      if(!header||!main)return null;
+      return Math.round((main.getBoundingClientRect().top-header.getBoundingClientRect().bottom)*100)/100;
+    })(),
     ctas:document.querySelectorAll('.bs-global-cta-panel').length,
     faq:document.querySelectorAll('.bs-faq-questions details').length,
     slides:document.querySelectorAll('.bs-slide').length,
@@ -48,6 +55,8 @@ try{
    if(info.overflowing&&path==='/faq'&&(width===768||width===1440))console.log('OVERFLOW DIAGNOSTIC',width,JSON.stringify(info.offenders),'scrollWidth',info.scrollWidth);
    report.routes.push({path,width,status,...info});
    if(status!==200||!info.h1||info.overflowing)report.errors.push({path,width,status,issue:!info.h1?'missing H1':info.overflowing?'horizontal overflow':'HTTP error'});
+   if(info.headerBodyGapPx===null||Math.abs(info.headerBodyGapPx)>1.5)
+    report.errors.push({path,width,issue:'Unexpected gap between FSE header and main',gapPx:info.headerBodyGapPx});
    if(path==='/'&& (info.slides!==5||info.ctas!==1))report.errors.push({path,width,issue:'home slides/CTA regression'});
    if(path==='/faq'&&info.faq!==42)report.errors.push({path,width,issue:'Expected 42 FAQs'});
    if(path==='/'){
