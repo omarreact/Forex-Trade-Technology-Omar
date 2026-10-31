@@ -11,6 +11,7 @@ const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const theme=JSON.parse(read('theme.json'));
 const config=JSON.parse(read('data/site.config.json'));
 const header=read('parts/header.html');
+const canonicalHeader=read('parts/ftt-header.html');
 const footer=read('parts/footer.html');
 const nativeHeader=read('parts/header-native.html');
 const nativeFooter=read('parts/footer-native.html');
@@ -20,11 +21,24 @@ const front=read('assets/js/front.js');
 const nativeCss=read('assets/css/fse-native.css');
 const meta=JSON.parse(read('blocks/site-header/block.json'));
 
-// Verify current front end hasn't switched to an untested visual implementation.
-assert.match(header,/wp:forex-trade-technology\/site-header/);
+// All templates must resolve to one shared database-editable Site Editor header.
+assert.match(header,/wp:template-part.*"slug":"ftt-header"/);
+assert(theme.templateParts.some(x=>x.name==='ftt-header'&&x.area==='header'));
+assert.match(canonicalHeader,/wp:site-logo/);
+assert.match(canonicalHeader,/wp:navigation/);
+assert.match(canonicalHeader,/wp:social-links/);
+for(const slug of ['front-page','page','index','404','landing']){
+ const template=read('templates/'+slug+'.html');
+ assert.match(template,/wp:template-part.*"slug":"header"/,slug+' must resolve through shared header alias');
+}
+assert.match(nativeCss,/v0\.1\.6 — Social icon contrast/);
+assert.match(nativeCss,/fill:currentColor!important/);
+assert.match(nativeCss,/\.wp-social-link-whatsapp/);
+assert.match(nativeCss,/\.wp-social-link-telegram/);
 assert.match(footer,/wp:forex-trade-technology\/site-footer/);
 for(const [name,area,source] of [
   ['header-native','header',nativeHeader],
+  ['ftt-header','header',canonicalHeader],
   ['footer-native','footer',nativeFooter]
 ]){
   assert(theme.templateParts.some(x=>x.name===name&&x.area===area),name+' must be registered');
@@ -78,4 +92,4 @@ for(const chunk of nativeCss.split('}')){
  assert(!/(^|,)\s*(?:body|html|\.bs-site-header|\.bs-footer)\b/.test(rule),
    'Unscoped native CSS selector: '+rule);
 }
-console.log('FSE editing checks passed: active parts preserved, native parts balanced, menus and controls registered.');
+console.log('FSE editing checks passed: one shared header, balanced Core blocks, visible social icon contrast, menu controls.');
