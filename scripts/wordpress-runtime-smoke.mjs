@@ -48,6 +48,25 @@ try{
     })),
     headerContactPills:document.querySelectorAll('.ftt-native-header .ftt-native-header-action .wp-block-button__link').length,
     headerOuterButtonColor:(()=>{const el=document.querySelector('.ftt-native-header .ftt-native-header-action .wp-block-button');return el?getComputedStyle(el).backgroundColor:''})(),
+    headerNavAppearance:(()=>{
+      const root=document.querySelector('.ftt-native-header .ftt-native-nav.wp-block-navigation');
+      const top=root?.querySelector('.wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content');
+      const submenu=root?.querySelector('.wp-block-navigation__submenu-container');
+      const sublink=submenu?.querySelector('.wp-block-navigation-item__content');
+      if(!top||!submenu||!sublink)return null;
+      const topStyle=getComputedStyle(top), menuStyle=getComputedStyle(submenu), subStyle=getComputedStyle(sublink);
+      return {
+        fontFamily:topStyle.fontFamily,
+        topFontSize:parseFloat(topStyle.fontSize),
+        topWeight:parseInt(topStyle.fontWeight,10),
+        submenuFontSize:parseFloat(subStyle.fontSize),
+        submenuWeight:parseInt(subStyle.fontWeight,10),
+        submenuRadius:parseFloat(menuStyle.borderTopLeftRadius),
+        submenuShadow:menuStyle.boxShadow,
+        submenuBackground:menuStyle.backgroundColor,
+        submenuPadding:parseFloat(subStyle.paddingLeft)
+      };
+    })(),
     // WordPress's default site block gap must not create a blank strip below the header.
     headerBodyGapPx:(()=>{
       const header=document.querySelector('.wp-site-blocks > header');
@@ -81,6 +100,17 @@ try{
     report.errors.push({path,width,issue:'Invisible white-on-white social icon',social:info.headerSocial});
    if(info.headerOuterButtonColor && info.headerOuterButtonColor!=='rgba(0, 0, 0, 0)')
     report.errors.push({path,width,issue:'Unexpected second colored Contact Us capsule',color:info.headerOuterButtonColor});
+   if(width===1440 && (!info.headerNavAppearance
+     || !info.headerNavAppearance.fontFamily.toLowerCase().includes('inter')
+     || info.headerNavAppearance.topFontSize<12.5
+     || info.headerNavAppearance.topFontSize>15
+     || info.headerNavAppearance.submenuFontSize<12
+     || info.headerNavAppearance.submenuFontSize>14
+     || info.headerNavAppearance.submenuRadius<11
+     || info.headerNavAppearance.submenuShadow==='none'
+     || info.headerNavAppearance.submenuBackground!=='rgb(255, 255, 255)'))
+    report.errors.push({path,width,issue:'Native FSE navigation regressed from original compact reference typography/dropdown',navAppearance:info.headerNavAppearance});
+
 
    if(path==='/'&& (info.slides!==5||info.ctas!==1))report.errors.push({path,width,issue:'home slides/CTA regression'});
    if(path==='/faq'&&info.faq!==42)report.errors.push({path,width,issue:'Expected 42 FAQs'});
