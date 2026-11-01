@@ -28,8 +28,8 @@ jobs:
         run: npm run build
       - name: Block manifest
         run: npm run export:block-manifest
-      - name: Portable XML export
-        run: npm run export:xml
+      - name: Verify canonical Next.js content
+        run: npm run validate:data
 
   responsive-smoke:
     # Playwright 1.56.1 lacks Ubuntu 26.04 browser builds; pin supported runner.

@@ -1,87 +1,85 @@
-name: WordPress FSE locked-architecture sync
+name: Synchronize locked WordPress theme and importable WXR
 on:
   push:
-    branches:
-      - main
-      - 'feat/fse-locked-*'
+    branches: [main, 'feat/ftt-exact-fse-tree-wxr-*']
     paths:
       - 'app/**'
       - 'lib/**'
       - 'content/**'
-      - 'package.json'
-      - 'next.config.ts'
       - 'theme/**'
       - 'blocks/**'
       - 'patterns/**'
       - 'parts/**'
       - 'templates/**'
+      - 'public/**'
       - 'scripts/build-fse-locked.py'
       - '.github/workflows/sync-fse-locked.yml'
-  workflow_dispatch:
   pull_request:
+    branches: [main]
     paths:
       - 'app/**'
-      - 'lib/**'
       - 'content/**'
-      - 'package.json'
-      - 'next.config.ts'
       - 'theme/**'
-      - 'blocks/**'
-      - 'patterns/**'
       - 'parts/**'
-      - 'templates/**'
       - 'scripts/build-fse-locked.py'
-      - '.github/workflows/sync-fse-locked.yml'
+  workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: ftt-fse-source-sync
+  cancel-in-progress: false
 jobs:
-  generate:
-    name: Generate locked FSE ZIP and WXR
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+  build-and-sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install source-image converter
         run: python -m pip install Pillow==11.3.0
-      - name: Export from canonical Next.js source
-        run: python scripts/build-fse-locked.py --repo . --out dist/wordpress-fse --strict-assets
-      - name: Validate locked archive and importable WXR
-        shell: bash
+      - name: Generate reference-architecture FSE theme and native WordPress WXR
+        run: python scripts/build-fse-locked.py --repo . --theme-dir wordpress/forex-trade-technology --wxr-path website.xml --strict-assets
+      - name: Verify exact 31-file theme, animated images, 11 blocks and 16 WXR page records
         run: |
           python - <<'PY'
-          import zipfile,json,xml.etree.ElementTree as ET
-          from pathlib import Path
-          p=Path('dist/wordpress-fse')
-          j=json.loads((p/'build-manifest.json').read_text())
-          z=zipfile.ZipFile(p/'forex-trade-technology-fse-locked.zip')
-          assert len(z.namelist())==38, '31 files + 7 folders'
-          assert len([x for x in z.namelist() if not x.endswith('/')])==31
-          assert all(x.startswith('forex-trade-technology-fse/') for x in z.namelist())
-          assert j['pages']==13 and j['wxr_items']==16 and j['strict_assets']
-          assert len(j['blocks'])==11
-          css=z.read('forex-trade-technology-fse/assets/css/site.css').decode()
-          assert 'data:image/jpeg;base64,' in css and 'data:image/png;base64,' in css
-          assert 'height:fit-content' in css
-          assert b'ftt-brand-image' in z.read('forex-trade-technology-fse/parts/header.html')
-          assert b'ftt-footer-image' in z.read('forex-trade-technology-fse/parts/footer.html')
-          php=z.read('forex-trade-technology-fse/functions.php').decode()
-          assert "register_block_type('ftt/'.$name" in php
-          xml=ET.parse(p/'forex-trade-technology-next-source.wxr.xml')
+          import runpy, pathlib, xml.etree.ElementTree as ET
+          from PIL import Image
+          ns=runpy.run_path('scripts/build-fse-locked.py')
+          p=pathlib.Path('wordpress/forex-trade-technology')
+          actual={f.relative_to(p).as_posix() for f in p.rglob('*') if f.is_file()}
+          expect=set(ns['FILES'])
+          assert actual==expect, f'Unexpected theme file paths: {actual^expect}'
+          assert len(actual)==31 and len(ns['BLOCKS'])==11
+          for filename in [x for x in expect if x.endswith('.gif')]:
+              with Image.open(p/filename) as img:
+                  assert img.n_frames >= 2, f'{filename} is not animated'
+          xml=ET.parse('website.xml').getroot()
+          assert xml.tag=='rss'
           assert len(xml.findall('./channel/item'))==16
-          print('Lock contract and WXR validated')
+          php=(p/'functions.php').read_text()
+          assert "register_block_type('ftt/'.$name" in php
+          assert "register_rest_route('ftt/v1','/contact'" in php and 'wp_mail(' in php
+          assert 'ftt-brand-image' in (p/'parts/header.html').read_text()
+          assert 'ftt-footer-image' in (p/'parts/footer.html').read_text()
+          print('PASS: exactly 31 paths, 11 blocks, three animated GIFs, builtin contact handler, 16 WXR items')
           PY
-      - name: PHP and JavaScript syntax checks
-        shell: bash
+      - name: Validate generated PHP and Gutenberg JavaScript
         run: |
-          unzip -p dist/wordpress-fse/forex-trade-technology-fse-locked.zip forex-trade-technology-fse/functions.php > /tmp/ftt-functions.php
-          unzip -p dist/wordpress-fse/forex-trade-technology-fse-locked.zip forex-trade-technology-fse/assets/js/blocks.js > /tmp/ftt-blocks.js
-          php -l /tmp/ftt-functions.php
-          node --check /tmp/ftt-blocks.js
-      - uses: actions/upload-artifact@v4
-        with:
-          name: forex-trade-technology-fse-locked-${{ github.sha }}
-          path: dist/wordpress-fse/
-          retention-days: 30
+          php -l wordpress/forex-trade-technology/functions.php
+          node --check wordpress/forex-trade-technology/assets/js/blocks.js
+          node --check wordpress/forex-trade-technology/assets/js/site-enhancements.js
+      - name: Commit only theme directory and website.xml to main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git add -A -f -- wordpress/forex-trade-technology website.xml
+          if git diff --cached --quiet; then
+            echo 'Already synchronized.'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'chore(fse): synchronize locked theme and importable website.xml from Next.js'
+          git push origin HEAD:main
