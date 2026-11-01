@@ -42,3 +42,8 @@
 /* Editorial media bands can carry variable-length copy without clipping. */
 .bs-v4-dense .bs-media-band{height:fit-content;min-height:clamp(260px,30vw,360px)}
 .bs-v4-dense .bs-media-band-caption{height:auto;min-height:inherit;display:flex;align-items:flex-end;padding-block:clamp(36px,6vw,70px)}
+
+/* Preserve the tested desktop 70% hero composition while allowing copy to grow. */
+@media(min-width:1024px){
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-content{height:auto;min-height:clamp(392px,50.4svh,574px)}
+}
