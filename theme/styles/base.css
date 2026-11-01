@@ -65,7 +65,7 @@
 .bs-form-fields select:focus{border-color:#a8be60;box-shadow:0 0 0 3px rgba(217,241,122,.3)}
 
 /* v3: full-bleed home carousel. Five slides are data-driven, never repeated as content. */
-.bs-home-slider{position:relative;isolation:isolate;overflow:hidden;width:100%;height:fit-content;min-height:clamp(520px,65svh,780px);background:#101411;color:#fff;view-transition-name:home-slider}
+.bs-home-slider{position:relative;isolation:isolate;overflow:hidden;width:100%;height:fit-content;min-height:clamp(560px,72svh,820px);background:#101411;color:#fff;view-transition-name:home-slider}
 .bs-slide{position:absolute;inset:0;display:flex;align-items:center;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .7s ease,visibility .7s;z-index:0}
 .bs-slide.is-active{position:relative;min-height:inherit;opacity:1;visibility:visible;pointer-events:auto;z-index:1}
 .bs-slide-photo{object-fit:cover;z-index:-2}
