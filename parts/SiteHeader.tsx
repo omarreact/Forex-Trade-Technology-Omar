@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import {usePathname} from 'next/navigation';
 import {useEffect,useRef,useState} from 'react';
 import {Icon} from '@/blocks/shared/Icon';
@@ -37,7 +38,7 @@ export function SiteHeader(){
  return <header className="bs-site-header bs-clean-header" ref={headerRef}>
    <div className="bs-shell bs-header-inner">
     <Link href="/" className="bs-brand" aria-label={`${siteConfig.site.name} — Home`}>
-      <span className="bs-brand-mark" aria-hidden="true">✳</span><span className="bs-logo-text">FOREX<span>TRADE</span><small>TECHNOLOGY</small></span>
+      <Image src="/FTT-logo.jpeg" alt="ForexTradeTech — Trade | Learn | Grow" width={1600} height={551} className="bs-brand-logo-img" priority sizes="(max-width: 580px) 154px, (max-width: 950px) 174px, 200px"/>
     </Link>
 
     <nav id="bs-primary-nav" aria-label="Main navigation" className={`bs-inline-nav ${menu?'is-open':''}`}>
