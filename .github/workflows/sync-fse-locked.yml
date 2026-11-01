@@ -11,6 +11,7 @@ on:
       - 'package.json'
       - 'next.config.ts'
       - 'theme/**'
+      - 'public/**'
       - 'blocks/**'
       - 'patterns/**'
       - 'parts/**'
@@ -26,6 +27,7 @@ on:
       - 'package.json'
       - 'next.config.ts'
       - 'theme/**'
+      - 'public/**'
       - 'blocks/**'
       - 'patterns/**'
       - 'parts/**'
@@ -62,6 +64,10 @@ jobs:
           assert all(x.startswith('forex-trade-technology-fse/') for x in z.namelist())
           assert j['pages']==13 and j['wxr_items']==16 and j['strict_assets']
           assert len(j['blocks'])==11
+          assert b'ftt-brand-logo-sprite' in z.read('forex-trade-technology-fse/parts/header.html')
+          assert b'ftt-footer-logo-sprite' in z.read('forex-trade-technology-fse/parts/footer.html')
+          assert b'data:image/jpeg;base64,' in z.read('forex-trade-technology-fse/assets/css/site.css')
+          assert b'data:image/png;base64,' in z.read('forex-trade-technology-fse/assets/css/site.css')
           php=z.read('forex-trade-technology-fse/functions.php').decode()
           assert "register_block_type('ftt/'.$name" in php
           xml=ET.parse(p/'forex-trade-technology-next-source.wxr.xml')
