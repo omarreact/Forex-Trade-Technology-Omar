@@ -1,0 +1,74 @@
+name: WordPress FSE locked-architecture sync
+on:
+  push:
+    branches:
+      - main
+      - 'feat/fse-locked-*'
+    paths:
+      - 'content/**'
+      - 'theme/**'
+      - 'blocks/**'
+      - 'patterns/**'
+      - 'parts/**'
+      - 'templates/**'
+      - 'scripts/build-fse-locked.py'
+      - '.github/workflows/sync-fse-locked.yml'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'content/**'
+      - 'theme/**'
+      - 'blocks/**'
+      - 'patterns/**'
+      - 'parts/**'
+      - 'templates/**'
+      - 'scripts/build-fse-locked.py'
+      - '.github/workflows/sync-fse-locked.yml'
+permissions:
+  contents: read
+jobs:
+  generate:
+    name: Generate locked FSE ZIP and WXR
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source-image converter
+        run: python -m pip install Pillow==11.3.0
+      - name: Export from canonical Next.js source
+        run: python scripts/build-fse-locked.py --repo . --out dist/wordpress-fse --strict-assets
+      - name: Validate locked archive and importable WXR
+        shell: bash
+        run: |
+          python - <<'PY'
+          import zipfile,json,xml.etree.ElementTree as ET
+          from pathlib import Path
+          p=Path('dist/wordpress-fse')
+          j=json.loads((p/'build-manifest.json').read_text())
+          z=zipfile.ZipFile(p/'forex-trade-technology-fse-locked.zip')
+          assert len(z.namelist())==38, '31 files + 7 folders'
+          assert len([x for x in z.namelist() if not x.endswith('/')])==31
+          assert all(x.startswith('forex-trade-technology-fse/') for x in z.namelist())
+          assert j['pages']==13 and j['wxr_items']==16 and j['strict_assets']
+          assert len(j['blocks'])==11
+          php=z.read('forex-trade-technology-fse/functions.php').decode()
+          assert "register_block_type('ftt/'.$name" in php
+          xml=ET.parse(p/'forex-trade-technology-next-source.wxr.xml')
+          assert len(xml.findall('./channel/item'))==16
+          print('Lock contract and WXR validated')
+          PY
+      - name: PHP and JavaScript syntax checks
+        shell: bash
+        run: |
+          unzip -p dist/wordpress-fse/forex-trade-technology-fse-locked.zip forex-trade-technology-fse/functions.php > /tmp/ftt-functions.php
+          unzip -p dist/wordpress-fse/forex-trade-technology-fse-locked.zip forex-trade-technology-fse/assets/js/blocks.js > /tmp/ftt-blocks.js
+          php -l /tmp/ftt-functions.php
+          node --check /tmp/ftt-blocks.js
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forex-trade-technology-fse-locked-${{ github.sha }}
+          path: dist/wordpress-fse/
+          retention-days: 30
