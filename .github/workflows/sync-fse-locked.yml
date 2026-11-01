@@ -62,6 +62,11 @@ jobs:
           assert all(x.startswith('forex-trade-technology-fse/') for x in z.namelist())
           assert j['pages']==13 and j['wxr_items']==16 and j['strict_assets']
           assert len(j['blocks'])==11
+          css=z.read('forex-trade-technology-fse/assets/css/site.css').decode()
+          assert 'data:image/jpeg;base64,' in css and 'data:image/png;base64,' in css
+          assert 'height:fit-content' in css
+          assert b'ftt-brand-image' in z.read('forex-trade-technology-fse/parts/header.html')
+          assert b'ftt-footer-image' in z.read('forex-trade-technology-fse/parts/footer.html')
           php=z.read('forex-trade-technology-fse/functions.php').decode()
           assert "register_block_type('ftt/'.$name" in php
           xml=ET.parse(p/'forex-trade-technology-next-source.wxr.xml')
