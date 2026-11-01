@@ -175,7 +175,7 @@ def make_text_blocks(blocks):
         elif b.get('type')=='p':result+=paragraph(t)
     return result
 
-def make_section(s,page,idx,images):
+def make_section(s,page,idx,images,form=None,story=None):
     layout=s.get('layout','stack');title=s.get('title','')
     if layout=='ctaBand' or (layout=='mediaBand' and page['id']!='home'):return ''
     base='bs-v5-section bs-v5-layout-'+layout+(' bs-v5-soft' if idx%2 else '')
@@ -209,20 +209,60 @@ def make_section(s,page,idx,images):
         grid='bs-v5-grid '+('bs-v5-grid-two' if layout=='cardGrid2' else 'bs-v5-grid-three')
         return group(group(outerheading+''.join(paragraph(p) for p in intro)+group(''.join(allCards),grid),'bs-shell'),base,'section',s.get('id',''))
     if layout=='gallery3':
-        body=make_text_blocks(blocks)
-        return group(group(outerheading+body,'bs-shell'),base,'section',s.get('id',''))
+        gallery=[]
+        for key in (s.get('media') or {}).get('imageKeys',[]):
+            visual=images.get(key)
+            if visual:
+                card=group(image_block(visual,'bs-v5-gallery-image'),'bs-v5-gallery-photo')
+                card+=paragraph(visual.get('alt',''),'bs-v5-gallery-caption')
+                gallery.append(wrap_block('ftt/container',card,{'tagName':'figure','className':'bs-v5-gallery-item'}))
+        return group(group(heading('Technology Behind the Brokerage' if title=='Who We Work With' else title,2,'bs-ui-title')+group(''.join(gallery),'bs-v5-gallery-grid'),'bs-shell'),'bs-v5-section bs-v5-gallery','section',s.get('id',''))
+    if layout=='splitContent' and title=='Request a Consultation':
+        form=form or {}
+        intro=group(paragraph(form.get('eyebrow',''),'bs-eyebrow')+heading((form.get('headingBefore','')+' '+form.get('headingEmphasis','')).strip(),2)+paragraph(form.get('intro',''))+paragraph(form.get('publicNotice','')),'bs-contact-intro')
+        fields=''
+        for key,data in (form.get('fields') or {}).items():
+            typ='textarea' if key=='message' else ('select' if key in ('interest','stage') else 'input')
+            props={'name':key,'type':('email' if key=='email' else 'tel' if key=='contact' else 'text'),'label':data.get('label',key),'placeholder':data.get('placeholder',''),'required':key in ('name','email','message')}
+            fields+=selfblock('ftt/form-field',{'elementType':typ,'inputAttrs':props,'options':data.get('options',[])})
+        fields+=selfblock('ftt/form-field',{'elementType':'button','inputAttrs':{'type':'submit','label':form.get('submit','Request a Consultation')}})
+        formInner=group(fields,'bs-form-fields')+paragraph(form.get('footer',''),'bs-form-footer-copy')
+        formBlocks=wrap_block('ftt/container',formInner,{'tagName':'form','className':'bs-contact-form'})
+        return group(group(outerheading+group(intro+formBlocks,'bs-contact-grid'),'bs-shell'),'bs-v5-section bs-v5-contact','section',s.get('id',''))
     if layout=='splitContent':
         body=make_text_blocks(blocks)
         return group(group(outerheading+body,'bs-shell bs-contact-grid'),base,'section',s.get('id',''))
-    # Narrative / stack / dark narrative: preserve all text as individual blocks.
+    # Mirror the source's VisualStory layout for narrative-only bands.
+    is_story=layout=='stack' or (layout in ('darkBand','timeline') and not any(b.get('type')=='h3' for b in blocks))
+    if is_story and story:
+        info=story
+        visual=images.get(info.get('image'))
+        nodes=''.join(group(selfblock('ftt/icon',{'iconName':(info.get('icons') or ['server'])[i%len(info.get('icons') or ['server'])]})+paragraph(label),'bs-story-node') for i,label in enumerate(info.get('nodes',[])))
+        diagram=group(paragraph(info.get('eyebrow',''),'bs-story-diagram-label')+group(nodes,'bs-story-nodes')+paragraph('Integrated technology workflow','bs-story-diagram-bottom'),'bs-story-diagram')
+        visualPanel=group(image_block(visual,'bs-story-photo')+group('','bs-story-gradient')+diagram,'bs-story-visual')
+        body=group(outerheading+make_text_blocks(blocks),'bs-story-copy')
+        return group(group(body+visualPanel,'bs-shell bs-story-shell'),'bs-v5-section bs-story-section','section',s.get('id',''))
     body=make_text_blocks(blocks)
     return group(group(outerheading+body,'bs-shell'),base+' bs-story-section','section',s.get('id',''))
 
-def make_pages(pages,theme):
+def parse_story_visuals(src):
+    text=(src/'content/story-visuals.ts').read_text(encoding='utf-8')
+    stories={}
+    # Exact, source-backed TS values; no hand-authored visual replacements.
+    for line in text.splitlines():
+        m=re.match(r'^\s*(?:[\"\']([^\"\']+)[\"\']|([a-zA-Z][\w-]*)):\s*\{image:\'([^\']+)\',eyebrow:\'([^\']+)\',nodes:\[(.*?)\],icons:\[(.*?)\]\}',line)
+        if not m:continue
+        stories[m.group(1) or m.group(2)]={'image':m.group(3),'eyebrow':m.group(4),'nodes':re.findall(r"'([^']+)'",m.group(5)),'icons':re.findall(r"'([^']+)'",m.group(6))}
+    if len(stories)<13:raise ValueError('Story visual mapping incomplete; parsed '+str(len(stories))+' pages')
+    return stories
+
+def make_pages(pages,theme,src):
     images=theme['assets']['images'];result={}
+    stories=parse_story_visuals(src)
+    form=jread(src/'content/form.config.json')
     for p in pages:
         html=make_slider(p,images) if p['id']=='home' and p.get('pageTop',{}).get('variant')=='homeSlider' else make_page_header(p,images)
-        html+=''.join(make_section(s,p,i,images) for i,s in enumerate(p.get('sections') or []))
+        html+=''.join(make_section(s,p,i,images,form,stories.get(p['id'],stories['home'])) for i,s in enumerate(p.get('sections') or []))
         # Text-based technical guide content where represented in the canonical page source.
         guide=p.get('technicalGuide')
         if guide and isinstance(guide,dict):
@@ -273,8 +313,9 @@ add_action('after_setup_theme',function(){
 add_action('enqueue_block_assets',function(){wp_enqueue_style('ftt-fse-site',get_theme_file_uri('/assets/css/site.css'),[],filemtime(get_theme_file_path('/assets/css/site.css')));});
 add_action('wp_enqueue_scripts',function(){wp_enqueue_script('ftt-fse-site',get_theme_file_uri('/assets/js/site-enhancements.js'),[],filemtime(get_theme_file_path('/assets/js/site-enhancements.js')),true);});
 function ftt_wrap($attrs,$inner,$tag='div',$extra=''){
- $allowed=['div','span','section','article','aside','header','footer','nav','main','ul','li','strong','small'];
+ $allowed=['div','span','section','article','aside','header','footer','nav','main','ul','li','strong','small','form','figure'];
  $tag=in_array($tag,$allowed,true)?$tag:'div';$id=isset($attrs['elementId'])&&$attrs['elementId']?' id="'.esc_attr($attrs['elementId']).'"':'';
+ if($tag==='form')$extra.=' data-ftt-contact method="post"';
  return '<'.$tag.' '.get_block_wrapper_attributes().$id.$extra.'>'.$inner.'</'.$tag.'>';
 }
 function ftt_href($url){if(!$url)return home_url('/');if(str_starts_with($url,'#'))return $url;if(str_starts_with($url,'/')&&!str_starts_with($url,'//'))return home_url($url);return $url;}
@@ -286,7 +327,14 @@ function ftt_render($attrs,$inner,$block){
  case 'inline-text':$t=($attrs['tagName']??'span')==='small'?'small':'span';return '<'.$t.' '.get_block_wrapper_attributes().'>'.wp_kses_post($attrs['text']??'').'</'.$t.'>';
  case 'icon':$icon=$attrs['iconName']??'arrowUpRight';$paths=['arrowUpRight'=>'<path d="M7 7h10v10M7 17 17 7"/>','arrowRight'=>'<path d="M5 12h14m-7-7 7 7-7 7"/>','server'=>'<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>','users'=>'<circle cx="9" cy="7" r="4"/><path d="M2 21v-2a4 4 0 014-4h6a4 4 0 014 4v2"/>','shield'=>'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>','layers'=>'<path d="m12 2 9 5-9 5-9-5 9-5Zm-9 10 9 5 9-5M3 17l9 5 9-5"/>','link'=>'<path d="M10 13a5 5 0 007.5 0l3-3a5 5 0 00-7-7l-2 2m3 6a5 5 0 00-7.5 0l-3 3a5 5 0 007 7l2-2"/>','menu'=>'<path d="M4 6h16M4 12h16M4 18h16"/>','check'=>'<path d="m4 12 5 5L20 6"/>','payments'=>'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>'];$path=$paths[$icon]??$paths['arrowUpRight'];$size=max(12,min(64,(int)($attrs['size']??19)));return '<span '.get_block_wrapper_attributes().'><svg xmlns="http://www.w3.org/2000/svg" width="'.$size.'" height="'.$size.'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'.$path.'</svg></span>';
  case 'faq-item':return '<details '.get_block_wrapper_attributes(['class'=>'ftt-faq-item']).(!empty($attrs['isInitiallyOpen'])?' open':'').'><summary>'.esc_html($attrs['question']??'Question').'</summary><div class="ftt-faq-answer">'.$inner.'</div></details>';
- case 'form-field':$typ=$attrs['elementType']??'input';$props=$attrs['inputAttrs']??[];$name=sanitize_key($props['name']??'field');$label=esc_html($props['placeholder']??$name);return '<label>'.$label.($typ==='textarea'?'<textarea name="'.$name.'"></textarea>':'<input name="'.$name.'" type="'.esc_attr($props['type']??'text').'" placeholder="'.$label.'">').'</label>';
+ case 'form-field':
+  $typ=$attrs['elementType']??'input';$props=$attrs['inputAttrs']??[];
+  $name=sanitize_key($props['name']??'field');$label=esc_html($props['label']??ucfirst($name));
+  $placeholder=esc_attr($props['placeholder']??'');$required=!empty($props['required'])?' required':'';
+  if($typ==='button')return '<button type="submit" class="bs-btn bs-btn-primary">'.$label.'</button>';
+  if($typ==='select'){$html='<label><span>'.$label.'</span><select name="'.esc_attr($name).'"'.$required.'><option value="">'.$placeholder.'</option>';foreach(($attrs['options']??[]) as $opt)$html.='<option>'.esc_html((string)$opt).'</option>';return $html.'</select></label>';}
+  if($typ==='textarea')return '<label><span>'.$label.'</span><textarea name="'.esc_attr($name).'" placeholder="'.$placeholder.'"'.$required.'></textarea></label>';
+  return '<label><span>'.$label.'</span><input name="'.esc_attr($name).'" type="'.esc_attr($props['type']??'text').'" placeholder="'.$placeholder.'"'.$required.'></label>';
  case 'social-links':$wa=esc_url($attrs['whatsappUrl']??'https://wa.me/');$tg=esc_url($attrs['telegramUrl']??'https://t.me/');return '<div class="ftt-social-links"><a target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" href="'.$wa.'">WA</a><a target="_blank" rel="noopener noreferrer" aria-label="Telegram" href="'.$tg.'">TG</a></div>';
  case 'image':$src=$attrs['src']??'';$src=($src&&str_starts_with($src,'ftt-theme-asset://'))?get_theme_file_uri('/assets/images/'.basename(substr($src,18))):$src;return '<img '.get_block_wrapper_attributes().' src="'.esc_url($src).'" alt="'.esc_attr($attrs['alt']??'').'" loading="'.esc_attr($attrs['loading']??'lazy').'" decoding="async" />';
  case 'site-navigation':return '<nav '.get_block_wrapper_attributes(['class'=>'ftt-wp-nav']).' aria-label="'.esc_attr($attrs['ariaLabel']??'Primary navigation').'"><ul class="ftt-menu-list">'.$inner.'</ul></nav>';
@@ -296,7 +344,7 @@ function ftt_render($attrs,$inner,$block){
  return $inner;
 }
 add_action('init',function(){
- $defs=['container'=>['tagName'=>['type'=>'string','default'=>'div'],'elementId'=>['type'=>'string','default'=>'']],'link'=>['url'=>['type'=>'string','default'=>'/'],'target'=>['type'=>'string','default'=>'']],'inline-text'=>['text'=>['type'=>'string','default'=>''],'tagName'=>['type'=>'string','default'=>'span']],'icon'=>['iconName'=>['type'=>'string','default'=>'arrowUpRight'],'size'=>['type'=>'number','default'=>19]],'faq-item'=>['question'=>['type'=>'string','default'=>''],'isInitiallyOpen'=>['type'=>'boolean','default'=>false]],'form-field'=>['elementType'=>['type'=>'string','default'=>'input'],'inputAttrs'=>['type'=>'object','default'=>[]]],'social-links'=>['whatsappUrl'=>['type'=>'string','default'=>'https://wa.me/'],'telegramUrl'=>['type'=>'string','default'=>'https://t.me/']],'image'=>['src'=>['type'=>'string','default'=>''],'alt'=>['type'=>'string','default'=>''],'loading'=>['type'=>'string','default'=>'lazy']],'site-navigation'=>['ariaLabel'=>['type'=>'string','default'=>'Primary navigation']],'nav-link'=>['label'=>['type'=>'string','default'=>''],'url'=>['type'=>'string','default'=>'/']],'nav-submenu'=>['label'=>['type'=>'string','default'=>''],'url'=>['type'=>'string','default'=>'#'],'submenuId'=>['type'=>'string','default'=>'']]];
+ $defs=['container'=>['tagName'=>['type'=>'string','default'=>'div'],'elementId'=>['type'=>'string','default'=>'']],'link'=>['url'=>['type'=>'string','default'=>'/'],'target'=>['type'=>'string','default'=>'']],'inline-text'=>['text'=>['type'=>'string','default'=>''],'tagName'=>['type'=>'string','default'=>'span']],'icon'=>['iconName'=>['type'=>'string','default'=>'arrowUpRight'],'size'=>['type'=>'number','default'=>19]],'faq-item'=>['question'=>['type'=>'string','default'=>''],'isInitiallyOpen'=>['type'=>'boolean','default'=>false]],'form-field'=>['elementType'=>['type'=>'string','default'=>'input'],'inputAttrs'=>['type'=>'object','default'=>[]],'options'=>['type'=>'array','default'=>[]]],'social-links'=>['whatsappUrl'=>['type'=>'string','default'=>'https://wa.me/'],'telegramUrl'=>['type'=>'string','default'=>'https://t.me/']],'image'=>['src'=>['type'=>'string','default'=>''],'alt'=>['type'=>'string','default'=>''],'loading'=>['type'=>'string','default'=>'lazy']],'site-navigation'=>['ariaLabel'=>['type'=>'string','default'=>'Primary navigation']],'nav-link'=>['label'=>['type'=>'string','default'=>''],'url'=>['type'=>'string','default'=>'/']],'nav-submenu'=>['label'=>['type'=>'string','default'=>''],'url'=>['type'=>'string','default'=>'#'],'submenuId'=>['type'=>'string','default'=>'']]];
  foreach($defs as $name=>$attributes)register_block_type('ftt/'.$name,['api_version'=>3,'attributes'=>$attributes,'editor_script'=>'ftt-fse-blocks','render_callback'=>'ftt_render','supports'=>['html'=>false,'customClassName'=>true,'color'=>['text'=>true,'background'=>true],'spacing'=>['margin'=>true,'padding'=>true],'typography'=>['fontSize'=>true],'align'=>['wide','full']]]);
  wp_register_script('ftt-fse-blocks',get_theme_file_uri('/assets/js/blocks.js'),['wp-blocks','wp-element','wp-components','wp-block-editor'],filemtime(get_theme_file_path('/assets/js/blocks.js')),true);
 });
@@ -306,7 +354,7 @@ EDITOR_JS=r'''/* Source-derived Gutenberg block editor. Preserve the 11 ftt/* na
 (function(w){'use strict';if(!w.wp||!wp.blocks||!wp.blockEditor)return;
 const E=wp.element.createElement,Fragment=wp.element.Fragment,B=wp.blockEditor,C=wp.components,R=wp.blocks.registerBlockType;
 const Text=C.TextControl,Panel=C.PanelBody,Inspector=B.InspectorControls,Inner=B.InnerBlocks,use=B.useBlockProps,Rich=B.RichText;
-const spec={container:{tagName:{type:'string',default:'div'}},link:{url:{type:'string',default:'/'}},'inline-text':{text:{type:'string',default:''},tagName:{type:'string',default:'span'}},icon:{iconName:{type:'string',default:'arrowUpRight'},size:{type:'number',default:19}},'faq-item':{question:{type:'string',default:''},isInitiallyOpen:{type:'boolean',default:false}},'form-field':{elementType:{type:'string',default:'input'},inputAttrs:{type:'object',default:{}}},'social-links':{whatsappUrl:{type:'string',default:'https://wa.me/'},telegramUrl:{type:'string',default:'https://t.me/'}},image:{src:{type:'string',default:''},alt:{type:'string',default:''}},'site-navigation':{ariaLabel:{type:'string',default:'Primary navigation'}},'nav-link':{label:{type:'string',default:'Link'},url:{type:'string',default:'/'}},'nav-submenu':{label:{type:'string',default:'Submenu'},url:{type:'string',default:'#'}}};
+const spec={container:{tagName:{type:'string',default:'div'}},link:{url:{type:'string',default:'/'}},'inline-text':{text:{type:'string',default:''},tagName:{type:'string',default:'span'}},icon:{iconName:{type:'string',default:'arrowUpRight'},size:{type:'number',default:19}},'faq-item':{question:{type:'string',default:''},isInitiallyOpen:{type:'boolean',default:false}},'form-field':{elementType:{type:'string',default:'input'},inputAttrs:{type:'object',default:{}},options:{type:'array',default:[]}},'social-links':{whatsappUrl:{type:'string',default:'https://wa.me/'},telegramUrl:{type:'string',default:'https://t.me/'}},image:{src:{type:'string',default:''},alt:{type:'string',default:''}},'site-navigation':{ariaLabel:{type:'string',default:'Primary navigation'}},'nav-link':{label:{type:'string',default:'Link'},url:{type:'string',default:'/'}},'nav-submenu':{label:{type:'string',default:'Submenu'},url:{type:'string',default:'#'}}};
 const nested=new Set(['container','link','faq-item','site-navigation','nav-submenu']);
 for(const [name,attributes] of Object.entries(spec)){
  R('ftt/'+name,{title:'FTT '+name,icon:'admin-customizer',category:'design',apiVersion:3,attributes,
@@ -317,7 +365,12 @@ for(const [name,attributes] of Object.entries(spec)){
  else if(name==='icon')child=E('span',{},'◇ '+(a.iconName||'icon'));
  else if(name==='image')child=E('div',{},E(Text,{label:'Image URL',value:a.src||'',onChange:v=>props.setAttributes({src:v})}),a.src?E('img',{src:a.src,alt:a.alt||'',style:{maxWidth:'100%',maxHeight:250}}):null);
  else if(name==='nav-link')child=E('a',{href:'#'},a.label||'Link');
- else if(name==='form-field')child=E('div',{},'Form field: '+(a.inputAttrs?.name||'field'));
+ else if(name==='form-field')child=E('div',{},
+  E(Text,{label:'Field name',value:a.inputAttrs?.name||'',onChange:v=>props.setAttributes({inputAttrs:{...(a.inputAttrs||{}),name:v}})}),
+  E(Text,{label:'Field label',value:a.inputAttrs?.label||'',onChange:v=>props.setAttributes({inputAttrs:{...(a.inputAttrs||{}),label:v}})}),
+  E(Text,{label:'Placeholder',value:a.inputAttrs?.placeholder||'',onChange:v=>props.setAttributes({inputAttrs:{...(a.inputAttrs||{}),placeholder:v}})}),
+  E(Text,{label:'Input type',value:a.inputAttrs?.type||'text',onChange:v=>props.setAttributes({inputAttrs:{...(a.inputAttrs||{}),type:v}})}),
+  name==='form-field'&&a.elementType==='select'?E(Text,{label:'Options (one per line)',value:(a.options||[]).join('\n'),onChange:v=>props.setAttributes({options:v.split('\n').filter(Boolean)})}):null);
  else if(name==='social-links')child=E('div',{},'WhatsApp · Telegram');
  else if(nested.has(name))child=E(Inner,{allowedBlocks:name==='site-navigation'?['ftt/nav-link','ftt/nav-submenu']:name==='nav-submenu'?['ftt/nav-link']:undefined,renderAppender:Inner.ButtonBlockAppender});
  else child=E('div',{},name);
@@ -332,6 +385,14 @@ ENHANCE_JS=r'''document.addEventListener('DOMContentLoaded',function(){
  if(toggle&&nav){toggle.setAttribute('role','button');toggle.setAttribute('tabindex','0');toggle.setAttribute('aria-label','Toggle navigation');toggle.setAttribute('aria-expanded','false');const open=()=>{nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(nav.classList.contains('is-open')))};toggle.addEventListener('click',open);toggle.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})}
  document.querySelectorAll('.bs-home-slider').forEach(slider=>{let i=0;const slides=[...slider.querySelectorAll('.bs-slide')],dots=[...slider.querySelectorAll('.bs-slide-dots span')];if(!slides.length)return;const set=n=>{i=(n+slides.length)%slides.length;slides.forEach((s,j)=>{s.classList.toggle('is-active',i===j);s.setAttribute('aria-hidden',String(i!==j))});dots.forEach((d,j)=>d.classList.toggle('is-active',i===j))};set(0);if(slides.length>1&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){let t=setInterval(()=>set(i+1),6000);slider.addEventListener('mouseenter',()=>clearInterval(t));slider.addEventListener('mouseleave',()=>{clearInterval(t);t=setInterval(()=>set(i+1),6000)})}});
  document.querySelectorAll('.ftt-menu-submenu').forEach(item=>{item.querySelector(':scope>a')?.addEventListener('click',e=>{if(window.innerWidth<950){e.preventDefault();item.classList.toggle('is-open')}})});
+ document.querySelectorAll('form[data-ftt-contact]').forEach(form=>form.addEventListener('submit',async event=>{
+   event.preventDefault();let status=form.querySelector('[role=status]');if(!status){status=document.createElement('p');status.setAttribute('role','status');status.className='bs-form-status';form.appendChild(status)}
+   const button=form.querySelector('button[type=submit]');if(button)button.disabled=true;status.textContent='Sending…';
+   try{const response=await fetch('/wp-json/ftt/v1/contact',{method:'POST',body:new FormData(form),credentials:'same-origin'});
+       const result=await response.json();status.textContent=result.message||'No message was sent.';if(response.ok)form.reset();
+   }catch(error){status.textContent='Delivery unavailable. No message was sent.'}
+   finally{if(button)button.disabled=false}
+ }));
 });
 '''
 
@@ -396,7 +457,7 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--repo',required=True);parser.add_argument('--out',default='dist/ftt');parser.add_argument('--strict-assets',action='store_true');args=parser.parse_args()
     src,site,theme,pages=read_source(args.repo);out=pathlib.Path(args.out);out.mkdir(parents=True,exist_ok=True)
     files,order=filemap(src,site,theme,pages,args.strict_assets)
-    content=make_pages(pages,theme);wxr=make_wxr(pages,content,site)
+    content=make_pages(pages,theme,src);wxr=make_wxr(pages,content,site)
     wxr_path=out/'forex-trade-technology-next-source.wxr.xml';wxr_path.write_text(wxr,encoding='utf-8')
     zip_path=out/'forex-trade-technology-fse-locked.zip'
     with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED,compresslevel=8) as z:
