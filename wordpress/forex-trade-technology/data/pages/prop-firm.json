@@ -741,7 +741,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Prop Firm CRM API & Trading Technology",
     "subtitle": "Breadcrumb: Home > Products > Prop Firm CRM API",
