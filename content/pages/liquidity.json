@@ -742,7 +742,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Forex Liquidity & Connectivity Solutions",
     "subtitle": "Breadcrumb: Home > Solutions > Forex Liquidity & Connectivity",

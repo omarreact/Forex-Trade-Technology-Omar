@@ -444,7 +444,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Let's Build Your Brokerage Technology Stack",
     "subtitle": "Breadcrumb: Home > Contact",

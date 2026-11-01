@@ -49,7 +49,7 @@
       "pill": "100px"
     },
     "shell": "min(1210px, calc(100% - 88px))",
-    "innerHeaderHeight": "240px",
+    "innerHeaderHeight": "fit-content",
     "spacing": {
       "sectionY": "clamp(48px, 5.5vw, 72px)",
       "headerH": "72px",

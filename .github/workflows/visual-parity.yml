@@ -18,7 +18,8 @@ permissions:
   contents: read
 jobs:
   compare-with-production:
-    runs-on: ubuntu-latest
+    # Playwright 1.56.1 requires a supported Ubuntu 24.04 browser runner.
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4

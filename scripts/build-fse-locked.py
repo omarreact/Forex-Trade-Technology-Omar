@@ -5,7 +5,7 @@ Requires only Python 3.11+ for the text/build step; Pillow and Internet for real
 No file is written into the canonical Next.js source tree. Not a WordPress deployer.
 """
 from __future__ import annotations
-import argparse, collections, datetime, html, io, json, pathlib, re, hashlib, sys, urllib.request, xml.etree.ElementTree as ET, zipfile
+import argparse, base64, collections, datetime, html, io, json, pathlib, re, hashlib, sys, urllib.request, xml.etree.ElementTree as ET, zipfile
 from xml.sax.saxutils import escape as xml_escape
 
 ROOT='forex-trade-technology-fse/'
@@ -69,6 +69,17 @@ def compile_css(src):
         return '\n'.join(out)+'\n'
     compiled=walk('index.css')
     compiled+='\n/* WordPress-only wrapper and Gutenberg canvas parity fixes */\n'+WP_CSS
+    # Embed both supplied logos into an EXISTING CSS file: the 31-file architecture is immutable.
+    # Assets are held in Next.js public/ and mirrored in the legacy WordPress theme.
+    for filename, css_class, mime, ratio in [
+        ('FTT-logo.jpeg','ftt-brand-logo-sprite','image/jpeg','1600 / 551'),
+        ('FTT-footer-transparent.png','ftt-footer-logo-sprite','image/png','1120 / 216')]:
+        asset=src/'public'/filename
+        if not asset.is_file():
+            raise FileNotFoundError('Required canonical brand logo missing: '+str(asset))
+        payload=base64.b64encode(asset.read_bytes()).decode('ascii')
+        compiled+='\n.'+css_class+'{display:block;flex-shrink:0;max-width:100%;width:clamp(148px,16vw,200px);height:auto;aspect-ratio:'+ratio+';background-image:url("data:'+mime+';base64,'+payload+'");background-position:center;background-repeat:no-repeat;background-size:contain}\n'
+    compiled+='\n.ftt-brand-logo-sprite,.ftt-footer-logo-sprite{font-size:0;overflow:hidden}\n.ftt-footer-logo-sprite{width:min(100%,360px);aspect-ratio:1120 / 216}\n@media(max-width:580px){.ftt-brand-logo-sprite{width:clamp(138px,42vw,168px)}}\n'
     return compiled,done
 
 WP_CSS=r'''
@@ -78,7 +89,7 @@ WP_CSS=r'''
 .ftt-content-canvas .wp-block-group{box-sizing:border-box}
 .ftt-wp-header .bs-header-inner{display:flex;align-items:center;justify-content:space-between}
 .ftt-wp-header.bs-site-header{z-index:111}
-.ftt-logo-lockup .bs-brand-mark{display:grid}
+.ftt-logo-lockup .bs-brand-logo-img{display:block}
 .ftt-wp-nav{display:flex;align-items:center;gap:clamp(14px,2vw,28px)}
 .ftt-wp-nav .ftt-menu-list{display:flex;align-items:center;gap:inherit;list-style:none;padding:0;margin:0}
 .ftt-wp-nav .ftt-menu-list li{list-style:none}
@@ -119,9 +130,10 @@ def fse_theme_json(theme):
     return json.dumps(val,ensure_ascii=False,indent=2)+'\n'
 
 def make_header(site):
-    brand=group(selfblock('ftt/inline-text',{'text':'✳','tagName':'span','className':'bs-brand-mark'})+
-      group(selfblock('ftt/inline-text',{'text':'FOREX','tagName':'span'})+selfblock('ftt/inline-text',{'text':'TRADE','tagName':'span'})+selfblock('ftt/inline-text',{'text':'TECHNOLOGY','tagName':'small'}),'bs-logo-text'), 'bs-brand ftt-logo-lockup')
-    brand=wrap_block('ftt/link',brand,{'url':'/','className':'bs-brand','title':site['site']['name']})
+    # The Gutenberg architecture keeps ftt/inline-text; the artwork is a CSS asset
+    # embedded from the two canonical logo images without adding theme file paths.
+    brand=selfblock('ftt/inline-text',{'text':'ForexTradeTech — Trade | Learn | Grow','tagName':'span','className':'bs-brand-logo-img ftt-brand-logo-sprite'})
+    brand=wrap_block('ftt/link',brand,{'url':'/','className':'bs-brand ftt-logo-lockup','title':site['site']['name']})
     items=[]
     for n in site['navigation']['primary']:
         if n.get('children'):
@@ -140,7 +152,7 @@ def make_footer(site):
     banner=group(group(paragraph(cta.get('kicker',''),'bs-ui-kicker')+heading(cta['title'],2)+paragraph(cta.get('description',''))+button(cta['action']['label'],cta['action']['href']),'bs-global-cta-copy')+
        group(visual,'bs-global-cta-visual'),'bs-shell bs-global-cta-inner')
     banner=group(banner,'bs-global-cta')
-    about=group(heading(footer['brand']['name'],3,'bs-footer-logo')+paragraph(footer['brand']['description']),'bs-footer-about')
+    about=group(wrap_block('ftt/link',selfblock('ftt/inline-text',{'text':'ForexTradeTech — Trade | Learn | Grow','tagName':'span','className':'bs-footer-logo-img ftt-footer-logo-sprite'}),{'url':'/','className':'bs-footer-logo','title':site['site']['name']})+paragraph(footer['brand']['description']),'bs-footer-about')
     cols=[]
     for c in footer['columns']:
         links=''.join(wrap_block('ftt/link',selfblock('ftt/inline-text',{'text':l['label'],'tagName':'span'}),{'url':l['href']}) for l in c['links'])

@@ -22,3 +22,37 @@
 .bs-contact-direct-links a:focus-visible{outline:3px solid #63842f;outline-offset:3px}
 @media(max-width:440px){.bs-contact-direct-links a{width:100%}}
 @media(prefers-reduced-motion:reduce){.bs-contact-direct-links a{transition:none}}
+
+/* Canonical FTT logo assets are derived solely from user-supplied branding. */
+.bs-brand-logo-img{display:block;width:clamp(148px,16vw,200px);height:auto;max-height:calc(var(--bs-header-height) - 10px);object-fit:contain;flex-shrink:1}
+.bs-brand{min-width:0}
+.bs-header-inner{min-height:var(--bs-header-height);height:auto}
+.bs-footer-logo-img{display:block;width:min(100%,360px);height:auto;max-width:100%;object-fit:contain}
+.bs-footer-logo{display:block;max-width:100%}
+/* Variable-content page heroes must never crop headings or descriptions. */
+.bs-page-header,.bs-v4-dense .bs-page-header{height:fit-content;min-height:0}
+.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{height:auto;min-height:0;padding-block:clamp(38px,5.4vw,86px)}
+.bs-page-header .bs-page-subtitle,.bs-v4-dense .bs-page-subtitle{display:block;overflow:visible;-webkit-line-clamp:unset;line-clamp:unset;white-space:normal;overflow-wrap:anywhere}
+.bs-v5 .bs-v5-media-title-band{height:fit-content;min-height:clamp(215px,24vw,300px)}
+.bs-home-slider{height:fit-content}
+.bs-home-slider .bs-slide.is-active{position:relative;min-height:inherit}
+@media(max-width:950px){.bs-header-inner{gap:clamp(8px,2vw,20px)}.bs-inline-nav{gap:clamp(8px,1.5vw,16px)}}
+@media(max-width:580px){.bs-brand-logo-img{width:clamp(138px,42vw,168px);max-height:62px}.bs-footer-logo-img{width:min(100%,310px)}.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{padding-block:36px}}
+
+/* Editorial media bands can carry variable-length copy without clipping. */
+.bs-v4-dense .bs-media-band{height:fit-content;min-height:clamp(260px,30vw,360px)}
+.bs-v4-dense .bs-media-band-caption{height:auto;min-height:inherit;display:flex;align-items:flex-end;padding-block:clamp(36px,6vw,70px)}
+
+/* Preserve the tested desktop 70% hero composition while allowing copy to grow. */
+@media(min-width:1024px){
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-content{height:auto;min-height:clamp(392px,50.4svh,574px)}
+}
+
+/* Desktop hero: retain 85svh minimum and 70%-height copy without clipping
+   longer translations or marketing text. Overrides legacy 85svh fixed height. */
+@media(min-width:1024px){
+ .bs-main.bs-v4-dense .bs-home-slider{height:fit-content;min-height:85svh}
+ .bs-main.bs-v4-dense .bs-home-slider .bs-slide.is-active{position:relative;height:auto;min-height:85svh;align-items:center}
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-copy{height:auto;min-height:0;padding:0}
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-content{height:auto;min-height:59.5svh}
+}

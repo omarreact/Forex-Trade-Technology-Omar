@@ -819,7 +819,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "MT5 White Label Solutions for Forex Brokers",
     "subtitle": "An MT5 white label lets you put your own brand on the MT5 trading platform without buying and running a full server licence yourself. Your clients see your name. You control your own trading groups, symbols and condition",

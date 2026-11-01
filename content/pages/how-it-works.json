@@ -793,7 +793,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "How Forex Brokerage Technology Setup Works",
     "subtitle": "Breadcrumb: Home > How It Works",

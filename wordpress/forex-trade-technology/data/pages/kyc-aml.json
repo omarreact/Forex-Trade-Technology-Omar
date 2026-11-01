@@ -701,7 +701,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "KYC & AML Integration for Forex Brokers",
     "subtitle": "Breadcrumb: Home > Technology > KYC/AML Integration",

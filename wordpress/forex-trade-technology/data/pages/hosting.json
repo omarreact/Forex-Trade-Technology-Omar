@@ -707,7 +707,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Forex Broker Hosting & Trading Server Infrastructure",
     "subtitle": "Breadcrumb: Home > Solutions > Forex Broker Hosting",

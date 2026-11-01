@@ -762,7 +762,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Forex Brokerage Setup & Launch Technology",
     "subtitle": "A forex brokerage setup is a lot more than buying a platform and switching it on. Servers need hosting and securing. Liquidity has to be connected and tested. And clients need a way to sign up, get verified and fund an a",

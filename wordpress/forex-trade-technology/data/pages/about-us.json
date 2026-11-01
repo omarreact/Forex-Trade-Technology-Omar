@@ -542,7 +542,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Technology for the Modern Forex Brokerage",
     "subtitle": "Breadcrumb: Home > About Us",

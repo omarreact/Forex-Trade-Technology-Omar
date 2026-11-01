@@ -1,18 +1,18 @@
 /* header-footer: reserved for tokenized, visual-parity-tested migration overrides. */
 
-/* WhatsApp/Telegram: FSE PHP header/footer and Gutenberg preview */
-.bs-header-actions{display:flex;align-items:center;gap:8px;flex:none}
-.bs-social-links{display:flex;align-items:center;gap:8px;flex:none}
-.bs-social-link{width:38px;height:38px;box-sizing:border-box;border:1px solid #dce8df;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#118566;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
-.bs-social-link--telegram{color:#1987b3}
-.bs-social-link:hover{background:#e7f9ee;border-color:#7fbaa4;transform:translateY(-2px)}
-.bs-social-link:focus-visible{outline:3px solid #27795c;outline-offset:3px}
-.bs-footer-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.bs-footer .bs-footer-bottom .bs-social-link{width:43px;height:43px;border-color:rgba(208,247,224,.24);background:#14231b;color:#baf3dc}
-.bs-footer .bs-footer-bottom .bs-social-link:hover{background:#274335;border-color:#a8eacb}
-@media(max-width:1120px){.bs-header-inner{gap:10px}.bs-inline-nav{gap:clamp(7px,1.1vw,15px)}}
-@media(max-width:830px){.bs-header-actions{margin-left:auto}.bs-mobile-menu-toggle{margin-left:0}}
-@media(max-width:390px){.bs-header-actions,.bs-social-links--header{gap:5px}.bs-social-links--header .bs-social-link{width:33px;height:33px}.bs-social-links--header svg{width:18px;height:18px}}
+/* WhatsApp / Telegram social shortcuts: shared navigation and footer treatment. */
+.bs-header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.bs-social-links{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.bs-social-link{width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:1px solid #dce8df;background:#fff;color:#118566;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
+.bs-social-link:hover{background:#e7f9ee;border-color:#76bea4;transform:translateY(-2px)}
+.bs-social-link:focus-visible{outline:3px solid #247f64;outline-offset:3px}
+.bs-social-link--telegram{color:#1687b2}
+.bs-footer-actions{display:flex;align-items:center;gap:19px;flex-wrap:wrap}
+.bs-footer .bs-footer-bottom .bs-social-link{width:43px;height:43px;color:#b8f0dc;background:rgba(255,255,255,.04);border-color:rgba(208,247,224,.24)}
+.bs-footer .bs-footer-bottom .bs-social-link:hover{background:rgba(190,246,217,.16);border-color:#b8f0dc}
+@media(max-width:1100px){.bs-header-actions{gap:8px}.bs-social-links--header{gap:6px}}
+@media(max-width:830px){.bs-header-actions{margin-left:auto}.bs-social-links--header .bs-social-link{width:38px;height:38px}}
+@media(max-width:390px){.bs-header-inner{gap:6px}.bs-header-actions{gap:6px}.bs-social-links--header{gap:5px}.bs-social-links--header .bs-social-link{width:33px;height:33px}.bs-social-links--header svg{width:18px;height:18px}}
 @media(prefers-reduced-motion:reduce){.bs-social-link{transition:none}.bs-social-link:hover{transform:none}}
 
 /* Direct WhatsApp and Telegram links on the contact page. */
@@ -22,3 +22,37 @@
 .bs-contact-direct-links a:focus-visible{outline:3px solid #63842f;outline-offset:3px}
 @media(max-width:440px){.bs-contact-direct-links a{width:100%}}
 @media(prefers-reduced-motion:reduce){.bs-contact-direct-links a{transition:none}}
+
+/* Canonical FTT logo assets are derived solely from user-supplied branding. */
+.bs-brand-logo-img{display:block;width:clamp(148px,16vw,200px);height:auto;max-height:calc(var(--bs-header-height) - 10px);object-fit:contain;flex-shrink:1}
+.bs-brand{min-width:0}
+.bs-header-inner{min-height:var(--bs-header-height);height:auto}
+.bs-footer-logo-img{display:block;width:min(100%,360px);height:auto;max-width:100%;object-fit:contain}
+.bs-footer-logo{display:block;max-width:100%}
+/* Variable-content page heroes must never crop headings or descriptions. */
+.bs-page-header,.bs-v4-dense .bs-page-header{height:fit-content;min-height:0}
+.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{height:auto;min-height:0;padding-block:clamp(38px,5.4vw,86px)}
+.bs-page-header .bs-page-subtitle,.bs-v4-dense .bs-page-subtitle{display:block;overflow:visible;-webkit-line-clamp:unset;line-clamp:unset;white-space:normal;overflow-wrap:anywhere}
+.bs-v5 .bs-v5-media-title-band{height:fit-content;min-height:clamp(215px,24vw,300px)}
+.bs-home-slider{height:fit-content}
+.bs-home-slider .bs-slide.is-active{position:relative;min-height:inherit}
+@media(max-width:950px){.bs-header-inner{gap:clamp(8px,2vw,20px)}.bs-inline-nav{gap:clamp(8px,1.5vw,16px)}}
+@media(max-width:580px){.bs-brand-logo-img{width:clamp(138px,42vw,168px);max-height:62px}.bs-footer-logo-img{width:min(100%,310px)}.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{padding-block:36px}}
+
+/* Editorial media bands can carry variable-length copy without clipping. */
+.bs-v4-dense .bs-media-band{height:fit-content;min-height:clamp(260px,30vw,360px)}
+.bs-v4-dense .bs-media-band-caption{height:auto;min-height:inherit;display:flex;align-items:flex-end;padding-block:clamp(36px,6vw,70px)}
+
+/* Preserve the tested desktop 70% hero composition while allowing copy to grow. */
+@media(min-width:1024px){
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-content{height:auto;min-height:clamp(392px,50.4svh,574px)}
+}
+
+/* Desktop hero: retain 85svh minimum and 70%-height copy without clipping
+   longer translations or marketing text. Overrides legacy 85svh fixed height. */
+@media(min-width:1024px){
+ .bs-main.bs-v4-dense .bs-home-slider{height:fit-content;min-height:85svh}
+ .bs-main.bs-v4-dense .bs-home-slider .bs-slide.is-active{position:relative;height:auto;min-height:85svh;align-items:center}
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-copy{height:auto;min-height:0;padding:0}
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-content{height:auto;min-height:59.5svh}
+}
