@@ -15,3 +15,5 @@ This repository retains the Next.js marketing site as the design and content sou
 The existing `.github/workflows/sync-fse-locked.yml` regenerates the theme directory and `website.xml` from Next.js content, CSS, theme tokens, navigation, and logo assets whenever source code changes on `main`. It commits only those two destinations and does not generate or publish ZIP archives. The existing XML manual workflow permits an on-demand refresh. The `scripts/build-fse-locked.py` converter enforces the exact file inventory.
 
 **Note:** The historical reference archive contains more elaborate editor controls; the generated 11-block Gutenberg implementation must be staged and tested for editor parity. WordPress templates, logo placement, contact mail transport, and responsive screenshot parity are not certified merely by structural checks. Keep production DNS unchanged pending QA.
+
+Latest repository synchronization: root `website.xml` is WordPress WXR 1.2 and the theme directory contains exactly 31 files. The reference tree is validated in CI; full visual/editor parity and email delivery need WordPress staging verification.
