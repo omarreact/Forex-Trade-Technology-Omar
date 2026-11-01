@@ -671,7 +671,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Payment Gateway Integration for Forex Brokers",
     "subtitle": "Breadcrumb: Home > Products > Payment Gateway Integration",
