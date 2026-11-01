@@ -46,3 +46,24 @@ body.wp-theme-forex-trade-technology{margin:0}
 .ftt-cta-style-scope{width:100%;max-width:none;margin:0}
 .ftt-cta-style-scope .bs-global-cta{width:100%}
 .ftt-cta-style-scope .bs-global-cta-panel{box-sizing:border-box;min-width:0}
+
+/* FTT: fluid, content-measured page title and variable-content sections. */
+.bs-site-header,.bs-clean-header.bs-site-header{height:fit-content;min-height:var(--bs-header-height)}
+.bs-header-inner,.bs-clean-header .bs-header-inner{height:auto;min-height:var(--bs-header-height)}
+.bs-page-header,.bs-v4-dense .bs-page-header,.bs-main.bs-v4-dense .bs-page-header{height:fit-content;min-height:0}
+.bs-page-header-content,.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{height:auto;min-height:0;padding-block:clamp(38px,5.4vw,86px);justify-content:center}
+.bs-page-subtitle,.bs-v4-dense .bs-page-subtitle{display:block;-webkit-line-clamp:unset;line-clamp:unset;overflow:visible;overflow-wrap:anywhere;white-space:normal}
+.bs-v5 .bs-v5-media-title-band{height:fit-content;min-height:clamp(215px,24vw,300px)}
+.bs-v5 .bs-v5-media-title-band .bs-v5-media-caption{height:auto;min-height:0;padding-block:clamp(28px,4vw,52px)}
+.bs-home-slider,.bs-main.bs-v4-dense .bs-home-slider{height:fit-content;min-height:clamp(520px,78svh,800px);max-height:none}
+.bs-home-slider .bs-slide-copy,.bs-main.bs-v4-dense .bs-slide-copy{height:auto;max-height:none}
+.bs-page-header .bs-page-title,.bs-page-header .bs-page-subtitle{max-width:100%;overflow-wrap:anywhere}
+@media(max-width:580px){.bs-page-header-content,.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{padding-block:36px}.bs-home-slider,.bs-main.bs-v4-dense .bs-home-slider{min-height:clamp(500px,80svh,720px)}}
+
+/* FTT uploaded art, responsive placement with preserved aspect ratios. */
+.ftt-brand-image{display:block;width:clamp(142px,15vw,190px);max-width:100%;height:auto;object-fit:contain;flex-shrink:0}
+.ftt-footer-image{display:block;width:min(100%,320px);height:auto;object-fit:contain}
+.bs-footer-logo:has(.ftt-footer-image){display:inline-flex;align-items:center;width:min(100%,320px);max-width:100%;line-height:1}
+.bs-header-inner{flex-wrap:nowrap}
+@media(max-width:950px){.ftt-brand-image{width:clamp(142px,22vw,180px)}}
+@media(max-width:580px){.ftt-brand-image{width:clamp(132px,40vw,162px)}.ftt-footer-image{width:min(100%,290px)}.bs-header-inner{gap:8px}}

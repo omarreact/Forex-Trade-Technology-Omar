@@ -80,15 +80,15 @@
 .bs-slide-dots button{padding:0;width:10px;height:10px;border:0;border-radius:99px;background:rgba(255,255,255,.47);transition:width .25s,background .25s}
 .bs-slide-dots button.is-active{width:38px;background:var(--bs-lime)}
 /* Interior: consistently compact 300px title header */
-.bs-page-header{position:relative;isolation:isolate;min-height:300px;height:300px;overflow:hidden;background:linear-gradient(120deg,#0c0e0e,#1a2218 55%,#0f1410);color:#fff}
+.bs-page-header{position:relative;isolation:isolate;min-height:0;height:fit-content;overflow:hidden;background:linear-gradient(120deg,#0c0e0e,#1a2218 55%,#0f1410);color:#fff}
 .bs-page-bg{object-fit:cover;z-index:-2}
 .bs-page-header-overlay{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,12,8,.94),rgba(8,12,8,.83) 60%,rgba(8,12,8,.65))}
-.bs-page-header-content{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;height:100%;padding-block:20px}
+.bs-page-header-content{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;height:auto;padding-block:clamp(38px,5.4vw,86px)}
 .bs-page-header .bs-breadcrumb{display:flex;margin:0 0 14px;gap:0;color:#c0cabc;font-size:12px}
 .bs-crumb{display:inline-flex;align-items:center;gap:9px}.bs-crumb-slash{margin-inline:9px;color:#9aad92}
 .bs-hero-kicker{font-size:11px;font-weight:800;color:var(--bs-lime);letter-spacing:.14em;margin-bottom:11px}
 .bs-page-title{font-size:clamp(30px,3.75vw,49px);max-width:990px;line-height:1.12;margin:0 0 9px;color:#fff}
-.bs-page-subtitle{max-width:930px;font-size:clamp(12px,1.1vw,15px);line-height:1.5;color:#dfebd8;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bs-page-subtitle{max-width:930px;font-size:clamp(12px,1.1vw,15px);line-height:1.5;color:#dfebd8;margin:0;display:block;-webkit-line-clamp:unset;-webkit-box-orient:vertical;overflow:visible}
 /* Section media honor each source-declared layout without removing a single editorial block. */
 .bs-full-section{position:relative;isolation:isolate}
 .bs-full-section>.bs-shell{position:relative;z-index:1}
@@ -123,9 +123,9 @@
  .bs-media-splitRight .bs-content-intro,.bs-media-splitLeft .bs-content-intro{order:1}.bs-media-splitRight .bs-section-media,.bs-media-splitLeft .bs-section-media{order:2}
  .bs-media-splitLeft>.bs-shell>*:not(.bs-content-heading):not(.bs-content-intro):not(.bs-section-media),.bs-media-splitRight>.bs-shell>*:not(.bs-content-heading):not(.bs-content-intro):not(.bs-section-media){order:3}
  .bs-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.bs-gallery .bs-section-photo{height:220px}
- .bs-page-header{height:300px;min-height:300px}.bs-page-title{font-size:clamp(28px,6vw,40px)}
+ .bs-page-header{height:fit-content;min-height:0}.bs-page-title{font-size:clamp(28px,6vw,40px)}
 }
-@media (max-width:480px){.bs-shell{width:calc(100% - 38px)}.bs-slide-copy h1,.bs-slide-copy h2{font-size:34px}.bs-slide-controls{bottom:24px}.bs-slide-dots{gap:7px}.bs-slide-dots button.is-active{width:25px}.bs-page-header-content{padding-block:15px}.bs-page-header .bs-breadcrumb{font-size:10px}.bs-page-title{font-size:clamp(26px,7.6vw,35px)}.bs-page-subtitle{-webkit-line-clamp:2}.bs-gallery{gap:9px}.bs-gallery .bs-section-photo{height:150px}}
+@media (max-width:480px){.bs-shell{width:calc(100% - 38px)}.bs-slide-copy h1,.bs-slide-copy h2{font-size:34px}.bs-slide-controls{bottom:24px}.bs-slide-dots{gap:7px}.bs-slide-dots button.is-active{width:25px}.bs-page-header-content{padding-block:clamp(38px,5.4vw,86px)}.bs-page-header .bs-breadcrumb{font-size:10px}.bs-page-title{font-size:clamp(26px,7.6vw,35px)}.bs-page-subtitle{-webkit-line-clamp:unset}.bs-gallery{gap:9px}.bs-gallery .bs-section-photo{height:150px}}
 @media (prefers-reduced-motion:reduce){.bs-slide{transition:none}.bs-section-photo img{transition:none}}
 
 
@@ -136,12 +136,12 @@
 .bs-v4-dense .bs-slide-kicker{margin-bottom:14px}
 .bs-v4-dense .bs-slide-copy h1,.bs-v4-dense .bs-slide-copy h2{max-width:640px;font-size:clamp(36px,4.6vw,65px);margin-bottom:15px}
 .bs-v4-dense .bs-slide-copy p{max-width:560px;margin-bottom:23px;line-height:1.55}
-.bs-v4-dense .bs-page-header{height:240px;min-height:240px}
-.bs-v4-dense .bs-page-header-content{padding-block:14px}
+.bs-v4-dense .bs-page-header{height:fit-content;min-height:0}
+.bs-v4-dense .bs-page-header-content{padding-block:clamp(38px,5.4vw,86px)}
 .bs-v4-dense .bs-page-header .bs-breadcrumb{margin-bottom:9px}
 .bs-v4-dense .bs-hero-kicker{margin-bottom:7px}
 .bs-v4-dense .bs-page-title{font-size:clamp(27px,3.25vw,43px);max-width:990px;margin-bottom:6px}
-.bs-v4-dense .bs-page-subtitle{font-size:13px;max-width:770px;-webkit-line-clamp:2}
+.bs-v4-dense .bs-page-subtitle{font-size:13px;max-width:770px;-webkit-line-clamp:unset}
 .bs-v4-dense .bs-dense-section{padding-block:var(--bs-section-y)}
 .bs-v4-dense .bs-dense-tint{background:#f6f7f3}
 .bs-v4-dense .bs-dense-heading{max-width:850px;margin-bottom:20px}
@@ -188,7 +188,7 @@
 .bs-v4-dense .bs-dark-cta h2{font-size:clamp(27px,3vw,41px)}
 .bs-v4-dense .bs-cta-row{padding-block:22px}
 @media(max-width:990px){.bs-v4-dense .bs-dense-cols-3,.bs-v4-dense .bs-dense-cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){:root{--bs-header-height:72px;--bs-section-y:clamp(38px,7vw,50px)}.bs-v4-dense .bs-home-slider{height:clamp(480px,75vh,570px)}.bs-v4-dense .bs-slide-copy h1,.bs-v4-dense .bs-slide-copy h2{font-size:clamp(32px,8vw,44px)}.bs-v4-dense .bs-page-header{height:240px;min-height:240px}.bs-v4-dense .bs-page-title{font-size:clamp(25px,6vw,35px)}.bs-v4-dense .bs-dense-cards,.bs-v4-dense .bs-dense-cols-2,.bs-v4-dense .bs-dense-cols-3,.bs-v4-dense .bs-dense-cols-4{grid-template-columns:1fr}.bs-v4-dense .bs-dense-card{padding:20px}.bs-v4-dense .bs-media-band{height:280px}.bs-v4-dense .bs-media-band-caption{padding-bottom:25px}.bs-v4-dense .bs-dark-cta{padding:28px 22px}.bs-v4-dense .bs-dense-accordion summary{font-size:14px;padding-block:17px}}
+@media(max-width:640px){:root{--bs-header-height:72px;--bs-section-y:clamp(38px,7vw,50px)}.bs-v4-dense .bs-home-slider{height:clamp(480px,75vh,570px)}.bs-v4-dense .bs-slide-copy h1,.bs-v4-dense .bs-slide-copy h2{font-size:clamp(32px,8vw,44px)}.bs-v4-dense .bs-page-header{height:fit-content;min-height:0}.bs-v4-dense .bs-page-title{font-size:clamp(25px,6vw,35px)}.bs-v4-dense .bs-dense-cards,.bs-v4-dense .bs-dense-cols-2,.bs-v4-dense .bs-dense-cols-3,.bs-v4-dense .bs-dense-cols-4{grid-template-columns:1fr}.bs-v4-dense .bs-dense-card{padding:20px}.bs-v4-dense .bs-media-band{height:280px}.bs-v4-dense .bs-media-band-caption{padding-bottom:25px}.bs-v4-dense .bs-dark-cta{padding:28px 22px}.bs-v4-dense .bs-dense-accordion summary{font-size:14px;padding-block:17px}}
 @media(prefers-reduced-motion:reduce){.bs-v4-dense .bs-dense-accordion summary svg{transition:none}}
 
 
@@ -758,7 +758,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--bs-font-display); font-weight: 600; }
  position:relative;
  display:flex;
  align-items:center;
- height:clamp(240px,24vw,300px);
+ height:fit-content;
  min-height:240px;
  isolation:isolate;
  overflow:hidden;
@@ -832,14 +832,14 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--bs-font-display); font-weight: 600; }
  outline-offset:3px;
 }
 @media(max-width:760px){
- .bs-v5 .bs-v5-media-title-band{height:clamp(200px,34vw,245px);min-height:200px;}
+ .bs-v5 .bs-v5-media-title-band{height:fit-content;min-height:200px;}
  .bs-v5 .bs-v5-media-title{font-size:clamp(27px,6vw,43px);letter-spacing:-.045em;}
  .bs-v5 .bs-v5-media-title-band .bs-v5-media-shade{
   background:linear-gradient(90deg,rgba(9,18,12,.91),rgba(9,18,12,.59));
  }
 }
 @media(max-width:430px){
- .bs-v5 .bs-v5-media-title-band{min-height:215px;height:auto;}
+ .bs-v5 .bs-v5-media-title-band{min-height:215px;height:fit-content;}
  .bs-v5 .bs-v5-media-title-band .bs-v5-media-caption{min-height:215px;}
  .bs-v5 .bs-v5-media-title{font-size:clamp(26px,8vw,35px);overflow-wrap:anywhere;}
 }
@@ -2736,8 +2736,52 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--bs-font-display); font-weight: 600; }
 @media(prefers-reduced-motion:reduce){.bs-review-trigger{transition:none}}
 ]]></stylesheet><stylesheet path="theme/styles/layout.css" order="14" format="css"><![CDATA[/* layout: reserved for tokenized, visual-parity-tested migration overrides. */
 ]]></stylesheet><stylesheet path="theme/styles/header-footer.css" order="15" format="css"><![CDATA[/* header-footer: reserved for tokenized, visual-parity-tested migration overrides. */
+
+/* WhatsApp / Telegram social shortcuts: shared navigation and footer treatment. */
+.bs-header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.bs-social-links{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.bs-social-link{width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:1px solid #dce8df;background:#fff;color:#118566;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
+.bs-social-link:hover{background:#e7f9ee;border-color:#76bea4;transform:translateY(-2px)}
+.bs-social-link:focus-visible{outline:3px solid #247f64;outline-offset:3px}
+.bs-social-link--telegram{color:#1687b2}
+.bs-footer-actions{display:flex;align-items:center;gap:19px;flex-wrap:wrap}
+.bs-footer .bs-footer-bottom .bs-social-link{width:43px;height:43px;color:#b8f0dc;background:rgba(255,255,255,.04);border-color:rgba(208,247,224,.24)}
+.bs-footer .bs-footer-bottom .bs-social-link:hover{background:rgba(190,246,217,.16);border-color:#b8f0dc}
+@media(max-width:1100px){.bs-header-actions{gap:8px}.bs-social-links--header{gap:6px}}
+@media(max-width:830px){.bs-header-actions{margin-left:auto}.bs-social-links--header .bs-social-link{width:38px;height:38px}}
+@media(max-width:390px){.bs-header-inner{gap:6px}.bs-header-actions{gap:6px}.bs-social-links--header{gap:5px}.bs-social-links--header .bs-social-link{width:33px;height:33px}.bs-social-links--header svg{width:18px;height:18px}}
+@media(prefers-reduced-motion:reduce){.bs-social-link{transition:none}.bs-social-link:hover{transform:none}}
+
+/* Direct WhatsApp and Telegram links on the contact page. */
+.bs-contact-direct-links{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin-top:22px}
+.bs-contact-direct-links a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px;padding:10px 14px;border:1px solid #c4d6c4;border-radius:10px;background:#f0f6e7;color:#1d4130;text-decoration:none;font-size:13px;font-weight:700;line-height:1.3;transition:background .18s,border-color .18s}
+.bs-contact-direct-links a:hover{background:#d8e9a2;border-color:#9cae71}
+.bs-contact-direct-links a:focus-visible{outline:3px solid #63842f;outline-offset:3px}
+@media(max-width:440px){.bs-contact-direct-links a{width:100%}}
+@media(prefers-reduced-motion:reduce){.bs-contact-direct-links a{transition:none}}
+
+/* FTT uploaded art, responsive placement with preserved aspect ratios. */
+.ftt-brand-image{display:block;width:clamp(142px,15vw,190px);max-width:100%;height:auto;object-fit:contain;flex-shrink:0}
+.ftt-footer-image{display:block;width:min(100%,320px);height:auto;object-fit:contain}
+.bs-footer-logo:has(.ftt-footer-image){display:inline-flex;align-items:center;width:min(100%,320px);max-width:100%;line-height:1}
+.bs-header-inner{flex-wrap:nowrap}
+@media(max-width:950px){.ftt-brand-image{width:clamp(142px,22vw,180px)}}
+@media(max-width:580px){.ftt-brand-image{width:clamp(132px,40vw,162px)}.ftt-footer-image{width:min(100%,290px)}.bs-header-inner{gap:8px}}
 ]]></stylesheet><stylesheet path="theme/styles/sections.css" order="16" format="css"><![CDATA[/* sections: reserved for tokenized, visual-parity-tested migration overrides. */
 ]]></stylesheet><stylesheet path="theme/styles/utilities.css" order="17" format="css"><![CDATA[/* utilities: reserved for tokenized, visual-parity-tested migration overrides. */
+
+/* FTT: fluid, content-measured page title and variable-content sections. */
+.bs-site-header,.bs-clean-header.bs-site-header{height:fit-content;min-height:var(--bs-header-height)}
+.bs-header-inner,.bs-clean-header .bs-header-inner{height:auto;min-height:var(--bs-header-height)}
+.bs-page-header,.bs-v4-dense .bs-page-header,.bs-main.bs-v4-dense .bs-page-header{height:fit-content;min-height:0}
+.bs-page-header-content,.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{height:auto;min-height:0;padding-block:clamp(38px,5.4vw,86px);justify-content:center}
+.bs-page-subtitle,.bs-v4-dense .bs-page-subtitle{display:block;-webkit-line-clamp:unset;line-clamp:unset;overflow:visible;overflow-wrap:anywhere;white-space:normal}
+.bs-v5 .bs-v5-media-title-band{height:fit-content;min-height:clamp(215px,24vw,300px)}
+.bs-v5 .bs-v5-media-title-band .bs-v5-media-caption{height:auto;min-height:0;padding-block:clamp(28px,4vw,52px)}
+.bs-home-slider,.bs-main.bs-v4-dense .bs-home-slider{height:fit-content;min-height:clamp(520px,78svh,800px);max-height:none}
+.bs-home-slider .bs-slide-copy,.bs-main.bs-v4-dense .bs-slide-copy{height:auto;max-height:none}
+.bs-page-header .bs-page-title,.bs-page-header .bs-page-subtitle{max-width:100%;overflow-wrap:anywhere}
+@media(max-width:580px){.bs-page-header-content,.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{padding-block:36px}.bs-home-slider,.bs-main.bs-v4-dense .bs-home-slider{min-height:clamp(500px,80svh,720px)}}
 ]]></stylesheet></stylesheets><component-sources count="33"><component path="blocks/audience-carousel/AudienceCarousel.tsx" language="tsx"><![CDATA['use client';
 
 import {useCallback,useEffect,useRef,useState} from 'react';
@@ -3320,19 +3364,23 @@ export function ScrollToTop(){
  return <button type="button" onClick={()=>window.scrollTo({top:0,behavior:'smooth'})} className={`bs-scroll-top ${visible?'visible':''}`} aria-label={siteConfig.features.scrollToTop.label} title={siteConfig.features.scrollToTop.label}><Icon name="arrowUp" size={21}/></button>;
 }
 ]]></component><component path="parts/SiteFooter.tsx" language="tsx"><![CDATA[import Link from 'next/link';
+import Image from 'next/image';
 import {canonicalHref,siteConfig} from '@/lib/site-data';
 import {Icon} from '@/blocks/shared/Icon';
+import {SocialLinks} from '@/parts/SocialLinks';
 export function SiteFooter(){return <footer className="bs-footer">
  <div className="bs-shell bs-footer-main">
-  <div className="bs-footer-about"><Link href="/" className="bs-footer-logo">Forex Trade <strong>Technology<span>.</span></strong></Link><p>{siteConfig.footer.brand.description}</p>{siteConfig.site.email?<a href={`mailto:${siteConfig.site.email}`} className="bs-footer-email">{siteConfig.site.email}<Icon name="arrowUpRight" size={17}/></a>:<Link href={canonicalHref("/contact")} className="bs-footer-email">Contact our team<Icon name="arrowUpRight" size={17}/></Link>}</div>
+  <div className="bs-footer-about"><Link href="/" className="bs-footer-logo" aria-label="ForexTradeTech — Home"><Image src="/FTT-footer-transparent.png" alt="ForexTradeTech — Trade | Learn | Grow" width={300} height={58} unoptimized className="ftt-footer-image"/></Link><p>{siteConfig.footer.brand.description}</p>{siteConfig.site.email?<a href={`mailto:${siteConfig.site.email}`} className="bs-footer-email">{siteConfig.site.email}<Icon name="arrowUpRight" size={17}/></a>:<Link href={canonicalHref("/contact")} className="bs-footer-email">Contact our team<Icon name="arrowUpRight" size={17}/></Link>}</div>
   {siteConfig.footer.columns.map(c=><div className="bs-footer-col" key={c.heading}><h3>{c.heading}</h3>{c.links.map(l=><Link href={canonicalHref(l.href)} key={l.href}>{l.label}</Link>)}</div>)}
- </div><div className="bs-shell bs-footer-bottom"><span>{siteConfig.site.copyright}</span><Link href={canonicalHref('/contact')}>Talk to our team <Icon name="arrowUpRight" size={15}/></Link></div>
+ </div><div className="bs-shell bs-footer-bottom"><span>{siteConfig.site.copyright}</span><div className="bs-footer-actions"><Link href={canonicalHref('/contact')}>Talk to our team <Icon name="arrowUpRight" size={15}/></Link><SocialLinks location="footer"/></div></div>
  </footer>}
 ]]></component><component path="parts/SiteHeader.tsx" language="tsx"><![CDATA['use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import {usePathname} from 'next/navigation';
 import {useEffect,useRef,useState} from 'react';
 import {Icon} from '@/blocks/shared/Icon';
+import {SocialLinks} from '@/parts/SocialLinks';
 import {canonicalHref,siteConfig} from '@/lib/site-data';
 
 export function SiteHeader(){
@@ -3366,9 +3414,9 @@ export function SiteHeader(){
  return <header className="bs-site-header bs-clean-header" ref={headerRef}>
    <div className="bs-shell bs-header-inner">
     <Link href="/" className="bs-brand" aria-label={`${siteConfig.site.name} — Home`}>
-      <span className="bs-brand-mark" aria-hidden="true">✳</span><span className="bs-logo-text">FOREX<span>TRADE</span><small>TECHNOLOGY</small></span>
+      <Image src="/FTT-logo.jpeg" alt="ForexTradeTech — Trade | Learn | Grow" width={220} height={76} priority unoptimized className="ftt-brand-image" />
     </Link>
-    <button type="button" className="bs-mobile-menu-toggle" aria-controls="bs-primary-nav" aria-label={menu?'Close navigation':'Open navigation'} aria-expanded={menu} onClick={()=>{setMenu(v=>!v);setSubmenu(false)}}><Icon name={menu?'x':'menu'} size={25}/></button>
+
     <nav id="bs-primary-nav" aria-label="Main navigation" className={`bs-inline-nav ${menu?'is-open':''}`}>
      {siteConfig.navigation.primary.map(nav=>('children' in nav && Array.isArray(nav.children))?
         <div className="bs-nav-dropdown" key={nav.id} ref={dropdownRef}>
@@ -3382,7 +3430,11 @@ export function SiteHeader(){
       :<Link href={canonicalHref(('href' in nav && typeof nav.href==='string')?nav.href:'/')} key={nav.id} className={`bs-nav-link ${pathname.replace(/\/$/,'')===canonicalHref(('href' in nav && typeof nav.href==='string')?nav.href:'/').replace(/\/$/,'')?'active':''}`}>{nav.label}</Link>)}
       <Link className="bs-btn bs-btn-primary bs-nav-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
     </nav>
-    <Link className="bs-btn bs-btn-primary bs-desktop-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
+    <div className="bs-header-actions">
+     <button type="button" className="bs-mobile-menu-toggle" aria-controls="bs-primary-nav" aria-label={menu?'Close navigation':'Open navigation'} aria-expanded={menu} onClick={()=>{setMenu(v=>!v);setSubmenu(false)}}><Icon name={menu?'x':'menu'} size={25}/></button>
+     <SocialLinks location="header"/>
+     <Link className="bs-btn bs-btn-primary bs-desktop-cta" href={canonicalHref(siteConfig.navigation.cta.href)}>{siteConfig.navigation.cta.label}<Icon name="arrowUpRight" size={16}/></Link>
+    </div>
    </div>
   </header>;
 }

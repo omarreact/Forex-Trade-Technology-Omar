@@ -22,3 +22,11 @@
 .bs-contact-direct-links a:focus-visible{outline:3px solid #63842f;outline-offset:3px}
 @media(max-width:440px){.bs-contact-direct-links a{width:100%}}
 @media(prefers-reduced-motion:reduce){.bs-contact-direct-links a{transition:none}}
+
+/* FTT uploaded art, responsive placement with preserved aspect ratios. */
+.ftt-brand-image{display:block;width:clamp(142px,15vw,190px);max-width:100%;height:auto;object-fit:contain;flex-shrink:0}
+.ftt-footer-image{display:block;width:min(100%,320px);height:auto;object-fit:contain}
+.bs-footer-logo:has(.ftt-footer-image){display:inline-flex;align-items:center;width:min(100%,320px);max-width:100%;line-height:1}
+.bs-header-inner{flex-wrap:nowrap}
+@media(max-width:950px){.ftt-brand-image{width:clamp(142px,22vw,180px)}}
+@media(max-width:580px){.ftt-brand-image{width:clamp(132px,40vw,162px)}.ftt-footer-image{width:min(100%,290px)}.bs-header-inner{gap:8px}}

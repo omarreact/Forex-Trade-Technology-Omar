@@ -5,7 +5,7 @@ Requires only Python 3.11+ for the text/build step; Pillow and Internet for real
 No file is written into the canonical Next.js source tree. Not a WordPress deployer.
 """
 from __future__ import annotations
-import argparse, collections, datetime, html, io, json, pathlib, re, hashlib, sys, urllib.request, xml.etree.ElementTree as ET, zipfile
+import argparse, base64, collections, datetime, html, io, json, pathlib, re, hashlib, sys, urllib.request, xml.etree.ElementTree as ET, zipfile
 from xml.sax.saxutils import escape as xml_escape
 
 ROOT='forex-trade-technology-fse/'
@@ -119,8 +119,8 @@ def fse_theme_json(theme):
     return json.dumps(val,ensure_ascii=False,indent=2)+'\n'
 
 def make_header(site):
-    brand=group(selfblock('ftt/inline-text',{'text':'✳','tagName':'span','className':'bs-brand-mark'})+
-      group(selfblock('ftt/inline-text',{'text':'FOREX','tagName':'span'})+selfblock('ftt/inline-text',{'text':'TRADE','tagName':'span'})+selfblock('ftt/inline-text',{'text':'TECHNOLOGY','tagName':'small'}),'bs-logo-text'), 'bs-brand ftt-logo-lockup')
+    # Editable Gutenberg span; compiled CSS supplies uploaded JPEG without new ZIP paths.
+    brand=selfblock('ftt/inline-text',{'text':'ForexTradeTech — Trade | Learn | Grow','tagName':'span','className':'ftt-brand-image'})
     brand=wrap_block('ftt/link',brand,{'url':'/','className':'bs-brand','title':site['site']['name']})
     items=[]
     for n in site['navigation']['primary']:
@@ -140,7 +140,7 @@ def make_footer(site):
     banner=group(group(paragraph(cta.get('kicker',''),'bs-ui-kicker')+heading(cta['title'],2)+paragraph(cta.get('description',''))+button(cta['action']['label'],cta['action']['href']),'bs-global-cta-copy')+
        group(visual,'bs-global-cta-visual'),'bs-shell bs-global-cta-inner')
     banner=group(banner,'bs-global-cta')
-    about=group(heading(footer['brand']['name'],3,'bs-footer-logo')+paragraph(footer['brand']['description']),'bs-footer-about')
+    about=group(wrap_block('ftt/link',selfblock('ftt/inline-text',{'text':'ForexTradeTech — Trade | Learn | Grow','tagName':'span','className':'ftt-footer-image'}),{'url':'/','className':'bs-footer-logo'})+paragraph(footer['brand']['description']),'bs-footer-about')
     cols=[]
     for c in footer['columns']:
         links=''.join(wrap_block('ftt/link',selfblock('ftt/inline-text',{'text':l['label'],'tagName':'span'}),{'url':l['href']}) for l in c['links'])
@@ -398,6 +398,16 @@ ENHANCE_JS=r'''document.addEventListener('DOMContentLoaded',function(){
 
 def filemap(src,site,theme,pages,strict_assets=False):
     css,order=compile_css(src)
+    # Inject source logo assets as CSS data; preserve frozen 31-file theme manifest.
+    nav_logo=src/'public/FTT-logo.jpeg'
+    footer_logo=src/'public/FTT-footer-transparent.png'
+    if not nav_logo.is_file() or not footer_logo.is_file():
+        raise FileNotFoundError('Both uploaded FTT logos must exist under public/')
+    nav64=base64.b64encode(nav_logo.read_bytes()).decode('ascii')
+    footer64=base64.b64encode(footer_logo.read_bytes()).decode('ascii')
+    css+='\n/* FTT logos embedded with immutable ZIP paths */\n'
+    css+='.ftt-wp-header .ftt-brand-image{display:block;font-size:0;color:transparent;background:transparent center/contain no-repeat url("data:image/jpeg;base64,'+nav64+'");aspect-ratio:1600/551;height:auto;width:clamp(142px,15vw,190px)}\n'
+    css+='.ftt-wp-footer .ftt-footer-image{display:block;font-size:0;color:transparent;background:transparent center/contain no-repeat url("data:image/png;base64,'+footer64+'");aspect-ratio:1120/216;height:auto;width:min(100%,320px)}\n'
     files={
       '.DS_Store':b'',
       'style.css':'/*\nTheme Name: Forex Trade Technology FSE\nDescription: Next.js source synchronized granular WordPress FSE theme (locked structure).\nVersion: 6.0.0\nRequires at least: 6.5\nRequires PHP: 8.1\nText Domain: forex-trade-technology-fse\n*/\n',
@@ -469,7 +479,7 @@ def main():
         if actual!=expect:raise AssertionError('Architecture drift detected '+str(actual^expect))
         if len(actual)!=38:raise AssertionError('Expected 31 files +7 directories')
     ET.parse(wxr_path)
-    manifest={'source':'Next.js GitHub working tree','theme_file_count':31,'theme_dir_count':7,'namespace':'ftt/','blocks':BLOCKS,'pages':len(pages),'wxr_items':len(pages)+3,'css_modules':order,'source_routes':[p['slug'] for p in pages],'image_provenance':dict(zip(IMG_NAMES,IMG_KEYS)),'strict_assets':args.strict_assets,'zip_sha256':hashlib.sha256(zip_path.read_bytes()).hexdigest()}
+    manifest={'source':'Next.js GitHub working tree','theme_file_count':31,'theme_dir_count':7,'namespace':'ftt/','blocks':BLOCKS,'pages':len(pages),'wxr_items':len(pages)+3,'css_modules':order,'source_routes':[p['slug'] for p in pages],'brand_logo_sources':['public/FTT-logo.jpeg','public/FTT-footer-transparent.png'],'image_provenance':dict(zip(IMG_NAMES,IMG_KEYS)),'strict_assets':args.strict_assets,'zip_sha256':hashlib.sha256(zip_path.read_bytes()).hexdigest()}
     (out/'build-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     print('WXR:',wxr_path,'Pages:',len(pages),'+ 3 parents','size:',wxr_path.stat().st_size)
     print('ZIP:',zip_path,'files:',len(FILES),'directories:',len(DIRS),'size:',zip_path.stat().st_size)
