@@ -2784,6 +2784,15 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--bs-font-display); font-weight: 600; }
 @media(min-width:1024px){
  .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-content{height:auto;min-height:clamp(392px,50.4svh,574px)}
 }
+
+/* Desktop hero: retain 85svh minimum and 70%-height copy without clipping
+   longer translations or marketing text. Overrides legacy 85svh fixed height. */
+@media(min-width:1024px){
+ .bs-main.bs-v4-dense .bs-home-slider{height:fit-content;min-height:85svh}
+ .bs-main.bs-v4-dense .bs-home-slider .bs-slide.is-active{position:relative;height:auto;min-height:85svh;align-items:center}
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-copy{height:auto;min-height:0;padding:0}
+ .bs-main.bs-v4-dense.bs-clean-page .bs-home-slider .bs-slide-content{height:auto;min-height:59.5svh}
+}
 ]]></stylesheet><stylesheet path="theme/styles/sections.css" order="16" format="css"><![CDATA[/* sections: reserved for tokenized, visual-parity-tested migration overrides. */
 ]]></stylesheet><stylesheet path="theme/styles/utilities.css" order="17" format="css"><![CDATA[/* utilities: reserved for tokenized, visual-parity-tested migration overrides. */
 ]]></stylesheet></stylesheets><component-sources count="33"><component path="blocks/audience-carousel/AudienceCarousel.tsx" language="tsx"><![CDATA['use client';
