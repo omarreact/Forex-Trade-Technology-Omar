@@ -288,7 +288,7 @@ def make_wxr(pages,contents,site):
           '<wp:wxr_version>1.2</wp:wxr_version>','<wp:base_site_url>'+xml_escape(site['site']['url'])+'</wp:base_site_url>']
     parentIds={'solutions':3001,'products':3002,'technology':3003}
     posts=[]
-    for slug,pid in parentIds.items():posts.append((pid,slug.title(),slug,'',0,heading(slug.title(),1)+paragraph('Explore our '+slug+' for forex brokerage technology.')))
+    for slug,pid in parentIds.items():posts.append((pid,slug.title(),slug,'',0,'')))
     for i,p in enumerate(pages):
         source=p['slug']; segments=[s for s in source.split('/') if s]; leaf=segments[-1] if segments else 'home'
         parent=parentIds.get(segments[0],0) if len(segments)>1 else 0

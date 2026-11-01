@@ -17,6 +17,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate theme and WXR for an isolated validation checkout
+        run: |
+          python -m pip install Pillow==11.3.0
+          python scripts/build-fse-locked.py --repo . --theme-dir wordpress/forex-trade-technology --wxr-path website.xml --strict-assets
       - name: Verify tree, WordPress content and assets
         run: node scripts/validate-wordpress-package.mjs
       - name: Check theme PHP and JavaScript

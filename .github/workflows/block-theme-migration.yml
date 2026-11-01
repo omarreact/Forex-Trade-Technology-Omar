@@ -20,6 +20,13 @@ jobs:
         run: npm run validate:content
       - name: Contract registry tests
         run: npm run test:contracts
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerate locked FSE inputs for Next.js source validation
+        run: |
+          python -m pip install Pillow==11.3.0
+          python scripts/build-fse-locked.py --repo . --theme-dir wordpress/forex-trade-technology --wxr-path website.xml --strict-assets
       - name: Verify direct social accounts
         run: node scripts/test-direct-social-links.mjs
       - name: TypeScript
