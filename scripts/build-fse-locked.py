@@ -5,7 +5,7 @@ Requires only Python 3.11+ for the text/build step; Pillow and Internet for real
 No file is written into the canonical Next.js source tree. Not a WordPress deployer.
 """
 from __future__ import annotations
-import argparse, base64, collections, datetime, html, io, json, pathlib, re, hashlib, sys, urllib.request, xml.etree.ElementTree as ET, zipfile
+import argparse, base64, collections, datetime, html, io, json, pathlib, re, hashlib, sys, shutil, urllib.request, xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape as xml_escape
 
 ROOT='forex-trade-technology-fse/'
@@ -100,7 +100,7 @@ WP_CSS=r'''
 .bs-home-slider .bs-slide{display:none}.bs-home-slider .bs-slide.is-active{display:block}
 .bs-home-slider .bs-slide .bs-slide-photo{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .bs-page-header .bs-page-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%}
-.ftt-contact-form{max-width:740px;margin-inline:auto}.ftt-contact-form input,.ftt-contact-form textarea,.ftt-contact-form select{width:100%;padding:12px;border:1px solid #dedfd8}
+.ftt-honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}.ftt-contact-form{max-width:740px;margin-inline:auto}.ftt-contact-form input,.ftt-contact-form textarea,.ftt-contact-form select{width:100%;padding:12px;border:1px solid #dedfd8}
 @media(max-width:950px){.ftt-wp-nav-toggle{display:inline-flex}.ftt-wp-nav{display:none;position:absolute;left:0;right:0;top:100%;background:white;padding:18px 24px;box-shadow:0 24px 45px #0002}.ftt-wp-nav.is-open{display:block}.ftt-wp-nav .ftt-menu-list{display:flex;flex-direction:column;align-items:stretch;gap:9px}.ftt-menu-submenu>.ftt-submenu-list{position:static;box-shadow:none;min-width:0}.ftt-wp-nav .ftt-menu-list a{display:block;padding:8px 0}}
 @media(prefers-reduced-motion:reduce){.ftt-wp-header *{animation:none;transition:none}}
 '''
@@ -288,7 +288,7 @@ def make_wxr(pages,contents,site):
           '<wp:wxr_version>1.2</wp:wxr_version>','<wp:base_site_url>'+xml_escape(site['site']['url'])+'</wp:base_site_url>']
     parentIds={'solutions':3001,'products':3002,'technology':3003}
     posts=[]
-    for slug,pid in parentIds.items():posts.append((pid,slug.title(),slug,'',0,heading(slug.title(),1)+paragraph('Explore our '+slug+' for forex brokerage technology.')))
+    for slug,pid in parentIds.items():posts.append((pid,slug.title(),slug,'',0,''))
     for i,p in enumerate(pages):
         source=p['slug']; segments=[s for s in source.split('/') if s]; leaf=segments[-1] if segments else 'home'
         parent=parentIds.get(segments[0],0) if len(segments)>1 else 0
@@ -311,11 +311,11 @@ add_action('after_setup_theme',function(){
  add_editor_style(['assets/css/site.css','assets/css/editor-canvas.css']);
 });
 add_action('enqueue_block_assets',function(){wp_enqueue_style('ftt-fse-site',get_theme_file_uri('/assets/css/site.css'),[],filemtime(get_theme_file_path('/assets/css/site.css')));});
-add_action('wp_enqueue_scripts',function(){wp_enqueue_script('ftt-fse-site',get_theme_file_uri('/assets/js/site-enhancements.js'),[],filemtime(get_theme_file_path('/assets/js/site-enhancements.js')),true);wp_localize_script('ftt-fse-site','fttTheme',['contactUrl'=>esc_url_raw(rest_url('ftt/v1/contact'))]);});
+add_action('wp_enqueue_scripts',function(){wp_enqueue_script('ftt-fse-site',get_theme_file_uri('/assets/js/site-enhancements.js'),[],filemtime(get_theme_file_path('/assets/js/site-enhancements.js')),true);wp_localize_script('ftt-fse-site','fttTheme',['contactUrl'=>esc_url_raw(rest_url('ftt/v1/contact')),'contactNonce'=>wp_create_nonce('ftt_contact')]);});
 function ftt_wrap($attrs,$inner,$tag='div',$extra=''){
  $allowed=['div','span','section','article','aside','header','footer','nav','main','ul','li','strong','small','form','figure'];
  $tag=in_array($tag,$allowed,true)?$tag:'div';$id=isset($attrs['elementId'])&&$attrs['elementId']?' id="'.esc_attr($attrs['elementId']).'"':'';
- if($tag==='form')$extra.=' data-ftt-contact method="post"';
+ if($tag==='form'){$extra.=' data-ftt-contact method="post"';$inner='<input type="text" name="ftt_trap" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="ftt-honeypot" />'.$inner;}
  return '<'.$tag.' '.get_block_wrapper_attributes().$id.$extra.'>'.$inner.'</'.$tag.'>';
 }
 function ftt_href($url){if(!$url)return home_url('/');if(str_starts_with($url,'#'))return $url;if(str_starts_with($url,'/')&&!str_starts_with($url,'//'))return home_url($url);return $url;}
@@ -348,6 +348,28 @@ add_action('init',function(){
  foreach($defs as $name=>$attributes)register_block_type('ftt/'.$name,['api_version'=>3,'attributes'=>$attributes,'editor_script'=>'ftt-fse-blocks','render_callback'=>'ftt_render','supports'=>['html'=>false,'customClassName'=>true,'color'=>['text'=>true,'background'=>true],'spacing'=>['margin'=>true,'padding'=>true],'typography'=>['fontSize'=>true],'align'=>['wide','full']]]);
  wp_register_script('ftt-fse-blocks',get_theme_file_uri('/assets/js/blocks.js'),['wp-blocks','wp-element','wp-components','wp-block-editor'],filemtime(get_theme_file_path('/assets/js/blocks.js')),true);
 });
+
+/* Built-in contact transport; requires wp_mail delivery on the hosting server. */
+add_action('rest_api_init',function(){register_rest_route('ftt/v1','/contact',['methods'=>'POST','permission_callback'=>'__return_true','callback'=>'ftt_fse_contact_request']);});
+function ftt_fse_contact_request($r){
+ if(!wp_verify_nonce((string)$r->get_header('x-ftt-nonce'),'ftt_contact'))return new WP_Error('ftt_nonce','Refresh the page before submitting.',['status'=>403]);
+ $d=(array)$r->get_params();
+ if(!empty($d['ftt_trap']))return new WP_Error('ftt_spam','Message rejected.',['status'=>400]);
+ $name=sanitize_text_field((string)($d['name']??$d['fullName']??$d['full_name']??''));
+ $email=sanitize_email((string)($d['email']??''));
+ $message=sanitize_textarea_field((string)($d['message']??$d['details']??$d['enquiry']??''));
+ if(!$name||!is_email($email)||!$message)return new WP_Error('ftt_invalid','Please provide name, email and message.',['status'=>400]);
+ if(strlen($name)>200||strlen($message)>7000)return new WP_Error('ftt_length','Message too long.',['status'=>400]);
+ $ip=sanitize_text_field((string)($_SERVER['REMOTE_ADDR']??'unknown'));
+ $key='ftt_contact_'.hash_hmac('sha256',$ip,wp_salt('nonce'));
+ if(get_transient($key))return new WP_Error('ftt_rate','Please wait before trying again.',['status'=>429]);
+ $to=sanitize_email((string)get_option('admin_email'));
+ if(!is_email($to))return new WP_Error('ftt_mail','The site email is not configured. No message was sent.',['status'=>503]);
+ $sent=wp_mail($to,'Forex Trade Technology website enquiry',"Name: ".$name."\nEmail: ".$email."\n\n".$message,['Reply-To: '.$name.' <'.$email.'>']);
+ if(!$sent)return new WP_Error('ftt_failed','Delivery failed. No message was sent.',['status'=>503]);
+ set_transient($key,1,MINUTE_IN_SECONDS);
+ return rest_ensure_response(['message'=>'Your message was sent successfully.']);
+}
 '''
 
 EDITOR_JS=r'''/* Source-derived Gutenberg block editor. Preserve the 11 ftt/* names. */
@@ -388,7 +410,7 @@ ENHANCE_JS=r'''document.addEventListener('DOMContentLoaded',function(){
  document.querySelectorAll('form[data-ftt-contact]').forEach(form=>form.addEventListener('submit',async event=>{
    event.preventDefault();let status=form.querySelector('[role=status]');if(!status){status=document.createElement('p');status.setAttribute('role','status');status.className='bs-form-status';form.appendChild(status)}
    const button=form.querySelector('button[type=submit]');if(button)button.disabled=true;status.textContent='Sending…';
-   try{const response=await fetch(window.fttTheme?.contactUrl||'/wp-json/ftt/v1/contact',{method:'POST',body:new FormData(form),credentials:'same-origin'});
+   try{const response=await fetch(window.fttTheme?.contactUrl||'/wp-json/ftt/v1/contact',{method:'POST',body:new FormData(form),credentials:'same-origin',headers:{'X-FTT-Nonce':window.fttTheme?.contactNonce||''}});
        const result=await response.json();status.textContent=result.message||'No message was sent.';if(response.ok)form.reset();
    }catch(error){status.textContent='Delivery unavailable. No message was sent.'}
    finally{if(button)button.disabled=false}
@@ -413,7 +435,7 @@ def filemap(src,site,theme,pages,strict_assets=False):
       'style.css':'/*\nTheme Name: Forex Trade Technology FSE\nDescription: Next.js source synchronized granular WordPress FSE theme (locked structure).\nVersion: 6.0.0\nRequires at least: 6.5\nRequires PHP: 8.1\nText Domain: forex-trade-technology-fse\n*/\n',
       'functions.php':PHP_SOURCE,
       'theme.json':fse_theme_json(theme),
-      'README.txt':'Generated architecture-locked FSE theme. Import the companion WXR via Tools -> Import -> WordPress. Set homepage in Settings -> Reading. All visual/content source is canonical Next.js. A contact-form transport requires the separate Forex Trade Technology contact plugin. Do not modify generated files; update Next.js then run scripts/build-fse-locked.py.\n',
+      'README.txt':'Generated architecture-locked FSE theme. Import the companion WXR via Tools -> Import -> WordPress. Set homepage in Settings -> Reading. All visual/content source is canonical Next.js. Contact delivery is built into functions.php using WordPress wp_mail; configure the WordPress admin email and server mail transport. No contact plugin is required. Do not modify generated files; update Next.js then run scripts/build-fse-locked.py.\n',
       'assets/css/site.css':css,
       'assets/css/editor-canvas.css':'.editor-styles-wrapper{max-width:none!important;padding:0!important} .editor-styles-wrapper .bs-shell{max-width:1210px;margin-inline:auto}.editor-styles-wrapper .bs-slide:not(.is-active){display:block;opacity:.35}\n',
       'assets/css/editor-ui.css':'.block-editor-block-list__layout .wp-block{min-height:18px}.editor-styles-wrapper .block-editor-block-list__block.is-selected{outline:1px dashed #63842f}\n',
@@ -423,9 +445,9 @@ def filemap(src,site,theme,pages,strict_assets=False):
       'parts/header.html':make_header(site),
       'parts/footer.html':make_footer(site),
     }
-    header='<!-- wp:template-part {"slug":"header","theme":"forex-trade-technology-fse","tagName":"header"} /-->\n'
+    header='<!-- wp:template-part {"slug":"header","tagName":"header"} /-->\n'
     main=group('<!-- wp:post-content {"layout":{"type":"default"}} /-->\n','ftt-content-canvas','main')
-    foot='<!-- wp:template-part {"slug":"footer","theme":"forex-trade-technology-fse","tagName":"footer"} /-->\n'
+    foot='<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->\n'
     for n in ['front-page','page','index','home','single','archive','search','404']:
         files['templates/'+n+'.html']=header+main+foot
     # Source image URLs are the only provenance for every bundled image slot.
@@ -443,7 +465,16 @@ def filemap(src,site,theme,pages,strict_assets=False):
                     req=urllib.request.Request(actual_url,headers={'User-Agent':'Mozilla/5.0 (compatible; FTTExport/1.0)'})
                     with urllib.request.urlopen(req,timeout=25) as res:raw=res.read(12_000_000)
                     im=Image.open(io.BytesIO(raw));im.thumbnail((1600,900));out=io.BytesIO();ex=name.split('.')[-1].lower()
-                    if ex=='gif':im.convert('RGB').save(out,format='GIF',optimize=True)
+                    if ex=='gif':
+                        base=im.convert('RGB')
+                        fw,fh=max(80,min(720,base.width)),max(50,min(420,base.height))
+                        frames=[]
+                        for fi in range(6):
+                            scale=1.08+fi*.025
+                            cw=max(1,int(base.width/scale));ch=max(1,int(base.height/scale))
+                            left=max(0,(base.width-cw)*fi//5);top=max(0,(base.height-ch)*fi//5)
+                            frames.append(base.crop((left,top,left+cw,top+ch)).resize((fw,fh),Image.Resampling.LANCZOS).quantize(colors=128))
+                        frames[0].save(out,format='GIF',save_all=True,append_images=frames[1:],duration=260,loop=0,optimize=False)
                     elif ex=='webp':im.convert('RGB').save(out,format='WEBP',quality=82)
                     else:im.convert('RGB').save(out,format='PNG',optimize=True)
                     files['assets/images/'+name]=out.getvalue()
@@ -464,25 +495,34 @@ def filemap(src,site,theme,pages,strict_assets=False):
     return files,order
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--repo',required=True);parser.add_argument('--out',default='dist/ftt');parser.add_argument('--strict-assets',action='store_true');args=parser.parse_args()
-    src,site,theme,pages=read_source(args.repo);out=pathlib.Path(args.out);out.mkdir(parents=True,exist_ok=True)
+    parser=argparse.ArgumentParser(description='Synchronize locked WordPress FSE theme + WXR directly into tracked source files; no ZIP output.')
+    parser.add_argument('--repo',required=True)
+    parser.add_argument('--theme-dir',default='wordpress/forex-trade-technology')
+    parser.add_argument('--wxr-path',default='website.xml')
+    parser.add_argument('--strict-assets',action='store_true')
+    args=parser.parse_args()
+    src,site,theme,pages=read_source(args.repo)
+    src=src.resolve()
+    dest=(src/args.theme_dir).resolve()
+    wxr_path=(src/args.wxr_path).resolve()
+    if dest!=src/'wordpress'/'forex-trade-technology' or wxr_path!=src/'website.xml':
+        raise ValueError('Refusing to write outside locked GitHub WordPress theme or root website.xml')
     files,order=filemap(src,site,theme,pages,args.strict_assets)
-    content=make_pages(pages,theme,src);wxr=make_wxr(pages,content,site)
-    wxr_path=out/'forex-trade-technology-next-source.wxr.xml';wxr_path.write_text(wxr,encoding='utf-8')
-    zip_path=out/'forex-trade-technology-fse-locked.zip'
-    with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED,compresslevel=8) as z:
-        for dr in DIRS:z.writestr(ROOT+dr,b'')
-        for name in sorted(files):
-            v=files[name];z.writestr(ROOT+name,v.encode('utf-8') if isinstance(v,str) else v)
-    with zipfile.ZipFile(zip_path) as z:
-        actual={x.filename for x in z.infolist()};expect={ROOT+x for x in FILES+DIRS}
-        if actual!=expect:raise AssertionError('Architecture drift detected '+str(actual^expect))
-        if len(actual)!=38:raise AssertionError('Expected 31 files +7 directories')
+    contents=make_pages(pages,theme,src)
+    wxr=make_wxr(pages,contents,site)
+    if len(ET.fromstring(wxr).findall('./channel/item'))!=16:raise AssertionError('Expected 13 source pages + 3 parents')
+    if dest.exists():shutil.rmtree(dest)
+    for directory in DIRS:(dest/directory).mkdir(parents=True,exist_ok=True)
+    for name,value in files.items():
+        target=dest/name
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_bytes(value.encode('utf-8') if isinstance(value,str) else value)
+    actual={p.relative_to(dest).as_posix() for p in dest.rglob('*') if p.is_file()}
+    if actual!=set(FILES):raise AssertionError('Locked theme inventory drift: '+str(actual^set(FILES)))
+    wxr_path.write_text(wxr,encoding='utf-8')
     ET.parse(wxr_path)
-    manifest={'source':'Next.js GitHub working tree','theme_file_count':31,'theme_dir_count':7,'namespace':'ftt/','blocks':BLOCKS,'pages':len(pages),'wxr_items':len(pages)+3,'css_modules':order,'source_routes':[p['slug'] for p in pages],'brand_logo_sources':['public/FTT-logo.jpeg','public/FTT-footer-transparent.png'],'image_provenance':dict(zip(IMG_NAMES,IMG_KEYS)),'strict_assets':args.strict_assets,'zip_sha256':hashlib.sha256(zip_path.read_bytes()).hexdigest()}
-    (out/'build-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
-    print('WXR:',wxr_path,'Pages:',len(pages),'+ 3 parents','size:',wxr_path.stat().st_size)
-    print('ZIP:',zip_path,'files:',len(FILES),'directories:',len(DIRS),'size:',zip_path.stat().st_size)
-    print('CSS imported modules:',len(order),'Source routes:',','.join(manifest['source_routes']))
+    print('Synchronized theme files:',len(actual),'at',dest)
+    print('Updated WordPress WXR:',wxr_path,'records: 16')
+    print('Next.js CSS modules:',len(order))
 
 if __name__=='__main__':main()

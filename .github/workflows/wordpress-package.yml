@@ -1,53 +1,33 @@
-name: WordPress Phase C package and syntax verification
+name: WordPress locked structure and syntax checks (no ZIP)
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'wordpress/**'
-      - 'scripts/validate-wordpress-package.mjs'
-      - '.github/workflows/wordpress-package.yml'
   push:
     branches: [main]
-    paths:
-      - 'wordpress/**'
-      - 'scripts/validate-wordpress-package.mjs'
-      - '.github/workflows/wordpress-package.yml'
+    paths: ['wordpress/**','website.xml','.github/workflows/wordpress-package.yml','scripts/validate-wordpress-package.mjs']
+  pull_request:
+    branches: [main]
+    paths: ['wordpress/**','website.xml','.github/workflows/wordpress-package.yml','scripts/validate-wordpress-package.mjs']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  package-wordpress:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+  verify-fse:
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: PHP version
-        run: php -v
-      - name: Lint every PHP file
-        run: find wordpress -type f -name '*.php' -print0 | xargs -0 -n1 php -l
-      - name: Check Gutenberg and frontend JavaScript
-        run: |
-          node --check wordpress/forex-trade-technology/assets/js/editor.js
-          node --check wordpress/forex-trade-technology/assets/js/front.js
-      - name: Verify Phase B → WordPress migration contracts
-        run: node scripts/validate-wordpress-package.mjs
-      - name: Verify direct social accounts
-        run: node scripts/test-direct-social-links.mjs
-      - name: Build independently installable ZIPs
-        working-directory: wordpress
-        run: |
-          zip -q -r forex-trade-technology-theme.zip forex-trade-technology -x '*.DS_Store'
-          zip -q -r forex-trade-technology-contact-plugin.zip forex-trade-technology-contact -x '*.DS_Store'
-          unzip -t forex-trade-technology-theme.zip | tail -1
-          unzip -t forex-trade-technology-contact-plugin.zip | tail -1
-      - name: Upload both installation packages
-        uses: actions/upload-artifact@v4
+      - uses: actions/setup-python@v5
         with:
-          name: forex-trade-technology-wordpress-phase-c
-          path: |
-            wordpress/forex-trade-technology-theme.zip
-            wordpress/forex-trade-technology-contact-plugin.zip
-          retention-days: 90
+          python-version: '3.12'
+      - name: Generate theme and WXR for an isolated validation checkout
+        run: |
+          python -m pip install Pillow==11.3.0
+          python scripts/build-fse-locked.py --repo . --theme-dir wordpress/forex-trade-technology --wxr-path website.xml --strict-assets
+      - name: Verify tree, WordPress content and assets
+        run: node scripts/validate-wordpress-package.mjs
+      - name: Check theme PHP and JavaScript
+        run: |
+          php -l wordpress/forex-trade-technology/functions.php
+          node --check wordpress/forex-trade-technology/assets/js/blocks.js
+          node --check wordpress/forex-trade-technology/assets/js/site-enhancements.js

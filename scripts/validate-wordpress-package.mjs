@@ -1,51 +1,36 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
-const project=path.resolve(import.meta.dirname,'..');
-const theme=path.join(project,'wordpress/forex-trade-technology');
-const plugin=path.join(project,'wordpress/forex-trade-technology-contact');
-const read=name=>JSON.parse(fs.readFileSync(path.join(theme,name),'utf8'));
-const source=read('data/source-theme.json'),site=read('data/site.config.json'),registry=read('data/render-map.json');
-const pages=fs.readdirSync(path.join(theme,'data/pages')).filter(x=>x.endsWith('.json')).map(x=>read('data/pages/'+x));
-const blocks=fs.readdirSync(path.join(theme,'blocks')).filter(x=>fs.existsSync(path.join(theme,'blocks',x,'block.json'))).map(x=>read('blocks/'+x+'/block.json'));
-const names=new Set(blocks.map(x=>x.name));
-const required=['home-slider','page-hero','site-header','site-footer','final-cta','section','guide','contact-form','trust-carousel','trading-stack-flow','audience-carousel','document-notes','icon-card'];
-assert.equal(pages.length,13,'13 source pages');
-assert.equal(blocks.length,required.length,'13 dynamic blocks');
-required.forEach(name=>assert(names.has('forex-trade-technology/'+name),'missing '+name));
-for(const b of blocks){assert.equal(b.apiVersion,3);assert(b.attributes&&typeof b.attributes==='object');}
-assert.equal(Object.keys(site.routing.paths).length,13);
-const allIds=new Set(),allPaths=new Set();let total=0,faq=0,band=0,slides=0;
-for(const p of pages){
- assert(!allIds.has(p.id),'duplicate ID');assert(!allPaths.has(p.slug),'duplicate slug');allIds.add(p.id);allPaths.add(p.slug);
- assert.equal(p.slug,site.routing.paths[p.id]);assert.equal(p.seo.canonicalPath,p.slug);
- assert(p.pageTop&&p.hero,'hero contract');
- assert.equal(p.sections.at(-1)?.layout,'ctaBand','closing CTA suppression contract');
- for(const section of p.sections){total++;assert(registry.layouts[section.layout],'layout '+section.layout);if(section.layout==='faqAccordion')faq+=section.items.length;if(section.layout==='mediaBand')band++;}
- if(p.id==='home'){slides=p.pageTop.slides.length;assert.equal(p.pageTop.autoplay,true);}
+const base=path.resolve(import.meta.dirname,'..');
+const theme=path.join(base,'wordpress/forex-trade-technology');
+const expected=new Set([
+ '.DS_Store','README.txt','style.css','theme.json','functions.php',
+ 'assets/css/site.css','assets/css/editor-canvas.css','assets/css/editor-ui.css',
+ 'assets/js/blocks.js','assets/js/site-enhancements.js','assets/icons.json',
+ 'parts/header.html','parts/footer.html',
+ ...['front-page','page','single','archive','home','search','404','index'].map(x=>`templates/${x}.html`),
+ ...['api-connectivity-live.gif','brokerage-operations.webp','brokerage-workflow-live.gif','data-center-infrastructure.webp','data-center-server.png','infrastructure-network-live.gif','office-tech-workspace.png','project-brokerage-launch.webp','project-crm-migration.webp','project-liquidity-routing.webp'].map(x=>`assets/images/${x}`)
+]);
+function scan(root,rel=''){
+ return fs.readdirSync(path.join(root,rel),{withFileTypes:true}).flatMap(e=>{
+  const p=path.posix.join(rel,e.name);
+  return e.isDirectory()?scan(root,p):[p];
+ });
 }
-assert.equal(total,87);assert.equal(faq,42);assert.equal(band,11);assert.equal(slides,5);
-assert.equal(Object.keys(source.assets.images).length,26);
-assert.equal(registry.layouts.mediaBand.onlyPageId,'home');assert.equal(registry.layouts.ctaBand.neverRenderAsSection,true);
-const files=fs.readdirSync(path.join(project,'theme/styles')).filter(f=>f.endsWith('.css'));
-const cssPath=path.join(theme,'assets/css');
-for(const css of files){const packaged=css==='index.css'?'front.css':css;assert(fs.existsSync(path.join(cssPath,packaged)),'Missing mirrored CSS '+css);}
-for(const css of ['trust-carousel.css','icon-box-carousel.css','trading-stack-flow.css'])assert(fs.existsSync(path.join(cssPath,'blocks',css)));
-assert(fs.existsSync(path.join(plugin,'forex-trade-technology-contact.php')));
-const parityCss=fs.readFileSync(path.join(cssPath,'wp-parity.css'),'utf8');
-assert(parityCss.includes('.bs-global-cta:not(.bs-global-cta-home) .bs-global-cta-decoration{right:0}'),'Interior final CTA must not extend beyond the viewport');
-const smokeWorkflow=fs.readFileSync(path.join(project,'.github/workflows/wordpress-smoke.yml'),'utf8');
-assert(smokeWorkflow.includes("docker ps -a --format '{{.ID}}'"),'Dynamic docker diagnostic required');
-const importer=fs.readFileSync(path.join(theme,'inc/import.php'),'utf8');
-assert(importer.includes('wp_insert_post')&&importer.includes('get_page_by_path')&&importer.includes('wp_slash'));
-assert(importer.includes("if($layout==='ctaBand'||($layout==='mediaBand'&&$id!=='home'))continue"),'CTA / interior media suppression');
-assert(importer.includes("ftt_block_comment('guide'"),'technical guide retention');
-const templates=['front-page.html','page.html','index.html','404.html'];
-templates.forEach(f=>assert(fs.existsSync(path.join(theme,'templates',f))));
-const front=fs.readFileSync(path.join(theme,'templates/front-page.html'),'utf8');
-const interior=fs.readFileSync(path.join(theme,'templates/page.html'),'utf8');
-assert(front.includes('final-cta-home')&&interior.includes('"slug":"final-cta"'),'shared CTA variants');
-const sourceCss=fs.readFileSync(path.join(project,'theme/styles/index.css'),'utf8').replaceAll('"./','"./').replace('index.css','front.css');
-const packagedCss=fs.readFileSync(path.join(theme,'assets/css/front.css'),'utf8');
-assert.equal(packagedCss,fs.readFileSync(path.join(project,'theme/styles/index.css'),'utf8'),'exact CSS cascade copy');
-console.log('PASS: WordPress artifact contracts —',pages.length,'pages,',total,'sections,',faq,'FAQs,',band,'media bands,',slides,'slides,',blocks.length,'registered blocks, 26 image records');
+const actual=new Set(scan(theme));
+assert.equal(actual.size,31,'31 theme files');
+assert.deepEqual([...actual].sort(),[...expected].sort(),'No added/missing theme paths');
+for(const x of expected)assert(fs.statSync(path.join(theme,x)).isFile(),x);
+const php=fs.readFileSync(path.join(theme,'functions.php'),'utf8');
+assert(php.includes("register_rest_route('ftt/v1','/contact'"),'Contact must be theme-owned');
+assert(php.includes("register_block_type('ftt/'.$name"),'11 granular FTT blocks');
+const header=fs.readFileSync(path.join(theme,'parts/header.html'),'utf8');
+const footer=fs.readFileSync(path.join(theme,'parts/footer.html'),'utf8');
+assert(header.includes('ftt-brand-image')&&footer.includes('ftt-footer-image'),'Source logos');
+const xml=fs.readFileSync(path.join(base,'website.xml'),'utf8');
+assert(xml.includes('<rss version="2.0"')&&xml.includes('<wp:wxr_version>1.2</wp:wxr_version>'),'Native WXR format');
+assert.equal((xml.match(/<item>/g)||[]).length,16,'13 Next.js pages and 3 parents');
+assert.equal((xml.match(/<wp:post_type>page<\/wp:post_type>/g)||[]).length,16,'All WXR items are pages');
+const js=fs.readFileSync(path.join(theme,'assets/js/blocks.js'),'utf8');
+for(const name of ['container','link','inline-text','icon','faq-item','form-field','social-links','image','site-navigation','nav-link','nav-submenu'])assert(js.includes(name),name);
+console.log('PASS: 31-file locked theme, built-in contact, 11 custom blocks, 16 WXR page records.');

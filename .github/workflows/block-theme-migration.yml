@@ -20,6 +20,13 @@ jobs:
         run: npm run validate:content
       - name: Contract registry tests
         run: npm run test:contracts
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerate locked FSE inputs for Next.js source validation
+        run: |
+          python -m pip install Pillow==11.3.0
+          python scripts/build-fse-locked.py --repo . --theme-dir wordpress/forex-trade-technology --wxr-path website.xml --strict-assets
       - name: Verify direct social accounts
         run: node scripts/test-direct-social-links.mjs
       - name: TypeScript
@@ -28,8 +35,8 @@ jobs:
         run: npm run build
       - name: Block manifest
         run: npm run export:block-manifest
-      - name: Portable XML export
-        run: npm run export:xml
+      - name: Verify canonical Next.js content
+        run: npm run validate:data
 
   responsive-smoke:
     # Playwright 1.56.1 lacks Ubuntu 26.04 browser builds; pin supported runner.
