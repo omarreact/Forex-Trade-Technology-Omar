@@ -311,7 +311,7 @@ add_action('after_setup_theme',function(){
  add_editor_style(['assets/css/site.css','assets/css/editor-canvas.css']);
 });
 add_action('enqueue_block_assets',function(){wp_enqueue_style('ftt-fse-site',get_theme_file_uri('/assets/css/site.css'),[],filemtime(get_theme_file_path('/assets/css/site.css')));});
-add_action('wp_enqueue_scripts',function(){wp_enqueue_script('ftt-fse-site',get_theme_file_uri('/assets/js/site-enhancements.js'),[],filemtime(get_theme_file_path('/assets/js/site-enhancements.js')),true);});
+add_action('wp_enqueue_scripts',function(){wp_enqueue_script('ftt-fse-site',get_theme_file_uri('/assets/js/site-enhancements.js'),[],filemtime(get_theme_file_path('/assets/js/site-enhancements.js')),true);wp_localize_script('ftt-fse-site','fttTheme',['contactUrl'=>esc_url_raw(rest_url('ftt/v1/contact'))]);});
 function ftt_wrap($attrs,$inner,$tag='div',$extra=''){
  $allowed=['div','span','section','article','aside','header','footer','nav','main','ul','li','strong','small','form','figure'];
  $tag=in_array($tag,$allowed,true)?$tag:'div';$id=isset($attrs['elementId'])&&$attrs['elementId']?' id="'.esc_attr($attrs['elementId']).'"':'';
@@ -388,7 +388,7 @@ ENHANCE_JS=r'''document.addEventListener('DOMContentLoaded',function(){
  document.querySelectorAll('form[data-ftt-contact]').forEach(form=>form.addEventListener('submit',async event=>{
    event.preventDefault();let status=form.querySelector('[role=status]');if(!status){status=document.createElement('p');status.setAttribute('role','status');status.className='bs-form-status';form.appendChild(status)}
    const button=form.querySelector('button[type=submit]');if(button)button.disabled=true;status.textContent='Sending…';
-   try{const response=await fetch('/wp-json/ftt/v1/contact',{method:'POST',body:new FormData(form),credentials:'same-origin'});
+   try{const response=await fetch(window.fttTheme?.contactUrl||'/wp-json/ftt/v1/contact',{method:'POST',body:new FormData(form),credentials:'same-origin'});
        const result=await response.json();status.textContent=result.message||'No message was sent.';if(response.ok)form.reset();
    }catch(error){status.textContent='Delivery unavailable. No message was sent.'}
    finally{if(button)button.disabled=false}
