@@ -38,3 +38,7 @@
 .bs-home-slider .bs-slide.is-active{position:relative;min-height:inherit}
 @media(max-width:950px){.bs-header-inner{gap:clamp(8px,2vw,20px)}.bs-inline-nav{gap:clamp(8px,1.5vw,16px)}}
 @media(max-width:580px){.bs-brand-logo-img{width:clamp(138px,42vw,168px);max-height:62px}.bs-footer-logo-img{width:min(100%,310px)}.bs-page-header .bs-page-header-content,.bs-v4-dense .bs-page-header-content{padding-block:36px}}
+
+/* Editorial media bands can carry variable-length copy without clipping. */
+.bs-v4-dense .bs-media-band{height:fit-content;min-height:clamp(260px,30vw,360px)}
+.bs-v4-dense .bs-media-band-caption{height:auto;min-height:inherit;display:flex;align-items:flex-end;padding-block:clamp(36px,6vw,70px)}
