@@ -43,7 +43,7 @@ for(const {file,page:p} of pages){
   const slideImages=slides.map(s=>{str(s.title,prefix+'.pageTop.slides.title');if(s.cta)checkButton(s.cta,prefix+'.pageTop.slides.cta');return images[s.imageKey];});
   if(slideImages.some(img=>!img||!img.url.startsWith('https://images.unsplash.com/photo-')||!img.alt||!img.credit||!img.sourcePage||!img.position))fail(prefix,'curated slide asset metadata incomplete');
   if(new Set(slideImages.map(img=>new URL(img.url).pathname)).size!==5)fail(prefix,'repeated hero images');
- }else if(p.pageTop.variant!=='pageHeader'||p.pageTop.height!=='240px')fail(prefix,'interior pageTop contract mismatch');
+ }else if(p.pageTop.variant!=='pageHeader'||p.pageTop.height!=='fit-content')fail(prefix,'interior pageTop contract mismatch');
  list(p.sections,prefix+'.sections');
  if(p.sections.at(-1)?.layout!=='ctaBand')fail(prefix,'last section must be closing CTA');
  const seenLayouts=new Set(),seenSections=new Set();
