@@ -40,7 +40,7 @@ function ftt_header(array $attributes=[]): string {
     $current=(string)parse_url((string)($_SERVER['REQUEST_URI']??'/'), PHP_URL_PATH);
     $html='<header class="bs-site-header bs-clean-header"><div class="bs-shell bs-header-inner">'
     .'<a href="'.esc_url(home_url('/')).'" class="bs-brand" aria-label="Forex Trade Technology — Home">'
-    .'<span class="bs-brand-mark" aria-hidden="true">✳</span><span class="bs-logo-text">FOREX<span>TRADE</span><small>TECHNOLOGY</small></span></a>'
+    .'<img class="bs-brand-logo-img" src="'.esc_url(get_theme_file_uri('assets/images/FTT-logo.jpeg')).'" alt="ForexTradeTech — Trade | Learn | Grow" width="560" height="193" decoding="async" fetchpriority="high"></a>'
     .'<nav id="bs-primary-nav" aria-label="Main navigation" class="bs-inline-nav">';
     foreach ($config['navigation']['primary']??[] as $nav) {
         $label=esc_html($nav['label']??'');
@@ -68,7 +68,7 @@ function ftt_footer(array $attributes=[]): string {
     if(isset($attributes['footer'])&&is_array($attributes['footer']))$config['footer']=$attributes['footer'];
     if(isset($attributes['copyright']))$config['site']['copyright']=$attributes['copyright'];$footer=$config['footer']??[];
     $html='<footer class="bs-footer"><div class="bs-shell bs-footer-main"><div class="bs-footer-about">'
-    .'<a href="'.esc_url(home_url('/')).'" class="bs-footer-logo">Forex Trade <strong>Technology<span>.</span></strong></a>'
+    .'<a href="'.esc_url(home_url('/')).'" class="bs-footer-logo" aria-label="ForexTradeTech — Home"><img class="bs-footer-logo-img" src="'.esc_url(get_theme_file_uri('assets/images/FTT-footer-transparent.png')).'" alt="ForexTradeTech — Trade | Learn | Grow" width="880" height="170" loading="lazy" decoding="async"></a>'
     .'<p>'.esc_html($footer['brand']['description']??'').'</p>';
     $email=$config['site']['email']??'';
     if ($email) $html.='<a class="bs-footer-email" href="mailto:'.esc_attr($email).'">'.esc_html($email).ftt_icon('arrowUpRight').'</a>';
