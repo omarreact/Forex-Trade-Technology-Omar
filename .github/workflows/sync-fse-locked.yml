@@ -5,7 +5,11 @@ on:
       - main
       - 'feat/fse-locked-*'
     paths:
+      - 'app/**'
+      - 'lib/**'
       - 'content/**'
+      - 'package.json'
+      - 'next.config.ts'
       - 'theme/**'
       - 'blocks/**'
       - 'patterns/**'
@@ -16,7 +20,11 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
+      - 'app/**'
+      - 'lib/**'
       - 'content/**'
+      - 'package.json'
+      - 'next.config.ts'
       - 'theme/**'
       - 'blocks/**'
       - 'patterns/**'
