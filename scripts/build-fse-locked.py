@@ -79,7 +79,7 @@ def compile_css(src):
             raise FileNotFoundError('Required canonical brand logo missing: '+str(asset))
         payload=base64.b64encode(asset.read_bytes()).decode('ascii')
         compiled+='\n.'+css_class+'{display:block;flex-shrink:0;max-width:100%;width:clamp(148px,16vw,200px);height:auto;aspect-ratio:'+ratio+';background-image:url("data:'+mime+';base64,'+payload+'");background-position:center;background-repeat:no-repeat;background-size:contain}\n'
-    compiled+='\n.ftt-footer-logo-sprite{width:min(100%,360px);aspect-ratio:1120 / 216}\n@media(max-width:580px){.ftt-brand-logo-sprite{width:clamp(138px,42vw,168px)}}\n'
+    compiled+='\n.ftt-brand-logo-sprite,.ftt-footer-logo-sprite{font-size:0;overflow:hidden}\n.ftt-footer-logo-sprite{width:min(100%,360px);aspect-ratio:1120 / 216}\n@media(max-width:580px){.ftt-brand-logo-sprite{width:clamp(138px,42vw,168px)}}\n'
     return compiled,done
 
 WP_CSS=r'''
@@ -132,7 +132,7 @@ def fse_theme_json(theme):
 def make_header(site):
     # The Gutenberg architecture keeps ftt/inline-text; the artwork is a CSS asset
     # embedded from the two canonical logo images without adding theme file paths.
-    brand=selfblock('ftt/inline-text',{'text':'','tagName':'span','className':'bs-brand-logo-img ftt-brand-logo-sprite'})
+    brand=selfblock('ftt/inline-text',{'text':'ForexTradeTech — Trade | Learn | Grow','tagName':'span','className':'bs-brand-logo-img ftt-brand-logo-sprite'})
     brand=wrap_block('ftt/link',brand,{'url':'/','className':'bs-brand ftt-logo-lockup','title':site['site']['name']})
     items=[]
     for n in site['navigation']['primary']:
@@ -152,7 +152,7 @@ def make_footer(site):
     banner=group(group(paragraph(cta.get('kicker',''),'bs-ui-kicker')+heading(cta['title'],2)+paragraph(cta.get('description',''))+button(cta['action']['label'],cta['action']['href']),'bs-global-cta-copy')+
        group(visual,'bs-global-cta-visual'),'bs-shell bs-global-cta-inner')
     banner=group(banner,'bs-global-cta')
-    about=group(wrap_block('ftt/link',selfblock('ftt/inline-text',{'text':'','tagName':'span','className':'bs-footer-logo-img ftt-footer-logo-sprite'}),{'url':'/','className':'bs-footer-logo','title':site['site']['name']})+paragraph(footer['brand']['description']),'bs-footer-about')
+    about=group(wrap_block('ftt/link',selfblock('ftt/inline-text',{'text':'ForexTradeTech — Trade | Learn | Grow','tagName':'span','className':'bs-footer-logo-img ftt-footer-logo-sprite'}),{'url':'/','className':'bs-footer-logo','title':site['site']['name']})+paragraph(footer['brand']['description']),'bs-footer-about')
     cols=[]
     for c in footer['columns']:
         links=''.join(wrap_block('ftt/link',selfblock('ftt/inline-text',{'text':l['label'],'tagName':'span'}),{'url':l['href']}) for l in c['links'])
