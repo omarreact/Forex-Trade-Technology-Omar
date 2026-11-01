@@ -782,7 +782,7 @@
   ],
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Forex CRM Software for Brokers",
     "subtitle": "Breadcrumb: Home > Products > Forex CRM",
