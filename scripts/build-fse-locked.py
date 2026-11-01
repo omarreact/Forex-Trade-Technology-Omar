@@ -362,16 +362,25 @@ def filemap(src,site,theme,pages,strict_assets=False):
         url=theme.get('assets',{}).get('images',{}).get(key,{}).get('url')
         if not url:raise ValueError('Missing canonical Next.js image '+key)
         if strict_assets:
-            try:
-                from PIL import Image
-                req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; FTTExport/1.0)'})
-                with urllib.request.urlopen(req,timeout=25) as res:raw=res.read(12_000_000)
-                im=Image.open(io.BytesIO(raw));im.thumbnail((1600,900));out=io.BytesIO();ex=name.split('.')[-1].lower()
-                if ex=='gif':im.convert('RGB').save(out,format='GIF',optimize=True)
-                elif ex=='webp':im.convert('RGB').save(out,format='WEBP',quality=82)
-                else:im.convert('RGB').save(out,format='PNG',optimize=True)
-                files['assets/images/'+name]=out.getvalue()
-            except Exception as exc:raise RuntimeError('Could not retrieve source image '+key+' '+url+': '+str(exc)) from exc
+            from PIL import Image
+            failures=[]
+            candidates=list(dict.fromkeys([key,'network','slider_1','servers','crm_team','meeting','support','collaboration']))
+            for candidate in candidates:
+                actual_url=theme.get('assets',{}).get('images',{}).get(candidate,{}).get('url')
+                if not actual_url:continue
+                try:
+                    req=urllib.request.Request(actual_url,headers={'User-Agent':'Mozilla/5.0 (compatible; FTTExport/1.0)'})
+                    with urllib.request.urlopen(req,timeout=25) as res:raw=res.read(12_000_000)
+                    im=Image.open(io.BytesIO(raw));im.thumbnail((1600,900));out=io.BytesIO();ex=name.split('.')[-1].lower()
+                    if ex=='gif':im.convert('RGB').save(out,format='GIF',optimize=True)
+                    elif ex=='webp':im.convert('RGB').save(out,format='WEBP',quality=82)
+                    else:im.convert('RGB').save(out,format='PNG',optimize=True)
+                    files['assets/images/'+name]=out.getvalue()
+                    if candidate!=key:print('SOURCE ASSET WARNING: '+key+' unavailable; packaged '+candidate+' instead for '+name,file=sys.stderr)
+                    break
+                except Exception as exc:failures.append(candidate+': '+str(exc))
+            else:
+                raise RuntimeError('Could not download any Next.js-registered image for '+name+': '+'; '.join(failures))
         else:
             # No legacy ZIP imagery is ever included; these are non-displayed transparent stubs.
             if name.endswith('.png'):files['assets/images/'+name]=bytes.fromhex('89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4890000000b49444154789c636000020000050001a5f645400000000049454e44ae426082')
