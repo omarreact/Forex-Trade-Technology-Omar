@@ -211,12 +211,15 @@ try {
     if(route==='/'&&metrics.promotionalImageBands<1)problems.push('homepage promotional image band missing');
     if(metrics.slideOverflow==='auto'||metrics.slideOverflow==='scroll')problems.push('nested slider scrolling');
     if(route==='/'){
-     const expected=viewport.width<=767
-      ? viewport.height<=560
-       ? Math.min(450,Math.max(405,viewport.height*.73))
-       : Math.min(570,Math.max(430,viewport.height*.68))
-      : viewport.height*.85;
-     if(metrics.sliderHeight===null||Math.abs(metrics.sliderHeight-expected)>3)problems.push(`hero is ${metrics.sliderHeight}px, expected ${expected}px`);
+     // Text-driven hero: ensure sufficient minimum canvas rather than enforcing a fixed height.
+     // The old exact pixel height contract conflicts with the approved fluid section design.
+     const minExpected=viewport.width<=580
+      ? Math.min(720,Math.max(500,viewport.height*.8))
+      : Math.min(800,Math.max(520,viewport.height*.78));
+     if(metrics.sliderHeight===null||metrics.sliderHeight<minExpected-3)
+      problems.push(`hero is ${metrics.sliderHeight}px, below fluid minimum ${minExpected}px`);
+     if(metrics.sliderHeight!==null&&metrics.sliderHeight>Math.max(viewport.height*2,1150))
+      problems.push(`hero unexpectedly consumes ${metrics.sliderHeight}px`);
      if(metrics.sliderArrowButtons!==0)problems.push(`${metrics.sliderArrowButtons} oversized slider arrows remain`);
      if(metrics.sliderDotCount!==5)problems.push(`expected 5 indicator buttons, found ${metrics.sliderDotCount}`);
      if(metrics.sliderDotMinHeight!==null&&metrics.sliderDotMinHeight<43)problems.push(`slide dot touch target is ${metrics.sliderDotMinHeight}px`);
