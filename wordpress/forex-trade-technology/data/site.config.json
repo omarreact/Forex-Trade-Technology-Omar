@@ -31,7 +31,9 @@
     "logo": {
       "text": "FOREXTRADE TECHNOLOGY",
       "dot": true,
-      "href": "/"
+      "href": "/",
+      "image": "/FTT-logo.jpeg",
+      "alt": "ForexTradeTech — Trade | Learn | Grow"
     },
     "primary": [
       {
@@ -110,7 +112,8 @@
   "footer": {
     "brand": {
       "name": "Forex Trade Technology",
-      "description": "MT5 setup, server hosting, liquidity connectivity, CRM and payment integrations for forex brokers and prop firms."
+      "description": "MT5 setup, server hosting, liquidity connectivity, CRM and payment integrations for forex brokers and prop firms.",
+      "logoImage": "/FTT-footer-transparent.png"
     },
     "columns": [
       {
