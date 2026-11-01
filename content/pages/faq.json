@@ -228,7 +228,7 @@
   "wordCountApprox": 1657,
   "pageTop": {
     "variant": "pageHeader",
-    "height": "240px",
+    "height": "fit-content",
     "kicker": "FOREX TRADE TECHNOLOGY",
     "title": "Forex Brokerage Technology FAQs",
     "subtitle": "Breadcrumb: Home > FAQ",
