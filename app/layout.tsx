@@ -12,7 +12,8 @@ export const metadata:Metadata={
  title:{default:siteConfig.site.name,template:`%s | ${siteConfig.site.name}`},
  description:siteConfig.site.tagline,
  openGraph:{type:'website',siteName:siteConfig.site.name},
- robots:{index:true,follow:true}
+ robots:{index:true,follow:true},
+ icons:{icon:[{url:'/forextradetech-icon.png',type:'image/png',sizes:'192x192'}],shortcut:'/forextradetech-icon.png',apple:[{url:'/forextradetech-icon.png',type:'image/png',sizes:'192x192'}]}
 };
 export const viewport:Viewport={width:'device-width',initialScale:1};
 export default function RootLayout({children}:{children:React.ReactNode}){
