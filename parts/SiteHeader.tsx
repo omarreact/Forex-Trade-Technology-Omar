@@ -38,7 +38,7 @@ export function SiteHeader(){
  return <header className="bs-site-header bs-clean-header" ref={headerRef}>
    <div className="bs-shell bs-header-inner">
     <Link href="/" className="bs-brand" aria-label={`${siteConfig.site.name} — Home`}>
-      <Image src="/forextradetech-logo.png" alt="ForexTradeTech — Trade | Learn | Grow" width={520} height={173} priority unoptimized className="ftt-brand-image" />
+      <Image src="/forextradetech-logo.png" alt="ForexTradeTech — Trade | Learn | Grow" width={420} height={96} priority unoptimized className="ftt-brand-image" />
     </Link>
 
     <nav id="bs-primary-nav" aria-label="Main navigation" className={`bs-inline-nav ${menu?'is-open':''}`}>
