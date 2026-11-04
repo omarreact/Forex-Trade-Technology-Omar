@@ -90,8 +90,9 @@ WP_CSS=r'''
 .ftt-menu-submenu>.ftt-submenu-list li{margin:6px 0}
 .ftt-menu-submenu>.ftt-submenu-list a{display:block;padding:7px 11px}
 .ftt-wp-nav-toggle{display:none;background:none;border:0;color:#171915;cursor:pointer}
-.ftt-social-links{display:flex;gap:10px}
-.ftt-social-links a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #dce8df;border-radius:50%;color:#118566}
+.ftt-social-links{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ftt-social-links a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:0 0 44px;aspect-ratio:1;padding:0;border:0;border-radius:50%;overflow:hidden;box-sizing:border-box;color:#fff;text-decoration:none;line-height:1}
+.ftt-social-links a:first-child{background:#25d366}.ftt-social-links a:last-child{background:#229ed9}.ftt-social-links a svg{display:block;width:20px;height:20px}
 .ftt-faq-item{border-bottom:1px solid var(--bs-border,#dedfd8);padding:15px 0}.ftt-faq-item>summary{cursor:pointer;font-weight:700;list-style:none}.ftt-faq-item>summary::after{content:'+';float:right}.ftt-faq-item[open]>summary::after{content:'−'}
 .ftt-wp-footer .bs-global-cta{margin-top:0}
 .ftt-wp-footer .bs-footer-bottom{margin-top:28px}
@@ -335,7 +336,7 @@ function ftt_render($attrs,$inner,$block){
   if($typ==='select'){$html='<label><span>'.$label.'</span><select name="'.esc_attr($name).'"'.$required.'><option value="">'.$placeholder.'</option>';foreach(($attrs['options']??[]) as $opt)$html.='<option>'.esc_html((string)$opt).'</option>';return $html.'</select></label>';}
   if($typ==='textarea')return '<label><span>'.$label.'</span><textarea name="'.esc_attr($name).'" placeholder="'.$placeholder.'"'.$required.'></textarea></label>';
   return '<label><span>'.$label.'</span><input name="'.esc_attr($name).'" type="'.esc_attr($props['type']??'text').'" placeholder="'.$placeholder.'"'.$required.'></label>';
- case 'social-links':$wa=esc_url($attrs['whatsappUrl']??'https://wa.me/');$tg=esc_url($attrs['telegramUrl']??'https://t.me/');return '<div class="ftt-social-links"><a target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" href="'.$wa.'">WA</a><a target="_blank" rel="noopener noreferrer" aria-label="Telegram" href="'.$tg.'">TG</a></div>';
+ case 'social-links':$wa=esc_url($attrs['whatsappUrl']??'https://wa.me/');$tg=esc_url($attrs['telegramUrl']??'https://t.me/');$waIcon='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2a8.5 8.5 0 1 1 15.6-4.5Z"/><path d="M9 8.3c-.3-.6-.6-.7-.9-.6-.7.3-1.2 1-1.1 1.9.2 2 3.2 5.3 5.9 6.1.8.2 1.7-.3 2-1 .2-.4.1-.6-.3-.8l-1.8-.9c-.2-.1-.4 0-.6.2l-.7.8a7.9 7.9 0 0 1-3.2-3.1l.8-.9c.2-.2.2-.4.1-.6Z"/></svg>';$tgIcon='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.8 3.4-4 17a.8.8 0 0 1-1.2.4l-5.2-4-2.7 2.4.4-4 9.3-8.3-11.2 7-4.4-1.4a.8.8 0 0 1-.1-1.5L20.6 2.7a.9.9 0 0 1 1.2.7Z"/></svg>';return '<div class="ftt-social-links" aria-label="Social channels"><a class="ftt-social-link ftt-social-link--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" href="'.$wa.'">'.$waIcon.'</a><a class="ftt-social-link ftt-social-link--telegram" target="_blank" rel="noopener noreferrer" aria-label="Telegram" href="'.$tg.'">'.$tgIcon.'</a></div>';
  case 'image':$src=$attrs['src']??'';$src=($src&&str_starts_with($src,'ftt-theme-asset://'))?get_theme_file_uri('/assets/images/'.basename(substr($src,18))):$src;return '<img '.get_block_wrapper_attributes().' src="'.esc_url($src).'" alt="'.esc_attr($attrs['alt']??'').'" loading="'.esc_attr($attrs['loading']??'lazy').'" decoding="async" />';
  case 'site-navigation':return '<nav '.get_block_wrapper_attributes(['class'=>'ftt-wp-nav']).' aria-label="'.esc_attr($attrs['ariaLabel']??'Primary navigation').'"><ul class="ftt-menu-list">'.$inner.'</ul></nav>';
  case 'nav-link':return '<li class="ftt-menu-item"><a href="'.esc_url(ftt_href($attrs['url']??'/')).'">'.esc_html($attrs['label']??'Link').'</a></li>';
@@ -428,8 +429,10 @@ def filemap(src,site,theme,pages,strict_assets=False):
     nav64=base64.b64encode(nav_logo.read_bytes()).decode('ascii')
     footer64=base64.b64encode(footer_logo.read_bytes()).decode('ascii')
     css+='\n/* FTT logos embedded with immutable ZIP paths */\n'
-    css+='.ftt-wp-header .ftt-brand-image{display:block;font-size:0;color:transparent;background:transparent center/contain no-repeat url("data:image/jpeg;base64,'+nav64+'");aspect-ratio:1600/551;height:auto;width:clamp(142px,15vw,190px)}\n'
-    css+='.ftt-wp-footer .ftt-footer-image{display:block;font-size:0;color:transparent;background:transparent center/contain no-repeat url("data:image/png;base64,'+footer64+'");aspect-ratio:1120/216;height:auto;width:min(100%,320px)}\n'
+    css+='.ftt-wp-header .ftt-brand-image{display:block;font-size:0;color:transparent;background:transparent center/contain no-repeat url("data:image/jpeg;base64,'+nav64+'");aspect-ratio:1600/551;height:fit-content;width:250px}\n'
+    css+='.ftt-wp-footer .ftt-footer-image{display:block;font-size:0;color:transparent;background:transparent center/contain no-repeat url("data:image/png;base64,'+footer64+'");aspect-ratio:1120/216;height:fit-content;width:220px}\n'
+    css+='@media(max-width:640px){.ftt-wp-header .ftt-brand-image{width:128px;height:fit-content}.ftt-wp-footer .ftt-footer-image{width:180px;height:fit-content}}\n'
+    css+='@media(max-width:390px){.ftt-wp-header .ftt-brand-image{width:116px}.ftt-wp-footer .ftt-footer-image{width:165px}}\n'
     files={
       '.DS_Store':b'',
       'style.css':'/*\nTheme Name: Forex Trade Technology FSE\nDescription: Next.js source synchronized granular WordPress FSE theme (locked structure).\nVersion: 6.0.0\nRequires at least: 6.5\nRequires PHP: 8.1\nText Domain: forex-trade-technology-fse\n*/\n',
